@@ -127,3 +127,46 @@
 {"timestamp": "2025-12-05T15:04:45.863184", "source": "Vice", "category": "vice-news", "incoming": 10, "added": null, "duplicates": null, "total_after": null}
 {"timestamp": "2025-12-05T15:04:54.198511", "source": "VOA Indonesia", "category": "voa-news", "incoming": 20, "added": null, "duplicates": null, "total_after": null}
 {"timestamp": "2025-12-05T15:04:54.279606", "source": "FETCH_ALL_SUMMARY", "category": "multiple", "incoming": 2153, "added": 488, "duplicates": 1665, "total_after": 3012}
+{"timestamp": "2025-12-06T09:48:37.346763", "source": "CNN News", "category": "nasional", "incoming": 100, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:48:38.371310", "source": "CNN News", "category": "internasional", "incoming": 100, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:48:39.013261", "source": "CNN News", "category": "ekonomi", "incoming": 100, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:48:39.813609", "source": "CNN News", "category": "olahraga", "incoming": 100, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:48:40.711183", "source": "CNN News", "category": "teknologi", "incoming": 100, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:48:41.140084", "source": "CNN News", "category": "hiburan", "incoming": 100, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:48:41.952891", "source": "CNN News", "category": "gaya-hidup", "incoming": 100, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:48:42.590549", "source": "CNBC News", "category": "market", "incoming": 100, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:48:42.892090", "source": "CNBC News", "category": "news", "incoming": 100, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:48:43.663261", "source": "CNBC News", "category": "entrepreneur", "incoming": 100, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:48:44.457494", "source": "CNBC News", "category": "syariah", "incoming": 100, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:48:46.287286", "source": "CNBC News", "category": "tech", "incoming": 100, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:48:46.710796", "source": "CNBC News", "category": "lifestyle", "incoming": 100, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:48:47.799411", "source": "Republika News", "category": "news", "incoming": 15, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:48:48.604414", "source": "Republika News", "category": "nusantara", "incoming": 15, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:48:49.166686", "source": "Republika News", "category": "khazanah", "incoming": 15, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:48:49.893632", "source": "Republika News", "category": "islam-digest", "incoming": 15, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:48:50.641026", "source": "Republika News", "category": "internasional", "incoming": 15, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:48:52.342490", "source": "Republika News", "category": "ekonomi", "incoming": 15, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:48:53.898798", "source": "Republika News", "category": "sepakbola", "incoming": 15, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:48:54.598528", "source": "Republika News", "category": "leisure", "incoming": 15, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:48:55.835136", "source": "Tempo News", "category": "nasional", "incoming": 50, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:48:57.300984", "source": "Tempo News", "category": "bisnis", "incoming": 50, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:48:57.965447", "source": "Tempo News", "category": "metro", "incoming": 50, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:48:58.629841", "source": "Tempo News", "category": "dunia", "incoming": 50, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:48:59.298749", "source": "Tempo News", "category": "bola", "incoming": 50, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:49:00.821527", "source": "Tempo News", "category": "sport", "incoming": 50, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:49:01.484211", "source": "Tempo News", "category": "cantik", "incoming": 50, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:49:02.205478", "source": "Tempo News", "category": "tekno", "incoming": 50, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:49:02.812031", "source": "Tempo News", "category": "otomotif", "incoming": 50, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:49:03.368589", "source": "Tempo News", "category": "nusantara", "incoming": 1, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:49:06.515043", "source": "Okezone News", "category": "breaking", "incoming": 30, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:49:07.845650", "source": "Okezone News", "category": "sport", "incoming": 30, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:49:08.379730", "source": "Okezone News", "category": "economy", "incoming": 30, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:49:08.979477", "source": "Okezone News", "category": "lifestyle", "incoming": 30, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:49:09.599231", "source": "Okezone News", "category": "celebrity", "incoming": 30, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:49:10.219656", "source": "Okezone News", "category": "bola", "incoming": 30, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:49:10.800854", "source": "Okezone News", "category": "techno", "incoming": 30, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:49:13.416779", "source": "Kumparan News", "category": "kumparan-news", "incoming": 25, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:49:17.105219", "source": "Tribun News", "category": "travel", "incoming": 20, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:49:23.103519", "source": "Vice", "category": "vice-news", "incoming": 10, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:49:27.999388", "source": "VOA Indonesia", "category": "voa-news", "incoming": 20, "added": null, "duplicates": null, "total_after": null}
+{"timestamp": "2025-12-06T09:49:28.091929", "source": "FETCH_ALL_SUMMARY", "category": "multiple", "incoming": 2156, "added": 476, "duplicates": 1680, "total_after": 3488}
