@@ -1,0 +1,287 @@
+{
+  "PGEO": {
+    "expanded_keywords": [
+      "geothermal exploration",
+      "renewable energy transition",
+      "net zero emissions target",
+      "geothermal reservoir management",
+      "clean energy infrastructure",
+      "carbon footprint reduction",
+      "geothermal power plant safety",
+      "environmental impact assessment",
+      "energy diversification",
+      "sustainable power generation",
+      "geothermal heat utilization",
+      "green energy procurement",
+      "climate change mitigation",
+      "occupational health and safety",
+      "community engagement programs",
+      "regulatory compliance energy",
+      "water resource management",
+      "biodiversity protection",
+      "transisi energi terbarukan",
+      "pembangkit listrik panas bumi",
+      "manajemen emisi karbon",
+      "tata kelola perusahaan energi",
+      "risiko iklim",
+      "dekarbonisasi industri",
+      "investasi hijau"
+    ],
+    "esg_metadata": {
+      "sector": "Utilities",
+      "subsector": "Renewable Electricity",
+      "primary_esg_risks": [
+        "Geological and exploration risks",
+        "Environmental impact of drilling",
+        "Regulatory changes in energy pricing"
+      ],
+      "primary_esg_opportunities": [
+        "Expansion of geothermal capacity",
+        "Carbon credit generation",
+        "Green bond financing"
+      ],
+      "regulatory_exposure": [
+        "Renewable energy mandates",
+        "Environmental permits",
+        "Carbon taxation"
+      ],
+      "sustainability_themes": [
+        "Decarbonization",
+        "Energy Security",
+        "Climate Adaptation"
+      ],
+      "controversy_triggers": [
+        "Land acquisition disputes",
+        "Local environmental degradation",
+        "Operational safety incidents"
+      ],
+      "supply_chain_focus": [
+        "Drilling equipment sourcing",
+        "Contractor safety standards",
+        "Sustainable procurement"
+      ],
+      "climate_exposure": [
+        "Transition risk",
+        "Water scarcity affecting cooling systems"
+      ],
+      "digital_governance_risk": [
+        "Critical infrastructure cybersecurity",
+        "Operational technology data protection"
+      ]
+    }
+  },
+  "MPMX": {
+    "expanded_keywords": [
+      "automotive supply chain",
+      "vehicle financing risks",
+      "electric vehicle distribution",
+      "aftermarket service sustainability",
+      "logistics fleet efficiency",
+      "consumer protection standards",
+      "labor rights in distribution",
+      "warehouse safety management",
+      "emission standards compliance",
+      "waste management automotive",
+      "responsible lending practices",
+      "digital retail risk",
+      "automotive parts recycling",
+      "transportation safety initiatives",
+      "vendor code of conduct",
+      "anti-corruption governance",
+      "employee skills development",
+      "customer data privacy",
+      "distributor otomotif",
+      "pembiayaan sepeda motor",
+      "manajemen rantai pasok",
+      "kepatuhan ketenagakerjaan",
+      "efisiensi logistik",
+      "pengurangan limbah",
+      "tata kelola ritel"
+    ],
+    "esg_metadata": {
+      "sector": "Consumer Discretionary",
+      "subsector": "Automotive Distributors & Financing",
+      "primary_esg_risks": [
+        "Credit risk in financing",
+        "Supply chain disruptions",
+        "Regulatory shifts to EVs"
+      ],
+      "primary_esg_opportunities": [
+        "EV market expansion",
+        "Digital financial services",
+        "Circular economy in parts"
+      ],
+      "regulatory_exposure": [
+        "Consumer finance regulations",
+        "Vehicle emission standards",
+        "Labor laws"
+      ],
+      "sustainability_themes": [
+        "Responsible Financing",
+        "Logistics Decarbonization",
+        "Sustainable Consumption"
+      ],
+      "controversy_triggers": [
+        "Unfair lending practices",
+        "Supply chain labor violations",
+        "Data breaches"
+      ],
+      "supply_chain_focus": [
+        "OEM relationships",
+        "Logistics provider emissions",
+        "Supplier ethical audits"
+      ],
+      "climate_exposure": [
+        "Transition to low-carbon vehicles",
+        "Physical risks to logistics hubs"
+      ],
+      "digital_governance_risk": [
+        "Fintech platform security",
+        "Customer data confidentiality"
+      ]
+    }
+  },
+  "BMRI": {
+    "expanded_keywords": [
+      "sustainable banking framework",
+      "green bond management",
+      "anti-money laundering digital",
+      "financial inclusion strategy",
+      "corporate governance banking",
+      "climate risk stress testing",
+      "cybersecurity risk framework",
+      "responsible investment policy",
+      "microfinance sustainability",
+      "SME financial empowerment",
+      "digital banking accessibility",
+      "green lending portfolio",
+      "employee diversity and inclusion",
+      "whistleblowing system",
+      "environmental social risk assessment",
+      "community development finance",
+      "net zero banking alliance",
+      "data privacy compliance",
+      "perbankan berkelanjutan",
+      "pembiayaan hijau",
+      "inklusi keuangan digital",
+      "manajemen risiko siber",
+      "tata kelola bank",
+      "kepatuhan regulasi keuangan",
+      "perlindungan data nasabah"
+    ],
+    "esg_metadata": {
+      "sector": "Financials",
+      "subsector": "Banking",
+      "primary_esg_risks": [
+        "Cybersecurity threats",
+        "Environmental risks in loan portfolio",
+        "Financial crime and AML"
+      ],
+      "primary_esg_opportunities": [
+        "Sustainable finance growth",
+        "Digital banking expansion",
+        "Financial inclusion initiatives"
+      ],
+      "regulatory_exposure": [
+        "OJK sustainable finance regulations",
+        "Banking capital requirements",
+        "Data protection laws"
+      ],
+      "sustainability_themes": [
+        "Responsible Investment",
+        "Digital Transformation",
+        "Social Empowerment"
+      ],
+      "controversy_triggers": [
+        "Data privacy breaches",
+        "Lending to high-polluting sectors",
+        "Governance failures"
+      ],
+      "supply_chain_focus": [
+        "IT vendor security",
+        "Outsourced service standards",
+        "Sustainable procurement"
+      ],
+      "climate_exposure": [
+        "Physical risks to collaterals",
+        "Transition risks in high-carbon sectors"
+      ],
+      "digital_governance_risk": [
+        "Online fraud prevention",
+        "Algorithmic bias in lending",
+        "Systemic IT failure"
+      ]
+    }
+  },
+  "JSMR": {
+    "expanded_keywords": [
+      "toll road safety management",
+      "sustainable infrastructure development",
+      "green construction materials",
+      "intelligent transport systems",
+      "infrastructure climate resilience",
+      "labor safety in construction",
+      "environmental impact mitigation",
+      "carbon footprint infrastructure",
+      "waste management highways",
+      "smart tolling technology",
+      "community displacement policy",
+      "biodiversity offset infrastructure",
+      "supply chain compliance construction",
+      "corporate ethics infrastructure",
+      "energy efficient lighting",
+      "water drainage management",
+      "disaster risk reduction",
+      "land acquisition governance",
+      "pembangunan infrastruktur berkelanjutan",
+      "keselamatan jalan tol",
+      "manajemen lingkungan konstruksi",
+      "tata kelola proyek",
+      "efisiensi energi jalan",
+      "resiliensi iklim",
+      "kepatuhan sosial"
+    ],
+    "esg_metadata": {
+      "sector": "Industrials",
+      "subsector": "Transportation Infrastructure",
+      "primary_esg_risks": [
+        "Environmental impact of construction",
+        "Safety and security on toll roads",
+        "Regulatory changes in tariffs"
+      ],
+      "primary_esg_opportunities": [
+        "Smart city integration",
+        "Renewable energy use on roadsides",
+        "Green infrastructure financing"
+      ],
+      "regulatory_exposure": [
+        "Toll road concession laws",
+        "Environmental permits",
+        "Safety regulations"
+      ],
+      "sustainability_themes": [
+        "Safe Mobility",
+        "Sustainable Urbanization",
+        "Eco-friendly Construction"
+      ],
+      "controversy_triggers": [
+        "Land rights disputes",
+        "High accident rates",
+        "Construction environmental damage"
+      ],
+      "supply_chain_focus": [
+        "Construction material sourcing",
+        "Contractor safety records",
+        "Maintenance services"
+      ],
+      "climate_exposure": [
+        "Flooding and landslide risks",
+        "Heat stress on infrastructure"
+      ],
+      "digital_governance_risk": [
+        "Payment system cybersecurity",
+        "Traffic data privacy"
+      ]
+    }
+  }
+}

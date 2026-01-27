@@ -57,6 +57,9 @@ def load_existing_dataset():
 
 
 def save_dataset(new_rows):
+    """
+    Merge new rows into dataset with deduplication.
+    """
     existing = load_existing_dataset()
 
     seen = {
@@ -78,6 +81,17 @@ def save_dataset(new_rows):
     return clean_new, combined
 
 
+def append_rows_immediately(rows):
+    """
+    Persist rows immediately to disk with deduplication.
+    """
+    if not rows:
+        return 0
+
+    new_rows, _ = save_dataset(rows)
+    return len(new_rows)
+
+
 # =========================================================
 # PIPELINE FUNCTIONS
 # =========================================================
@@ -95,7 +109,7 @@ def fetch_articles_from_query(query, language, country, limit):
     feed = feedparser.parse(rss_url)
 
     rows = []
-    for idx, entry in enumerate(feed.entries[:limit], start=1):
+    for entry in feed.entries[:limit]:
         rows.append({
             "query": query,
             "title": entry.get("title"),
@@ -161,8 +175,7 @@ def build_queries(selected_companies, companies, keywords):
 
 st.set_page_config(layout="wide")
 st.title("🌱 ESG Company → Keyword → News Scraper")
-
-st.caption("Bulk ESG news harvesting with company-aware provenance")
+st.caption("Incremental, crash-safe ESG news harvesting")
 
 # ---------------- Sidebar Controls ----------------
 
@@ -204,8 +217,9 @@ with st.sidebar:
 
     run_btn = st.button("🚀 Run Company Scraping")
 
+
 # =========================================================
-# RUN PIPELINE
+# RUN PIPELINE (INCREMENTAL)
 # =========================================================
 
 if run_btn:
@@ -224,8 +238,8 @@ if run_btn:
 
     st.success(f"Generated {len(queries)} keyword queries")
 
-    all_rows = []
     global_progress = st.progress(0)
+    total_saved = 0
 
     for q_index, q in enumerate(queries, start=1):
         st.subheader(f"🔎 {q['company_name']} → {q['keyword']}")
@@ -244,10 +258,11 @@ if run_btn:
 
         local_progress = st.progress(0)
         total = len(articles)
-        decoded = []
+        processed = 0
 
         for batch_start in range(0, total, batch_size):
             batch = articles[batch_start:batch_start + batch_size]
+            batch_rows = []
 
             for article in batch:
                 decoded_url = resolve_google_redirect(article["link"])
@@ -259,32 +274,23 @@ if run_btn:
                     "status": "ok" if decoded_url else "failed"
                 }
 
-                decoded.append(row)
-                all_rows.append(row)
-                local_progress.progress(len(decoded) / total)
+                batch_rows.append(row)
+
+            # ✅ SAVE IMMEDIATELY AFTER EACH BATCH
+            saved_count = append_rows_immediately(batch_rows)
+            total_saved += saved_count
+
+            processed += len(batch_rows)
+            local_progress.progress(processed / total)
 
             if delay > 0:
                 time.sleep(delay)
 
+        st.success(f"💾 Saved so far: {total_saved} new records")
         global_progress.progress(q_index / len(queries))
 
-    # =====================================================
-    # SAVE DATASET
-    # =====================================================
+    st.success("🎉 Scraping completed successfully!")
 
-    new_rows, combined = save_dataset(all_rows)
-
-    st.success(f"✅ Saved {len(new_rows)} new records")
-
-    # =====================================================
-    # DISPLAY
-    # =====================================================
-
-    st.subheader("📊 Latest Scraped Records")
-    st.dataframe(pd.DataFrame(new_rows), use_container_width=True)
-
-    with st.expander("📦 Raw JSON"):
-        st.json(new_rows)
 
 # =========================================================
 # STORED DATA VIEW
@@ -297,7 +303,7 @@ stored = load_existing_dataset()
 st.write(f"Total stored records: {len(stored)}")
 
 if stored:
-    df_all = pd.DataFrame(stored)
+    df_all = pd.DataFrame(stored[-300:])   # show latest 300 only
     st.dataframe(df_all, use_container_width=True)
 
     st.download_button(
