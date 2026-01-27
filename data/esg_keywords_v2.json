@@ -641,5 +641,575 @@
         "Protection of proprietary chemical formulas"
       ]
     }
+  },
+  "SCMA": {
+    "expanded_keywords": [
+      "content ethics and standards",
+      "media literacy programs",
+      "data protection in broadcasting",
+      "energy efficient media production",
+      "media worker rights and safety",
+      "digital advertising transparency",
+      "intellectual property protection",
+      "community engagement broadcasting",
+      "workforce diversity and inclusion",
+      "broadcast tower energy management",
+      "green studio operations",
+      "responsible content moderation",
+      "cybersecurity for streaming",
+      "media supply chain ethics",
+      "tata kelola konten penyiaran",
+      "literasi media digital",
+      "privasi data pemirsa",
+      "hak pekerja kreatif",
+      "efisiensi energi penyiaran",
+      "keamanan siber media",
+      "keragaman talenta industri kreatif",
+      "kepatuhan regulasi media",
+      "pengelolaan limbah elektronik studio",
+      "iklan digital bertanggung jawab",
+      "transparansi tata kelola media"
+    ],
+    "esg_metadata": {
+      "sector": "Communication Services",
+      "subsector": "Broadcasting",
+      "primary_esg_risks": [
+        "Content controversy and ethics",
+        "Data privacy breaches",
+        "Intellectual property theft"
+      ],
+      "primary_esg_opportunities": [
+        "Digital education through media",
+        "Sustainable production sets",
+        "Platform for social awareness"
+      ],
+      "regulatory_exposure": [
+        "Broadcasting Law (UU Penyiaran)",
+        "Information and Electronic Transactions Law (UU ITE)",
+        "Press Council guidelines"
+      ],
+      "sustainability_themes": [
+        "Digital Literacy",
+        "Responsible Content",
+        "Operational Efficiency"
+      ],
+      "controversy_triggers": [
+        "Unethical news reporting",
+        "Child protection violations in content",
+        "Labor disputes in production"
+      ],
+      "supply_chain_focus": [
+        "Ethical content sourcing",
+        "Hardware procurement",
+        "Service provider labor standards"
+      ],
+      "climate_exposure": [
+        "High energy use in transmission",
+        "Physical risk to transmission towers"
+      ],
+      "digital_governance_risk": [
+        "Streaming data security",
+        "Algorithmic bias in recommendations"
+      ]
+    }
+  },
+  "ERAA": {
+    "expanded_keywords": [
+      "electronic waste recycling programs",
+      "sustainable retail logistics",
+      "consumer data privacy protection",
+      "fair labor in retail supply chain",
+      "energy efficient retail stores",
+      "ethical electronics sourcing",
+      "product lifecycle management",
+      "digital risk management in retail",
+      "omnichannel carbon footprint",
+      "responsible gadget marketing",
+      "workplace safety in distribution",
+      "waste reduction in packaging",
+      "employee skills development",
+      "supply chain transparency",
+      "corporate governance in retail",
+      "pengelolaan limbah elektronik",
+      "logistik ritel berkelanjutan",
+      "perlindungan data konsumen",
+      "hak pekerja rantai pasok",
+      "efisiensi energi gerai",
+      "ekonomi sirkular gawai",
+      "tata kelola ritel modern",
+      "kepatuhan tenaga kerja",
+      "pengadaan barang etis",
+      "manajemen risiko digital"
+    ],
+    "esg_metadata": {
+      "sector": "Consumer Discretionary",
+      "subsector": "Specialty Retail",
+      "primary_esg_risks": [
+        "Supply chain labor issues",
+        "E-waste management",
+        "Data security in e-commerce"
+      ],
+      "primary_esg_opportunities": [
+        "Circular economy for electronics",
+        "Green logistics expansion",
+        "Digital financial inclusion"
+      ],
+      "regulatory_exposure": [
+        "Consumer Protection Law",
+        "E-waste regulations",
+        "Labor Law compliance"
+      ],
+      "sustainability_themes": [
+        "Circular Economy",
+        "Responsible Sourcing",
+        "Data Privacy"
+      ],
+      "controversy_triggers": [
+        "Counterfeit products",
+        "Supply chain child labor",
+        "Data breaches"
+      ],
+      "supply_chain_focus": [
+        "OEM environmental standards",
+        "Logistics provider emissions",
+        "Warehouse safety"
+      ],
+      "climate_exposure": [
+        "Logistics-related emissions",
+        "Physical risks to warehouses"
+      ],
+      "digital_governance_risk": [
+        "Customer database security",
+        "Online payment fraud prevention"
+      ]
+    }
+  },
+  "MNCN": {
+    "expanded_keywords": [
+      "media ethics governance",
+      "data privacy standards",
+      "digital content accessibility",
+      "content moderation policies",
+      "energy efficient data centers",
+      "creative labor standards",
+      "media diversity and inclusion",
+      "cybersecurity for media platforms",
+      "green broadcasting technology",
+      "responsible advertising practices",
+      "community empowerment initiatives",
+      "media law compliance",
+      "intellectual property governance",
+      "sustainable talent management",
+      "digital literacy outreach",
+      "tata kelola media digital",
+      "privasi data pengguna platform",
+      "aksesibilitas konten digital",
+      "moderasi konten bertanggung jawab",
+      "efisiensi energi pusat data",
+      "standar ketenagakerjaan kreatif",
+      "keragaman konten media",
+      "keamanan siber platform",
+      "teknologi penyiaran hijau",
+      "iklan bertanggung jawab"
+    ],
+    "esg_metadata": {
+      "sector": "Communication Services",
+      "subsector": "Media & Entertainment",
+      "primary_esg_risks": [
+        "Regulatory shifts in media",
+        "Content censorship issues",
+        "Cybersecurity threats"
+      ],
+      "primary_esg_opportunities": [
+        "Educational digital content",
+        "Low-carbon streaming services",
+        "Diverse content production"
+      ],
+      "regulatory_exposure": [
+        "Broadcasting Law",
+        "UU ITE",
+        "Intellectual Property Law"
+      ],
+      "sustainability_themes": [
+        "Responsible Content",
+        "Cyber Resilience",
+        "Media Independence"
+      ],
+      "controversy_triggers": [
+        "Political bias in media",
+        "Data privacy incidents",
+        "Copyright infringement"
+      ],
+      "supply_chain_focus": [
+        "Production house ethics",
+        "IT infrastructure sourcing",
+        "Freelance labor rights"
+      ],
+      "climate_exposure": [
+        "Power consumption of servers",
+        "Transmission infrastructure resilience"
+      ],
+      "digital_governance_risk": [
+        "Platform manipulation",
+        "Algorithmic content filtering",
+        "User data protection"
+      ]
+    }
+  },
+  "MTEL": {
+    "expanded_keywords": [
+      "green tower infrastructure",
+      "renewable energy for towers",
+      "tower sharing efficiency",
+      "occupational health and safety telecom",
+      "biodiversity impact of towers",
+      "climate resilience infrastructure",
+      "community relations for sites",
+      "land use ethics",
+      "telecom supply chain governance",
+      "data security in infrastructure",
+      "energy efficient network hardware",
+      "decarbonizing telecom towers",
+      "labor standards construction",
+      "e-waste management telecom",
+      "disaster recovery connectivity",
+      "infrastruktur menara hijau",
+      "energi terbarukan menara",
+      "efisiensi berbagi menara",
+      "kesehatan kerja telekomunikasi",
+      "dampak biodiversitas menara",
+      "resiliensi iklim infrastruktur",
+      "hubungan masyarakat lokasi menara",
+      "etika penggunaan lahan",
+      "tata kelola rantai pasok",
+      "keamanan data infrastruktur"
+    ],
+    "esg_metadata": {
+      "sector": "Communication Services",
+      "subsector": "Telecom Tower Infrastructure",
+      "primary_esg_risks": [
+        "Physical climate damage",
+        "Operational safety risks",
+        "Land acquisition disputes"
+      ],
+      "primary_esg_opportunities": [
+        "Solar-powered tower sites",
+        "Expanded rural connectivity",
+        "Asset sharing carbon reduction"
+      ],
+      "regulatory_exposure": [
+        "Telecommunications Law",
+        "Local government building permits (IMB)",
+        "Environmental impact assessments"
+      ],
+      "sustainability_themes": [
+        "Energy Efficiency",
+        "Digital Connectivity",
+        "Safety Culture"
+      ],
+      "controversy_triggers": [
+        "Tower collapse incidents",
+        "Radiation health concerns",
+        "Land rights violations"
+      ],
+      "supply_chain_focus": [
+        "Equipment vendor emissions",
+        "Contractor safety records",
+        "Conflict mineral compliance"
+      ],
+      "climate_exposure": [
+        "Natural disaster risks to towers",
+        "Energy costs of site operations"
+      ],
+      "digital_governance_risk": [
+        "Network hardware security",
+        "Site monitoring data privacy"
+      ]
+    }
+  },
+  "PWON": {
+    "expanded_keywords": [
+      "green building certification",
+      "energy efficient property management",
+      "water conservation in malls",
+      "waste management in real estate",
+      "sustainable urban planning",
+      "occupational safety construction",
+      "community social impact",
+      "ethical land acquisition",
+      "climate risk real estate",
+      "responsible tenant management",
+      "renewable energy in buildings",
+      "low carbon construction materials",
+      "corporate governance property",
+      "biodiversity in urban design",
+      "disaster resilience buildings",
+      "sertifikasi bangunan hijau",
+      "manajemen energi properti",
+      "konservasi air mal",
+      "manajemen limbah real estat",
+      "perencanaan kota berkelanjutan",
+      "keselamatan kerja konstruksi",
+      "dampak sosial komunitas",
+      "akuisisi lahan etis",
+      "risiko iklim real estat",
+      "material konstruksi rendah karbon"
+    ],
+    "esg_metadata": {
+      "sector": "Real Estate",
+      "subsector": "Real Estate Development",
+      "primary_esg_risks": [
+        "Carbon footprint of buildings",
+        "Physical climate risks (flooding)",
+        "Workplace safety on sites"
+      ],
+      "primary_esg_opportunities": [
+        "Green building demand",
+        "Mixed-use energy efficiency",
+        "Smart building technology"
+      ],
+      "regulatory_exposure": [
+        "Agrarian Law (UUPA)",
+        "Green building standards",
+        "Environmental permits (AMDAL)"
+      ],
+      "sustainability_themes": [
+        "Sustainable Urbanization",
+        "Energy Stewardship",
+        "Community Resilience"
+      ],
+      "controversy_triggers": [
+        "Land displacement disputes",
+        "Structural safety failures",
+        "Water usage conflicts"
+      ],
+      "supply_chain_focus": [
+        "Building material sourcing",
+        "Construction contractor labor",
+        "Vendor environmental audits"
+      ],
+      "climate_exposure": [
+        "Extreme weather damage",
+        "Higher cooling energy costs"
+      ],
+      "digital_governance_risk": [
+        "Building management system siber",
+        "Tenant data confidentiality"
+      ]
+    }
+  },
+  "AKRA": {
+    "expanded_keywords": [
+      "sustainable fuel distribution",
+      "chemical logistics safety",
+      "energy transition strategy",
+      "carbon footprint logistics",
+      "maritime fuel efficiency",
+      "industrial safety management",
+      "supply chain compliance",
+      "water management in terminals",
+      "responsible chemical handling",
+      "labor rights in logistics",
+      "anti-corruption governance",
+      "climate resilience supply chain",
+      "renewable energy infrastructure",
+      "spill prevention and response",
+      "digital logistics security",
+      "distribusi bahan bakar berkelanjutan",
+      "keselamatan logistik kimia",
+      "strategi transisi energi",
+      "jejak karbon logistik",
+      "efisiensi bahan bakar maritim",
+      "manajemen keselamatan industri",
+      "kepatuhan rantai pasok",
+      "manajemen air terminal",
+      "penanganan kimia bertanggung jawab",
+      "tata kelola anti-korupsi"
+    ],
+    "esg_metadata": {
+      "sector": "Industrials",
+      "subsector": "Logistics & Energy Distribution",
+      "primary_esg_risks": [
+        "Hazardous material spills",
+        "Transition away from fossil fuels",
+        "Operational safety in terminals"
+      ],
+      "primary_esg_opportunities": [
+        "Biofuel distribution expansion",
+        "Low-carbon logistics services",
+        "Energy-efficient terminal storage"
+      ],
+      "regulatory_exposure": [
+        "Oil & Gas Law",
+        "Maritime safety regulations",
+        "Environmental protection laws"
+      ],
+      "sustainability_themes": [
+        "Logistics Safety",
+        "Energy Transition",
+        "Responsible Distribution"
+      ],
+      "controversy_triggers": [
+        "Environmental contamination",
+        "Logistics accidents",
+        "Sanction non-compliance"
+      ],
+      "supply_chain_focus": [
+        "Fleet operator emissions",
+        "Storage facility safety",
+        "Supplier ethical conduct"
+      ],
+      "climate_exposure": [
+        "Transition risk of fuel demand",
+        "Physical risk to port assets"
+      ],
+      "digital_governance_risk": [
+        "Supply chain data security",
+        "Inventory management cybersecurity"
+      ]
+    }
+  },
+  "BBNI": {
+    "expanded_keywords": [
+      "sustainable financing framework",
+      "green lending portfolio",
+      "financial inclusion initiatives",
+      "cybersecurity risk management",
+      "anti-money laundering compliance",
+      "climate risk assessment",
+      "responsible investment policy",
+      "digital banking accessibility",
+      "workplace diversity and inclusion",
+      "community development finance",
+      "net zero banking strategy",
+      "ethical debt collection",
+      "data privacy protection",
+      "SME green finance",
+      "corporate governance banking",
+      "kerangka pembiayaan berkelanjutan",
+      "portofolio pinjaman hijau",
+      "inisiatif inklusi keuangan",
+      "manajemen risiko siber",
+      "kepatuhan anti-pencucian uang",
+      "aspek risiko iklim perbankan",
+      "aksesibilitas bank digital",
+      "keberagaman tenaga kerja bank",
+      "perlindungan data nasabah",
+      "tata kelola bank korporasi"
+    ],
+    "esg_metadata": {
+      "sector": "Financials",
+      "subsector": "Banking",
+      "primary_esg_risks": [
+        "Climate-related credit risk",
+        "Data breaches and cybercrime",
+        "Financial crime compliance"
+      ],
+      "primary_esg_opportunities": [
+        "Green bond leadership",
+        "Digital microfinance expansion",
+        "Transition finance products"
+      ],
+      "regulatory_exposure": [
+        "OJK POJK 51/2017",
+        "Banking Law",
+        "Personal Data Protection Law"
+      ],
+      "sustainability_themes": [
+        "Sustainable Finance",
+        "Cyber Resilience",
+        "Social Empowerment"
+      ],
+      "controversy_triggers": [
+        "Systemic data leaks",
+        "Financing high-emission projects",
+        "Compliance failures"
+      ],
+      "supply_chain_focus": [
+        "IT vendor security audits",
+        "Sustainable office supplies",
+        "Outsourced service ethics"
+      ],
+      "climate_exposure": [
+        "Transition risk in loan book",
+        "Physical risks to collateral"
+      ],
+      "digital_governance_risk": [
+        "Mobile banking security",
+        "Algorithmic lending fairness",
+        "Customer data privacy"
+      ]
+    }
+  },
+  "SIDO": {
+    "expanded_keywords": [
+      "sustainable herbal sourcing",
+      "natural product safety standards",
+      "water conservation manufacturing",
+      "waste management herbal industry",
+      "responsible farmer partnerships",
+      "energy efficient production",
+      "biodiversity protection",
+      "product quality and safety",
+      "labor rights in manufacturing",
+      "community health education",
+      "sustainable packaging innovation",
+      "supply chain traceability",
+      "ethical marketing herbal",
+      "digital health risk management",
+      "governance and compliance",
+      "pengadaan herbal berkelanjutan",
+      "standar keamanan produk alami",
+      "konservasi air manufaktur",
+      "manajemen limbah herbal",
+      "kemitraan petani bertanggung jawab",
+      "efisiensi energi produksi",
+      "perlindungan biodiversitas",
+      "keamanan dan kualitas produk",
+      "hak tenaga kerja pabrik",
+      "edukasi kesehatan masyarakat"
+    ],
+    "esg_metadata": {
+      "sector": "Consumer Staples",
+      "subsector": "Pharmaceuticals & Herbal Medicine",
+      "primary_esg_risks": [
+        "Raw material supply volatility",
+        "Product safety and contamination",
+        "Water scarcity in production"
+      ],
+      "primary_esg_opportunities": [
+        "Global demand for natural wellness",
+        "Regenerative agriculture practices",
+        "Waste-to-energy projects"
+      ],
+      "regulatory_exposure": [
+        "BPOM regulations",
+        "Traditional medicine standards",
+        "Environmental emission laws"
+      ],
+      "sustainability_themes": [
+        "Product Integrity",
+        "Responsible Sourcing",
+        "Environmental Stewardship"
+      ],
+      "controversy_triggers": [
+        "Misleading product claims",
+        "Supply chain labor disputes",
+        "Water over-extraction"
+      ],
+      "supply_chain_focus": [
+        "Smallholder farmer support",
+        "Botanical traceability",
+        "Packaging supplier sustainability"
+      ],
+      "climate_exposure": [
+        "Crop yield impact from heat",
+        "Water stress in manufacturing"
+      ],
+      "digital_governance_risk": [
+        "E-commerce consumer privacy",
+        "Proprietary formula protection"
+      ]
+    }
   }
 }
