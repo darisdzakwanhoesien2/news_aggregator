@@ -28,7 +28,7 @@ news_scraper/
 https://chatgpt.com/c/697820fe-225c-832c-8337-c20a541349a2
 
 https://chatgpt.com/c/69782ca5-d464-8330-8521-ebade6bd83a3
-https://chatgpt.com/c/69782ca5-d464-8330-8521-ebade6bd83a3
+
 Yes — absolutely 👍
 We can convert this **entire n8n workflow into a Streamlit application** and store all results into **JSON files locally** (instead of Google Sheets / Drive).
 

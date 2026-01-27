@@ -1,0 +1,610 @@
+{"event": "run_started", "timestamp": "2026-01-27T13:49:52.223302", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "companies": ["PGEO", "MPMX", "BMRI", "ADRO", "GGRM", "PTBA", "CPIN", "TPIA", "SCMA", "EMTK", "JSMR", "UNVR", "MNCN", "BBRI", "AVIA", "BBNI", "BBCA", "SIDO", "GOTO", "BSDE", "BNGA", "PGAS", "MAPI", "CMRY", "TBIG", "CTRA", "TOWR", "SMGR", "BUKA", "EXCL", "MIKA", "TLKM", "AUTO", "BFIN", "MDKA", "INTP", "SRTG", "HMSP", "ENRG", "NISP", "BBTN", "GJTL", "BRIS", "SMRA", "HEAL", "BRPT", "INKP", "ISAT", "PNLF", "TKIM", "INCO", "LSIP", "MIDI", "KLBF", "ITMG", "MYOR", "BTPS"], "language": "id", "country": "ID", "limit": 100, "batch_size": 5, "delay": 0.04, "date_from": "2016-01-27", "date_to": "2024-01-01"}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:49:53.105643", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "PGEO", "keyword": "biodiversity protection", "fetched": 18}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:49:54.766500", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:49:56.401862", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:49:58.021657", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:49:58.995813", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 3, "saved": 3}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:49:59.672725", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "PGEO", "keyword": "carbon footprint reduction", "fetched": 22}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:01.277819", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:02.917281", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:04.925536", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:06.560362", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:07.244525", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:50:07.731280", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "PGEO", "keyword": "clean energy infrastructure", "fetched": 9}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:09.256255", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:10.844606", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 4, "saved": 4}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:50:11.523073", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "PGEO", "keyword": "climate change mitigation", "fetched": 18}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:13.068758", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:14.626256", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:16.146533", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:17.095513", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 3, "saved": 3}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:50:17.741171", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "PGEO", "keyword": "community engagement programs", "fetched": 14}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:19.308441", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:20.863517", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:22.166445", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 4, "saved": 4}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:50:22.936003", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "PGEO", "keyword": "dekarbonisasi industri", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:50:23.497889", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "PGEO", "keyword": "energy diversification", "fetched": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:24.984354", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:50:25.483338", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "PGEO", "keyword": "environmental impact assessment", "fetched": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:27.263391", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:50:27.709163", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "PGEO", "keyword": "geothermal exploration", "fetched": 14}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:29.296277", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:30.887973", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:32.369573", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 4, "saved": 4}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:50:32.862140", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "PGEO", "keyword": "geothermal heat utilization", "fetched": 12}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:34.587291", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:36.350272", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:37.042156", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:50:37.518434", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "PGEO", "keyword": "geothermal power plant safety", "fetched": 1}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:37.862083", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 1, "saved": 1}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:50:38.240876", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "PGEO", "keyword": "geothermal reservoir management", "fetched": 2}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:38.887721", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:50:39.507171", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "PGEO", "keyword": "green energy procurement", "fetched": 22}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:41.145130", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:42.781569", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:44.566085", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:46.086468", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:46.796717", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:50:47.674128", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "PGEO", "keyword": "investasi hijau", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:50:48.429056", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "PGEO", "keyword": "manajemen emisi karbon", "fetched": 36}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:50.041060", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:51.634399", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:53.171855", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:54.696251", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:56.265069", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:57.925569", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:59.448455", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:50:59.832666", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 1, "saved": 1}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:51:00.665380", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "PGEO", "keyword": "net zero emissions target", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:51:01.358843", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "PGEO", "keyword": "occupational health and safety", "fetched": 32}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:02.880080", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:04.634618", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:06.286947", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:07.923926", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:09.464685", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:11.037421", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:11.723983", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:51:12.510422", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "PGEO", "keyword": "pembangkit listrik panas bumi", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:51:12.968884", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "PGEO", "keyword": "regulatory compliance energy", "fetched": 6}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:14.665599", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:15.278817", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 1, "saved": 1}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:51:16.156732", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "PGEO", "keyword": "renewable energy transition", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:51:17.088410", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "PGEO", "keyword": "risiko iklim", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:51:17.663526", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "PGEO", "keyword": "sustainable power generation", "fetched": 7}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:19.268534", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:19.958584", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:51:20.696536", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "PGEO", "keyword": "tata kelola perusahaan energi", "fetched": 9}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:22.475188", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:23.751047", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 4, "saved": 4}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:51:24.530718", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "PGEO", "keyword": "transisi energi terbarukan", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:51:25.254042", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "PGEO", "keyword": "water resource management", "fetched": 17}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:26.861641", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:28.566400", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:30.061468", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:30.721344", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:51:31.043575", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MPMX", "keyword": "aftermarket service sustainability", "fetched": 1}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:31.392770", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 1, "saved": 1}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:51:32.057788", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MPMX", "keyword": "anti-corruption governance", "fetched": 8}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:33.564892", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:34.516347", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 3, "saved": 3}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:51:34.869026", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MPMX", "keyword": "automotive parts recycling", "fetched": 2}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:35.490986", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:51:36.169587", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MPMX", "keyword": "automotive supply chain", "fetched": 6}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:37.914221", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:38.356023", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 1, "saved": 1}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:51:38.929193", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MPMX", "keyword": "consumer protection standards", "fetched": 10}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:40.466153", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:42.049572", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:51:42.769521", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MPMX", "keyword": "customer data privacy", "fetched": 30}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:44.366292", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:45.860679", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:47.476842", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:49.098110", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:50.771151", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:52.369249", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:51:52.844384", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MPMX", "keyword": "digital retail risk", "fetched": 9}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:54.452308", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:51:55.963140", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 4, "saved": 4}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:51:56.849658", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MPMX", "keyword": "distributor otomotif", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:51:57.614730", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MPMX", "keyword": "efisiensi logistik", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:51:58.227121", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MPMX", "keyword": "electric vehicle distribution", "fetched": 15}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:00.103862", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:01.817454", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:03.464417", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:52:03.852905", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MPMX", "keyword": "emission standards compliance", "fetched": 4}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:05.037310", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 4, "saved": 4}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:52:05.721187", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MPMX", "keyword": "employee skills development", "fetched": 14}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:07.296181", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:08.958986", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:10.348861", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 4, "saved": 4}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:52:11.153460", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MPMX", "keyword": "kepatuhan ketenagakerjaan", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:52:11.485571", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MPMX", "keyword": "labor rights in distribution", "fetched": 1}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:12.092289", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 1, "saved": 1}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:52:12.473364", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MPMX", "keyword": "logistics fleet efficiency", "fetched": 2}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:13.299959", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:52:14.096949", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MPMX", "keyword": "manajemen rantai pasok", "fetched": 15}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:15.640040", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:17.285078", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:18.833800", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:52:19.709134", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MPMX", "keyword": "pembiayaan sepeda motor", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:52:20.641046", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MPMX", "keyword": "pengurangan limbah", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:52:21.047800", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MPMX", "keyword": "responsible lending practices", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:52:21.684309", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MPMX", "keyword": "tata kelola ritel", "fetched": 22}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:23.308894", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:24.855510", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:26.442683", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:27.967314", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:28.651749", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:52:29.152302", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MPMX", "keyword": "transportation safety initiatives", "fetched": 1}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:29.509122", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 1, "saved": 1}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:52:30.174721", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MPMX", "keyword": "vehicle financing risks", "fetched": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:31.749730", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:52:32.187342", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MPMX", "keyword": "vendor code of conduct", "fetched": 2}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:32.893974", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:52:33.332337", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MPMX", "keyword": "warehouse safety management", "fetched": 18}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:34.882641", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:36.483360", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:38.015236", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:39.022995", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 3, "saved": 3}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:52:39.506631", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MPMX", "keyword": "waste management automotive", "fetched": 7}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:41.389725", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:42.281077", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:52:42.651917", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BMRI", "keyword": "SME financial empowerment", "fetched": 2}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:43.374949", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:52:44.053041", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BMRI", "keyword": "anti-money laundering digital", "fetched": 12}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:45.558466", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:47.150211", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:47.800481", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:52:48.158906", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BMRI", "keyword": "climate risk stress testing", "fetched": 2}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:48.904349", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:52:49.505826", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BMRI", "keyword": "community development finance", "fetched": 13}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:51.012911", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:52.653893", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:53.666774", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 3, "saved": 3}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:52:54.553975", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BMRI", "keyword": "corporate governance banking", "fetched": 27}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:56.116584", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:57.756351", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:52:59.448870", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:01.265653", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:02.872024", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:03.551065", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:53:03.927873", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BMRI", "keyword": "cybersecurity risk framework", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:53:04.476611", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BMRI", "keyword": "data privacy compliance", "fetched": 7}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:06.024734", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:06.752267", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:53:07.380456", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BMRI", "keyword": "digital banking accessibility", "fetched": 3}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:08.285800", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 3, "saved": 3}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:53:08.821969", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BMRI", "keyword": "employee diversity and inclusion", "fetched": 18}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:10.496947", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:12.119051", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:13.776605", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:14.805287", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 3, "saved": 3}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:53:15.395313", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BMRI", "keyword": "environmental social risk assessment", "fetched": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:17.266244", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:53:17.817742", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BMRI", "keyword": "financial inclusion strategy", "fetched": 15}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:19.407107", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:20.903099", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:22.530014", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:53:23.238711", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BMRI", "keyword": "green bond management", "fetched": 35}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:25.005702", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:26.646706", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:28.226666", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:29.817146", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:31.478743", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:33.126743", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:34.781121", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:53:35.298334", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BMRI", "keyword": "green lending portfolio", "fetched": 12}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:36.809080", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:38.424632", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:39.095648", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:53:39.926850", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BMRI", "keyword": "inklusi keuangan digital", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:53:40.740283", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BMRI", "keyword": "kepatuhan regulasi keuangan", "fetched": 7}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:42.669087", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:43.409182", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:53:43.923543", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BMRI", "keyword": "manajemen risiko siber", "fetched": 12}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:45.406588", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:47.029061", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:47.740252", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:53:48.334398", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BMRI", "keyword": "microfinance sustainability", "fetched": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:49.859100", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:53:50.258490", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BMRI", "keyword": "net zero banking alliance", "fetched": 3}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:51.181900", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 3, "saved": 3}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:53:51.939826", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BMRI", "keyword": "pembiayaan hijau", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:53:52.692615", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BMRI", "keyword": "perbankan berkelanjutan", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:53:53.593809", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BMRI", "keyword": "perlindungan data nasabah", "fetched": 13}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:55.361512", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:57.049843", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:53:58.066248", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 3, "saved": 3}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:53:58.656583", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BMRI", "keyword": "responsible investment policy", "fetched": 4}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:00.073124", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 4, "saved": 4}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:54:00.587633", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BMRI", "keyword": "sustainable banking framework", "fetched": 2}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:01.215285", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:54:02.149201", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BMRI", "keyword": "tata kelola bank", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:54:03.029847", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BMRI", "keyword": "whistleblowing system", "fetched": 8}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:04.651120", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:05.609384", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 3, "saved": 3}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:54:05.937796", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "JSMR", "keyword": "biodiversity offset infrastructure", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:54:06.325711", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "JSMR", "keyword": "carbon footprint infrastructure", "fetched": 8}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:07.855776", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:08.832143", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 3, "saved": 3}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:54:09.196741", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "JSMR", "keyword": "community displacement policy", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:54:09.563777", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "JSMR", "keyword": "corporate ethics infrastructure", "fetched": 2}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:10.229420", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:54:11.172392", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "JSMR", "keyword": "disaster risk reduction", "fetched": 49}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:13.065793", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:14.668252", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:16.386898", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:17.940956", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:19.467823", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:21.217741", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:23.041724", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:24.590814", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:26.233137", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:27.558452", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 4, "saved": 4}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:54:28.286721", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "JSMR", "keyword": "efisiensi energi jalan", "fetched": 14}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:29.834572", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:31.777253", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:32.985030", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 4, "saved": 4}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:54:33.521049", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "JSMR", "keyword": "energy efficient lighting", "fetched": 17}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:35.090643", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:36.728571", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:38.273739", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:39.115380", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:54:39.621308", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "JSMR", "keyword": "environmental impact mitigation", "fetched": 10}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:41.131303", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:42.752928", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:54:43.326767", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "JSMR", "keyword": "green construction materials", "fetched": 19}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:44.954959", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:46.619232", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:48.255652", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:49.727667", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 4, "saved": 4}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:54:50.296726", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "JSMR", "keyword": "infrastructure climate resilience", "fetched": 10}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:51.996300", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:53.778821", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:54:54.431610", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "JSMR", "keyword": "intelligent transport systems", "fetched": 26}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:55.963701", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:57.541677", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:54:59.162965", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:00.770203", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:02.547906", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:03.017884", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 1, "saved": 1}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:55:04.185524", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "JSMR", "keyword": "kepatuhan sosial", "fetched": 23}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:05.703468", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:07.320814", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:09.103664", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:10.648385", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:11.624897", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 3, "saved": 3}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:55:12.528328", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "JSMR", "keyword": "keselamatan jalan tol", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:55:12.928693", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "JSMR", "keyword": "labor safety in construction", "fetched": 8}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:14.504456", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:15.470344", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 3, "saved": 3}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:55:15.857526", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "JSMR", "keyword": "land acquisition governance", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:55:16.457914", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "JSMR", "keyword": "manajemen lingkungan konstruksi", "fetched": 29}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:18.020075", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:19.597763", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:21.278587", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:22.911539", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:24.745987", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:26.225712", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 4, "saved": 4}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:55:27.134385", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "JSMR", "keyword": "pembangunan infrastruktur berkelanjutan", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:55:28.033008", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "JSMR", "keyword": "resiliensi iklim", "fetched": 16}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:29.574724", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:31.140554", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:32.714851", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:33.106791", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 1, "saved": 1}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:55:33.428508", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "JSMR", "keyword": "smart tolling technology", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:55:33.949932", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "JSMR", "keyword": "supply chain compliance construction", "fetched": 1}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:34.281089", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 1, "saved": 1}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:55:34.818485", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "JSMR", "keyword": "sustainable infrastructure development", "fetched": 10}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:36.366541", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:37.955062", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:55:38.844864", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "JSMR", "keyword": "tata kelola proyek", "fetched": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:40.478948", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:55:40.936934", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "JSMR", "keyword": "toll road safety management", "fetched": 17}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:42.648451", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:44.278015", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:45.804044", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:46.590873", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:55:47.008258", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "JSMR", "keyword": "waste management highways", "fetched": 3}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:48.039332", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 3, "saved": 3}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:55:48.661057", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "JSMR", "keyword": "water drainage management", "fetched": 3}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:49.558694", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 3, "saved": 3}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:55:50.200674", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "EMTK", "keyword": "community digital empowerment", "fetched": 13}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:51.721178", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:53.340147", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:54.335988", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 3, "saved": 3}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:55:54.669984", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "EMTK", "keyword": "content piracy prevention", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:55:55.428907", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "EMTK", "keyword": "corporate governance media", "fetched": 23}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:57.074311", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:55:58.688266", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:00.263532", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:01.889472", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:03.124555", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 3, "saved": 3}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:56:03.698267", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "EMTK", "keyword": "cybersecurity risk management", "fetched": 7}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:05.324512", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:05.981198", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:56:06.814144", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "EMTK", "keyword": "data privacy governance", "fetched": 7}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:08.344047", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:09.025050", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:56:09.613252", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "EMTK", "keyword": "digital literacy initiatives", "fetched": 8}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:11.134411", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:12.126122", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 3, "saved": 3}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:56:12.791904", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "EMTK", "keyword": "efisiensi energi server", "fetched": 12}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:14.382730", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:16.288247", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:17.145387", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:56:17.922551", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "EMTK", "keyword": "electronic waste management", "fetched": 29}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:19.450276", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:20.995613", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:23.003255", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:24.613839", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:26.441001", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:27.734859", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 4, "saved": 4}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:56:28.271185", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "EMTK", "keyword": "energy efficient data centers", "fetched": 9}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:29.780465", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:31.087173", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 4, "saved": 4}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:56:32.881062", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "EMTK", "keyword": "hak kekayaan intelektual", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:56:33.765113", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "EMTK", "keyword": "intellectual property rights", "fetched": 32}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:35.262770", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:36.799894", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:38.328289", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:39.880868", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:41.764003", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:43.351115", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:44.002995", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:56:44.809874", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "EMTK", "keyword": "keamanan siber", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:56:45.485003", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "EMTK", "keyword": "keberagaman tenaga kerja", "fetched": 24}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:47.040158", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:48.775606", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:50.329892", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:51.857023", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:53.146045", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 4, "saved": 4}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:56:54.112697", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "EMTK", "keyword": "literasi digital indonesia", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:56:54.506793", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "EMTK", "keyword": "media labor standards", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:56:55.003706", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "EMTK", "keyword": "net zero digital transition", "fetched": 14}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:56.489327", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:58.402674", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:56:59.702061", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 4, "saved": 4}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:57:00.367379", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "EMTK", "keyword": "pengembangan talenta teknologi", "fetched": 7}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:57:01.895320", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:57:02.565645", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:57:03.512016", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "EMTK", "keyword": "perlindungan data pribadi", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:57:04.172807", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "EMTK", "keyword": "standar jurnalisme", "fetched": 9}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:57:05.735438", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:57:06.996547", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 4, "saved": 4}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:57:07.441554", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "EMTK", "keyword": "streaming ethics framework", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:57:07.940788", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "EMTK", "keyword": "supply chain transparency", "fetched": 3}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:57:08.904098", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 3, "saved": 3}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:57:09.612995", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "EMTK", "keyword": "talent development media", "fetched": 22}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:57:11.140935", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:57:12.676534", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:57:14.200597", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:57:16.247045", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:57:16.964974", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:57:17.679258", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "EMTK", "keyword": "tata kelola konten", "fetched": 12}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:57:19.154400", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:57:20.678870", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:57:21.348776", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:57:21.994239", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "EMTK", "keyword": "transisi energi infrastruktur digital", "fetched": 8}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:57:23.773569", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:57:24.730039", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 3, "saved": 3}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:57:25.242164", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "EMTK", "keyword": "workplace diversity and inclusion", "fetched": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:57:26.755508", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:57:27.190598", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SCMA", "keyword": "broadcast tower energy management", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:57:27.961112", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SCMA", "keyword": "community engagement broadcasting", "fetched": 28}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:57:29.524513", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:57:31.640112", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:57:33.200901", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:57:34.873979", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:57:36.699675", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:57:37.656063", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 3, "saved": 3}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:57:38.075096", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SCMA", "keyword": "content ethics and standards", "fetched": 2}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:57:38.732815", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:57:39.253664", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SCMA", "keyword": "cybersecurity for streaming", "fetched": 9}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:57:40.860112", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:57:42.095145", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 4, "saved": 4}
+{"event": "query_fetched", "timestamp": "2026-01-27T13:57:42.825616", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SCMA", "keyword": "data protection in broadcasting", "fetched": 37}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:57:44.353499", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:57:46.031290", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:57:48.132062", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:58:06.798573", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:58:42.421558", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:59:14.681503", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T13:59:53.091241", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 5, "saved": 5}
+{"event": "batch_saved", "timestamp": "2026-01-27T14:00:12.390073", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "batch_size": 2, "saved": 2}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:00:22.438444", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SCMA", "keyword": "digital advertising transparency", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:00:32.044554", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SCMA", "keyword": "efisiensi energi penyiaran", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:00:41.076347", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SCMA", "keyword": "energy efficient media production", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:00:46.988146", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SCMA", "keyword": "green studio operations", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:00:56.401489", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SCMA", "keyword": "hak pekerja kreatif", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:01:02.017634", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SCMA", "keyword": "iklan digital bertanggung jawab", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:01:10.449462", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SCMA", "keyword": "intellectual property protection", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:01:19.973720", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SCMA", "keyword": "keamanan siber media", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:01:25.687093", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SCMA", "keyword": "kepatuhan regulasi media", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:01:31.899269", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SCMA", "keyword": "keragaman talenta industri kreatif", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:01:40.695050", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SCMA", "keyword": "literasi media digital", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:01:46.541975", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SCMA", "keyword": "media literacy programs", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:01:51.692757", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SCMA", "keyword": "media supply chain ethics", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:02:01.247589", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SCMA", "keyword": "media worker rights and safety", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:02:10.300258", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SCMA", "keyword": "pengelolaan limbah elektronik studio", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:02:19.031280", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SCMA", "keyword": "privasi data pemirsa", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:02:26.205828", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SCMA", "keyword": "responsible content moderation", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:02:34.410422", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SCMA", "keyword": "tata kelola konten penyiaran", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:02:41.950262", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SCMA", "keyword": "transparansi tata kelola media", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:02:48.911860", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SCMA", "keyword": "workforce diversity and inclusion", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:02:56.521592", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TPIA", "keyword": "air quality monitoring industrial", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:03:03.780755", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TPIA", "keyword": "chemical spill prevention", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:03:10.849757", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TPIA", "keyword": "community health programs", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:03:18.800322", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TPIA", "keyword": "daur ulang polimer", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:03:28.301549", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TPIA", "keyword": "decarbonization industrial roadmap", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:03:33.623686", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TPIA", "keyword": "dekarbonisasi industri kimia", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:03:42.919402", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TPIA", "keyword": "efisiensi energi industri", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:03:50.954785", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TPIA", "keyword": "ekonomi sirkular plastik", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:03:59.391259", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TPIA", "keyword": "green hydrogen exploration", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:04:09.164895", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TPIA", "keyword": "hazardous waste management", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:04:18.611260", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TPIA", "keyword": "industrial energy efficiency", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:04:28.014186", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TPIA", "keyword": "inovasi plastik ramah lingkungan", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:04:35.449875", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TPIA", "keyword": "keselamatan kerja petrokimia", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:04:41.629926", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TPIA", "keyword": "kualitas udara kawasan industri", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:04:47.797599", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TPIA", "keyword": "labor safety petrochemical", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:04:56.723516", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TPIA", "keyword": "low carbon chemical production", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:05:05.434880", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TPIA", "keyword": "manajemen limbah B3", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:05:12.193658", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TPIA", "keyword": "penggunaan air industri berkelanjutan", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:05:21.001866", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TPIA", "keyword": "petrochemical safety standards", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:05:28.985929", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TPIA", "keyword": "plastic circularity initiatives", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:05:36.769910", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TPIA", "keyword": "responsible plastic waste management", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:05:42.444155", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TPIA", "keyword": "supply chain environmental audit", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:05:49.230789", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TPIA", "keyword": "sustainable polymer development", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:05:55.750534", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TPIA", "keyword": "tata kelola lingkungan pabrik", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:06:02.025259", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TPIA", "keyword": "water recycling manufacturing", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:06:11.189959", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MNCN", "keyword": "aksesibilitas konten digital", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:06:18.015184", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MNCN", "keyword": "community empowerment initiatives", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:06:24.767752", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MNCN", "keyword": "content moderation policies", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:06:31.946280", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MNCN", "keyword": "creative labor standards", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:06:39.513909", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MNCN", "keyword": "cybersecurity for media platforms", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:06:45.686214", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MNCN", "keyword": "data privacy standards", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:06:55.414068", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MNCN", "keyword": "digital content accessibility", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:07:01.767399", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MNCN", "keyword": "digital literacy outreach", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:07:11.592537", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MNCN", "keyword": "efisiensi energi pusat data", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:07:18.594499", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MNCN", "keyword": "energy efficient data centers", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:07:28.436912", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MNCN", "keyword": "green broadcasting technology", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:07:37.814545", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MNCN", "keyword": "iklan bertanggung jawab", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:07:45.793856", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MNCN", "keyword": "intellectual property governance", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:07:54.510813", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MNCN", "keyword": "keamanan siber platform", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:08:04.490944", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MNCN", "keyword": "keragaman konten media", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:08:13.756124", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MNCN", "keyword": "media diversity and inclusion", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:08:21.941945", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MNCN", "keyword": "media ethics governance", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:08:28.022283", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MNCN", "keyword": "media law compliance", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:08:37.966340", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MNCN", "keyword": "moderasi konten bertanggung jawab", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:08:43.108824", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MNCN", "keyword": "privasi data pengguna platform", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:08:52.606965", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MNCN", "keyword": "responsible advertising practices", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:09:01.526856", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MNCN", "keyword": "standar ketenagakerjaan kreatif", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:09:09.443371", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MNCN", "keyword": "sustainable talent management", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:09:15.841170", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MNCN", "keyword": "tata kelola media digital", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:09:20.952675", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "MNCN", "keyword": "teknologi penyiaran hijau", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:09:28.202794", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "UNVR", "keyword": "biodegradable packaging innovation", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:09:35.777713", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "UNVR", "keyword": "circular economy plastics", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:09:45.449293", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "UNVR", "keyword": "consumer nutrition transparency", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:09:51.127756", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "UNVR", "keyword": "corporate climate advocacy", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:09:56.766798", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "UNVR", "keyword": "dekarbonisasi logistik", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:10:06.288983", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "UNVR", "keyword": "employee health and safety", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:10:15.808894", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "UNVR", "keyword": "energi terbarukan industri", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:10:21.601378", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "UNVR", "keyword": "ethical marketing standards", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:10:29.050379", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "UNVR", "keyword": "fair wage policy", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:10:38.748690", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "UNVR", "keyword": "greenhouse gas reduction manufacturing", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:10:47.089807", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "UNVR", "keyword": "hak asasi manusia pekerja", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:10:54.366809", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "UNVR", "keyword": "human rights in supply chain", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:11:02.503364", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "UNVR", "keyword": "kemasan ramah lingkungan", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:11:11.823875", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "UNVR", "keyword": "local supplier empowerment", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:11:18.051516", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "UNVR", "keyword": "manajemen limbah plastik", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:11:24.214374", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "UNVR", "keyword": "nutrisi produk berkelanjutan", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:11:32.632732", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "UNVR", "keyword": "pemasaran etis", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:11:42.200892", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "UNVR", "keyword": "pengembangan masyarakat lokal", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:11:50.378746", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "UNVR", "keyword": "penggunaan air bertanggung jawab", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:11:55.931472", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "UNVR", "keyword": "rantai pasok berkelanjutan", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:12:02.226545", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "UNVR", "keyword": "regenerative agriculture sourcing", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:12:07.903764", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "UNVR", "keyword": "responsible chemicals management", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:12:14.804350", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "UNVR", "keyword": "sustainable palm oil sourcing", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:12:20.719624", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "UNVR", "keyword": "water stewardship program", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:12:30.653935", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "UNVR", "keyword": "zero waste to landfill", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:12:36.418414", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBRI", "keyword": "anti-money laundering digital", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:12:42.849139", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBRI", "keyword": "climate risk stress testing", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:12:48.230372", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBRI", "keyword": "community development finance", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:12:55.657009", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBRI", "keyword": "cybersecurity for banking", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:13:03.140386", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBRI", "keyword": "digital banking accessibility", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:13:11.014520", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBRI", "keyword": "ethical investment policy", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:13:18.709328", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBRI", "keyword": "financial literacy programs", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:13:27.148122", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBRI", "keyword": "gender equality in lending", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:13:37.237289", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBRI", "keyword": "green bond management", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:13:44.425858", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBRI", "keyword": "inklusi keuangan mikro", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:13:51.088453", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBRI", "keyword": "investasi berdampak sosial", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:13:59.657543", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBRI", "keyword": "keamanan siber perbankan", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:14:07.674209", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBRI", "keyword": "literasi keuangan desa", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:14:15.938246", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBRI", "keyword": "manajemen risiko iklim", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:14:24.847753", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBRI", "keyword": "microfinance social impact", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:14:33.177779", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBRI", "keyword": "operational carbon footprint", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:14:38.637015", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBRI", "keyword": "pemberdayaan UMKM", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:14:46.006877", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBRI", "keyword": "pembiayaan hijau berkelanjutan", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:14:52.615782", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBRI", "keyword": "perlindungan nasabah digital", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:15:00.894023", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBRI", "keyword": "responsible credit practices", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:15:10.155701", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBRI", "keyword": "rural financial inclusion", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:15:19.985718", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBRI", "keyword": "small business empowerment", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:15:29.153445", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBRI", "keyword": "standar kepatuhan perbankan", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:15:35.810757", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBRI", "keyword": "sustainable lending framework", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:15:42.859315", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBRI", "keyword": "tata kelola bank", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:15:52.195703", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBNI", "keyword": "SME green finance", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:15:59.773282", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBNI", "keyword": "aksesibilitas bank digital", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:16:05.918284", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBNI", "keyword": "anti-money laundering compliance", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:16:13.158919", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBNI", "keyword": "aspek risiko iklim perbankan", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:16:22.086957", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBNI", "keyword": "climate risk assessment", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:16:30.390974", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBNI", "keyword": "community development finance", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:16:39.811970", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBNI", "keyword": "corporate governance banking", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:16:49.756970", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBNI", "keyword": "cybersecurity risk management", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:16:59.802110", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBNI", "keyword": "data privacy protection", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:17:06.844285", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBNI", "keyword": "digital banking accessibility", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:17:15.051112", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBNI", "keyword": "ethical debt collection", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:17:23.153980", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBNI", "keyword": "financial inclusion initiatives", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:17:32.234851", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBNI", "keyword": "green lending portfolio", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:17:39.716312", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBNI", "keyword": "inisiatif inklusi keuangan", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:17:45.381782", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBNI", "keyword": "keberagaman tenaga kerja bank", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:17:55.385884", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBNI", "keyword": "kepatuhan anti-pencucian uang", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:18:04.012790", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBNI", "keyword": "kerangka pembiayaan berkelanjutan", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:18:09.452161", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBNI", "keyword": "manajemen risiko siber", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:18:17.789858", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBNI", "keyword": "net zero banking strategy", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:18:27.741832", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBNI", "keyword": "perlindungan data nasabah", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:18:36.341712", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBNI", "keyword": "portofolio pinjaman hijau", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:18:46.059907", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBNI", "keyword": "responsible investment policy", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:18:55.298091", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBNI", "keyword": "sustainable financing framework", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:19:04.002240", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBNI", "keyword": "tata kelola bank korporasi", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:19:12.315945", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "BBNI", "keyword": "workplace diversity and inclusion", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:19:17.715567", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SIDO", "keyword": "biodiversity protection", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:19:24.053947", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SIDO", "keyword": "community health education", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:19:33.687749", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SIDO", "keyword": "digital health risk management", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:19:40.990001", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SIDO", "keyword": "edukasi kesehatan masyarakat", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:19:51.135975", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SIDO", "keyword": "efisiensi energi produksi", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:19:57.136701", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SIDO", "keyword": "energy efficient production", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:20:02.848225", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SIDO", "keyword": "ethical marketing herbal", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:20:09.626151", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SIDO", "keyword": "governance and compliance", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:20:16.085277", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SIDO", "keyword": "hak tenaga kerja pabrik", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:20:22.696954", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SIDO", "keyword": "keamanan dan kualitas produk", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:20:29.661401", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SIDO", "keyword": "kemitraan petani bertanggung jawab", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:20:36.971074", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SIDO", "keyword": "konservasi air manufaktur", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:20:46.615743", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SIDO", "keyword": "labor rights in manufacturing", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:20:53.350641", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SIDO", "keyword": "manajemen limbah herbal", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:21:03.388670", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SIDO", "keyword": "natural product safety standards", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:21:10.439211", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SIDO", "keyword": "pengadaan herbal berkelanjutan", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:21:20.282019", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SIDO", "keyword": "perlindungan biodiversitas", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:21:26.867988", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SIDO", "keyword": "product quality and safety", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:21:34.737506", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SIDO", "keyword": "responsible farmer partnerships", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:21:40.640680", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SIDO", "keyword": "standar keamanan produk alami", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:21:48.279860", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SIDO", "keyword": "supply chain traceability", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:21:58.327436", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SIDO", "keyword": "sustainable herbal sourcing", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:22:04.116980", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SIDO", "keyword": "sustainable packaging innovation", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:22:11.787951", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SIDO", "keyword": "waste management herbal industry", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:22:20.795452", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "SIDO", "keyword": "water conservation manufacturing", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:22:29.453151", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TLKM", "keyword": "5G health and safety compliance", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:22:38.103484", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TLKM", "keyword": "akses internet inklusif", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:22:47.414232", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TLKM", "keyword": "broadband accessibility rural", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:22:57.150891", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TLKM", "keyword": "community tech education", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:23:05.138723", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TLKM", "keyword": "corporate governance telecom", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:23:13.646213", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TLKM", "keyword": "cyber resilience framework", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:23:21.113054", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TLKM", "keyword": "data privacy protection", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:23:26.542704", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TLKM", "keyword": "digital connectivity bridge", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:23:36.368353", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TLKM", "keyword": "digital equality initiatives", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:23:41.885103", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TLKM", "keyword": "e-waste recycling programs", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:23:48.430568", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TLKM", "keyword": "efisiensi energi jaringan", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:23:54.495663", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TLKM", "keyword": "energy efficient network", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:24:00.705987", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TLKM", "keyword": "green data center infrastructure", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:24:09.078192", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TLKM", "keyword": "infrastruktur pusat data hijau", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:24:16.618859", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TLKM", "keyword": "keamanan siber terpadu", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:24:26.378338", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TLKM", "keyword": "kesetaraan digital", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:24:32.278650", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TLKM", "keyword": "konektivitas digital nasional", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:24:39.841814", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TLKM", "keyword": "labor rights telecommunications", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:24:47.790817", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TLKM", "keyword": "low carbon connectivity", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:24:57.433363", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TLKM", "keyword": "manajemen limbah elektronik", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:25:07.392135", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TLKM", "keyword": "national digital transformation", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:25:14.396052", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TLKM", "keyword": "perlindungan privasi data", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:25:22.784447", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TLKM", "keyword": "spectrum management ethics", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:25:30.031984", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TLKM", "keyword": "tata kelola perusahaan telekomunikasi", "fetched": 0}
+{"event": "query_fetched", "timestamp": "2026-01-27T14:25:39.656880", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "company_code": "TLKM", "keyword": "transformasi digital berkelanjutan", "fetched": 0}
+{"event": "run_completed", "timestamp": "2026-01-27T14:25:39.657894", "run_id": "bd4b5683-bc50-453b-bf61-9374548de8da", "queries": 325, "total_fetched": 1216, "total_saved": 1216}

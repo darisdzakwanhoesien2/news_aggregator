@@ -1,0 +1,772 @@
+[
+  {
+    "id": "3c92e067-77a9-4e56-95c8-9342bb0a4947",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "li",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/li[1]",
+    "text": "Citations",
+    "url": null,
+    "attributes": {
+      "class": "bg-token-bg-primary text-token-text-primary sticky top-0 z-1 flex items-center px-6 pt-4 pb-4 text-sm font-medium border-token-border-light h-[calc(var(--header-height,3.5rem)+1px)] border-b",
+      "style": "opacity: 1;"
+    },
+    "timestamp": "2026-01-27T22:13:34.534842"
+  },
+  {
+    "id": "a896c3e5-b1cc-42c9-8c4c-23ef582aa638",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "li",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/li[1]",
+    "text": "Citations",
+    "url": null,
+    "attributes": {
+      "class": "bg-token-bg-primary text-token-text-primary sticky top-0 z-1 flex items-center px-6 pt-4 pb-4 text-sm font-medium border-token-border-light h-[calc(var(--header-height,3.5rem)+1px)] border-b",
+      "style": "opacity: 1;"
+    },
+    "timestamp": "2026-01-27T22:16:13.030229"
+  },
+  {
+    "id": "b2ac2d4a-b36b-4b4d-96ae-68e6b9910d81",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[1]/a[1]/div[2]",
+    "text": "English-taught degree programs in Taiwan 2023",
+    "url": null,
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-27T22:16:13.031158"
+  },
+  {
+    "id": "ea82310c-9781-4b64-8cca-53c995fa2ab6",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[1]/a[1]/div[3]",
+    "text": "The country offers almost 500 English-taught degree programs with a wide variety of fields to choose from! No wonder Taiwan is a popular country among-st ...",
+    "url": null,
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-27T22:16:13.031208"
+  },
+  {
+    "id": "a272c1d6-ef7b-4a59-85ef-7c7180502914",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[2]/a[1]/div[2]",
+    "text": "National Taiwan University GMBA",
+    "url": null,
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-27T22:16:13.031240"
+  },
+  {
+    "id": "a62876bb-dd22-471c-87da-11c434c099c1",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[2]/a[1]/div[3]",
+    "text": "The National Taiwan University Global MBA (GMBA) program is celeb ...more ... Email: ntugmba@ntu.edu.tw. Phone: +886-2-3366-1030. Fax: +886-2-3366-5411. Room ...Read more",
+    "url": null,
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-27T22:16:13.031292"
+  },
+  {
+    "id": "035511c2-a430-4adf-95fe-84fac1572a8c",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[3]/a[1]/div[2]",
+    "text": "International MBA | NCCU College of Commerce",
+    "url": null,
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-27T22:16:13.031312"
+  },
+  {
+    "id": "f708ca0f-0dc5-4ea3-ac29-97e67325d8c2",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[3]/a[1]/div[3]",
+    "text": "The IMBA program was established in 2001 as the first all English-taught MBA program in Taiwan. The IMBA Program is dedicated to cultivating multi-dimensional ...Read more",
+    "url": null,
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-27T22:16:13.031327"
+  },
+  {
+    "id": "151458f4-c64e-44f2-b2e3-b78d2f0b8f2e",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[4]/a[1]/div[2]",
+    "text": "NTNU Programs in English - Master's Programs",
+    "url": null,
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-27T22:16:13.031367"
+  },
+  {
+    "id": "8516b99a-586f-47dc-aac9-ac4b06937033",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[4]/a[1]/div[3]",
+    "text": "Programs in English Master's Programs: College of Arts, College of Education, College of Liberal Arts, College of International Studies and Social Sciences.",
+    "url": null,
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-27T22:16:13.031392"
+  },
+  {
+    "id": "06e8ed40-7cb4-4f75-8ab6-6505b3228935",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[5]/a[1]/div[2]",
+    "text": "International Master's Program of Learning and Instruction",
+    "url": null,
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-27T22:16:13.031437"
+  },
+  {
+    "id": "07ba3504-c6c4-4bcf-b37c-1fe7eb033dc2",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[5]/a[1]/div[3]",
+    "text": "International students who hold a Bachelor's degree or equivalent are welcome. All courses are held in English. No TOCFL or Chinese tests required. website.Read more",
+    "url": null,
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-27T22:16:13.031477"
+  },
+  {
+    "id": "60b70e00-fada-44a5-a2be-b374c3df1191",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[6]/a[1]/div[2]",
+    "text": "119 Masters Degree Programs in Taiwan | educations.com",
+    "url": null,
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-27T22:16:13.031493"
+  },
+  {
+    "id": "25ffcd5f-7bc7-459c-92ba-380def19d902",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[6]/a[1]/div[3]",
+    "text": "We are the first and only such program in Taiwan to offer a fully accredited Masters of Business Administration completely in English.",
+    "url": null,
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-27T22:16:13.031529"
+  },
+  {
+    "id": "e58be01a-5569-4208-9e72-bc81159c0dc8",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[7]/a[1]/div[2]",
+    "text": "English-taught Programs | Office of International Affairs",
+    "url": null,
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-27T22:16:13.031556"
+  },
+  {
+    "id": "b8368732-a980-4c27-a3ef-57bbbc7d6cb4",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[7]/a[1]/div[3]",
+    "text": "Southern Taiwan University of Science and Technology offers the following sixteen all-English programs for overseas students to apply for: ; M.S., Department of ...Read more",
+    "url": null,
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-27T22:16:13.031593"
+  },
+  {
+    "id": "be17c66e-89d8-462f-8584-2110d834406b",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[8]/a[1]/div[2]",
+    "text": "English-taught Programs",
+    "url": null,
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-27T22:16:13.031609"
+  },
+  {
+    "id": "55bb1698-7777-457d-8d79-4c7e294d3922",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[8]/a[1]/div[3]",
+    "text": "International Master Program in Plant and Microbial Biology. Dotoral Program. International PhD Program in Taiwan and Transcultural Studies \u00b7 International ...Read more",
+    "url": null,
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-27T22:16:13.031634"
+  },
+  {
+    "id": "29ef98b8-8ed7-4c08-af33-f5de9d3b773f",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[9]/a[1]/div[2]",
+    "text": "ACADEMICS-National Yang Ming Chiao Tung University",
+    "url": null,
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-27T22:16:13.031665"
+  },
+  {
+    "id": "502daae2-e0d1-455d-a5dd-91815ecbbff2",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[9]/a[1]/div[3]",
+    "text": "Teaching English to Speakers of Other Languages(M.A.); Philosophy of Mind and Cognition(M.A.); Visual Studies(M.A.). Category\uff1aGraduate. College of ...",
+    "url": null,
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-27T22:16:13.031700"
+  },
+  {
+    "id": "53648e7e-f69c-47df-9569-61e403d4c001",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[10]/a[1]/div[2]",
+    "text": "Tunghai University",
+    "url": null,
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-27T22:16:13.031716"
+  },
+  {
+    "id": "f722330a-d1e6-459d-bd82-f16b23d46a2f",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[10]/a[1]/div[3]",
+    "text": "Tunghai University is the first and only educational institution in Taiwan that offers a complete education program from kindergarten to PhD program.",
+    "url": null,
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-27T22:16:13.031732"
+  },
+  {
+    "id": "b9327971-cf29-4193-ba75-e4a46b08d181",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[11]/a[1]/div[2]",
+    "text": "Find a Program - Study in Taiwan",
+    "url": null,
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-27T22:16:13.031749"
+  },
+  {
+    "id": "ccb057b7-6309-4c38-aa63-fef008fcf85a",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[11]/a[1]/div[3]",
+    "text": "Level of Study. Junior College; Bachelor; Master; Ph.D. Taught in English. Above 90% taught in English; 70% taught in English; 50% taught in English; Under 50 ...",
+    "url": null,
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-27T22:16:13.031795"
+  },
+  {
+    "id": "6d3f5fe1-4d89-4f42-a20c-7a833b3ea784",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[12]/a[1]/div[2]",
+    "text": "264 Master's degrees in Taiwan | Mastersportal",
+    "url": null,
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-27T22:16:13.031819"
+  },
+  {
+    "id": "297bc371-e099-4eb2-acb5-a929f4ac27fc",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[12]/a[1]/div[3]",
+    "text": "Find the best Master's degrees from top universities in Taiwan. Check all 264 programmes ... Teaching English to Speakers of Other Languages. Master / Full-time / ...",
+    "url": null,
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-27T22:16:13.031834"
+  },
+  {
+    "id": "c3f65666-feca-46e6-a5c9-c11c476993a1",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "li",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/li[1]",
+    "text": "More",
+    "url": null,
+    "attributes": {
+      "class": "bg-token-bg-primary text-token-text-primary sticky top-0 z-1 flex items-center px-6 pt-4 pb-4 text-sm font-medium border-token-border-light h-[calc(var(--header-height,3.5rem)+1px)] border-b",
+      "style": "opacity: 1;"
+    },
+    "timestamp": "2026-01-27T22:16:13.031858"
+  },
+  {
+    "id": "98101466-b82a-473b-989a-15da644dc301",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[1]/a[1]/div[2]",
+    "text": "National Taiwan University Business Administration MBA ...",
+    "url": null,
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-27T22:16:13.031928"
+  },
+  {
+    "id": "1f36df3b-0ca7-49ce-9be0-8f629728b892",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[1]/a[1]/div[3]",
+    "text": "(1) Students can choose the major courses you want to attend. \u00b7 (2) Every major course includes at least 9 credits (1 major* 3 courses* 3 credits). \u00b7 (3) Students ...Read more",
+    "url": null,
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-27T22:16:13.031959"
+  },
+  {
+    "id": "a8bc1e0a-8ba3-428e-9ef9-1b6f1dbd939e",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[2]/a[1]/div[2]",
+    "text": "Academics - National Taiwan University",
+    "url": null,
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-27T22:16:13.031974"
+  },
+  {
+    "id": "9a0ea388-009b-4da0-bcc0-5ab03a086aa7",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[2]/a[1]/div[3]",
+    "text": "NTU's programs cover a wide array of disciplines across science, arts, and the humanities, with up to 8,000 courses made available for selection each semester.",
+    "url": null,
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-27T22:16:13.031995"
+  },
+  {
+    "id": "09f4fc20-dedc-463a-a828-72dc49884b17",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[3]/a[1]/div[2]",
+    "text": "National Taiwan University International Business MBA",
+    "url": null,
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-27T22:16:13.032036"
+  },
+  {
+    "id": "f8e29b84-0683-432c-ad7d-0e53c5943818",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[3]/a[1]/div[3]",
+    "text": "In addition to completing all required graduation credits (42 credits), students must also complete the graduation thesis and oral defense.Read more",
+    "url": null,
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-27T22:16:13.032052"
+  },
+  {
+    "id": "32c77020-dbca-49f0-bfa7-f7e86e6b1a1f",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[4]/a[1]/div[2]",
+    "text": "Master Programs in Taiwan - University Entrance Committee For ...",
+    "url": null,
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-27T22:16:13.032071"
+  },
+  {
+    "id": "a2ca9923-c707-4a62-bb62-4d727589fb4c",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[4]/a[1]/div[3]",
+    "text": "Institutions offer English master Taiwan programs for students in computer science, IT, engineering, business administration, health science, law, global ...",
+    "url": null,
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-27T22:16:13.032087"
+  },
+  {
+    "id": "5384ab7e-85d4-4bc3-8a41-a44ec586991b",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[5]/a[1]/div[2]",
+    "text": "Master Programs in Taiwan",
+    "url": null,
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-27T22:16:13.032100"
+  },
+  {
+    "id": "1fe33ab6-c4e0-4cfe-8092-09d739dcd103",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[5]/a[1]/div[3]",
+    "text": "Master programs in Taiwan emphasize multiculturalism and international learning. They provide English-taught agriculture & forestry, applied sciences, arts, ...Read more",
+    "url": null,
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-27T22:16:13.032113"
+  },
+  {
+    "id": "b9cb0cff-dd70-46b3-8fc4-4cb963592fa9",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[6]/a[1]/div[2]",
+    "text": "National Taiwan University, International College 2022 ...",
+    "url": null,
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-27T22:16:13.032127"
+  },
+  {
+    "id": "056db11f-c3f3-42eb-8214-cb4245b58dea",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[6]/a[1]/div[3]",
+    "text": "16 Nov 2021 \u2014 Join NTU's English-taught Master degree programs \u2013 Master's Program in Global Agriculture Technology and Genomic Science (Global ATGS), Master ...Read more",
+    "url": null,
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-27T22:16:13.032151"
+  },
+  {
+    "id": "cf78fd25-c298-49fa-87f2-256ab6283d04",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[7]/a[1]/div[2]",
+    "text": "Taiwan International Graduate Program On-line Application",
+    "url": null,
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-27T22:16:13.032176"
+  },
+  {
+    "id": "6d06aebd-e76a-43a6-838e-d28c4e64fc3f",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[7]/a[1]/div[3]",
+    "text": "It provides an all-English and advanced research-orientated environment for educating young academic talents from Taiwan and abroad.Read more",
+    "url": null,
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-27T22:16:13.032227"
+  },
+  {
+    "id": "a3418f91-6396-4606-a040-663e3aa266ad",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[8]/a[1]/div[2]",
+    "text": "Master's Degree Program Award: National Taiwan Normal ...",
+    "url": null,
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-27T22:16:13.032268"
+  },
+  {
+    "id": "05613e02-7996-4795-9cc0-9cf168aed3aa",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[8]/a[1]/div[3]",
+    "text": "The program is taught in English. The IHRD program's features are as follows: International and cross-cultural environment. IHRD students come from all over the ...",
+    "url": null,
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-27T22:16:13.032282"
+  },
+  {
+    "id": "a35b50b9-8b63-4ab6-a2bf-08ec1b33cad0",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[9]/a[1]/div[2]",
+    "text": "5 Best Master's Degree Programs in Taiwan for 2026",
+    "url": null,
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-27T22:16:13.032304"
+  },
+  {
+    "id": "9902e5f7-2a03-43b4-85b7-ce1d2257efb3",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[9]/a[1]/div[3]",
+    "text": "Access our curated selection of the top 5 Master's Degree programs in Taiwan ... degree programs in fields such as engineering, computer science, and business.Read more",
+    "url": null,
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-27T22:16:13.032327"
+  },
+  {
+    "id": "277c8b3e-630d-481d-a2a9-b545384e03bf",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[10]/a[1]/div[2]",
+    "text": "English-Taught Master's Degree Program Award",
+    "url": null,
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-27T22:16:13.032352"
+  },
+  {
+    "id": "692bcc50-dbc3-4031-a930-f3d0aebcac29",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[10]/a[1]/div[3]",
+    "text": "This award is available to pursue a full-time master's degree programs in Global Health at National Taiwan University (NTU). The program is taught in English.Read more",
+    "url": null,
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-27T22:16:13.032372"
+  },
+  {
+    "id": "795e3db5-1ad5-4b2c-808a-41eb1b2aad83",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[11]/a[1]/div[2]",
+    "text": "NTNU Mandarin-Taught Master's Degree Program Award ...",
+    "url": null,
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-27T22:16:13.032384"
+  },
+  {
+    "id": "9ac7c01f-a36f-4744-b853-50a5a4f71f80",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[11]/a[1]/div[3]",
+    "text": "The program combines one year of intensive studies of the Chinese language with a two-year master's degree program.Read more",
+    "url": null,
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-27T22:16:13.032410"
+  },
+  {
+    "id": "643555ea-eae5-4425-9a64-8bdd85ea7bbe",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[12]/a[1]/div[2]",
+    "text": "39 Masters Degree Programs in Taipei Taiwan",
+    "url": null,
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-27T22:16:13.032449"
+  },
+  {
+    "id": "b6addf39-fc6a-4356-b3ed-7945dbc32a68",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[12]/a[1]/div[3]",
+    "text": "We are the first and only such program in Taiwan to offer a fully accredited Masters of Business Administration completely in English.Read more",
+    "url": null,
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-27T22:16:13.032465"
+  },
+  {
+    "id": "f7ecab5d-fe2a-4e12-a82a-7b399aa599db",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[13]/a[1]/div[2]",
+    "text": "Department of English, NCCU-Masters Programs (MA)",
+    "url": null,
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-27T22:16:13.032495"
+  },
+  {
+    "id": "3f59281b-a4a7-4d4e-83b4-6eab985d9557",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[13]/a[1]/div[3]",
+    "text": "Masters Programs (MA) \u00b7 Fall 2025 Course Schedule for Graduate Program (114.8. \u00b7 Spring 2026 Course Schedule for Graduate Program (114.12. \u00b7 Spring 2025 Course ...Read more",
+    "url": null,
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-27T22:16:13.032568"
+  },
+  {
+    "id": "3172043f-4954-40e4-97d3-340c387a8e58",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[14]/a[1]/div[2]",
+    "text": "University System of Taipei List of English-Taught Courses",
+    "url": null,
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-27T22:16:13.032609"
+  },
+  {
+    "id": "c54a7328-38d1-4f04-b3c6-daf3c30d351a",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[14]/a[1]/div[3]",
+    "text": "Here are links for the index of English taught courses offered by four universities. National Taipei University of Technology (Taipei Tech) \u00b7 Taipei Medical ...",
+    "url": null,
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-27T22:16:13.032644"
+  },
+  {
+    "id": "1cb6f4db-18a3-4cf7-8799-6df58fd2f1ae",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[15]/a[1]/div[2]",
+    "text": "List of Universities and Colleges in Taiwan That Accept ...",
+    "url": null,
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-27T22:16:13.032661"
+  },
+  {
+    "id": "fba76034-b0e4-4fc2-ba35-e1dbe94d7cea",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[15]/a[1]/div[3]",
+    "text": "The document lists universities and colleges in Taiwan that accept foreign students. It includes 31 general public universities, 29 general private ...",
+    "url": null,
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-27T22:16:13.032715"
+  },
+  {
+    "id": "77c5e2e2-2faa-42a1-85c0-dce5cf1496f4",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[16]/a[1]/div[2]",
+    "text": "Is English-taught program in NTU really taught in English?",
+    "url": null,
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-27T22:16:13.032739"
+  },
+  {
+    "id": "bd2a0a24-f3d2-4433-b5da-e22ca00deac6",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[16]/a[1]/div[3]",
+    "text": "On the official website it is said that this program is completely taught in English, but you know in some Taiwan universities even if the program is said to ...Read more",
+    "url": null,
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-27T22:16:13.032792"
+  }
+]
