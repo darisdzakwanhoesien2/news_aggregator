@@ -283,5 +283,363 @@
         "Traffic data privacy"
       ]
     }
+  },
+  "EMTK": {
+    "expanded_keywords": [
+      "digital literacy initiatives",
+      "cybersecurity risk management",
+      "content piracy prevention",
+      "media labor standards",
+      "energy efficient data centers",
+      "data privacy governance",
+      "streaming ethics framework",
+      "talent development media",
+      "community digital empowerment",
+      "electronic waste management",
+      "supply chain transparency",
+      "corporate governance media",
+      "intellectual property rights",
+      "net zero digital transition",
+      "workplace diversity and inclusion",
+      "literasi digital indonesia",
+      "keamanan siber",
+      "perlindungan data pribadi",
+      "tata kelola konten",
+      "hak kekayaan intelektual",
+      "transisi energi infrastruktur digital",
+      "standar jurnalisme",
+      "pengembangan talenta teknologi",
+      "keberagaman tenaga kerja",
+      "efisiensi energi server"
+    ],
+    "esg_metadata": {
+      "sector": "Communication Services",
+      "subsector": "Media & Entertainment",
+      "primary_esg_risks": [
+        "Data privacy breaches",
+        "Cybersecurity threats",
+        "Content regulation compliance"
+      ],
+      "primary_esg_opportunities": [
+        "Digital inclusion programs",
+        "Expansion of green data centers",
+        "Platform for social education"
+      ],
+      "regulatory_exposure": [
+        "Information and Electronic Transactions Law (UU ITE)",
+        "Broadcasting regulations",
+        "Personal Data Protection Law"
+      ],
+      "sustainability_themes": [
+        "Digital Transformation",
+        "Cyber Resilience",
+        "Responsible Media"
+      ],
+      "controversy_triggers": [
+        "Unethical content broadcasting",
+        "Large-scale data leaks",
+        "Labor disputes in production"
+      ],
+      "supply_chain_focus": [
+        "Hardware procurement ethics",
+        "Production house labor standards",
+        "Cloud service energy efficiency"
+      ],
+      "climate_exposure": [
+        "Energy intensity of digital infrastructure",
+        "Physical risks to broadcasting towers"
+      ],
+      "digital_governance_risk": [
+        "Algorithm bias in content",
+        "User data monetization ethics",
+        "Systemic network failure"
+      ]
+    }
+  },
+  "UNVR": {
+    "expanded_keywords": [
+      "circular economy plastics",
+      "sustainable palm oil sourcing",
+      "water stewardship program",
+      "zero waste to landfill",
+      "greenhouse gas reduction manufacturing",
+      "human rights in supply chain",
+      "ethical marketing standards",
+      "biodegradable packaging innovation",
+      "local supplier empowerment",
+      "employee health and safety",
+      "consumer nutrition transparency",
+      "regenerative agriculture sourcing",
+      "corporate climate advocacy",
+      "fair wage policy",
+      "responsible chemicals management",
+      "manajemen limbah plastik",
+      "rantai pasok berkelanjutan",
+      "penggunaan air bertanggung jawab",
+      "energi terbarukan industri",
+      "hak asasi manusia pekerja",
+      "kemasan ramah lingkungan",
+      "pemasaran etis",
+      "pengembangan masyarakat lokal",
+      "nutrisi produk berkelanjutan",
+      "dekarbonisasi logistik"
+    ],
+    "esg_metadata": {
+      "sector": "Consumer Staples",
+      "subsector": "Personal & Household Products",
+      "primary_esg_risks": [
+        "Plastic pollution",
+        "Supply chain labor violations",
+        "Climate-related raw material costs"
+      ],
+      "primary_esg_opportunities": [
+        "Leadership in circular packaging",
+        "Expansion of plant-based products",
+        "Supply chain resilience through local sourcing"
+      ],
+      "regulatory_exposure": [
+        "Extended Producer Responsibility (EPR)",
+        "Halal certification requirements",
+        "Environmental emission standards"
+      ],
+      "sustainability_themes": [
+        "Circular Economy",
+        "Responsible Sourcing",
+        "Water Security"
+      ],
+      "controversy_triggers": [
+        "Palm oil deforestation links",
+        "Misleading health claims",
+        "Workplace safety incidents"
+      ],
+      "supply_chain_focus": [
+        "Smallholder farmer inclusion",
+        "Traceability of agricultural products",
+        "Vendor code of conduct compliance"
+      ],
+      "climate_exposure": [
+        "Water stress in manufacturing regions",
+        "Transition risk from carbon pricing"
+      ],
+      "digital_governance_risk": [
+        "Consumer data privacy in loyalty programs",
+        "E-commerce data security"
+      ]
+    }
+  },
+  "BBRI": {
+    "expanded_keywords": [
+      "microfinance social impact",
+      "sustainable lending framework",
+      "green bond management",
+      "financial literacy programs",
+      "rural financial inclusion",
+      "climate risk stress testing",
+      "anti-money laundering digital",
+      "small business empowerment",
+      "responsible credit practices",
+      "cybersecurity for banking",
+      "gender equality in lending",
+      "digital banking accessibility",
+      "community development finance",
+      "ethical investment policy",
+      "operational carbon footprint",
+      "inklusi keuangan mikro",
+      "literasi keuangan desa",
+      "pembiayaan hijau berkelanjutan",
+      "manajemen risiko iklim",
+      "keamanan siber perbankan",
+      "pemberdayaan UMKM",
+      "tata kelola bank",
+      "investasi berdampak sosial",
+      "perlindungan nasabah digital",
+      "standar kepatuhan perbankan"
+    ],
+    "esg_metadata": {
+      "sector": "Financials",
+      "subsector": "Banking",
+      "primary_esg_risks": [
+        "Credit risk from climate disasters",
+        "Cybersecurity fraud in micro-banking",
+        "Financial crime and AML risks"
+      ],
+      "primary_esg_opportunities": [
+        "Leading green finance market",
+        "Digitalization of micro-entrepreneurs",
+        "Social bond issuance"
+      ],
+      "regulatory_exposure": [
+        "OJK Sustainable Finance Roadmap",
+        "Personal Data Protection Law",
+        "Banking capital regulations"
+      ],
+      "sustainability_themes": [
+        "Financial Inclusion",
+        "Responsible Banking",
+        "SME Resilience"
+      ],
+      "controversy_triggers": [
+        "Predatory lending allegations",
+        "Data privacy breaches",
+        "Governance failures"
+      ],
+      "supply_chain_focus": [
+        "IT service provider security",
+        "Sustainable office procurement",
+        "Outsourced labor standards"
+      ],
+      "climate_exposure": [
+        "Physical risk to borrower assets (agriculture)",
+        "Transition risk in commercial portfolios"
+      ],
+      "digital_governance_risk": [
+        "Privacy of micro-borrower data",
+        "Reliability of digital banking channels",
+        "AI bias in credit scoring"
+      ]
+    }
+  },
+  "TLKM": {
+    "expanded_keywords": [
+      "green data center infrastructure",
+      "digital connectivity bridge",
+      "broadband accessibility rural",
+      "cyber resilience framework",
+      "energy efficient network",
+      "5G health and safety compliance",
+      "labor rights telecommunications",
+      "e-waste recycling programs",
+      "digital equality initiatives",
+      "spectrum management ethics",
+      "national digital transformation",
+      "data privacy protection",
+      "corporate governance telecom",
+      "community tech education",
+      "low carbon connectivity",
+      "infrastruktur pusat data hijau",
+      "konektivitas digital nasional",
+      "keamanan siber terpadu",
+      "efisiensi energi jaringan",
+      "manajemen limbah elektronik",
+      "kesetaraan digital",
+      "tata kelola perusahaan telekomunikasi",
+      "perlindungan privasi data",
+      "transformasi digital berkelanjutan",
+      "akses internet inklusif"
+    ],
+    "esg_metadata": {
+      "sector": "Communication Services",
+      "subsector": "Integrated Telecommunication Services",
+      "primary_esg_risks": [
+        "Data security and privacy",
+        "Regulatory compliance in spectrum",
+        "High energy consumption in data centers"
+      ],
+      "primary_esg_opportunities": [
+        "Enabling smart city infrastructure",
+        "Digitalization for remote areas",
+        "Leading in green technology adoption"
+      ],
+      "regulatory_exposure": [
+        "Telecommunications Law",
+        "Information and Electronic Transactions Law",
+        "Personal Data Protection Act"
+      ],
+      "sustainability_themes": [
+        "Digital Inclusion",
+        "Cybersecurity",
+        "Energy Efficiency"
+      ],
+      "controversy_triggers": [
+        "Nationwide network outages",
+        "Massive user data leaks",
+        "Corruption in infrastructure projects"
+      ],
+      "supply_chain_focus": [
+        "Network equipment hardware sourcing",
+        "Contractor safety for tower maintenance",
+        "Conflict mineral compliance in electronics"
+      ],
+      "climate_exposure": [
+        "High electricity usage for network operations",
+        "Physical infrastructure damage from floods"
+      ],
+      "digital_governance_risk": [
+        "Content censorship and neutrality",
+        "Government surveillance cooperation",
+        "User data storage security"
+      ]
+    }
+  },
+  "TPIA": {
+    "expanded_keywords": [
+      "plastic circularity initiatives",
+      "industrial energy efficiency",
+      "hazardous waste management",
+      "water recycling manufacturing",
+      "petrochemical safety standards",
+      "low carbon chemical production",
+      "green hydrogen exploration",
+      "sustainable polymer development",
+      "air quality monitoring industrial",
+      "labor safety petrochemical",
+      "supply chain environmental audit",
+      "decarbonization industrial roadmap",
+      "community health programs",
+      "chemical spill prevention",
+      "responsible plastic waste management",
+      "ekonomi sirkular plastik",
+      "efisiensi energi industri",
+      "manajemen limbah B3",
+      "keselamatan kerja petrokimia",
+      "dekarbonisasi industri kimia",
+      "daur ulang polimer",
+      "tata kelola lingkungan pabrik",
+      "penggunaan air industri berkelanjutan",
+      "kualitas udara kawasan industri",
+      "inovasi plastik ramah lingkungan"
+    ],
+    "esg_metadata": {
+      "sector": "Materials",
+      "subsector": "Chemicals",
+      "primary_esg_risks": [
+        "Carbon intensive operations",
+        "Hazardous chemical spills",
+        "Regulatory pressure on plastic use"
+      ],
+      "primary_esg_opportunities": [
+        "Leading chemical recycling",
+        "Bio-based polymer production",
+        "Energy efficiency in crackers"
+      ],
+      "regulatory_exposure": [
+        "Environmental impact assessments (AMDAL)",
+        "Plastic tax regulations",
+        "Industrial emission standards"
+      ],
+      "sustainability_themes": [
+        "Circular Economy",
+        "Industrial Decarbonization",
+        "Operational Safety"
+      ],
+      "controversy_triggers": [
+        "Pollution in local waterways",
+        "Industrial accidents",
+        "Community resistance to expansion"
+      ],
+      "supply_chain_focus": [
+        "Feedstock sourcing ethics",
+        "Logistics safety for chemicals",
+        "Supplier sustainability assessments"
+      ],
+      "climate_exposure": [
+        "Transition risk from carbon pricing",
+        "Physical risks to coastal plants"
+      ],
+      "digital_governance_risk": [
+        "Industrial control system cybersecurity",
+        "Protection of proprietary chemical formulas"
+      ]
+    }
   }
 }
