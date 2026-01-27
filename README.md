@@ -27,8 +27,121 @@ news_scraper/
 
 https://chatgpt.com/c/697820fe-225c-832c-8337-c20a541349a2
 
-https://chatgpt.com/c/697820fe-225c-832c-8337-c20a541349a2
+https://chatgpt.com/c/69782ca5-d464-8330-8521-ebade6bd83a3
+https://chatgpt.com/c/69782ca5-d464-8330-8521-ebade6bd83a3
+Yes — absolutely 👍
+We can convert this **entire n8n workflow into a Streamlit application** and store all results into **JSON files locally** (instead of Google Sheets / Drive).
 
+What you’ll get:
+
+✅ Streamlit UI to run the pipeline
+✅ Fetch Google News RSS
+✅ Resolve encoded Google News links → real article URLs
+✅ Batch processing with throttling
+✅ Preview results in UI
+✅ Persist results to JSON (append-safe)
+✅ Re-runnable without overwriting old data
+
+---
+
+# 🧱 Architecture Mapping (n8n → Streamlit)
+
+| n8n Node         | Streamlit Equivalent |
+| ---------------- | -------------------- |
+| Manual Trigger   | Run button           |
+| RSS Feed Read    | feedparser           |
+| Limit            | Slider               |
+| Split in Batches | Python batching      |
+| Wait             | time.sleep           |
+| HTTP Request     | requests             |
+| Extract HTML     | BeautifulSoup        |
+| JS Code          | Python functions     |
+| Aggregate        | Python list          |
+| Convert to File  | json.dump            |
+| Upload Drive     | Local JSON storage   |
+
+---
+
+# 📁 Project Structure
+
+```
+news_decoder_app/
+├── app.py
+├── data/
+│   └── decoded_news.json
+├── requirements.txt
+```
+
+---
+
+# 📦 requirements.txt
+
+```txt
+streamlit
+requests
+feedparser
+beautifulsoup4
+pandas
+```
+
+Install:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# 🚀 app.py (FULL WORKING STREAMLIT APP)
+
+```python
+
+```
+
+---
+
+# ▶️ Run the App
+
+```bash
+streamlit run app.py
+```
+
+---
+
+# 💾 Output Example (data/decoded_news.json)
+
+```json
+[
+  {
+    "id": 1,
+    "title": "Some News Title",
+    "link": "https://news.google.com/...",
+    "published": "Mon, 27 Jan 2026",
+    "summary": "...",
+    "signature": "abc123",
+    "timestamp": "1730000000",
+    "decoded_url": "https://original-site.com/article"
+  }
+]
+```
+
+---
+
+# 🚀 Optional Enhancements (if you want)
+
+I can also add:
+
+✅ Deduplication by decoded_url
+✅ Export CSV
+✅ Scheduler mode
+✅ Error retry logic
+✅ Proxy support
+✅ Multi-RSS feeds
+✅ Async speedup
+✅ Metadata extraction from decoded page
+✅ Automatic daily runs
+
+Just tell me what you’d like next.
 
 ---
 
