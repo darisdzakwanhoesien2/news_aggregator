@@ -24,6 +24,12 @@ news_scraper/
 └── requirements.txt
 ```
 
+
+https://chatgpt.com/c/697820fe-225c-832c-8337-c20a541349a2
+
+https://chatgpt.com/c/697820fe-225c-832c-8337-c20a541349a2
+
+
 ---
 
 # ✅ **Streamlit Scraper App (`app.py`)**
