@@ -1,0 +1,1236 @@
+[
+  {
+    "id": "f6c73810-16d9-4377-92a7-68ffb1b4c741",
+    "doc_type": "html",
+    "tag": "li",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/li[1]",
+    "text": "Citations",
+    "url": null,
+    "attributes": {
+      "class": "bg-token-bg-primary text-token-text-primary sticky top-0 z-1 flex items-center px-6 pt-4 pb-4 text-sm font-medium border-token-border-light h-[calc(var(--header-height,3.5rem)+1px)] border-b",
+      "style": "opacity: 1;"
+    },
+    "timestamp": "2026-01-28T05:21:02.326569"
+  },
+  {
+    "id": "6f19b062-25e1-44b7-a395-0970c87aec67",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[1]/a[1]/div[2]",
+    "text": "Universities and higher education in Brazil - Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Universities_and_higher_education_in_Brazil?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.326608"
+  },
+  {
+    "id": "c5403e6e-7651-4dbe-af43-9f7579554608",
+    "doc_type": "html",
+    "tag": "span",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[1]/a[1]/div[3]/span[1]",
+    "text": "December 14, 2025 — Brazil adopts a mixed system of public and privately funded universities. Public universities can be federally funded or financed by State governments.",
+    "url": "https://en.wikipedia.org/wiki/Universities_and_higher_education_in_Brazil?utm_source=chatgpt.com",
+    "attributes": {},
+    "timestamp": "2026-01-28T05:21:02.326625"
+  },
+  {
+    "id": "a61501b8-2833-40b4-b5db-1831b983f71b",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[2]/a[1]/div[2]",
+    "text": "Master in Linguistic and Literary Studies in English",
+    "url": "https://www.topuniversities.com/universities/universidade-de-sao-paulo/postgrad/master-linguistic-literary-studies-english?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.326644"
+  },
+  {
+    "id": "7906af52-89ba-4f03-aa99-bbbb83e93650",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[2]/a[1]/div[3]",
+    "text": "Learn more about Master in Linguistic and Literary Studies in English 36 months Postgraduate Program By Universidade de São Paulo including the program fees ...",
+    "url": "https://www.topuniversities.com/universities/universidade-de-sao-paulo/postgrad/master-linguistic-literary-studies-english?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.326659"
+  },
+  {
+    "id": "b9df72f4-b247-4e0b-9474-40820e76fecb",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[3]/a[1]/div[2]",
+    "text": "The COPPEAD Graduate School of Business",
+    "url": "https://en.wikipedia.org/wiki/The_COPPEAD_Graduate_School_of_Business?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.326675"
+  },
+  {
+    "id": "c46f018c-8fd4-430d-ade1-bf9acc4fa4f5",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[4]/a[1]/div[2]",
+    "text": "GLU Brazil course",
+    "url": "https://global-labour-university.org/studying/master-courses/unicamp/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.326691"
+  },
+  {
+    "id": "4eaaf0df-805f-42a3-94b5-043729f50d8d",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[4]/a[1]/div[3]",
+    "text": "The Master's Programme is offered by the UNICAMP, Institute of Economics, in the city of Campinas, São Paulo State, Brazil. The course starts in March and ...",
+    "url": "https://global-labour-university.org/studying/master-courses/unicamp/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.326704"
+  },
+  {
+    "id": "86d9fdac-a8ac-48d9-867b-d7ce3bffe16e",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[5]/a[1]/div[2]",
+    "text": "Fundação Getulio Vargas - São Paulo | AACSB Accredited",
+    "url": "https://www.aacsb.edu/accredited/f/fundao-getulio-vargas---so-paulo?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.326720"
+  },
+  {
+    "id": "161470f2-380b-4591-8010-9fb20fb88993",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[5]/a[1]/div[3]",
+    "text": "They include Pre-experience Master's, Specialized Master's, MBAs, and Doctorates. The School is a leader in research in Brazil. Coupling with practice is ...",
+    "url": "https://www.aacsb.edu/accredited/f/fundao-getulio-vargas---so-paulo?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.326733"
+  },
+  {
+    "id": "9be5ee6e-efe7-4b56-a510-b23aef2560c0",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[6]/a[1]/div[2]",
+    "text": "Master and Doctorate in Telecommunications",
+    "url": "https://inatel.br/mestrado-doutorado/en?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.326748"
+  },
+  {
+    "id": "833bf808-f0bf-4428-a009-44d5c904b34d",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[6]/a[1]/div[3]",
+    "text": "Master's Degree in Telecommunications. For students with strong academic education on themes related to telecommunications fundamentals, holding a degree in ...",
+    "url": "https://inatel.br/mestrado-doutorado/en?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.326762"
+  },
+  {
+    "id": "0a8e3258-4a7a-47cb-b5bc-794dcd6694ac",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[7]/a[1]/div[2]",
+    "text": "Graduate Studies - International",
+    "url": "https://www.pucpr.br/international/graduate-studies/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.326777"
+  },
+  {
+    "id": "33dd1122-e794-4660-9c2e-1fcff268a670",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[7]/a[1]/div[3]",
+    "text": "PUCPR offers 16 Graduate programs, including 16 Masters and 13 Doctorates. These programs develop teaching, research, and innovation skills.Read more",
+    "url": "https://www.pucpr.br/international/graduate-studies/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.326790"
+  },
+  {
+    "id": "ec4de223-da03-43df-874b-6eb7ad086e8b",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[8]/a[1]/div[2]",
+    "text": "Graduate and Research Central Coordination Office (CCPG)",
+    "url": "https://www.puc-rio.br/english/departaments/ccpg/education.html?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.326811"
+  },
+  {
+    "id": "bcae757f-8ac5-408c-b36b-71054f52e62b",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[8]/a[1]/div[3]",
+    "text": "The Graduate Program in Education is developed in two levels: the Master's and the Doctoral Programs in Education. A pioneer in the country.Read more",
+    "url": "https://www.puc-rio.br/english/departaments/ccpg/education.html?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.326825"
+  },
+  {
+    "id": "4a418b45-2a0a-4061-ad86-47457742ac67",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[9]/a[1]/div[2]",
+    "text": "MA in Brazil 2026 | Top Universities & Course Programs",
+    "url": "https://www.standyou.com/study-abroad/ma-in-brazil/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.326840"
+  },
+  {
+    "id": "49e1e69f-ac03-497d-8357-09cecb3fe496",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[9]/a[1]/div[3]",
+    "text": "MA (Master of Arts) specialization in Brazil ; Universidade Federal do Rio de Janeiro (UFRJ). Fine Arts, Music, Philosophy, History, and others. 2 years.Read more",
+    "url": "https://www.standyou.com/study-abroad/ma-in-brazil/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.326853"
+  },
+  {
+    "id": "eb20ca3d-961c-4977-b6d8-9b6707c94c6d",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[10]/a[1]/div[2]",
+    "text": "Structure of degree programmes - International Office - USP",
+    "url": "https://internationaloffice.usp.br/en/index.php/admissions/structure-of-degree-programmes/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.326869"
+  },
+  {
+    "id": "dcd88d3d-7706-4157-bce8-3290d4954348",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[10]/a[1]/div[3]",
+    "text": "The so-called stricto sensu postgraduate programmes – even the professional ones – are divided into two levels: mestrado (master's degree) and doutorado ( ...",
+    "url": "https://internationaloffice.usp.br/en/index.php/admissions/structure-of-degree-programmes/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.326883"
+  },
+  {
+    "id": "cde5c896-38cd-4c2b-840c-e51258564864",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[11]/a[1]/div[2]",
+    "text": "Masters Study in Brazil – A Guide for 2025 - FindAMasters",
+    "url": "https://www.findamasters.com/guides/masters-study-in-brazil?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.326898"
+  },
+  {
+    "id": "6229fea4-7b06-404e-8dd8-581dbbe96144",
+    "doc_type": "html",
+    "tag": "span",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[11]/a[1]/div[3]/span[1]",
+    "text": "September 4, 2025 — Brazilian university rankings ; University of São Paulo, =199, 108 ; University of Campinas, 351-400, =233 ; Universidade Estadual Paulista (Unesp) ...",
+    "url": "https://www.findamasters.com/guides/masters-study-in-brazil?utm_source=chatgpt.com",
+    "attributes": {},
+    "timestamp": "2026-01-28T05:21:02.326911"
+  },
+  {
+    "id": "b9ba0fa2-7db5-4569-b320-87a7b1294b4f",
+    "doc_type": "html",
+    "tag": "li",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/li[1]",
+    "text": "More",
+    "url": null,
+    "attributes": {
+      "class": "bg-token-bg-primary text-token-text-primary sticky top-0 z-1 flex items-center px-6 pt-4 pb-4 text-sm font-medium border-token-border-light h-[calc(var(--header-height,3.5rem)+1px)] border-b",
+      "style": "opacity: 1;"
+    },
+    "timestamp": "2026-01-28T05:21:02.326924"
+  },
+  {
+    "id": "30e6fe24-ff42-4532-8eea-81f30927b4e8",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[1]/a[1]/div[2]",
+    "text": "Graduate Studies – USP – Universidade de São Paulo",
+    "url": "https://www5.usp.br/english/education/graduate-studies/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.326939"
+  },
+  {
+    "id": "0495c098-3a28-4680-94fb-1a9a8fdbacc2",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[1]/a[1]/div[3]",
+    "text": "USP has graduate programs in all fields of knowledge. These are stricto sensu courses offering Master's and Ph.D degrees.",
+    "url": "https://www5.usp.br/english/education/graduate-studies/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.326952"
+  },
+  {
+    "id": "a09c832f-294b-47d5-ba06-b2e1e3faed6d",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[2]/a[1]/div[2]",
+    "text": "Graduate Student - USP International Office",
+    "url": "https://internationaloffice.usp.br/new/en/admission/graduate-student/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.326966"
+  },
+  {
+    "id": "b8cbe146-dbc6-4d67-bed6-d43143082470",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[2]/a[1]/div[3]",
+    "text": "The stricto sensu Graduate Program at USP comprises academic and professional Master's programs (Mestrado), as well as academic Doctoral programs ...Read more",
+    "url": "https://internationaloffice.usp.br/new/en/admission/graduate-student/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.326979"
+  },
+  {
+    "id": "94f59fa0-9fa9-4bf3-8292-b2d31f240f72",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[3]/a[1]/div[2]",
+    "text": "About the Programs - Pró-Reitoria de Pós-Graduação - USP",
+    "url": "https://www.prpg.usp.br/en/enrolling-at-usp/about-the-programs?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.326994"
+  },
+  {
+    "id": "a5a44f2c-7d89-4059-9cb3-f030dc2fe785",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[3]/a[1]/div[3]",
+    "text": "The graduate courses at USP are mostly offered by the university's teaching and research units (Institutes and Colleges). There are also inter-units Graduate ...",
+    "url": "https://www.prpg.usp.br/en/enrolling-at-usp/about-the-programs?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327006"
+  },
+  {
+    "id": "cb23d4e8-7030-4497-8ead-7e0a30155b45",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[4]/a[1]/div[2]",
+    "text": "English | Literatura Brasileira - USP",
+    "url": "https://literaturabrasileira.fflch.usp.br/english?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327021"
+  },
+  {
+    "id": "38daa78f-1718-4a17-bbec-817d16941238",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[4]/a[1]/div[3]",
+    "text": "The Graduate Program in Brazilian Literature of the University of São Paulo offers master and doctoral courses and receives students from all of Brazil and ...Read more",
+    "url": "https://literaturabrasileira.fflch.usp.br/english?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327034"
+  },
+  {
+    "id": "7e644cff-5034-4d0a-8ca8-bfb9e2967b56",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[5]/a[1]/div[2]",
+    "text": "PPG - LETRA: O Programa",
+    "url": "https://letra.fflch.usp.br/en?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327048"
+  },
+  {
+    "id": "af12441e-61da-45a2-a1fb-abadb5204ca2",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[5]/a[1]/div[3]",
+    "text": "PPG-LETRA is committed to fostering high-quality graduate education that will enable students to develop outstanding research in a variety of areas.Read more",
+    "url": "https://letra.fflch.usp.br/en?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327061"
+  },
+  {
+    "id": "08a6baf5-3190-44b1-a9e0-fd99752e2336",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[6]/a[1]/div[2]",
+    "text": "Graduate Program",
+    "url": "https://www4.fe.usp.br/en/graduate?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327076"
+  },
+  {
+    "id": "18a6e35d-1929-489a-9f30-42767a435bbd",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[6]/a[1]/div[3]",
+    "text": "The Graduate Program in Education at the School of Education offers Masters', Doctoral and Straight Doctoral degrees.",
+    "url": "https://www4.fe.usp.br/en/graduate?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327089"
+  },
+  {
+    "id": "7acdf1df-8721-4827-9c05-46c93a23bf50",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[7]/a[1]/div[2]",
+    "text": "Universidade Federal do Rio de Janeiro – Universidade Federal do ...",
+    "url": "https://ufrj.br/en/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327105"
+  },
+  {
+    "id": "0c1782c1-5d28-4bd7-b9b0-1779d2e135b7",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[7]/a[1]/div[3]",
+    "text": "The course list offers all options for undergraduate (graduação), master's (mestrado) and PhD (doutorado) programs. Portuguese language proficiency. All courses ...",
+    "url": "https://ufrj.br/en/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327118"
+  },
+  {
+    "id": "cd32c3c5-9db1-4d6e-82a6-3613bc92c50c",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[8]/a[1]/div[2]",
+    "text": "Graduate Programs - PUCRS - English website",
+    "url": "https://www.pucrs.br/en/study-at-pucrs/graduate-programs/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327133"
+  },
+  {
+    "id": "2362bdad-c235-4b25-a4c3-973ae4f99726",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[8]/a[1]/div[3]",
+    "text": "PUCRS offers stricto sensu graduate programs in all major areas of knowledge, providing students with experience in research projects.Read more",
+    "url": "https://www.pucrs.br/en/study-at-pucrs/graduate-programs/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327147"
+  },
+  {
+    "id": "105124c5-5ba7-4848-8997-90e499c43b1e",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[9]/a[1]/div[2]",
+    "text": "Unicamp's Graduate Programs - PRPG",
+    "url": "https://prpg.unicamp.br/en/unicamps-graduate-programs/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327162"
+  },
+  {
+    "id": "eb9dba23-149a-4311-9c3a-ee5059007311",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[9]/a[1]/div[3]",
+    "text": "In 2022, the university offered 83 stricto sensu programs covering all areas of knowledge, the majority being master's and doctoral courses.Read more",
+    "url": "https://prpg.unicamp.br/en/unicamps-graduate-programs/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327176"
+  },
+  {
+    "id": "31fe68d7-f58c-4843-99b4-e2a6fc69c164",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[10]/a[1]/div[2]",
+    "text": "Ways of Admission to Unicamp - Foreign Students - DERI",
+    "url": "https://internationaloffice.unicamp.br/en/estrangeiros/estudantes-estrangeiros/formas-de-ingresso/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327191"
+  },
+  {
+    "id": "9211f08c-104e-4d76-9a26-2429b8ec3ab2",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[10]/a[1]/div[3]",
+    "text": "To apply for Undergraduate courses, the candidate must have completed a recognized course at any Higher Education Institution (HEI) in Brazil or abroad.Read more",
+    "url": "https://internationaloffice.unicamp.br/en/estrangeiros/estudantes-estrangeiros/formas-de-ingresso/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327204"
+  },
+  {
+    "id": "ac57acaa-c1f5-42c7-8eba-72dc4aab1798",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[11]/a[1]/div[2]",
+    "text": "Postgraduate - Unicamp Portal",
+    "url": "https://unicamp.br/en/pos-graduacao/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327219"
+  },
+  {
+    "id": "ee7dd537-2881-4611-ba1d-df3184d23a34",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[11]/a[1]/div[3]",
+    "text": "Postgraduate Course are offered to holders of a higher education diploma, aimed at professional or scientific training that confer specialist certificates.",
+    "url": "https://unicamp.br/en/pos-graduacao/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327232"
+  },
+  {
+    "id": "66e5bf00-4382-4c37-8923-c2ebae7f641f",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[12]/a[1]/div[2]",
+    "text": "Academic Master's and Doctorate - Stricto Sensu - Programs",
+    "url": "https://prpg.unicamp.br/en/programas/stricto-sensu/mestrado-doutorado-academico/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327246"
+  },
+  {
+    "id": "f0c1278e-9e17-4d9a-91ce-0aefa0f690d1",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[12]/a[1]/div[3]",
+    "text": "They consist of academic master's and doctoral courses, aimed at training highly qualified human resources, with a view to teaching, research and scientific ...",
+    "url": "https://prpg.unicamp.br/en/programas/stricto-sensu/mestrado-doutorado-academico/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327259"
+  },
+  {
+    "id": "e87f433f-32fd-48aa-a08a-2c9e7c4e2d48",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[13]/a[1]/div[2]",
+    "text": "Intercâmbio Acadêmico - Universidades Conveniadas",
+    "url": "https://www.puc-rio.br/ccci/academico/convenios/universidades.html?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327274"
+  },
+  {
+    "id": "59cee4ea-e751-4af1-b31b-6c73dc9df814",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[13]/a[1]/div[3]",
+    "text": "Fique atento: SIAA-PUC Sistema Online; Neste processo de seleção serão oferecidas cerca de 100 vagas em Portugal e quase 200 vagas na França!Read more",
+    "url": "https://www.puc-rio.br/ccci/academico/convenios/universidades.html?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327287"
+  },
+  {
+    "id": "872d2575-9d9d-43c7-a801-959585545545",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[14]/a[1]/div[2]",
+    "text": "PUC-Rio - Pontifical Catholic University of Rio de Janeiro",
+    "url": "https://www.puc-rio.br/english/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327301"
+  },
+  {
+    "id": "82aa9a26-d8ea-4e4b-bc83-a5867750b05b",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[14]/a[1]/div[3]",
+    "text": "Visit the website of the Pontifical Catholic University of Rio de Janeiro - PUC-Rio! Information about the University's activities: Teaching and Research, ...",
+    "url": "https://www.puc-rio.br/english/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327314"
+  },
+  {
+    "id": "6b1fd583-d96f-4bf5-8fe0-11fb9f2d7e81",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[15]/a[1]/div[2]",
+    "text": "Theology - Escola de Educação e Humanidades",
+    "url": "https://www.pucpr.br/escola-de-educacao-e-humanidades/theology/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327329"
+  },
+  {
+    "id": "34b42f0e-0ea8-426d-965e-74a7a99e3371",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[15]/a[1]/div[3]",
+    "text": "The Postgraduate Program in Theology (PPGT) develops the training of highly qualified individuals in teaching, research, and consultancy.Read more",
+    "url": "https://www.pucpr.br/escola-de-educacao-e-humanidades/theology/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327342"
+  },
+  {
+    "id": "43e17133-7283-4195-bcf2-b6fa6e0b0c26",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[16]/a[1]/div[2]",
+    "text": "Universities in Brazil 🇧🇷 that offer programs in English ...",
+    "url": "https://www.facebook.com/movewithifeanyi/posts/universities-in-brazil-that-offer-programs-in-english-language-1-pucpr-pontifica/791854746687222/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327357"
+  },
+  {
+    "id": "d6ada89d-2c75-4760-ad6d-6b4ce933cb9c",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[16]/a[1]/div[3]",
+    "text": "3) University of São Paulo (USP): Most undergraduate courses are in Portuguese. You can get English-taught courses at the postgraduate level. 4) ...Read more",
+    "url": "https://www.facebook.com/movewithifeanyi/posts/universities-in-brazil-that-offer-programs-in-english-language-1-pucpr-pontifica/791854746687222/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327370"
+  },
+  {
+    "id": "9f00b479-7d46-4f47-bd83-0808d206229c",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[17]/a[1]/div[2]",
+    "text": "University of Sao Paulo | 1 Masters - Mastersportal",
+    "url": "https://www.mastersportal.com/universities/12072/university-of-sao-paulo.html?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327387"
+  },
+  {
+    "id": "0c508e52-19f4-4708-95c5-2a0657faaf05",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[17]/a[1]/div[3]",
+    "text": "The University of São Paulo offers undergraduate courses in all areas of knowledge. All are free of charge and last from four to six years.",
+    "url": "https://www.mastersportal.com/universities/12072/university-of-sao-paulo.html?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327401"
+  },
+  {
+    "id": "ff4a012b-b341-41c5-b6f9-69fe9295084e",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[18]/a[1]/div[2]",
+    "text": "UNICAMP - University of Campinas | 1 Masters",
+    "url": "https://www.mastersportal.com/universities/12214/unicamp-university-of-campinas.html?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327416"
+  },
+  {
+    "id": "decd77ae-27a1-4c49-804d-16df7c73d5ab",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[18]/a[1]/div[3]",
+    "text": "Currently, UNICAMP offers 142 graduate programs, covering most fields of knowledge. UNICAMP currently offers 70 different undergraduate degrees, including ...",
+    "url": "https://www.mastersportal.com/universities/12214/unicamp-university-of-campinas.html?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327429"
+  },
+  {
+    "id": "97bf4ec4-6c21-4d77-a539-8eb2fbb1787b",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[19]/a[1]/div[2]",
+    "text": "Pontifical Catholic University of Rio de Janeiro (PUC-Rio)",
+    "url": "https://www.mastersportal.com/universities/21416/pontifical-catholic-university-of-rio-de-janeiro.html?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327445"
+  },
+  {
+    "id": "347c8107-631a-4e8c-9668-7ad4d95ee1ce",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[19]/a[1]/div[3]",
+    "text": "Browse 0 Masters at Pontifical Catholic University of Rio de Janeiro (PUC-Rio). Plus discover fees, scholarships, rankings, student reviews, admissions and ...",
+    "url": "https://www.mastersportal.com/universities/21416/pontifical-catholic-university-of-rio-de-janeiro.html?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327458"
+  },
+  {
+    "id": "ac499431-9e4d-4567-a69d-c4c280855f57",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[20]/a[1]/div[2]",
+    "text": "58 Masters Degree Programs in São Paulo Brazil | educations.com",
+    "url": "https://www.educations.com/masters-degrees/brazil/sao-paulo?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327473"
+  },
+  {
+    "id": "e1f12dc3-1dd7-4a90-abbb-7a2760a632bc",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[20]/a[1]/div[3]",
+    "text": "58 Masters Degree Programs in São Paulo Brazil ; L'École De Design Nantes Atlantique. Master International Design Strategy / Brazil Studio · Full time. 2 years.",
+    "url": "https://www.educations.com/masters-degrees/brazil/sao-paulo?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327486"
+  },
+  {
+    "id": "ea7b8d8b-e707-4f15-b1e9-618e986fd0fd",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[21]/a[1]/div[2]",
+    "text": "51 Mestrado Degree Programs in Brasil - Study Abroad",
+    "url": "https://pt.educations.com/masters-degrees/brasil?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327500"
+  },
+  {
+    "id": "2c6d3bb8-37d1-42c1-880b-a731592fdaab",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[21]/a[1]/div[3]",
+    "text": "Encontre o melhor programa para si e compare 51 Mestrado em Brasil para 2026.",
+    "url": "https://pt.educations.com/masters-degrees/brasil?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327513"
+  },
+  {
+    "id": "94f1b8c6-cc33-4542-9536-3d4ea1a1f3a1",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[22]/a[1]/div[2]",
+    "text": "8 Education Masters Degree Programs in Brazil",
+    "url": "https://www.educations.com/masters-degrees/education/brazil?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327528"
+  },
+  {
+    "id": "15d67c56-6c4c-4f1d-b4cc-5b14aa074dc7",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[22]/a[1]/div[3]",
+    "text": "Find the best fit for you - Compare 8 Masters in Education Programs in Brazil for 2026.",
+    "url": "https://www.educations.com/masters-degrees/education/brazil?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327540"
+  },
+  {
+    "id": "04f3559c-c440-4f38-ac4d-d35fb725156b",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[23]/a[1]/div[2]",
+    "text": "Federal University of Rio de Janeiro - Wikipedia",
+    "url": "https://en.wikipedia.org/wiki/Federal_University_of_Rio_de_Janeiro?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327555"
+  },
+  {
+    "id": "87efdd3f-c8fe-401a-a3f6-747eb097dd4e",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[23]/a[1]/div[3]",
+    "text": "The Federal University of Rio de Janeiro is a public research university in Rio de Janeiro, Brazil. It is the largest federal university in the country and ...",
+    "url": "https://en.wikipedia.org/wiki/Federal_University_of_Rio_de_Janeiro?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327567"
+  },
+  {
+    "id": "b0454b56-cd7d-41dc-9a0b-2314dc4dc6c0",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[24]/a[1]/div[2]",
+    "text": "State University of Campinas",
+    "url": "https://en.wikipedia.org/wiki/State_University_of_Campinas?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327582"
+  },
+  {
+    "id": "cdc776d5-97a5-4295-b6aa-e3c94e48d1e0",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[24]/a[1]/div[3]",
+    "text": "The State University of Campinas commonly called Unicamp, is a public research university in the state of São Paulo, Brazil. State University of Campinas ...",
+    "url": "https://en.wikipedia.org/wiki/State_University_of_Campinas?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327594"
+  },
+  {
+    "id": "76f39448-dda7-41da-ba41-6e173c408c62",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[25]/a[1]/div[2]",
+    "text": "The State University of Campinas / BRASIL",
+    "url": "https://corsi.unimc.it/en/international-relations/info/double-degree-programs/the-state-university-of-campinas-brasil?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327610"
+  },
+  {
+    "id": "0d605bec-7906-4aa5-b072-524b78049e29",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[25]/a[1]/div[3]",
+    "text": "At the end of the program, students will obtain, in addition to the UniMC Master's Degree in International Relations, a Master's Degree in Administration issued ...",
+    "url": "https://corsi.unimc.it/en/international-relations/info/double-degree-programs/the-state-university-of-campinas-brasil?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327623"
+  },
+  {
+    "id": "4bf22b31-1218-45c7-a3c8-ad6613d72a03",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[26]/a[1]/div[2]",
+    "text": "Postgraduate Courses Offered by Universidade de São Paulo",
+    "url": "https://www.qschina.cn/en/universities/universidade-de-sao-paulo/postgrad?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327637"
+  },
+  {
+    "id": "1077ab5a-58dc-4c93-a54f-2f63beb81c13",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[26]/a[1]/div[3]",
+    "text": "Universidade de São Paulo offers more than 270 graduate programs in all areas of knowledge: agricultural sciences, life sciences, health sciences, exact ...",
+    "url": "https://www.qschina.cn/en/universities/universidade-de-sao-paulo/postgrad?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327650"
+  },
+  {
+    "id": "b566667b-4170-42fe-b92f-f1d88203820c",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[27]/a[1]/div[2]",
+    "text": "Internationalizing postgraduate studies in Brazil",
+    "url": "https://www.scielo.br/j/aval/a/CtWstZZktyYGLpjTzfXRH3q/?format=pdf&lang=en&utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327665"
+  },
+  {
+    "id": "8077a5be-e059-4ec5-a42f-053b83e4f354",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[27]/a[1]/div[3]",
+    "text": "by AB Flores · 2023 · Cited by 1 — Abstract: This paper systematically reviews two distinct types of PhD research grants in Brazil: Overseas. PhD and PhD Exchange Research Grants.",
+    "url": "https://www.scielo.br/j/aval/a/CtWstZZktyYGLpjTzfXRH3q/?format=pdf&lang=en&utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327679"
+  },
+  {
+    "id": "e224bae5-6c8b-420c-be53-71768dab852c",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[28]/a[1]/div[2]",
+    "text": "doctoral and master's degree programs",
+    "url": "https://www.unoeste.br/en/graduateprograms?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327694"
+  },
+  {
+    "id": "40e1b868-8ef7-433b-a803-ce55491592c0",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[28]/a[1]/div[3]",
+    "text": "The University of Western São Paulo offers undergraduate programs in all areas of study and three master programs.",
+    "url": "https://www.unoeste.br/en/graduateprograms?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327707"
+  },
+  {
+    "id": "5f76b5c5-5e9c-41fd-bbae-0a9e89d01b1e",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[29]/a[1]/div[2]",
+    "text": "Graduate",
+    "url": "https://eaesp.fgv.br/en/courses/graduate?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327722"
+  },
+  {
+    "id": "be5d46c7-8fb6-4a3d-9205-c9aaf58fe1c2",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[29]/a[1]/div[3]",
+    "text": "Choose your program · Executive Master and Doctorate Programs · Academic Master and Doctorate Programs · Specialization Postgraduate lato sensu Programs.Read more",
+    "url": "https://eaesp.fgv.br/en/courses/graduate?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327734"
+  },
+  {
+    "id": "3c5decb4-a4f8-4ffb-ae6f-f5ced16e60cd",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[30]/a[1]/div[2]",
+    "text": "Collaborative Master with Pontifícia Universidade Católica ...",
+    "url": "https://www.graduateinstitute.ch/programmes/partner-programmes/collaborative-master-pontificia-universidade-catolica-do-rio-de?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327749"
+  },
+  {
+    "id": "3113ad15-11c5-4050-81cd-3ea346c29a65",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[30]/a[1]/div[3]",
+    "text": "This master programme is ideal for MAPI students interested in pursuing careers in international affairs/development studies within government agencies.Read more",
+    "url": "https://www.graduateinstitute.ch/programmes/partner-programmes/collaborative-master-pontificia-universidade-catolica-do-rio-de?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327762"
+  },
+  {
+    "id": "11efb059-d7d5-4b8a-973b-51cecbd3fc80",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[31]/a[1]/div[2]",
+    "text": "Universidades Brasileiras que recebem estudantes ...",
+    "url": "https://www.youtube.com/watch?v=nSpk3qA6VnY&utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327777"
+  },
+  {
+    "id": "3e77461d-3ebe-4c26-99ad-fcc3f0e0119e",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[31]/a[1]/div[3]",
+    "text": "Universidades Brasileiras que recebem estudantes internacionais. 325 views · 1 year ago. #brasil #comoestudarnobrasil ...more ...",
+    "url": "https://www.youtube.com/watch?v=nSpk3qA6VnY&utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327789"
+  },
+  {
+    "id": "aef6ef7d-b522-48a8-a512-a2b9a3c5d02a",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[32]/a[1]/div[2]",
+    "text": "UNICAMP MSC AND PHD STEP BY STEP APPLICATION ...",
+    "url": "https://www.youtube.com/watch?v=EDq52aJM65k&utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327804"
+  },
+  {
+    "id": "7a9024b7-9141-4999-bea0-a94db8157d26",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[32]/a[1]/div[3]",
+    "text": "Learn how to apply to Unicamp with this easy step-by-step guide. Start your graduate program journey at one of Brazil's top universities ...",
+    "url": "https://www.youtube.com/watch?v=EDq52aJM65k&utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327817"
+  },
+  {
+    "id": "6f9df2a8-d7b3-4e39-82df-3cc9ffc17f2c",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[33]/a[1]/div[2]",
+    "text": "Pontifical Catholic University of Rio de Janeiro (PUC-Rio)",
+    "url": "https://www.fu-berlin.de/sites/_ARCHIV/internationalweek/partneruniversitaeten/_dokumente-partneruniverstaeten/About-PUC-Rio_2019-1_0.pdf?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327832"
+  },
+  {
+    "id": "22a15367-c5b8-44ea-99a1-8379c97e69cb",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[33]/a[1]/div[3]",
+    "text": "Graduate courses (continued education) in the areas of medicine and dentistry. ... The most common programs are based on. Portuguese language and Brazilian ...Read more",
+    "url": "https://www.fu-berlin.de/sites/_ARCHIV/internationalweek/partneruniversitaeten/_dokumente-partneruniverstaeten/About-PUC-Rio_2019-1_0.pdf?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327845"
+  },
+  {
+    "id": "10837cc3-57bc-4b52-8b11-e1397feeeaff",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[34]/a[1]/div[2]",
+    "text": "Best Masters Programmes to study in Brazil - TopUniversities",
+    "url": "https://www.topuniversities.com/programs/brazil/masters?country=%5BBR%5D&study_level=%5B3%5D&utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327860"
+  },
+  {
+    "id": "d302db5b-6c35-4e5c-90e5-7673c9920edb",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[34]/a[1]/div[3]",
+    "text": "Find the list of all Masters Programs in Brazil with our interactive Program search tool. Explore accredited programs & start your global education journey ...",
+    "url": "https://www.topuniversities.com/programs/brazil/masters?country=%5BBR%5D&study_level=%5B3%5D&utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327873"
+  },
+  {
+    "id": "73ead574-f430-4e42-9cb2-e233e400ef82",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[35]/a[1]/div[2]",
+    "text": "Master in Administration (São Paulo Campus)",
+    "url": "https://www.topuniversities.com/universities/universidade-de-sao-paulo/postgrad/master-administration-sao-paulo-campus?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327887"
+  },
+  {
+    "id": "253794a5-e269-431c-aaa7-c09a9a5f6e0b",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[35]/a[1]/div[3]",
+    "text": "The Master's degree in Administration aims to provide students with an initial training in research and teaching activities in Administration.",
+    "url": "https://www.topuniversities.com/universities/universidade-de-sao-paulo/postgrad/master-administration-sao-paulo-campus?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327900"
+  },
+  {
+    "id": "21ad48ef-a376-4a33-a6ab-c07e59ebd79c",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[36]/a[1]/div[2]",
+    "text": "Study a Master in Brazil - MASTERGRADSCHOOLS",
+    "url": "https://mastergradschools.com/country/brazil?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327915"
+  },
+  {
+    "id": "692845eb-a698-46a8-8d90-da14a64d68f6",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[36]/a[1]/div[3]",
+    "text": "Other notable universities in Brazil include the Universidade Federal do Rio de Janeiro and the Universidade Estadual de Campinas, a top research institution.",
+    "url": "https://mastergradschools.com/country/brazil?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327928"
+  },
+  {
+    "id": "517023dc-2dab-45f1-90a5-6565a1f73f64",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[37]/a[1]/div[2]",
+    "text": "Dual Master's Degree programmes | Sciences Po",
+    "url": "https://www.sciencespo.fr/en/academics/graduate-schools/dual-degrees-master/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327945"
+  },
+  {
+    "id": "35a53300-6a0d-41e2-a2a1-0d46cb06d8ec",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[37]/a[1]/div[3]",
+    "text": "Sciences Po has partnered with internationally renowned universities to offer dual-degree programmes at the Master's and PhD levels.",
+    "url": "https://www.sciencespo.fr/en/academics/graduate-schools/dual-degrees-master/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327958"
+  },
+  {
+    "id": "3db16eca-1a4e-4d68-aa86-44e7032cd3d6",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[38]/a[1]/div[2]",
+    "text": "Graduate Programs of International Quality Offered by ...",
+    "url": "https://www.gov.br/capes/pt-br/centrais-de-conteudo/25022016-cursos-6-7-pdf?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.327973"
+  },
+  {
+    "id": "aad04582-14d9-4d06-bb21-d73706fcef60",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[38]/a[1]/div[3]",
+    "text": "*Capes evaluates more than 4.200 graduate programs in Brazil. They are ranked from level 3 through 7. Programs ranked 6 and 7 are of international quality.Read more",
+    "url": "https://www.gov.br/capes/pt-br/centrais-de-conteudo/25022016-cursos-6-7-pdf?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.327986"
+  },
+  {
+    "id": "cc8b0ff0-e6ef-4bb1-beaf-3214329b1a2b",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[39]/a[1]/div[2]",
+    "text": "[PDF] USP catalogue",
+    "url": "https://www.student.uni-stuttgart.de/auslandsstudium/document/Lateinamerika/USP-List-of-programms.pdf?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.328001"
+  },
+  {
+    "id": "135b9979-1540-4806-96df-baaf6d811a8b",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[39]/a[1]/div[3]",
+    "text": "Founded in 1934, University of São Paulo is the largest institution of higher education and research in Brazil. In fact, it accounts for a significant ...",
+    "url": "https://www.student.uni-stuttgart.de/auslandsstudium/document/Lateinamerika/USP-List-of-programms.pdf?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.328014"
+  },
+  {
+    "id": "e7a278b6-bb28-433a-98ae-f2a379a8d20c",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[40]/a[1]/div[2]",
+    "text": "Universidade de São Paulo",
+    "url": "https://international-exchanges.univ-lille.fr/university/universidade-de-sao-paulo?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T05:21:02.328029"
+  },
+  {
+    "id": "ecced0eb-17c2-4fa5-9c1d-c7fd3b7a85fa",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[40]/a[1]/div[3]",
+    "text": "Its degree is formed by 183 courses, dedicated to all areas of knowledge, distributed in 42 teaching and research units, with more than 58,000 students. The ...Read more",
+    "url": "https://international-exchanges.univ-lille.fr/university/universidade-de-sao-paulo?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T05:21:02.328042"
+  }
+]

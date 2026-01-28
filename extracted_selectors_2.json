@@ -1,0 +1,2244 @@
+[
+  {
+    "id": "eb587832-ef5f-4044-b10f-8669f472ed91",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "li",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/li[1]",
+    "text": "Citations",
+    "url": null,
+    "attributes": {
+      "class": "bg-token-bg-primary text-token-text-primary sticky top-0 z-1 flex items-center px-6 pt-4 pb-4 text-sm font-medium border-token-border-light h-[calc(var(--header-height,3.5rem)+1px)] border-b",
+      "style": "opacity: 1;"
+    },
+    "timestamp": "2026-01-28T04:55:21.792951"
+  },
+  {
+    "id": "0ee645b4-640c-4a8c-9669-49700fa817d0",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[1]/a[1]/div[2]",
+    "text": "Swedish universities",
+    "url": "https://www.universityadmissions.se/en/find-out-more/swedish-universities/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.793258"
+  },
+  {
+    "id": "556e8af5-7795-48cb-8b75-03f6a5e7f054",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "span",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[1]/a[1]/div[3]/span[1]",
+    "text": "October 14, 2025 \u2014 Sweden currently has 39 universities offering courses and programmes taught in English. Each university has its own special characteristics, subject ...",
+    "url": "https://www.universityadmissions.se/en/find-out-more/swedish-universities/?utm_source=chatgpt.com",
+    "attributes": {},
+    "timestamp": "2026-01-28T04:55:21.793391"
+  },
+  {
+    "id": "81d99545-7029-43f2-8379-eb8979cb266e",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[2]/a[1]/div[2]",
+    "text": "Accounting and Finance - Master's Programme (One Year)",
+    "url": "https://www.lunduniversity.lu.se/lubas/i-uoh-lu-EAGAF?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.793492"
+  },
+  {
+    "id": "753891dd-4644-42ae-917a-32db64c2fe75",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[2]/a[1]/div[3]",
+    "text": "The Master's in Accounting and Finance is a one year, full-time programme, preparing you for a career in financial or professional services.Read more",
+    "url": "https://www.lunduniversity.lu.se/lubas/i-uoh-lu-EAGAF?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.793520"
+  },
+  {
+    "id": "f210a97f-fbe5-46a6-9ff3-069cbeb991d7",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[3]/a[1]/div[2]",
+    "text": "Master's Programme in Accounting and Financial ...",
+    "url": "https://www.uu.se/en/study/programme?query=SRF2M&utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.793546"
+  },
+  {
+    "id": "b9704a6d-b2d2-4bc1-8501-ea10e88d8b71",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[3]/a[1]/div[3]",
+    "text": "Specialisations of this programme \u00b7 Master's Programme in Accounting and Financial Management \u2013 Accounting, Governance and Financial Analysis, 120 credits (SRF2M).Read more",
+    "url": "https://www.uu.se/en/study/programme?query=SRF2M&utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.793579"
+  },
+  {
+    "id": "3dbcc416-e3db-4809-9bd9-68b1e499f764",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[4]/a[1]/div[2]",
+    "text": "MSc Molecular Techniques in Life Science - Stockholm",
+    "url": "https://www.kth.se/en/studies/master/molecular-techniques-life-science/msc-molecular-techniques-in-life-science-1.501282?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.793609"
+  },
+  {
+    "id": "343599e9-a162-4365-99cc-043d0de36daa",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[4]/a[1]/div[3]",
+    "text": "The joint master's programme in Molecular Techniques in Life Science prepares graduates for a professional research career in life science.Read more",
+    "url": "https://www.kth.se/en/studies/master/molecular-techniques-life-science/msc-molecular-techniques-in-life-science-1.501282?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.793667"
+  },
+  {
+    "id": "8aa3923f-db6f-4fb7-a275-a95a4c5004c9",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[5]/a[1]/div[2]",
+    "text": "Master's Programme in Biomedicine | Karolinska Institutet",
+    "url": "https://education.ki.se/bachelors-masters-studies/programmes-and-courses/masters-programme-in-biomedicine?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.793738"
+  },
+  {
+    "id": "f6b17438-f6a2-42a1-b648-7f2012ff8836",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[5]/a[1]/div[3]",
+    "text": "5 May 2020 \u2014 The programme focuses on basic biological knowledge and how it is used to drive medical developments forward. The first part of the programme ...Read more",
+    "url": "https://education.ki.se/bachelors-masters-studies/programmes-and-courses/masters-programme-in-biomedicine?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.793805"
+  },
+  {
+    "id": "d9c871c7-48cf-4e60-b939-fe470d45c771",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[6]/a[1]/div[2]",
+    "text": "Master's programs | University of Gothenburg",
+    "url": "https://www.gu.se/en/study-in-gothenburg/programs-and-courses/masters-programs?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.793963"
+  },
+  {
+    "id": "e7b57e06-3616-4a36-85ce-79d4b51541eb",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[6]/a[1]/div[3]",
+    "text": "6 days ago \u2014 Find your master's program \u00b7 AI, Computing and Technology \u00b7 Business and Management \u00b7 Natural Sciences \u00b7 Health and Life Sciences \u00b7 Education \u00b7 Arts, ...Read more",
+    "url": "https://www.gu.se/en/study-in-gothenburg/programs-and-courses/masters-programs?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.794088"
+  },
+  {
+    "id": "8d707dbb-e9f3-43fc-9a2d-f87dc998fcad",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[7]/a[1]/div[2]",
+    "text": "Eligible master's programmes academic year 2024/2025 ...",
+    "url": "https://si.se/app/uploads/2017/10/updated.-sisgp_eligible_master_programmes_2024_2025.pdf?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.794216"
+  },
+  {
+    "id": "b5f98205-84b7-4e7d-98b6-e2e3890a8c5d",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "span",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[7]/a[1]/div[3]/span[1]",
+    "text": "November 16, 2023 \u2014 Stockholm University. Strategic Information Systems Management. SU-43002. 120. Stockholm University. Master's Programme in Accounting and. Management Control.Read more",
+    "url": "https://si.se/app/uploads/2017/10/updated.-sisgp_eligible_master_programmes_2024_2025.pdf?utm_source=chatgpt.com",
+    "attributes": {},
+    "timestamp": "2026-01-28T04:55:21.794314"
+  },
+  {
+    "id": "38d61878-19cf-4df3-9e44-e22a6d112481",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[8]/a[1]/div[2]",
+    "text": "Stockholm School of Economics",
+    "url": "https://en.wikipedia.org/wiki/Stockholm_School_of_Economics?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.794670"
+  },
+  {
+    "id": "8434a9d2-0c6d-4a8a-8949-0df302ee3685",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[9]/a[1]/div[2]",
+    "text": "Master's programmes",
+    "url": "https://www.umu.se/en/education/studies/masters-programmes/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.794830"
+  },
+  {
+    "id": "979974e7-a602-4e59-b8e7-ef5d37365b5f",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[9]/a[1]/div[3]",
+    "text": "4 Nov 2025 \u2014 Master's programmes. Ume\u00e5 University offers a wide-range of one and two-year master's degree programmes - taught entirely in English - where ...Read more",
+    "url": "https://www.umu.se/en/education/studies/masters-programmes/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.795345"
+  },
+  {
+    "id": "ef7b0f2b-12db-4365-a512-8175b23d88cf",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[10]/a[1]/div[2]",
+    "text": "Study a master's or bachelor's programme at University West",
+    "url": "https://www.hv.se/en/education/bachelors-and-masters-programmes/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.795559"
+  },
+  {
+    "id": "fe570281-cfff-4565-9207-c00819336a68",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[10]/a[1]/div[3]",
+    "text": "22 Sept 2025 \u2014 Master in Leadership in Digitalised Organisations (2 years) \u00b7 Master in Sustainable Development (2 years) \u00b7 Master in Work Integrated Political ...Read more",
+    "url": "https://www.hv.se/en/education/bachelors-and-masters-programmes/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.795654"
+  },
+  {
+    "id": "ec94465f-e5e1-430f-ae8c-92828907354b",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[11]/a[1]/div[2]",
+    "text": "Master's requirements - University Admissions",
+    "url": "https://www.universityadmissions.se/en/entry-requirements/masters-requirements/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.795821"
+  },
+  {
+    "id": "84e53141-6403-4296-8bf5-c0db1b84d046",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "span",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[11]/a[1]/div[3]/span[1]",
+    "text": "October 8, 2025 \u2014 To be eligible for master's courses and programmes taught in English, you must meet the general and specific entry requirements.",
+    "url": "https://www.universityadmissions.se/en/entry-requirements/masters-requirements/?utm_source=chatgpt.com",
+    "attributes": {},
+    "timestamp": "2026-01-28T04:55:21.795953"
+  },
+  {
+    "id": "beab5ae6-c1d1-4694-8623-01d4128c3013",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[12]/a[1]/div[2]",
+    "text": "Search for courses and programmes, master's",
+    "url": "https://www.universityadmissions.se/en/apply-to-masters/search-for-courses-and-programmes-masters/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.796172"
+  },
+  {
+    "id": "b483c3c9-c0b9-4c09-aee9-237d044ee1fc",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[12]/a[1]/div[3]",
+    "text": "14 Oct 2025 \u2014 You can search for courses and programmes that interest you here at Universityadmissions.se. Use the search box on the start page, or click 'Find courses' for ...Read more",
+    "url": "https://www.universityadmissions.se/en/apply-to-masters/search-for-courses-and-programmes-masters/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.796544"
+  },
+  {
+    "id": "95fc3169-92e6-4c60-9fba-551428be80f1",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "li",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/li[1]",
+    "text": "More",
+    "url": null,
+    "attributes": {
+      "class": "bg-token-bg-primary text-token-text-primary sticky top-0 z-1 flex items-center px-6 pt-4 pb-4 text-sm font-medium border-token-border-light h-[calc(var(--header-height,3.5rem)+1px)] border-b",
+      "style": "opacity: 1;"
+    },
+    "timestamp": "2026-01-28T04:55:21.796584"
+  },
+  {
+    "id": "6201be65-ff42-49c1-b95a-6ae73afc1e17",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[1]/a[1]/div[2]",
+    "text": "Search for courses and programmes, bachelor's",
+    "url": "https://www.universityadmissions.se/en/apply-to-bachelors/search-for-courses-and-programmes-bachelors/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.796665"
+  },
+  {
+    "id": "747ab42c-c6bd-4cfc-847c-8e21edece5ea",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "span",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[1]/a[1]/div[3]/span[1]",
+    "text": "October 14, 2025 \u2014 You can search for courses and programmes that interest you here at Universityadmissions.se. Use the search box on the start page, or click 'Find courses' for ...",
+    "url": "https://www.universityadmissions.se/en/apply-to-bachelors/search-for-courses-and-programmes-bachelors/?utm_source=chatgpt.com",
+    "attributes": {},
+    "timestamp": "2026-01-28T04:55:21.796829"
+  },
+  {
+    "id": "9636d7a0-2d5d-48c9-a532-321af3565793",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[2]/a[1]/div[2]",
+    "text": "The Swedish higher education system - University Admissions",
+    "url": "https://www.universityadmissions.se/en/find-out-more/the-swedish-higher-education-system/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.796931"
+  },
+  {
+    "id": "403f9606-0242-42a9-bd44-e07c59b1381b",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "span",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[2]/a[1]/div[3]/span[1]",
+    "text": "October 14, 2025 \u2014 Universities in Sweden offer a large range of international master's programmes where the language of instruction is English. These ...",
+    "url": "https://www.universityadmissions.se/en/find-out-more/the-swedish-higher-education-system/?utm_source=chatgpt.com",
+    "attributes": {},
+    "timestamp": "2026-01-28T04:55:21.797080"
+  },
+  {
+    "id": "1a18d2aa-c065-4943-a790-64fd1d24f849",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[3]/a[1]/div[2]",
+    "text": "Swedish higher education - Sweden.se",
+    "url": "https://sweden.se/work-business/study-research/swedish-higher-education?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.797164"
+  },
+  {
+    "id": "9cfcd484-5ae2-4f3e-885a-0c9c13306b3e",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "span",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[3]/a[1]/div[3]/span[1]",
+    "text": "July 7, 2025 \u2014 Swedish higher education comprises around 50 universities and university colleges, a majority of them offering courses and programmes in English.",
+    "url": "https://sweden.se/work-business/study-research/swedish-higher-education?utm_source=chatgpt.com",
+    "attributes": {},
+    "timestamp": "2026-01-28T04:55:21.797273"
+  },
+  {
+    "id": "d7d3d050-c050-46e9-97a8-bf9fcc6d1a9b",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[4]/a[1]/div[2]",
+    "text": "List of master's programmes | KTH | Sweden",
+    "url": "https://www.kth.se/en/studies/master/programmes/list-of-master-s-programmes-1.8311?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.797504"
+  },
+  {
+    "id": "a4ec9814-cf28-4b4f-8941-a11d355a35a2",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[4]/a[1]/div[3]",
+    "text": "29 Aug 2025 \u2014 KTH offers 60 MSc programmes taught in English, an opportunity for students with a bachelor's degree to obtain a master's degree of the ...",
+    "url": "https://www.kth.se/en/studies/master/programmes/list-of-master-s-programmes-1.8311?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.797570"
+  },
+  {
+    "id": "19181700-67ad-4d4e-b83a-a8e600725a92",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[5]/a[1]/div[2]",
+    "text": "Master's degree studies at KTH | KTH | Sweden",
+    "url": "https://www.kth.se/en/studies/master/master-s-degree-studies-at-kth-1.1026260?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.797621"
+  },
+  {
+    "id": "8e069603-ebde-485b-a401-fa03915fc06d",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[5]/a[1]/div[3]",
+    "text": "17 Dec 2024 \u2014 KTH is Sweden's leading technical university. We offer 60 master's degree programmes taught in English attracting talent from all over the ...",
+    "url": "https://www.kth.se/en/studies/master/master-s-degree-studies-at-kth-1.1026260?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.797710"
+  },
+  {
+    "id": "87041d2c-c283-4f83-b5ab-3b7380dec035",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[6]/a[1]/div[2]",
+    "text": "MSc Medical Engineering",
+    "url": "https://www.kth.se/en/studies/master/medical-engineering/msc-medical-engineering-1.69495?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.797841"
+  },
+  {
+    "id": "d766e68f-cb56-4889-af5c-169e769513e5",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[6]/a[1]/div[3]",
+    "text": "Some examples are Medical Imaging, Neuronics, Healthcare Logistics, Structural Biotechnology and Environmental Physiology. Students can participate in several ...Read more",
+    "url": "https://www.kth.se/en/studies/master/medical-engineering/msc-medical-engineering-1.69495?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.797956"
+  },
+  {
+    "id": "94d5eec8-5023-4c84-bd28-12b85221122d",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[7]/a[1]/div[2]",
+    "text": "Master's degree studies | Lund University",
+    "url": "https://www.lunduniversity.lu.se/admissions/bachelors-and-masters-studies/masters-degree-studies?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.798055"
+  },
+  {
+    "id": "760b99a9-9c25-487c-9563-5144a47710b3",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[7]/a[1]/div[3]",
+    "text": "17 Dec 2025 \u2014 We offer over 130 Master's degree programmes taught in English across a wide range of subjects. Every year, applicants from around 170 countries apply.Read more",
+    "url": "https://www.lunduniversity.lu.se/admissions/bachelors-and-masters-studies/masters-degree-studies?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.798082"
+  },
+  {
+    "id": "6fb0cb20-21b1-491b-96a3-09420c1e326b",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[8]/a[1]/div[2]",
+    "text": "Programmes and courses A\u2013Z | Lund University",
+    "url": "https://www.lunduniversity.lu.se/lubas/courses-programmes-a-z?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.798122"
+  },
+  {
+    "id": "4e962ef1-965a-4e40-990a-8ed036689838",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[8]/a[1]/div[3]",
+    "text": "Accounting and Finance - Master's Programme (One Year) \u00b7 Applied Computational Science, Biology - Master Programme \u00b7 Applied Computational Science, Chemistry - ...Read more",
+    "url": "https://www.lunduniversity.lu.se/lubas/courses-programmes-a-z?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.798219"
+  },
+  {
+    "id": "5bade73a-63ec-40d7-98ab-92d12a000b54",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[9]/a[1]/div[2]",
+    "text": "Accounting and Finance - Master's Programme",
+    "url": "https://www.lusem.lu.se/study/masters-programmes/accounting-and-finance-masters-programme?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.798445"
+  },
+  {
+    "id": "6fc16dfd-da11-447e-a475-2bc7eee8947b",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[9]/a[1]/div[3]",
+    "text": "10 Nov 2025 \u2014 The Master's in Accounting and Finance is a one year, full-time programme, preparing you for a career in financial or professional services.",
+    "url": "https://www.lusem.lu.se/study/masters-programmes/accounting-and-finance-masters-programme?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.798551"
+  },
+  {
+    "id": "694eeeb8-1e9e-42a1-8c25-e7a1644cb891",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[10]/a[1]/div[2]",
+    "text": "Finance - Master's Programme (One Year)",
+    "url": "https://www.lunduniversity.lu.se/lubas/i-uoh-lu-eagfn?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.798764"
+  },
+  {
+    "id": "aadae3d6-af26-471d-89df-eefa6c77dddd",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[10]/a[1]/div[3]",
+    "text": "The Master's programme in Finance prepares you for an international career in the financial services sector, e.g. in commercial and investment banking, ...Read more",
+    "url": "https://www.lunduniversity.lu.se/lubas/i-uoh-lu-eagfn?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.798838"
+  },
+  {
+    "id": "1ee364c4-69b3-4a4c-a3c0-c9fb64b03569",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[11]/a[1]/div[2]",
+    "text": "Finance - Master's Programme",
+    "url": "https://www.lusem.lu.se/study/masters-programmes/finance-masters-programme?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.798887"
+  },
+  {
+    "id": "e0e0230d-437a-496b-a166-fd00367e55ec",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[11]/a[1]/div[3]",
+    "text": "25 Sept 2025 \u2014 The Master's programme in Finance prepares you for an international career in the financial services sector, eg in commercial and investment banking, insurance ...Read more",
+    "url": "https://www.lusem.lu.se/study/masters-programmes/finance-masters-programme?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.798909"
+  },
+  {
+    "id": "b188c62d-c456-46e3-8f62-e05d2ab47818",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[12]/a[1]/div[2]",
+    "text": "Master's degree studies | Lund University",
+    "url": "https://www.lunduniversity.lu.se/study/bachelors-and-masters-studies/masters-degree-studies?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.798979"
+  },
+  {
+    "id": "f03b527a-f0e9-4de0-8082-95a43d600bff",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[12]/a[1]/div[3]",
+    "text": "8 days ago \u2014 We offer over 130 Master's degree programmes taught in English across a wide range of subjects. Every year, applicants from around 170 ...",
+    "url": "https://www.lunduniversity.lu.se/study/bachelors-and-masters-studies/masters-degree-studies?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.799093"
+  },
+  {
+    "id": "918f5a74-e2cc-47d2-ac67-8db855b49e62",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[13]/a[1]/div[2]",
+    "text": "Study programmes",
+    "url": "https://studyinsweden.se/subjects/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.799121"
+  },
+  {
+    "id": "bd681d78-098a-49db-ad21-7c2ab50f8d6e",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[13]/a[1]/div[3]",
+    "text": "Choose between finding study programmes through subject areas or universities. \u00b7 Agriculture, Horticulture, Forestry and Fishery \u00b7 Art, Design and Media \u00b7 Business ...Read more",
+    "url": "https://studyinsweden.se/subjects/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.799139"
+  },
+  {
+    "id": "3f0bfe65-29d9-4171-a874-1282096c3e6e",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[14]/a[1]/div[2]",
+    "text": "Degree programmes - Study in Sweden",
+    "url": "https://studyinsweden.se/plan-your-studies/degree-programmes/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.799160"
+  },
+  {
+    "id": "856c77de-701d-40b6-98ed-8091fd9479ee",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[14]/a[1]/div[3]",
+    "text": "We offer loads of degree programmes. Thousands. At all levels too \u2013 bachelor's, master's, PhD. And you can pretty much study any subject in English.",
+    "url": "https://studyinsweden.se/plan-your-studies/degree-programmes/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.799178"
+  },
+  {
+    "id": "56155259-0090-4684-8382-f2b62e632146",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[15]/a[1]/div[2]",
+    "text": "Master's programmes - Education - Karolinska Institutet",
+    "url": "https://education.ki.se/bachelors-masters-studies/masters-programmes?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.799242"
+  },
+  {
+    "id": "039723c6-3d3c-4a07-ab98-5062c23d3866",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[15]/a[1]/div[3]",
+    "text": "Master's programmes \u00b7 Joint Master's Programme in Health Informatics \u00b7 Master's Programme in Nutrition Science \u00b7 Master's Programme in Global Health \u00b7 Master's ...Read more",
+    "url": "https://education.ki.se/bachelors-masters-studies/masters-programmes?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.799334"
+  },
+  {
+    "id": "74ec8828-3540-4404-88da-b31cd693ddf3",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[16]/a[1]/div[2]",
+    "text": "Apply for a master's programme | Karolinska Institutet",
+    "url": "https://education.ki.se/bachelors-masters-studies/apply/apply-for-a-masters-programme?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.799422"
+  },
+  {
+    "id": "b4d45bed-d2ce-4fef-9f96-59f196bba858",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[16]/a[1]/div[3]",
+    "text": "To be eligible for a master's programme you need to meet the general and specific entry requirements, and prove your English language proficiency. You will ...Read more",
+    "url": "https://education.ki.se/bachelors-masters-studies/apply/apply-for-a-masters-programme?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.799441"
+  },
+  {
+    "id": "c52971da-8432-41b3-9c69-d070b65efa87",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[17]/a[1]/div[2]",
+    "text": "Master's Programme in Molecular Techniques in Life Science",
+    "url": "https://education.ki.se/bachelors-masters-studies/programmes-and-courses/masters-programme-in-molecular-techniques-in-life-science?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.799465"
+  },
+  {
+    "id": "6f6a104d-36b8-40db-9da5-2c3cd10dbd54",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[17]/a[1]/div[3]",
+    "text": "17 May 2022 \u2014 The Master's Programme in Molecular Techniques in Life Science prepares you for a professional research career in life science.",
+    "url": "https://education.ki.se/bachelors-masters-studies/programmes-and-courses/masters-programme-in-molecular-techniques-in-life-science?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.799673"
+  },
+  {
+    "id": "4f415e7f-f458-4c34-a354-2104246d81d1",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[18]/a[1]/div[2]",
+    "text": "Master's Programme in Molecular techniques in Life Science",
+    "url": "https://education.ki.se/current-student/all-course-and-programme-websites/masters-programme-in-molecular-techniques-in-life-science/programme-outline-previous-curriculum?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.799751"
+  },
+  {
+    "id": "2aecf66d-3384-4d5d-aeb3-6f5cb6ecb579",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[18]/a[1]/div[3]",
+    "text": "The students will receive a comprehensive education in life science emphasising cutting-edge methods in bioinformatic analysis of big data.Read more",
+    "url": "https://education.ki.se/current-student/all-course-and-programme-websites/masters-programme-in-molecular-techniques-in-life-science/programme-outline-previous-curriculum?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.799772"
+  },
+  {
+    "id": "18a39f7d-d284-4bcc-b897-20967ab29948",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[19]/a[1]/div[2]",
+    "text": "Bachelor's & master's studies - Education - Karolinska Institutet",
+    "url": "https://education.ki.se/bachelors-masters-studies?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.799795"
+  },
+  {
+    "id": "ca044ee3-eb69-4a9f-8e20-f12a11fbb74c",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[19]/a[1]/div[3]",
+    "text": "Karolinska Institutet offers the widest range of medical education in Sweden and ranks among the top universities in the world.",
+    "url": "https://education.ki.se/bachelors-masters-studies?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.799813"
+  },
+  {
+    "id": "3e6b9cee-4138-4bc8-836d-bbd28dcca525",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[20]/a[1]/div[2]",
+    "text": "967 Master's degrees in Sweden",
+    "url": "https://www.mastersportal.com/search/master/sweden?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.799970"
+  },
+  {
+    "id": "80650a13-7443-4db8-bf94-7cb40d3daffb",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[20]/a[1]/div[3]",
+    "text": "Master's degrees in Sweden \u00b7 Biology \u00b7 Service Management, Tourism \u00b7 Global Media Studies \u00b7 Scandinavian Studies \u00b7 Biology, Animal Ecology \u00b7 Computational Science.Read more",
+    "url": "https://www.mastersportal.com/search/master/sweden?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.800065"
+  },
+  {
+    "id": "3bdcbb85-582e-4e26-b91f-70f87447c6fe",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[21]/a[1]/div[2]",
+    "text": "Artificial Intelligence in Sweden: 2026 Master's Guide",
+    "url": "https://www.mastersportal.com/study-options/268861770/artificial-intelligence-sweden.html?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.800175"
+  },
+  {
+    "id": "6effe073-82d0-4465-9e0e-ecfb503a6fa4",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[21]/a[1]/div[3]",
+    "text": "This page shows a selection of the available English-taught Masters programmes in Artificial Intelligence in Sweden, as well as help on finding scholarships.Read more",
+    "url": "https://www.mastersportal.com/study-options/268861770/artificial-intelligence-sweden.html?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.800230"
+  },
+  {
+    "id": "df4e9c35-9c2d-404e-b3ff-57f501d5774d",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[22]/a[1]/div[2]",
+    "text": "Top 5 Universities for a Master's Degree in Sweden",
+    "url": "https://mastergradschools.com/master-study-destinations/top-universities-masters-degree-sweden?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.800283"
+  },
+  {
+    "id": "178557a6-eef8-4315-aa30-85938c9205ef",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[22]/a[1]/div[3]",
+    "text": "Sep 12, 2025 \u2014 Discover the top 5 universities for a master's degree in Sweden, with info on tuition fees, scholarships, visas, and career prospects.",
+    "url": "https://mastergradschools.com/master-study-destinations/top-universities-masters-degree-sweden?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.800333"
+  },
+  {
+    "id": "e902c9f4-5627-41a9-a24a-da2391190c46",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[23]/a[1]/div[2]",
+    "text": "Search for courses and programmes",
+    "url": "https://www.universityadmissions.se/intl/search?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.800437"
+  },
+  {
+    "id": "35a6809f-4e9c-422a-93b6-eb6d4520c0f1",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[23]/a[1]/div[3]",
+    "text": "Universityadmissions.se has the entire catalogue of courses and programmes taught in English in a searchable database. Enter search terms or use ...",
+    "url": "https://www.universityadmissions.se/intl/search?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.800594"
+  },
+  {
+    "id": "a2ad3c6c-e732-4fda-ba43-971603c06563",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[24]/a[1]/div[2]",
+    "text": "Find master's programme",
+    "url": "https://www.chalmers.se/en/education/find-masters-programme/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.800822"
+  },
+  {
+    "id": "15f52b57-223c-42ea-8f7b-6e8135ccf5ed",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[24]/a[1]/div[3]",
+    "text": "Master's programmes at Chalmers University of Technology last two years, are taught in English and are worth 120 ECTS credits.Read more",
+    "url": "https://www.chalmers.se/en/education/find-masters-programme/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.800861"
+  },
+  {
+    "id": "1b658079-40b1-4e1c-8dda-6911b79fa427",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[25]/a[1]/div[2]",
+    "text": "Master's studies \u2013 Uppsala University",
+    "url": "https://www.uu.se/en/study/masters-studies?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.801016"
+  },
+  {
+    "id": "4ecffac9-29df-4a24-9ef2-9aa8c8e9229f",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[25]/a[1]/div[3]",
+    "text": "14 Jan 2026 \u2014 Explore over 120 Master's programmes at Uppsala University, offering world-class education with a focus on sustainability, research, ...",
+    "url": "https://www.uu.se/en/study/masters-studies?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.801046"
+  },
+  {
+    "id": "91e92182-c530-4fc2-a4d5-7667ead9583e",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[26]/a[1]/div[2]",
+    "text": "Courses and programmes \u2013 Uppsala University",
+    "url": "https://www.uu.se/en/study/masters-studies/masters-programmes?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.801142"
+  },
+  {
+    "id": "9e49af59-8ab0-421e-b8e6-6d89b57c0d6e",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[26]/a[1]/div[3]",
+    "text": "7 Jan 2026 \u2014 In the Master's Programme in Accounting and Financial Management, specialising in Strategic Management Control, you will gain the skills you ...Read more",
+    "url": "https://www.uu.se/en/study/masters-studies/masters-programmes?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.801314"
+  },
+  {
+    "id": "a31442f1-5b66-4748-8dfe-d5262fe2da31",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[27]/a[1]/div[2]",
+    "text": "653 Masters Degree Programs in Sweden",
+    "url": "https://www.educations.com/masters-degrees/sweden?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.801385"
+  },
+  {
+    "id": "e8b54da5-8037-4200-a3fa-170bfe4897a4",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[27]/a[1]/div[3]",
+    "text": "653 Masters Degree Programs in Sweden \u00b7 Ghent University - Faculty of Engineering and Architecture \u00b7 International Master of Science in Textile Engineering.Read more",
+    "url": "https://www.educations.com/masters-degrees/sweden?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.801415"
+  },
+  {
+    "id": "c3109f4c-5085-4b14-a846-aa86412ae4e0",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[28]/a[1]/div[2]",
+    "text": "Masters Degrees in Sweden",
+    "url": "https://www.findamasters.com/masters-degrees/sweden/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.801511"
+  },
+  {
+    "id": "4bef93dc-4784-474d-91c5-0b66a2bbda56",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[28]/a[1]/div[3]",
+    "text": "Swedish Masters degrees can last for one or two years, depending on the course. The academic year in Sweden runs between September and June.Read more",
+    "url": "https://www.findamasters.com/masters-degrees/sweden/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.801544"
+  },
+  {
+    "id": "1f006f1e-f2b1-453c-8a33-8179d282f85f",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[29]/a[1]/div[2]",
+    "text": "Top 5 Swedish Universities for Master's Degrees",
+    "url": "https://www.avanse.com/blog/top-5-swedish-universities-for-master-s-degrees?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.801567"
+  },
+  {
+    "id": "b9e2eb45-abaa-4e65-bddd-2e119c3be145",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[29]/a[1]/div[3]",
+    "text": "24 Feb 2025 \u2014 Top 5 Swedish Universities for Master's Courses \u00b7 KTH Royal Institute of Technology \u00b7 Lund University \u00b7 Uppsala University \u00b7 Stockholm University.Read more",
+    "url": "https://www.avanse.com/blog/top-5-swedish-universities-for-master-s-degrees?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.801592"
+  },
+  {
+    "id": "59906ad3-ac30-4202-8cf7-d8cb424adbe6",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[30]/a[1]/div[2]",
+    "text": "Our courses and programmes",
+    "url": "https://www.su.se/english/education/top-reasons-to-choose-su/our-courses-and-programmes?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.801616"
+  },
+  {
+    "id": "9ad1a410-7b08-4df0-a17b-56bf423b73fa",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[30]/a[1]/div[3]",
+    "text": "15 Dec 2025 \u2014 Master's programmes at Stockholm University. We offer more than 100 master's programmes taught in English within science, the humanities, social ...Read more",
+    "url": "https://www.su.se/english/education/top-reasons-to-choose-su/our-courses-and-programmes?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.801813"
+  },
+  {
+    "id": "2026f91c-2584-4d29-b0d1-0fc6ed5986de",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[31]/a[1]/div[2]",
+    "text": "Master's Degrees in Sweden (2026 Guide)",
+    "url": "https://www.study.eu/guide/masters-in-sweden?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:55:21.801836"
+  },
+  {
+    "id": "caacccea-fe1d-46c6-881b-de75c373c866",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[31]/a[1]/div[3]",
+    "text": "Upon completion, most Master's programs in Sweden lead to a Master of Arts (MA) or a Master of Science (MSc) degree.Read more",
+    "url": "https://www.study.eu/guide/masters-in-sweden?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:55:21.801897"
+  },
+  {
+    "id": "81b8ece5-26b7-4854-bb70-cce1f64760d5",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "li",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/li[1]",
+    "text": "Citations",
+    "url": null,
+    "attributes": {
+      "class": "bg-token-bg-primary text-token-text-primary sticky top-0 z-1 flex items-center px-6 pt-4 pb-4 text-sm font-medium border-token-border-light h-[calc(var(--header-height,3.5rem)+1px)] border-b",
+      "style": "opacity: 1;"
+    },
+    "timestamp": "2026-01-28T04:56:13.142564"
+  },
+  {
+    "id": "51a87a70-7f85-43ab-9546-b7f316c83c94",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[1]/a[1]/div[2]",
+    "text": "Swedish universities",
+    "url": "https://www.universityadmissions.se/en/find-out-more/swedish-universities/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.142812"
+  },
+  {
+    "id": "71ba8470-b55d-4659-8d54-c36160292753",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "span",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[1]/a[1]/div[3]/span[1]",
+    "text": "October 14, 2025 \u2014 Sweden currently has 39 universities offering courses and programmes taught in English. Each university has its own special characteristics, subject ...",
+    "url": "https://www.universityadmissions.se/en/find-out-more/swedish-universities/?utm_source=chatgpt.com",
+    "attributes": {},
+    "timestamp": "2026-01-28T04:56:13.142842"
+  },
+  {
+    "id": "7f86c8b7-962f-49e8-86b7-669639abec0b",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[2]/a[1]/div[2]",
+    "text": "Accounting and Finance - Master's Programme (One Year)",
+    "url": "https://www.lunduniversity.lu.se/lubas/i-uoh-lu-EAGAF?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.142888"
+  },
+  {
+    "id": "b7db828f-9924-4e14-b793-71d7208f9bbe",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[2]/a[1]/div[3]",
+    "text": "The Master's in Accounting and Finance is a one year, full-time programme, preparing you for a career in financial or professional services.Read more",
+    "url": "https://www.lunduniversity.lu.se/lubas/i-uoh-lu-EAGAF?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.142924"
+  },
+  {
+    "id": "4db11950-15a1-4182-aae3-ba98d84f8b5f",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[3]/a[1]/div[2]",
+    "text": "Master's Programme in Accounting and Financial ...",
+    "url": "https://www.uu.se/en/study/programme?query=SRF2M&utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.143001"
+  },
+  {
+    "id": "5828d890-bb83-4399-add1-3d9e53fa03b4",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[3]/a[1]/div[3]",
+    "text": "Specialisations of this programme \u00b7 Master's Programme in Accounting and Financial Management \u2013 Accounting, Governance and Financial Analysis, 120 credits (SRF2M).Read more",
+    "url": "https://www.uu.se/en/study/programme?query=SRF2M&utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.143045"
+  },
+  {
+    "id": "b2ebb297-8420-4119-8a72-2ddfbab3ca6e",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[4]/a[1]/div[2]",
+    "text": "MSc Molecular Techniques in Life Science - Stockholm",
+    "url": "https://www.kth.se/en/studies/master/molecular-techniques-life-science/msc-molecular-techniques-in-life-science-1.501282?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.143116"
+  },
+  {
+    "id": "087e230c-3912-4328-b81c-17ec204b851c",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[4]/a[1]/div[3]",
+    "text": "The joint master's programme in Molecular Techniques in Life Science prepares graduates for a professional research career in life science.Read more",
+    "url": "https://www.kth.se/en/studies/master/molecular-techniques-life-science/msc-molecular-techniques-in-life-science-1.501282?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.143154"
+  },
+  {
+    "id": "fb276578-1740-49f4-a606-1b30ca67c236",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[5]/a[1]/div[2]",
+    "text": "Master's Programme in Biomedicine | Karolinska Institutet",
+    "url": "https://education.ki.se/bachelors-masters-studies/programmes-and-courses/masters-programme-in-biomedicine?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.143229"
+  },
+  {
+    "id": "7840c403-914d-4117-874e-6d15bf8bcc59",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[5]/a[1]/div[3]",
+    "text": "5 May 2020 \u2014 The programme focuses on basic biological knowledge and how it is used to drive medical developments forward. The first part of the programme ...Read more",
+    "url": "https://education.ki.se/bachelors-masters-studies/programmes-and-courses/masters-programme-in-biomedicine?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.143259"
+  },
+  {
+    "id": "16633346-8b91-4546-a4fa-662e69515048",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[6]/a[1]/div[2]",
+    "text": "Master's programs | University of Gothenburg",
+    "url": "https://www.gu.se/en/study-in-gothenburg/programs-and-courses/masters-programs?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.143295"
+  },
+  {
+    "id": "30c27c90-d882-4fe4-806d-d5c0d5fa4397",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[6]/a[1]/div[3]",
+    "text": "6 days ago \u2014 Find your master's program \u00b7 AI, Computing and Technology \u00b7 Business and Management \u00b7 Natural Sciences \u00b7 Health and Life Sciences \u00b7 Education \u00b7 Arts, ...Read more",
+    "url": "https://www.gu.se/en/study-in-gothenburg/programs-and-courses/masters-programs?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.143410"
+  },
+  {
+    "id": "f0c8ba90-3ca2-46b9-931e-faff194eb550",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[7]/a[1]/div[2]",
+    "text": "Eligible master's programmes academic year 2024/2025 ...",
+    "url": "https://si.se/app/uploads/2017/10/updated.-sisgp_eligible_master_programmes_2024_2025.pdf?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.143436"
+  },
+  {
+    "id": "8d39fe1b-114c-4cd8-ba18-859ba9172785",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "span",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[7]/a[1]/div[3]/span[1]",
+    "text": "November 16, 2023 \u2014 Stockholm University. Strategic Information Systems Management. SU-43002. 120. Stockholm University. Master's Programme in Accounting and. Management Control.Read more",
+    "url": "https://si.se/app/uploads/2017/10/updated.-sisgp_eligible_master_programmes_2024_2025.pdf?utm_source=chatgpt.com",
+    "attributes": {},
+    "timestamp": "2026-01-28T04:56:13.143466"
+  },
+  {
+    "id": "2b7257ef-3025-4e81-a722-6d90620d4018",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[8]/a[1]/div[2]",
+    "text": "Stockholm School of Economics",
+    "url": "https://en.wikipedia.org/wiki/Stockholm_School_of_Economics?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.143487"
+  },
+  {
+    "id": "4e63e42e-6032-4260-b532-c125b3e82af4",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[9]/a[1]/div[2]",
+    "text": "Master's programmes",
+    "url": "https://www.umu.se/en/education/studies/masters-programmes/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.143645"
+  },
+  {
+    "id": "b6cb558d-c701-43fb-8d7d-09feb76a4f1b",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[9]/a[1]/div[3]",
+    "text": "4 Nov 2025 \u2014 Master's programmes. Ume\u00e5 University offers a wide-range of one and two-year master's degree programmes - taught entirely in English - where ...Read more",
+    "url": "https://www.umu.se/en/education/studies/masters-programmes/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.143759"
+  },
+  {
+    "id": "1f90045c-870e-4b70-9aab-a862fe5779a5",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[10]/a[1]/div[2]",
+    "text": "Study a master's or bachelor's programme at University West",
+    "url": "https://www.hv.se/en/education/bachelors-and-masters-programmes/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.143818"
+  },
+  {
+    "id": "498cb52b-9884-4ca8-b366-658487431ad9",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[10]/a[1]/div[3]",
+    "text": "22 Sept 2025 \u2014 Master in Leadership in Digitalised Organisations (2 years) \u00b7 Master in Sustainable Development (2 years) \u00b7 Master in Work Integrated Political ...Read more",
+    "url": "https://www.hv.se/en/education/bachelors-and-masters-programmes/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.143855"
+  },
+  {
+    "id": "5873fbda-4ffd-444f-9b19-915afc087165",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[11]/a[1]/div[2]",
+    "text": "Master's requirements - University Admissions",
+    "url": "https://www.universityadmissions.se/en/entry-requirements/masters-requirements/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.143996"
+  },
+  {
+    "id": "66b96de2-2ad3-451a-9431-9195e85da05c",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "span",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[11]/a[1]/div[3]/span[1]",
+    "text": "October 8, 2025 \u2014 To be eligible for master's courses and programmes taught in English, you must meet the general and specific entry requirements.",
+    "url": "https://www.universityadmissions.se/en/entry-requirements/masters-requirements/?utm_source=chatgpt.com",
+    "attributes": {},
+    "timestamp": "2026-01-28T04:56:13.144052"
+  },
+  {
+    "id": "7cd7f8c3-40ea-4060-a545-7f3db428db68",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[12]/a[1]/div[2]",
+    "text": "Search for courses and programmes, master's",
+    "url": "https://www.universityadmissions.se/en/apply-to-masters/search-for-courses-and-programmes-masters/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.144150"
+  },
+  {
+    "id": "a03eb9c0-e8ad-4afe-8288-35dd433de5c7",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[1]/ul[2]/li[12]/a[1]/div[3]",
+    "text": "14 Oct 2025 \u2014 You can search for courses and programmes that interest you here at Universityadmissions.se. Use the search box on the start page, or click 'Find courses' for ...Read more",
+    "url": "https://www.universityadmissions.se/en/apply-to-masters/search-for-courses-and-programmes-masters/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.144250"
+  },
+  {
+    "id": "4f3a5a35-29c3-40c1-a44f-4af0de94acd4",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "li",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/li[1]",
+    "text": "More",
+    "url": null,
+    "attributes": {
+      "class": "bg-token-bg-primary text-token-text-primary sticky top-0 z-1 flex items-center px-6 pt-4 pb-4 text-sm font-medium border-token-border-light h-[calc(var(--header-height,3.5rem)+1px)] border-b",
+      "style": "opacity: 1;"
+    },
+    "timestamp": "2026-01-28T04:56:13.144358"
+  },
+  {
+    "id": "254b9a07-cab8-443b-ba17-b842af817d9a",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[1]/a[1]/div[2]",
+    "text": "Search for courses and programmes, bachelor's",
+    "url": "https://www.universityadmissions.se/en/apply-to-bachelors/search-for-courses-and-programmes-bachelors/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.144543"
+  },
+  {
+    "id": "6a58a770-da59-45d2-8b8e-4a5b1f7adb5d",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "span",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[1]/a[1]/div[3]/span[1]",
+    "text": "October 14, 2025 \u2014 You can search for courses and programmes that interest you here at Universityadmissions.se. Use the search box on the start page, or click 'Find courses' for ...",
+    "url": "https://www.universityadmissions.se/en/apply-to-bachelors/search-for-courses-and-programmes-bachelors/?utm_source=chatgpt.com",
+    "attributes": {},
+    "timestamp": "2026-01-28T04:56:13.144954"
+  },
+  {
+    "id": "ceb1e558-72c2-40ba-8ce9-f3abb4bd5811",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[2]/a[1]/div[2]",
+    "text": "The Swedish higher education system - University Admissions",
+    "url": "https://www.universityadmissions.se/en/find-out-more/the-swedish-higher-education-system/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.145033"
+  },
+  {
+    "id": "0040c380-ae41-4624-a2f8-9ef8029fbe91",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "span",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[2]/a[1]/div[3]/span[1]",
+    "text": "October 14, 2025 \u2014 Universities in Sweden offer a large range of international master's programmes where the language of instruction is English. These ...",
+    "url": "https://www.universityadmissions.se/en/find-out-more/the-swedish-higher-education-system/?utm_source=chatgpt.com",
+    "attributes": {},
+    "timestamp": "2026-01-28T04:56:13.145055"
+  },
+  {
+    "id": "92440ab8-4909-44b5-96f6-1731cb188d45",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[3]/a[1]/div[2]",
+    "text": "Swedish higher education - Sweden.se",
+    "url": "https://sweden.se/work-business/study-research/swedish-higher-education?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.145117"
+  },
+  {
+    "id": "050be688-b5dc-495e-af5a-9ff6f3425fd7",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "span",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[3]/a[1]/div[3]/span[1]",
+    "text": "July 7, 2025 \u2014 Swedish higher education comprises around 50 universities and university colleges, a majority of them offering courses and programmes in English.",
+    "url": "https://sweden.se/work-business/study-research/swedish-higher-education?utm_source=chatgpt.com",
+    "attributes": {},
+    "timestamp": "2026-01-28T04:56:13.145151"
+  },
+  {
+    "id": "6921b525-4d75-44d9-b140-c6ad44cffc41",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[4]/a[1]/div[2]",
+    "text": "List of master's programmes | KTH | Sweden",
+    "url": "https://www.kth.se/en/studies/master/programmes/list-of-master-s-programmes-1.8311?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.145177"
+  },
+  {
+    "id": "0125418c-4e59-440e-b133-d63dc40bf632",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[4]/a[1]/div[3]",
+    "text": "29 Aug 2025 \u2014 KTH offers 60 MSc programmes taught in English, an opportunity for students with a bachelor's degree to obtain a master's degree of the ...",
+    "url": "https://www.kth.se/en/studies/master/programmes/list-of-master-s-programmes-1.8311?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.145195"
+  },
+  {
+    "id": "c01ce92c-f46f-45d6-9997-af5017565af4",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[5]/a[1]/div[2]",
+    "text": "Master's degree studies at KTH | KTH | Sweden",
+    "url": "https://www.kth.se/en/studies/master/master-s-degree-studies-at-kth-1.1026260?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.145237"
+  },
+  {
+    "id": "5d43011c-8acf-40e0-8bbb-89701fff626c",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[5]/a[1]/div[3]",
+    "text": "17 Dec 2024 \u2014 KTH is Sweden's leading technical university. We offer 60 master's degree programmes taught in English attracting talent from all over the ...",
+    "url": "https://www.kth.se/en/studies/master/master-s-degree-studies-at-kth-1.1026260?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.145256"
+  },
+  {
+    "id": "4f83e699-99a1-46cc-abf6-89bffb362565",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[6]/a[1]/div[2]",
+    "text": "MSc Medical Engineering",
+    "url": "https://www.kth.se/en/studies/master/medical-engineering/msc-medical-engineering-1.69495?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.145313"
+  },
+  {
+    "id": "524a4d6e-15e7-45df-836a-8a4d5acb217b",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[6]/a[1]/div[3]",
+    "text": "Some examples are Medical Imaging, Neuronics, Healthcare Logistics, Structural Biotechnology and Environmental Physiology. Students can participate in several ...Read more",
+    "url": "https://www.kth.se/en/studies/master/medical-engineering/msc-medical-engineering-1.69495?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.145403"
+  },
+  {
+    "id": "db9962e4-0855-4207-b299-99162f76dcd1",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[7]/a[1]/div[2]",
+    "text": "Master's degree studies | Lund University",
+    "url": "https://www.lunduniversity.lu.se/admissions/bachelors-and-masters-studies/masters-degree-studies?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.145481"
+  },
+  {
+    "id": "bfd2b629-9de5-40ec-9ef7-4a27b5ff0651",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[7]/a[1]/div[3]",
+    "text": "17 Dec 2025 \u2014 We offer over 130 Master's degree programmes taught in English across a wide range of subjects. Every year, applicants from around 170 countries apply.Read more",
+    "url": "https://www.lunduniversity.lu.se/admissions/bachelors-and-masters-studies/masters-degree-studies?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.145511"
+  },
+  {
+    "id": "e0cfc46b-261e-40e8-b49a-1255a18f3805",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[8]/a[1]/div[2]",
+    "text": "Programmes and courses A\u2013Z | Lund University",
+    "url": "https://www.lunduniversity.lu.se/lubas/courses-programmes-a-z?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.145562"
+  },
+  {
+    "id": "33b6058c-b24f-4836-a1b2-4c659837f7d4",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[8]/a[1]/div[3]",
+    "text": "Accounting and Finance - Master's Programme (One Year) \u00b7 Applied Computational Science, Biology - Master Programme \u00b7 Applied Computational Science, Chemistry - ...Read more",
+    "url": "https://www.lunduniversity.lu.se/lubas/courses-programmes-a-z?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.145589"
+  },
+  {
+    "id": "078443a2-3bb8-41e5-9994-4798c401bc80",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[9]/a[1]/div[2]",
+    "text": "Accounting and Finance - Master's Programme",
+    "url": "https://www.lusem.lu.se/study/masters-programmes/accounting-and-finance-masters-programme?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.145622"
+  },
+  {
+    "id": "ccb52dd7-045c-42ee-8f8e-b5ca3280804b",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[9]/a[1]/div[3]",
+    "text": "10 Nov 2025 \u2014 The Master's in Accounting and Finance is a one year, full-time programme, preparing you for a career in financial or professional services.",
+    "url": "https://www.lusem.lu.se/study/masters-programmes/accounting-and-finance-masters-programme?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.145677"
+  },
+  {
+    "id": "de869603-b9e4-4b8b-aed7-4a2fe5378889",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[10]/a[1]/div[2]",
+    "text": "Finance - Master's Programme (One Year)",
+    "url": "https://www.lunduniversity.lu.se/lubas/i-uoh-lu-eagfn?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.145702"
+  },
+  {
+    "id": "f1680e69-4ba7-4266-b622-b33e581f68ca",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[10]/a[1]/div[3]",
+    "text": "The Master's programme in Finance prepares you for an international career in the financial services sector, e.g. in commercial and investment banking, ...Read more",
+    "url": "https://www.lunduniversity.lu.se/lubas/i-uoh-lu-eagfn?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.145751"
+  },
+  {
+    "id": "90f32fbb-f7fc-4748-be10-914fe1877980",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[11]/a[1]/div[2]",
+    "text": "Finance - Master's Programme",
+    "url": "https://www.lusem.lu.se/study/masters-programmes/finance-masters-programme?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.145776"
+  },
+  {
+    "id": "541d8522-f2ae-414a-91d8-9dde978c52dc",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[11]/a[1]/div[3]",
+    "text": "25 Sept 2025 \u2014 The Master's programme in Finance prepares you for an international career in the financial services sector, eg in commercial and investment banking, insurance ...Read more",
+    "url": "https://www.lusem.lu.se/study/masters-programmes/finance-masters-programme?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.145795"
+  },
+  {
+    "id": "f707b743-b1f4-4027-bf4a-5ee1b6783f60",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[12]/a[1]/div[2]",
+    "text": "Master's degree studies | Lund University",
+    "url": "https://www.lunduniversity.lu.se/study/bachelors-and-masters-studies/masters-degree-studies?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.145824"
+  },
+  {
+    "id": "4049b196-d464-4f4b-8bbe-a2bb6770582a",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[12]/a[1]/div[3]",
+    "text": "8 days ago \u2014 We offer over 130 Master's degree programmes taught in English across a wide range of subjects. Every year, applicants from around 170 ...",
+    "url": "https://www.lunduniversity.lu.se/study/bachelors-and-masters-studies/masters-degree-studies?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.145851"
+  },
+  {
+    "id": "8b6f1597-b6bb-40f7-adc7-85b67ef53fc7",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[13]/a[1]/div[2]",
+    "text": "Study programmes",
+    "url": "https://studyinsweden.se/subjects/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.145886"
+  },
+  {
+    "id": "2ef2f060-b498-4771-99f2-5852c2509b91",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[13]/a[1]/div[3]",
+    "text": "Choose between finding study programmes through subject areas or universities. \u00b7 Agriculture, Horticulture, Forestry and Fishery \u00b7 Art, Design and Media \u00b7 Business ...Read more",
+    "url": "https://studyinsweden.se/subjects/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.145991"
+  },
+  {
+    "id": "f0ef0d55-db3d-4775-83df-bb1ba3cadc32",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[14]/a[1]/div[2]",
+    "text": "Degree programmes - Study in Sweden",
+    "url": "https://studyinsweden.se/plan-your-studies/degree-programmes/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.146015"
+  },
+  {
+    "id": "3807f57e-3aa3-47a6-a15a-1a77c69cb798",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[14]/a[1]/div[3]",
+    "text": "We offer loads of degree programmes. Thousands. At all levels too \u2013 bachelor's, master's, PhD. And you can pretty much study any subject in English.",
+    "url": "https://studyinsweden.se/plan-your-studies/degree-programmes/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.146033"
+  },
+  {
+    "id": "8e25fbe4-2e7d-4a6b-b281-b7b3cba36d6f",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[15]/a[1]/div[2]",
+    "text": "Master's programmes - Education - Karolinska Institutet",
+    "url": "https://education.ki.se/bachelors-masters-studies/masters-programmes?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.146097"
+  },
+  {
+    "id": "3a307733-bf18-4b9c-940d-436e7a78e4cc",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[15]/a[1]/div[3]",
+    "text": "Master's programmes \u00b7 Joint Master's Programme in Health Informatics \u00b7 Master's Programme in Nutrition Science \u00b7 Master's Programme in Global Health \u00b7 Master's ...Read more",
+    "url": "https://education.ki.se/bachelors-masters-studies/masters-programmes?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.146120"
+  },
+  {
+    "id": "9140bcf9-9da3-47c9-9992-a747ec42269c",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[16]/a[1]/div[2]",
+    "text": "Apply for a master's programme | Karolinska Institutet",
+    "url": "https://education.ki.se/bachelors-masters-studies/apply/apply-for-a-masters-programme?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.146212"
+  },
+  {
+    "id": "272299a6-cbc7-44e8-bd5f-c6f78d2bd8b5",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[16]/a[1]/div[3]",
+    "text": "To be eligible for a master's programme you need to meet the general and specific entry requirements, and prove your English language proficiency. You will ...Read more",
+    "url": "https://education.ki.se/bachelors-masters-studies/apply/apply-for-a-masters-programme?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.146293"
+  },
+  {
+    "id": "0cef5eb3-ec0b-494d-ab9e-1a70df62b787",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[17]/a[1]/div[2]",
+    "text": "Master's Programme in Molecular Techniques in Life Science",
+    "url": "https://education.ki.se/bachelors-masters-studies/programmes-and-courses/masters-programme-in-molecular-techniques-in-life-science?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.146434"
+  },
+  {
+    "id": "4217dbdb-155b-404f-9cb6-d0c0de770677",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[17]/a[1]/div[3]",
+    "text": "17 May 2022 \u2014 The Master's Programme in Molecular Techniques in Life Science prepares you for a professional research career in life science.",
+    "url": "https://education.ki.se/bachelors-masters-studies/programmes-and-courses/masters-programme-in-molecular-techniques-in-life-science?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.146456"
+  },
+  {
+    "id": "f403771b-6522-42c3-a058-ffe9ba2a9abc",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[18]/a[1]/div[2]",
+    "text": "Master's Programme in Molecular techniques in Life Science",
+    "url": "https://education.ki.se/current-student/all-course-and-programme-websites/masters-programme-in-molecular-techniques-in-life-science/programme-outline-previous-curriculum?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.146501"
+  },
+  {
+    "id": "6e595b9e-3acf-404b-8988-1489e14e7b0e",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[18]/a[1]/div[3]",
+    "text": "The students will receive a comprehensive education in life science emphasising cutting-edge methods in bioinformatic analysis of big data.Read more",
+    "url": "https://education.ki.se/current-student/all-course-and-programme-websites/masters-programme-in-molecular-techniques-in-life-science/programme-outline-previous-curriculum?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.146600"
+  },
+  {
+    "id": "aaed9e9e-d529-473d-9c00-2541640fcbc3",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[19]/a[1]/div[2]",
+    "text": "Bachelor's & master's studies - Education - Karolinska Institutet",
+    "url": "https://education.ki.se/bachelors-masters-studies?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.146632"
+  },
+  {
+    "id": "a113b440-be6a-42fd-943c-9ba47ca7006a",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[19]/a[1]/div[3]",
+    "text": "Karolinska Institutet offers the widest range of medical education in Sweden and ranks among the top universities in the world.",
+    "url": "https://education.ki.se/bachelors-masters-studies?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.146650"
+  },
+  {
+    "id": "01ed53c8-0b66-40fe-a44c-5d7db4090018",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[20]/a[1]/div[2]",
+    "text": "967 Master's degrees in Sweden",
+    "url": "https://www.mastersportal.com/search/master/sweden?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.146724"
+  },
+  {
+    "id": "3dae64d5-29db-49fe-979e-64efceba24ab",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[20]/a[1]/div[3]",
+    "text": "Master's degrees in Sweden \u00b7 Biology \u00b7 Service Management, Tourism \u00b7 Global Media Studies \u00b7 Scandinavian Studies \u00b7 Biology, Animal Ecology \u00b7 Computational Science.Read more",
+    "url": "https://www.mastersportal.com/search/master/sweden?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.146888"
+  },
+  {
+    "id": "5da05131-7e06-4173-8872-09b16c20902c",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[21]/a[1]/div[2]",
+    "text": "Artificial Intelligence in Sweden: 2026 Master's Guide",
+    "url": "https://www.mastersportal.com/study-options/268861770/artificial-intelligence-sweden.html?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.146951"
+  },
+  {
+    "id": "f0ee2b29-5519-49c3-817b-1e8a0476c307",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[21]/a[1]/div[3]",
+    "text": "This page shows a selection of the available English-taught Masters programmes in Artificial Intelligence in Sweden, as well as help on finding scholarships.Read more",
+    "url": "https://www.mastersportal.com/study-options/268861770/artificial-intelligence-sweden.html?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.147040"
+  },
+  {
+    "id": "5633bdfb-95f6-4838-b418-d23fa922334f",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[22]/a[1]/div[2]",
+    "text": "Top 5 Universities for a Master's Degree in Sweden",
+    "url": "https://mastergradschools.com/master-study-destinations/top-universities-masters-degree-sweden?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.147147"
+  },
+  {
+    "id": "7af2beb8-f263-48db-aa6d-a367584eda14",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[22]/a[1]/div[3]",
+    "text": "Sep 12, 2025 \u2014 Discover the top 5 universities for a master's degree in Sweden, with info on tuition fees, scholarships, visas, and career prospects.",
+    "url": "https://mastergradschools.com/master-study-destinations/top-universities-masters-degree-sweden?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.147188"
+  },
+  {
+    "id": "917eeec9-9b06-4183-9d96-f68f3a43ae47",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[23]/a[1]/div[2]",
+    "text": "Search for courses and programmes",
+    "url": "https://www.universityadmissions.se/intl/search?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.147210"
+  },
+  {
+    "id": "f610af07-fa90-4abd-bf60-4b4a38e1ae36",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[23]/a[1]/div[3]",
+    "text": "Universityadmissions.se has the entire catalogue of courses and programmes taught in English in a searchable database. Enter search terms or use ...",
+    "url": "https://www.universityadmissions.se/intl/search?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.147328"
+  },
+  {
+    "id": "6dcfc5dc-d9fe-426e-8b37-751ef7f1d3f4",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[24]/a[1]/div[2]",
+    "text": "Find master's programme",
+    "url": "https://www.chalmers.se/en/education/find-masters-programme/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.147379"
+  },
+  {
+    "id": "d6d5867e-b8a0-404d-8815-f33bf35a4ce4",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[24]/a[1]/div[3]",
+    "text": "Master's programmes at Chalmers University of Technology last two years, are taught in English and are worth 120 ECTS credits.Read more",
+    "url": "https://www.chalmers.se/en/education/find-masters-programme/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.147447"
+  },
+  {
+    "id": "30a6fca6-aeb0-4d6d-97a1-84a8776a2d6c",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[25]/a[1]/div[2]",
+    "text": "Master's studies \u2013 Uppsala University",
+    "url": "https://www.uu.se/en/study/masters-studies?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.147476"
+  },
+  {
+    "id": "a03a7e8a-7cc4-471d-a3d4-b1a752ccd563",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[25]/a[1]/div[3]",
+    "text": "14 Jan 2026 \u2014 Explore over 120 Master's programmes at Uppsala University, offering world-class education with a focus on sustainability, research, ...",
+    "url": "https://www.uu.se/en/study/masters-studies?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.147508"
+  },
+  {
+    "id": "202fed4d-47d4-4e96-b185-82c486445ef5",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[26]/a[1]/div[2]",
+    "text": "Courses and programmes \u2013 Uppsala University",
+    "url": "https://www.uu.se/en/study/masters-studies/masters-programmes?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.147546"
+  },
+  {
+    "id": "9783cfb1-7e21-4844-a525-3cbcdec09893",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[26]/a[1]/div[3]",
+    "text": "7 Jan 2026 \u2014 In the Master's Programme in Accounting and Financial Management, specialising in Strategic Management Control, you will gain the skills you ...Read more",
+    "url": "https://www.uu.se/en/study/masters-studies/masters-programmes?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.147588"
+  },
+  {
+    "id": "320bb35b-ff8e-4500-b08d-73ccfb0379ea",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[27]/a[1]/div[2]",
+    "text": "653 Masters Degree Programs in Sweden",
+    "url": "https://www.educations.com/masters-degrees/sweden?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.147619"
+  },
+  {
+    "id": "6b1aaec0-54f4-410f-bdb8-28683105e4dc",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[27]/a[1]/div[3]",
+    "text": "653 Masters Degree Programs in Sweden \u00b7 Ghent University - Faculty of Engineering and Architecture \u00b7 International Master of Science in Textile Engineering.Read more",
+    "url": "https://www.educations.com/masters-degrees/sweden?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.147662"
+  },
+  {
+    "id": "81a9916a-3fe9-4687-b74a-1d41565e3030",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[28]/a[1]/div[2]",
+    "text": "Masters Degrees in Sweden",
+    "url": "https://www.findamasters.com/masters-degrees/sweden/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.147730"
+  },
+  {
+    "id": "0c405df4-8e3d-4dd7-bacf-282c55ba56b8",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[28]/a[1]/div[3]",
+    "text": "Swedish Masters degrees can last for one or two years, depending on the course. The academic year in Sweden runs between September and June.Read more",
+    "url": "https://www.findamasters.com/masters-degrees/sweden/?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.147777"
+  },
+  {
+    "id": "8217f8c9-275d-405b-ada3-2ca3e5da74fa",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[29]/a[1]/div[2]",
+    "text": "Top 5 Swedish Universities for Master's Degrees",
+    "url": "https://www.avanse.com/blog/top-5-swedish-universities-for-master-s-degrees?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.147807"
+  },
+  {
+    "id": "a8e42097-9005-4b3f-857b-5687062ba02d",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[29]/a[1]/div[3]",
+    "text": "24 Feb 2025 \u2014 Top 5 Swedish Universities for Master's Courses \u00b7 KTH Royal Institute of Technology \u00b7 Lund University \u00b7 Uppsala University \u00b7 Stockholm University.Read more",
+    "url": "https://www.avanse.com/blog/top-5-swedish-universities-for-master-s-degrees?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.147833"
+  },
+  {
+    "id": "9fc41661-926b-4173-aed4-2eca5fae47bc",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[30]/a[1]/div[2]",
+    "text": "Our courses and programmes",
+    "url": "https://www.su.se/english/education/top-reasons-to-choose-su/our-courses-and-programmes?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.147969"
+  },
+  {
+    "id": "31ce8d2b-1dfa-4030-a43d-440933c58047",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[30]/a[1]/div[3]",
+    "text": "15 Dec 2025 \u2014 Master's programmes at Stockholm University. We offer more than 100 master's programmes taught in English within science, the humanities, social ...Read more",
+    "url": "https://www.su.se/english/education/top-reasons-to-choose-su/our-courses-and-programmes?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.148135"
+  },
+  {
+    "id": "f98c633c-3cf1-4bcf-9e78-0f7437e776bf",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[31]/a[1]/div[2]",
+    "text": "Master's Degrees in Sweden (2026 Guide)",
+    "url": "https://www.study.eu/guide/masters-in-sweden?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "line-clamp-2 text-sm font-semibold break-words"
+    },
+    "timestamp": "2026-01-28T04:56:13.148191"
+  },
+  {
+    "id": "5e634b8c-82e4-4919-a320-b9dd49a81b5a",
+    "source_file": "pasted_html",
+    "doc_type": "html",
+    "tag": "div",
+    "xpath": "/html/body[1]/div[1]/div[1]/div[1]/section[1]/div[2]/div[1]/div[2]/ul[2]/li[31]/a[1]/div[3]",
+    "text": "Upon completion, most Master's programs in Sweden lead to a Master of Arts (MA) or a Master of Science (MSc) degree.Read more",
+    "url": "https://www.study.eu/guide/masters-in-sweden?utm_source=chatgpt.com",
+    "attributes": {
+      "class": "text-token-text-secondary line-clamp-2 text-sm leading-snug font-normal"
+    },
+    "timestamp": "2026-01-28T04:56:13.148211"
+  }
+]
