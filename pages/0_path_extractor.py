@@ -389,15 +389,18 @@ HTML_DIR.mkdir(parents=True, exist_ok=True)
 DATA_DIR.mkdir(exist_ok=True)
 
 # =====================================
-# URL HANDLING
+# URL REGEX (ROBUST)
 # =====================================
 
 URL_REGEX = re.compile(
-    r"(https?://[^\s\"'<>]+|//[^\s\"'<>]+|www\.[^\s\"'<>]+|/[^\s\"'<>]+)",
-    re.IGNORECASE
+    r"""(?i)\b((?:https?:\/\/|www\.|\/\/)[^\s"'<>]+)"""
 )
 
 JS_URL_REGEX = re.compile(r"""['"](/[^'"]+)['"]""")
+
+# =====================================
+# URL UTILITIES
+# =====================================
 
 def normalize_url(raw_url, base_url=None):
     if not raw_url:
@@ -425,21 +428,20 @@ def normalize_url(raw_url, base_url=None):
     return raw_url
 
 
-def extract_url_from_text(text, base_url=None):
+def extract_urls_from_text(text, base_url=None):
     if not text:
-        return None
+        return []
 
-    match = URL_REGEX.search(text)
-    if match:
-        return normalize_url(match.group(0), base_url)
+    urls = []
+    for match in URL_REGEX.findall(text):
+        normalized = normalize_url(match, base_url)
+        if normalized:
+            urls.append(normalized)
 
-    return None
+    return urls
 
 
 def extract_url_from_js(text, base_url=None):
-    """
-    Extract URL from onclick="go('/page/123')"
-    """
     if not text:
         return None
 
@@ -458,25 +460,6 @@ def find_parent_link(el):
             if href:
                 return href
         parent = parent.getparent()
-    return None
-
-
-def extract_from_attributes(el):
-    """
-    Look for URLs in data-* attributes and onclick
-    """
-    for k, v in el.attrib.items():
-        if not v:
-            continue
-
-        if "url" in k.lower() or "href" in k.lower():
-            return v
-
-        if k.lower() == "onclick":
-            js_url = extract_url_from_js(v)
-            if js_url:
-                return js_url
-
     return None
 
 # =====================================
@@ -526,12 +509,25 @@ def parse_document(raw, doc_type):
 
 def extract_candidates(tree):
     elements = []
-    for el in tree.iter():
-        txt = (el.text or "").strip()
-        if txt:
-            elements.append(el)
-    return elements
 
+    for el in tree.iter():
+        if el.text and el.text.strip():
+            elements.append(el)
+
+        if el.tail and el.tail.strip():
+            elements.append(el)
+
+        for v in el.attrib.values():
+            if v and v.strip():
+                elements.append(el)
+                break
+
+    return list(set(elements))
+
+
+# =====================================
+# JSON EXTRACTION
+# =====================================
 
 def flatten_json(obj, prefix=""):
     rows = []
@@ -567,68 +563,86 @@ def extract_json_records(raw_json, base_url):
         if not text:
             continue
 
-        detected_url = extract_url_from_text(text, base_url)
+        urls = extract_urls_from_text(text, base_url)
 
-        dedup_key = (path, text)
-        if dedup_key in seen:
-            continue
-        seen.add(dedup_key)
+        for detected_url in urls:
+            dedup_key = (path, detected_url)
+            if dedup_key in seen:
+                continue
+            seen.add(dedup_key)
 
-        record = {
-            "id": str(uuid.uuid4()),
-            "doc_type": "json",
-            "json_path": path,
-            "value": text,
-            "url": detected_url,
-            "timestamp": datetime.utcnow().isoformat()
-        }
+            record = {
+                "id": str(uuid.uuid4()),
+                "doc_type": "json",
+                "json_path": path,
+                "value": text,
+                "url": detected_url,
+                "timestamp": datetime.utcnow().isoformat()
+            }
 
-        records.append(record)
+            records.append(record)
 
     return records
 
+
+# =====================================
+# HTML / XML EXTRACTION
+# =====================================
 
 def extract_all_records(elements, base_url, doc_type):
     records = []
     seen = set()
 
     for el in elements:
-        text = (el.text or "").strip()
-        if not text:
-            continue
-
         xpath = build_xpath(el)
 
-        raw_url = (
-            el.attrib.get("href") or
-            el.attrib.get("src") or
-            extract_from_attributes(el) or
-            find_parent_link(el) or
-            extract_url_from_text(text, base_url)
-        )
+        found_urls = []
 
-        url = normalize_url(raw_url, base_url)
+        # --- Attributes
+        for attr in el.attrib.values():
+            found_urls.extend(extract_urls_from_text(attr, base_url))
 
-        dedup_key = (xpath, text)
-        if dedup_key in seen:
-            continue
-        seen.add(dedup_key)
+            js_url = extract_url_from_js(attr, base_url)
+            if js_url:
+                found_urls.append(js_url)
 
-        record = {
-            "id": str(uuid.uuid4()),
-            "doc_type": doc_type,
-            "tag": el.tag,
-            "xpath": xpath,
-            "text": text,
-            "url": url,
-            "attributes": dict(el.attrib),
-            "timestamp": datetime.utcnow().isoformat()
-        }
+        # --- Text + Tail
+        found_urls.extend(extract_urls_from_text(el.text or "", base_url))
+        found_urls.extend(extract_urls_from_text(el.tail or "", base_url))
 
-        records.append(record)
+        # --- Parent <a>
+        parent_href = find_parent_link(el)
+        if parent_href:
+            normalized = normalize_url(parent_href, base_url)
+            if normalized:
+                found_urls.append(normalized)
+
+        found_urls = list(set(found_urls))
+
+        for url in found_urls:
+            dedup_key = (xpath, url)
+            if dedup_key in seen:
+                continue
+            seen.add(dedup_key)
+
+            record = {
+                "id": str(uuid.uuid4()),
+                "doc_type": doc_type,
+                "tag": el.tag,
+                "xpath": xpath,
+                "url": url,
+                "attributes": dict(el.attrib),
+                "timestamp": datetime.utcnow().isoformat()
+            }
+
+            records.append(record)
 
     return records
 
+
+# =====================================
+# STORAGE
+# =====================================
 
 def load_existing_records():
     if OUTPUT_FILE.exists():
@@ -671,7 +685,7 @@ base_url = None
 # ---------- Paste Mode ----------
 if mode == "Paste HTML":
     raw_html = st.text_area("📋 Paste HTML / XML / JSON", height=280)
-    base_url = st.text_input("🌍 Base URL (important for relative links)", placeholder="https://example.com")
+    base_url = st.text_input("🌍 Base URL", placeholder="https://example.com")
 
 # ---------- Upload Mode ----------
 elif mode == "Upload HTML File":
@@ -716,9 +730,9 @@ else:
     elements = extract_candidates(tree)
     records = extract_all_records(elements, base_url, doc_type)
 
-st.success(f"Extracted {len(records)} records")
+st.success(f"Extracted {len(records)} URLs")
 
-st.dataframe(records[:200], use_container_width=True)
+st.dataframe(records[:500], use_container_width=True)
 
 # =====================================
 # SAVE
@@ -729,6 +743,375 @@ st.divider()
 if st.button("💾 Save All Records"):
     saved, total = save_all_records(records)
     st.success(f"Saved {saved} records — total {total}")
+
+
+# import streamlit as st
+# from pathlib import Path
+# from bs4 import BeautifulSoup
+# from lxml import etree
+# import json
+# import uuid
+# from datetime import datetime
+# import requests
+# import re
+# from urllib.parse import urljoin, urlparse
+
+# # =====================================
+# # PAGE CONFIG
+# # =====================================
+
+# st.set_page_config(layout="wide")
+# st.title("🔎 HTML / XML / JSON Path Extractor → JSON (Bulk Mode)")
+
+# BASE_DIR = Path(__file__).resolve().parents[1]
+# DATA_DIR = BASE_DIR / "."
+# HTML_DIR = DATA_DIR / "temporary_pear"
+# OUTPUT_FILE = DATA_DIR / "extracted_selectors.json"
+
+# HTML_DIR.mkdir(parents=True, exist_ok=True)
+# DATA_DIR.mkdir(exist_ok=True)
+
+# # =====================================
+# # URL HANDLING
+# # =====================================
+
+# URL_REGEX = re.compile(
+#     r"(https?://[^\s\"'<>]+|//[^\s\"'<>]+|www\.[^\s\"'<>]+|/[^\s\"'<>]+)",
+#     re.IGNORECASE
+# )
+
+# JS_URL_REGEX = re.compile(r"""['"](/[^'"]+)['"]""")
+
+# def normalize_url(raw_url, base_url=None):
+#     if not raw_url:
+#         return None
+
+#     raw_url = raw_url.strip()
+
+#     if raw_url.startswith("//"):
+#         raw_url = "https:" + raw_url
+
+#     elif raw_url.startswith("www."):
+#         raw_url = "https://" + raw_url
+
+#     elif raw_url.startswith("/") and base_url:
+#         raw_url = urljoin(base_url, raw_url)
+
+#     parsed = urlparse(raw_url)
+
+#     if not parsed.scheme:
+#         return None
+
+#     if parsed.scheme == "http":
+#         raw_url = raw_url.replace("http://", "https://", 1)
+
+#     return raw_url
+
+
+# def extract_url_from_text(text, base_url=None):
+#     if not text:
+#         return None
+
+#     match = URL_REGEX.search(text)
+#     if match:
+#         return normalize_url(match.group(0), base_url)
+
+#     return None
+
+
+# def extract_url_from_js(text, base_url=None):
+#     """
+#     Extract URL from onclick="go('/page/123')"
+#     """
+#     if not text:
+#         return None
+
+#     match = JS_URL_REGEX.search(text)
+#     if not match:
+#         return None
+
+#     return normalize_url(match.group(1), base_url)
+
+
+# def find_parent_link(el):
+#     parent = el
+#     while parent is not None:
+#         if parent.tag == "a":
+#             href = parent.attrib.get("href")
+#             if href:
+#                 return href
+#         parent = parent.getparent()
+#     return None
+
+
+# def extract_from_attributes(el):
+#     """
+#     Look for URLs in data-* attributes and onclick
+#     """
+#     for k, v in el.attrib.items():
+#         if not v:
+#             continue
+
+#         if "url" in k.lower() or "href" in k.lower():
+#             return v
+
+#         if k.lower() == "onclick":
+#             js_url = extract_url_from_js(v)
+#             if js_url:
+#                 return js_url
+
+#     return None
+
+# # =====================================
+# # HELPERS
+# # =====================================
+
+# def detect_type(raw: str):
+#     raw = raw.strip()
+#     if raw.startswith("{") or raw.startswith("["):
+#         return "json"
+
+#     low = raw.lower()
+#     if low.startswith("<?xml") or low.startswith("<rss") or low.startswith("<feed"):
+#         return "xml"
+
+#     return "html"
+
+
+# def fetch_url(url):
+#     headers = {"User-Agent": "Mozilla/5.0"}
+#     r = requests.get(url, headers=headers, timeout=20)
+#     r.raise_for_status()
+#     return r.text
+
+
+# def build_xpath(element):
+#     path = []
+#     while element is not None and element.tag:
+#         parent = element.getparent()
+#         if parent is None:
+#             path.append(element.tag)
+#             break
+#         index = parent.index(element) + 1
+#         path.append(f"{element.tag}[{index}]")
+#         element = parent
+#     return "/" + "/".join(reversed(path))
+
+
+# def parse_document(raw, doc_type):
+#     if doc_type == "html":
+#         soup = BeautifulSoup(raw, "html.parser")
+#         tree = etree.HTML(str(soup))
+#     else:
+#         tree = etree.fromstring(raw.encode())
+#     return tree
+
+
+# def extract_candidates(tree):
+#     elements = []
+#     for el in tree.iter():
+#         txt = (el.text or "").strip()
+#         if txt:
+#             elements.append(el)
+#     return elements
+
+
+# def flatten_json(obj, prefix=""):
+#     rows = []
+
+#     if isinstance(obj, dict):
+#         for k, v in obj.items():
+#             path = f"{prefix}.{k}" if prefix else k
+#             rows.extend(flatten_json(v, path))
+
+#     elif isinstance(obj, list):
+#         for i, v in enumerate(obj):
+#             path = f"{prefix}[{i}]"
+#             rows.extend(flatten_json(v, path))
+
+#     else:
+#         rows.append((prefix, obj))
+
+#     return rows
+
+
+# def extract_json_records(raw_json, base_url):
+#     parsed = json.loads(raw_json)
+#     flattened = flatten_json(parsed)
+
+#     records = []
+#     seen = set()
+
+#     for path, value in flattened:
+#         if value is None:
+#             continue
+
+#         text = str(value).strip()
+#         if not text:
+#             continue
+
+#         detected_url = extract_url_from_text(text, base_url)
+
+#         dedup_key = (path, text)
+#         if dedup_key in seen:
+#             continue
+#         seen.add(dedup_key)
+
+#         record = {
+#             "id": str(uuid.uuid4()),
+#             "doc_type": "json",
+#             "json_path": path,
+#             "value": text,
+#             "url": detected_url,
+#             "timestamp": datetime.utcnow().isoformat()
+#         }
+
+#         records.append(record)
+
+#     return records
+
+
+# def extract_all_records(elements, base_url, doc_type):
+#     records = []
+#     seen = set()
+
+#     for el in elements:
+#         text = (el.text or "").strip()
+#         if not text:
+#             continue
+
+#         xpath = build_xpath(el)
+
+#         raw_url = (
+#             el.attrib.get("href") or
+#             el.attrib.get("src") or
+#             extract_from_attributes(el) or
+#             find_parent_link(el) or
+#             extract_url_from_text(text, base_url)
+#         )
+
+#         url = normalize_url(raw_url, base_url)
+
+#         dedup_key = (xpath, text)
+#         if dedup_key in seen:
+#             continue
+#         seen.add(dedup_key)
+
+#         record = {
+#             "id": str(uuid.uuid4()),
+#             "doc_type": doc_type,
+#             "tag": el.tag,
+#             "xpath": xpath,
+#             "text": text,
+#             "url": url,
+#             "attributes": dict(el.attrib),
+#             "timestamp": datetime.utcnow().isoformat()
+#         }
+
+#         records.append(record)
+
+#     return records
+
+
+# def load_existing_records():
+#     if OUTPUT_FILE.exists():
+#         try:
+#             return json.loads(OUTPUT_FILE.read_text())
+#         except Exception:
+#             return []
+#     return []
+
+
+# def save_all_records(records):
+#     existing = load_existing_records()
+#     combined = existing + records
+
+#     OUTPUT_FILE.write_text(
+#         json.dumps(combined, indent=2, ensure_ascii=False, default=str)
+#     )
+
+#     return len(records), len(combined)
+
+# # =====================================
+# # INPUT MODE
+# # =====================================
+
+# st.sidebar.header("📥 Input Mode")
+
+# mode = st.sidebar.radio(
+#     "Choose source:",
+#     [
+#         "Paste HTML",
+#         "Upload HTML File",
+#         "Select Stored HTML",
+#         "🌐 Load from URL"
+#     ]
+# )
+
+# raw_html = None
+# base_url = None
+
+# # ---------- Paste Mode ----------
+# if mode == "Paste HTML":
+#     raw_html = st.text_area("📋 Paste HTML / XML / JSON", height=280)
+#     base_url = st.text_input("🌍 Base URL (important for relative links)", placeholder="https://example.com")
+
+# # ---------- Upload Mode ----------
+# elif mode == "Upload HTML File":
+#     uploaded = st.file_uploader("📤 Upload file", type=["html", "xml", "txt", "json"])
+#     if uploaded:
+#         raw_html = uploaded.read().decode("utf-8", errors="ignore")
+#         base_url = st.text_input("🌍 Base URL (optional)")
+
+# # ---------- Select Stored ----------
+# elif mode == "Select Stored HTML":
+#     files = sorted([f.name for f in HTML_DIR.glob("*")])
+#     if files:
+#         selected_file = st.selectbox("📂 Select stored file", files)
+#         raw_html = (HTML_DIR / selected_file).read_text(encoding="utf-8", errors="ignore")
+#         base_url = st.text_input("🌍 Base URL (optional)")
+
+# # ---------- URL Mode ----------
+# else:
+#     base_url = st.text_input("🌍 Enter URL")
+#     if st.button("⬇️ Fetch URL") and base_url:
+#         try:
+#             raw_html = fetch_url(base_url)
+#             st.success("URL fetched successfully.")
+#         except Exception as e:
+#             st.error(f"❌ Failed to fetch URL: {e}")
+#             st.stop()
+
+# # =====================================
+# # PARSE + EXTRACT
+# # =====================================
+
+# if not raw_html:
+#     st.stop()
+
+# doc_type = detect_type(raw_html)
+# st.info(f"Detected document type: **{doc_type.upper()}**")
+
+# if doc_type == "json":
+#     records = extract_json_records(raw_html, base_url)
+# else:
+#     tree = parse_document(raw_html, doc_type)
+#     elements = extract_candidates(tree)
+#     records = extract_all_records(elements, base_url, doc_type)
+
+# st.success(f"Extracted {len(records)} records")
+
+# st.dataframe(records[:200], use_container_width=True)
+
+# # =====================================
+# # SAVE
+# # =====================================
+
+# st.divider()
+
+# if st.button("💾 Save All Records"):
+#     saved, total = save_all_records(records)
+#     st.success(f"Saved {saved} records — total {total}")
 
 
 
