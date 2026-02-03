@@ -16,7 +16,7 @@ DATA_DIR.mkdir(exist_ok=True)
 
 DATASET_JSON = DATA_DIR / "news_dataset.json"
 COMPANIES_JSON = DATA_DIR / "esg_companies.json"
-KEYWORDS_JSON = DATA_DIR / "esg_keywords.json" # "esg_keywords_flat.json"
+KEYWORDS_JSON = DATA_DIR / "esg_keywords_flat.json" # "esg_keywords_flat.json"
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0",

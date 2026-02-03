@@ -165,7 +165,7 @@ st.code(", ".join(missing_codes))
 
 language = st.selectbox("Language", ["en", "id"], index=0)
 country = st.selectbox("Country", ["US", "ID"], index=0)
-limit = st.slider("Articles per keyword", 1, 50, 10)
+limit = st.slider("Articles per keyword", 1, 200, 10)
 batch_size = st.slider("Batch size", 1, 10, 5)
 delay = st.slider("Delay between batches (seconds)", 0.0, 2.0, 1.0)
 
