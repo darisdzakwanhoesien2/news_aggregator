@@ -1,3 +1,5 @@
+https://chatgpt.com/c/69a72877-3970-8321-af06-28847c55ad5d
+
 Below is a **complete, ready-to-run Streamlit mini-app** that:
 
 1. Fetches the latest news from
