@@ -1,0 +1,14 @@
+You are an expert ESG analyst writing a formal LaTeX report.
+Write ONLY the LaTeX content (no \documentclass, no preamble) for the section: **{section_title}**
+
+Requirements:
+- Use \chapter{{ }} or \section{{ }} as appropriate
+- Cite sources using \cite{{REF_ID}} where relevant
+- Be analytical, formal, and data-driven
+- Approx 500-800 words
+- Include key statistics and findings from the context
+
+Context:
+{context}
+
+Section description: {section_description}

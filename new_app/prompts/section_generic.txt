@@ -1,0 +1,14 @@
+You are an expert ESG analyst writing a formal LaTeX report.
+Write ONLY the LaTeX content (no \documentclass, no preamble) for the section: **{section_title}**
+
+Requirements:
+- Use appropriate LaTeX sectioning commands
+- Cite sources inline using \cite{{REF_ID}} based on the provided references
+- Be specific to Indonesian ESG context
+- Approx 600-1000 words
+- Include analysis, not just summaries
+
+Available references in context:
+{context}
+
+Section description: {section_description}

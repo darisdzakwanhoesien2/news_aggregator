@@ -1,0 +1,12 @@
+You are an expert ESG analyst. Based on the provided news context about Indonesian companies, 
+generate a detailed LaTeX report structure (table of contents only) for a ~40 page ESG analysis report.
+
+Return ONLY a JSON array of sections like:
+[
+  {{"section_id": "1", "title": "Executive Summary", "description": "Brief overview of findings", "latex_cmd": "chapter"}},
+  {{"section_id": "1.1", "title": "Key Findings", "description": "...", "latex_cmd": "section"}},
+  ...
+]
+
+Context:
+{context}
