@@ -1100,6 +1100,90 @@ with tab_results:
 with tab_questions:
     st.subheader("📋 All 30 ESG-SME MCQ Questions")
 
+    # Company context for answering
+    companies = sorted([d for d in DATA_DIR.iterdir() if d.is_dir() and d.name != "_tmp"]) if DATA_DIR.exists() else []
+    company_names = [c.name for c in companies]
+    selected_company_for_q = None
+    if companies:
+        selected_company_for_q = st.selectbox("Select company (answers will be saved under this company)", company_names, key="q_company_select")
+        company_dir_for_q = DATA_DIR / selected_company_for_q
+        # list available OCR doc folders for dropdown attachment per question
+        ocr_docs = []
+        ocr_root = company_dir_for_q / "ocr"
+        if ocr_root.exists():
+            ocr_docs = [d.name for d in sorted(ocr_root.iterdir()) if d.is_dir()]
+    else:
+        st.info("No company data found — upload documents in Step 1 to enable interactive answering.")
+
+    mode = st.radio("Mode", ["View only", "Interactive Questionnaire"], horizontal=True, key="question_mode")
+
+    # Interactive answering mode
+    if mode == "Interactive Questionnaire":
+        if not companies:
+            st.warning("⚠️ No company available. Run OCR in Step 1 first.")
+        else:
+            st.info("Answer each question, optionally attach a source document (from uploaded OCR docs), add evidence and confidence.")
+
+            # Build a form so the whole questionnaire can be submitted at once
+            with st.form(key="mcq_interactive_form", clear_on_submit=False):
+                answers_ui = []
+                for q in ESG_MCQ:
+                    qid = q["id"]
+                    with st.expander(f"{qid} — {q['question']}", expanded=False):
+                        # Radio for choice
+                        choice_key = f"choice_{qid}"
+                        selected = st.radio(
+                            label="Select answer",
+                            options=["", *list(q["choices"].keys())],
+                            format_func=lambda x: ("— Select —" if x == "" else x),
+                            key=choice_key,
+                            horizontal=True,
+                        )
+
+                        # Evidence text
+                        evidence_key = f"evidence_{qid}"
+                        evidence = st.text_area("Evidence / quote (short)", key=evidence_key, height=60)
+
+                        # Confidence
+                        conf_key = f"conf_{qid}"
+                        confidence = st.selectbox("Confidence", ["High", "Medium", "Low"], index=1, key=conf_key)
+
+                        # Attach OCR doc (optional)
+                        attach_key = f"attach_{qid}"
+                        attach_opts = ["(none)", *ocr_docs]
+                        attached_doc = st.selectbox("Attach document", attach_opts, index=0, key=attach_key)
+
+                        answers_ui.append({
+                            "id": qid,
+                            "selected": selected,
+                            "selected_text": q["choices"].get(selected, "") if selected else "",
+                            "evidence": evidence,
+                            "confidence": confidence,
+                            "attached_doc": None if attached_doc == "(none)" else attached_doc,
+                        })
+
+                submitted = st.form_submit_button("💾 Save answers")
+
+                if submitted:
+                    # validate and save
+                    ts = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+                    out_dir = (DATA_DIR / selected_company_for_q / "mcq_answers")
+                    out_dir.mkdir(parents=True, exist_ok=True)
+                    out_file = out_dir / f"{ts}_manual.json"
+
+                    # Build save record
+                    record = {
+                        "company": selected_company_for_q,
+                        "timestamp": datetime.utcnow().isoformat() + "Z",
+                        "mode": "manual",
+                        "answers": answers_ui,
+                    }
+                    atomic_write_json(out_file, record)
+                    st.success(f"Saved manual answers → `data/{selected_company_for_q}/mcq_answers/{out_file.name}`")
+                    st.json(record)
+
+    # View-only display (also shown below the interactive form)
+    st.divider()
     pillar_filter_q = st.radio(
         "Filter by pillar",
         ["All", "Environmental", "Social", "Governance"],
@@ -1115,7 +1199,6 @@ with tab_questions:
             for letter, text in q["choices"].items():
                 st.markdown(f"- **{letter}.** {text}")
 
-    st.divider()
     st.caption(
         f"Total: {len(ESG_MCQ)} questions · "
         f"E: {sum(1 for q in ESG_MCQ if q['pillar']=='Environmental')} · "
