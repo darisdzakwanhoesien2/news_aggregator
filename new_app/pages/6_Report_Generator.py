@@ -167,6 +167,43 @@ def load_report_state() -> dict:
 def save_report_state(state: dict):
     REPORT_STATE_FILE.write_text(json.dumps(state, indent=2, ensure_ascii=False), encoding="utf-8")
 
+# Next output index helper (returns 1,2,3...)
+def _next_output_index() -> int:
+    """Return next numeric index for OUTPUT_PROMPT_DIR (1,2,3...)."""
+    nums = []
+    for p in OUTPUT_PROMPT_DIR.glob("*.tex"):
+        stem = p.stem
+        m = re.match(r"^0*([0-9]+)$", stem)
+        if m:
+            try:
+                nums.append(int(m.group(1)))
+            except Exception:
+                pass
+    return (max(nums) + 1) if nums else 1
+
+def reset_report_state(archive_existing: bool = True):
+    """Archive current report_state.json (if any) and clear per-section outputs. Returns fresh state."""
+    try:
+        if REPORT_STATE_FILE.exists() and archive_existing:
+            ts = datetime.now().strftime("%Y%m%d_%H%M%S")
+            archive_fp = REPORTS_DIR / f"report_state_{ts}.json"
+            REPORT_STATE_FILE.replace(archive_fp)
+        elif REPORT_STATE_FILE.exists():
+            REPORT_STATE_FILE.unlink(missing_ok=True)
+    except Exception:
+        pass
+
+    # clear per-section output files
+    for p in OUTPUT_PROMPT_DIR.glob("*"):
+        try:
+            p.unlink(missing_ok=True)
+        except Exception:
+            pass
+
+    new_state = {"structure": None, "sections": {}, "citations": {}, "metadata": {}}
+    save_report_state(new_state)
+    return new_state
+
 # =============================================
 # Build Context from Data
 # =============================================
@@ -477,27 +514,62 @@ with tab1:
                     model=model
                 )
 
-            # Try to extract JSON from response
-            try:
-                json_match = re.search(r'\[.*\]', raw_response, re.DOTALL)
-                if json_match:
-                    structure = json.loads(json_match.group())
-                    report_state["structure"] = structure
-                    report_state["metadata"]  = {
-                        "title":      report_title,
-                        "author":     report_author,
-                        "created_at": datetime.now().isoformat(),
-                        "company_filter": company_filter,
-                    }
-                    save_report_state(report_state)
-                    save_prompt_template("00_structure", structure_prompt)
-                    st.success(f"✅ Structure generated with **{len(structure)}** sections!")
-                else:
-                    st.error("Could not parse JSON. Raw response:")
+            # Robust JSON extraction: try json.loads, ast.literal_eval, then a safe single->double-quote pass
+            def _extract_json_array(text: str):
+                m = re.search(r'\[.*\]', text, re.DOTALL)
+                if not m:
+                    return None
+                s = m.group()
+
+                # Normalize common LLM formatting issues:
+                # - double-braces like {{ ... }} -> { ... }
+                # - trailing commas before closing } or ] which break json.loads
+                s_clean = re.sub(r'\{\{', '{', s)
+                s_clean = re.sub(r'\}\}', '}', s_clean)
+                s_clean = re.sub(r',\s*([}\]])', r'\1', s_clean)
+
+                # Try a few parsers in order of safety
+                for candidate in (s, s_clean):
+                    try:
+                        parsed = json.loads(candidate)
+                        if isinstance(parsed, list):
+                            return parsed
+                    except Exception:
+                        pass
+                    try:
+                        parsed = ast.literal_eval(candidate)
+                        if isinstance(parsed, list):
+                            return parsed
+                    except Exception:
+                        pass
+
+                # Last-ditch: naive single-quote -> double-quote convert (may fail on nested quotes)
+                try:
+                    s2 = re.sub(r"(?<!\\)'", '"', s_clean)
+                    parsed = json.loads(s2)
+                    if isinstance(parsed, list):
+                        return parsed
+                except Exception:
+                    pass
+
+                return None
+
+            structure = _extract_json_array(raw_response)
+            if structure:
+                report_state["structure"] = structure
+                report_state["metadata"]  = {
+                    "title":      report_title,
+                    "author":     report_author,
+                    "created_at": datetime.now().isoformat(),
+                    "company_filter": company_filter,
+                }
+                save_report_state(report_state)
+                save_prompt_template("00_structure", structure_prompt)
+                st.success(f"✅ Structure generated with **{len(structure)}** sections!")
+            else:
+                st.error("Could not parse JSON. Raw response:")
+                with st.expander("LLM raw response (debug)", expanded=True):
                     st.code(raw_response)
-            except json.JSONDecodeError as e:
-                st.error(f"JSON parse error: {e}")
-                st.code(raw_response)
 
     # Show current structure
     if report_state.get("structure"):
@@ -556,6 +628,12 @@ with tab2:
         with col_regen:
             if selected_section["section_id"] in sections:
                 st.success("✅ Already generated")
+            if st.button("🔁 Start New Report (archive + clear)"):
+                report_state = reset_report_state(archive_existing=True)
+                sections = report_state.get("sections", {})
+                citations_store = report_state.get("citations", {})
+                st.success("✅ New report started (old state archived, outputs cleared).")
+                st.rerun()
 
         if generate_btn:
             if not api_key:
@@ -569,18 +647,28 @@ with tab2:
                         model=model
                     )
 
+                # assign next numeric file index
+                file_index = _next_output_index()
+
                 sections[selected_section["section_id"]] = {
                     "title":     selected_section["title"],
                     "latex_cmd": selected_section.get("latex_cmd", "section"),
                     "content":   latex_content,
                     "generated_at": datetime.now().isoformat(),
+                    "file_index": file_index,
                 }
                 citations_store[selected_section["section_id"]] = citations
+
+                # write to numeric files
+                tex_path = OUTPUT_PROMPT_DIR / f"{file_index}.tex"
+                json_path = OUTPUT_PROMPT_DIR / f"{file_index}.json"
+                tex_path.write_text(latex_content, encoding="utf-8")
+                json_path.write_text(json.dumps(citations, indent=2, ensure_ascii=False), encoding="utf-8")
 
                 report_state["sections"]  = sections
                 report_state["citations"] = citations_store
                 save_report_state(report_state)
-                st.success(f"✅ Section generated!")
+                st.success(f"✅ Section generated and saved as {file_index}.tex")
 
         # Preview
         if selected_section["section_id"] in sections:
