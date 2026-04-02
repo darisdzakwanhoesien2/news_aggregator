@@ -1,0 +1,249 @@
+{
+  "company": "Testing 2",
+  "company_slug": "Testing 2",
+  "timestamp": "2026-04-02T02:25:22.717111Z",
+  "mode": "manual",
+  "source_mode": "📤 Upload at end (general)",
+  "answers": [
+    {
+      "id": "E01",
+      "selected": "B",
+      "selected_text": "Yes, Scope 1, 2 and 3",
+      "evidence": "",
+      "confidence": "Medium",
+      "attached_docs": []
+    },
+    {
+      "id": "E02",
+      "selected": "A",
+      "selected_text": "Yes, with a specific year and measurable target",
+      "evidence": "",
+      "confidence": "Medium",
+      "attached_docs": []
+    },
+    {
+      "id": "E03",
+      "selected": "B",
+      "selected_text": "Yes, but only informally",
+      "evidence": "",
+      "confidence": "Medium",
+      "attached_docs": []
+    },
+    {
+      "id": "E04",
+      "selected": "B",
+      "selected_text": "10–50 %",
+      "evidence": "",
+      "confidence": "Medium",
+      "attached_docs": []
+    },
+    {
+      "id": "E05",
+      "selected": "C",
+      "selected_text": "Planning to",
+      "evidence": "",
+      "confidence": "Medium",
+      "attached_docs": []
+    },
+    {
+      "id": "E06",
+      "selected": "A",
+      "selected_text": "Yes, with diversion targets (landfill avoidance)",
+      "evidence": "",
+      "confidence": "Medium",
+      "attached_docs": []
+    },
+    {
+      "id": "E07",
+      "selected": "B",
+      "selected_text": "Yes, basic internal assessment",
+      "evidence": "",
+      "confidence": "Medium",
+      "attached_docs": []
+    },
+    {
+      "id": "E08",
+      "selected": "C",
+      "selected_text": "Informal commitments only",
+      "evidence": "",
+      "confidence": "Medium",
+      "attached_docs": []
+    },
+    {
+      "id": "E09",
+      "selected": "B",
+      "selected_text": "Yes, informal preference",
+      "evidence": "",
+      "confidence": "Medium",
+      "attached_docs": []
+    },
+    {
+      "id": "E10",
+      "selected": "A",
+      "selected_text": "Yes, publicly available",
+      "evidence": "",
+      "confidence": "Medium",
+      "attached_docs": []
+    },
+    {
+      "id": "S01",
+      "selected": "C",
+      "selected_text": "Informal practices",
+      "evidence": "",
+      "confidence": "Medium",
+      "attached_docs": []
+    },
+    {
+      "id": "S02",
+      "selected": "A",
+      "selected_text": "Yes, reported publicly",
+      "evidence": "",
+      "confidence": "Medium",
+      "attached_docs": []
+    },
+    {
+      "id": "S03",
+      "selected": "B",
+      "selected_text": "Yes, informal / ad-hoc",
+      "evidence": "",
+      "confidence": "Medium",
+      "attached_docs": []
+    },
+    {
+      "id": "S04",
+      "selected": "A",
+      "selected_text": "Yes, with targets and reporting",
+      "evidence": "",
+      "confidence": "Medium",
+      "attached_docs": []
+    },
+    {
+      "id": "S05",
+      "selected": "C",
+      "selected_text": "Planning to",
+      "evidence": "",
+      "confidence": "Medium",
+      "attached_docs": []
+    },
+    {
+      "id": "S06",
+      "selected": "B",
+      "selected_text": "Yes, at living wage",
+      "evidence": "",
+      "confidence": "Medium",
+      "attached_docs": []
+    },
+    {
+      "id": "S07",
+      "selected": "C",
+      "selected_text": "Planning to",
+      "evidence": "",
+      "confidence": "Medium",
+      "attached_docs": []
+    },
+    {
+      "id": "S08",
+      "selected": "A",
+      "selected_text": "Yes, with audits",
+      "evidence": "",
+      "confidence": "Medium",
+      "attached_docs": []
+    },
+    {
+      "id": "S09",
+      "selected": "C",
+      "selected_text": "Planning to",
+      "evidence": "",
+      "confidence": "Medium",
+      "attached_docs": []
+    },
+    {
+      "id": "S10",
+      "selected": "A",
+      "selected_text": "Yes, above statutory minimum",
+      "evidence": "",
+      "confidence": "Medium",
+      "attached_docs": []
+    },
+    {
+      "id": "G01",
+      "selected": "B",
+      "selected_text": "Yes, covered by existing board/management",
+      "evidence": "",
+      "confidence": "Medium",
+      "attached_docs": []
+    },
+    {
+      "id": "G02",
+      "selected": "A",
+      "selected_text": "Yes, published and enforced",
+      "evidence": "",
+      "confidence": "Medium",
+      "attached_docs": []
+    },
+    {
+      "id": "G03",
+      "selected": "B",
+      "selected_text": "Yes, policy statement only",
+      "evidence": "",
+      "confidence": "Medium",
+      "attached_docs": []
+    },
+    {
+      "id": "G04",
+      "selected": "A",
+      "selected_text": "Yes, anonymous and independently managed",
+      "evidence": "",
+      "confidence": "Medium",
+      "attached_docs": []
+    },
+    {
+      "id": "G05",
+      "selected": "B",
+      "selected_text": "Yes, internal policy",
+      "evidence": "",
+      "confidence": "Medium",
+      "attached_docs": []
+    },
+    {
+      "id": "G06",
+      "selected": "A",
+      "selected_text": "Yes, statutory external audit",
+      "evidence": "",
+      "confidence": "Medium",
+      "attached_docs": []
+    },
+    {
+      "id": "G07",
+      "selected": "B",
+      "selected_text": "Partially disclosed",
+      "evidence": "",
+      "confidence": "Medium",
+      "attached_docs": []
+    },
+    {
+      "id": "G08",
+      "selected": "A",
+      "selected_text": "Yes, fully aligned",
+      "evidence": "",
+      "confidence": "Medium",
+      "attached_docs": []
+    },
+    {
+      "id": "G09",
+      "selected": "B",
+      "selected_text": "Yes, separate ESG risk register",
+      "evidence": "",
+      "confidence": "Medium",
+      "attached_docs": []
+    },
+    {
+      "id": "G10",
+      "selected": "A",
+      "selected_text": "Yes, all three pillars (E, S, G)",
+      "evidence": "",
+      "confidence": "Medium",
+      "attached_docs": []
+    }
+  ]
+}

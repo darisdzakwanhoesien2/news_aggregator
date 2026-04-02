@@ -1,0 +1,1 @@
+What I need is that the system should automatically extract relevant information from the PDF as the verification for the selected MCQ questions

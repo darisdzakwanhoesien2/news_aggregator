@@ -1,0 +1,1 @@
+Can we split the LLM setup, OCR setup and the actual MCQ question and answer verification into different sections, so we can have a clear documentation for each of the setup and the flow of the application?

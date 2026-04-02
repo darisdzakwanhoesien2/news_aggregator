@@ -1,0 +1,1 @@
+Let's change the flow, so the company name is created/selected (if it's not there, create new), then we have the options to input the PDF for several MCQ questions, or using the existing one (that the company have), or uploading it at the end of it, then we see the results

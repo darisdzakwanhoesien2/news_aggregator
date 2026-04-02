@@ -133,9 +133,28 @@ def scrape_article(url: str) -> tuple[str, str]:
 # -----------------------------
 st.sidebar.header("Filter Options")
 
+# Load scraped_data early so we can filter companies by "0 missing"
+scraped_data = load_scraped()
+
+# compute list of companies that have all their filtered links already scraped
+all_companies = sorted(df["company_name"].dropna().unique().tolist())
+companies_with_complete = []
+for comp in all_companies:
+    comp_links = df[df["company_name"] == comp]["link"].dropna().unique().tolist()
+    missing_for_comp = [l for l in comp_links if l not in scraped_data]
+    if len(missing_for_comp) == 0:
+        companies_with_complete.append(comp)
+
+if not companies_with_complete:
+    # no fully-scraped companies — fall back to showing all and notify user
+    st.sidebar.warning("No companies have all articles scraped; showing all companies.")
+    company_options = ["All"] + all_companies
+else:
+    company_options = ["All"] + companies_with_complete
+
 company_filter = st.sidebar.selectbox(
     "Select Company",
-    ["All"] + sorted(df["company_name"].dropna().unique().tolist())
+    company_options
 )
 
 keyword_filter = st.sidebar.selectbox(
