@@ -8,7 +8,14 @@ import requests
 import os
 from bs4 import BeautifulSoup
 from datetime import datetime
-from googlenewsdecoder import new_decoderv1  # ← Add this import
+
+# make googlenewsdecoder optional and provide a safe fallback
+try:
+    from googlenewsdecoder import new_decoderv1  # ← Add this import
+except Exception:
+    def new_decoderv1(url: str):
+        # simple fallback: indicate decode didn't succeed
+        return {"status": False}
 
 st.set_page_config(page_title="News Extractor", layout="wide")
 
@@ -61,17 +68,53 @@ def save_scraped(scraped_dict):
 def resolve_google_news_url(url: str) -> str:
     """
     Decode Google News RSS URL to get the actual article URL.
-    Uses googlenewsdecoder to bypass JS-based redirects.
+    Tries:
+      1) googlenewsdecoder (if available)
+      2) follow HTTP redirects via requests
+      3) parse meta refresh tag as a last resort
+    Returns the resolved URL (or original URL if resolution fails).
     """
     try:
-        # Only decode if it's a Google News URL
-        if "news.google.com" in url:
-            result = new_decoderv1(url)
-            if result and result.get("status") == True:
-                return result["decoded_url"]
+        if "news.google.com" in url or "google.com" in url:
+            # try decoder first
+            try:
+                result = new_decoderv1(url)
+                if result and result.get("status") is True and result.get("decoded_url"):
+                    return result["decoded_url"]
+            except Exception:
+                # decoder failed — continue with HTTP-based resolution
+                pass
+
+            # follow HTTP redirects (many Google-News links will redirect to the article)
+            headers = {
+                "User-Agent": (
+                    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
+                    "AppleWebKit/537.36 (KHTML, like Gecko) "
+                    "Chrome/120.0.0.0 Safari/537.36"
+                )
+            }
+            try:
+                resp = requests.get(url, headers=headers, timeout=15, allow_redirects=True)
+                final = resp.url or url
+                # try meta refresh inside the final page
+                try:
+                    soup = BeautifulSoup(resp.text, "html.parser")
+                    meta = soup.select_one("meta[http-equiv='refresh']")
+                    if meta and "url=" in meta.get("content", "").lower():
+                        meta_url = re.search(r"url=(.*)", meta["content"], flags=re.IGNORECASE)
+                        if meta_url:
+                            candidate = meta_url.group(1).strip().strip("'\"")
+                            return requests.compat.urljoin(final, candidate)
+                except Exception:
+                    pass
+                return final
+            except Exception:
+                return url
+
+        # not a Google News link — return as-is
         return url
-    except Exception as e:
-        return url  # Fallback to original
+    except Exception:
+        return url  # fallback
 
 def scrape_article(url: str) -> tuple[str, str]:
     """
@@ -234,31 +277,66 @@ else:
         results_log = []
 
         for i, link in enumerate(selected_links):
-            status_text.text(f"Scraping ({i+1}/{len(selected_links)}): {link[:80]}...")
-            content, resolved_url = scrape_article(link)  # ← unpack tuple
+            try:
+                status_text.text(f"Scraping ({i+1}/{len(selected_links)}): {link[:80]}...")
+                content, resolved_url = scrape_article(link)  # ← unpack tuple
 
-            # Find matching row metadata
-            row = filtered_df[filtered_df["link"] == link].iloc[0]
-            scraped_data[link] = {
-                "title": row.get("title", ""),
-                "company_name": row.get("company_name", ""),
-                "company_code": row.get("company_code", ""),
-                "keyword": row.get("keyword", ""),
-                "published": str(row.get("published", "")),
-                "source": row.get("source", ""),
-                "link": link,
-                "resolved_url": resolved_url,  # ← store actual article URL
-                "content": content,
-                "scraped_at": datetime.now().isoformat()
-            }
+                # Find matching row metadata safely
+                matched = filtered_df[filtered_df["link"] == link]
+                if not matched.empty:
+                    row = matched.iloc[0].to_dict()
+                else:
+                    # fallback minimal metadata if not found
+                    row = {
+                        "title": "",
+                        "company_name": "",
+                        "company_code": "",
+                        "keyword": "",
+                        "published": "",
+                        "source": ""
+                    }
 
-            is_error = content.startswith("[Error")
-            results_log.append({
-                "original_link": link[:60],
-                "resolved_url": resolved_url[:80],
-                "status": "❌ Error" if is_error else "✅ Success",
-                "preview": content[:100]
-            })
+                scraped_data[link] = {
+                    "title": row.get("title", ""),
+                    "company_name": row.get("company_name", ""),
+                    "company_code": row.get("company_code", ""),
+                    "keyword": row.get("keyword", ""),
+                    "published": str(row.get("published", "")),
+                    "source": row.get("source", ""),
+                    "link": link,
+                    "resolved_url": resolved_url,
+                    "content": content,
+                    "scraped_at": datetime.now().isoformat()
+                }
+
+                is_error = isinstance(content, str) and content.startswith("[Error")
+                results_log.append({
+                    "original_link": (link or "")[:60],
+                    "resolved_url": (resolved_url or "")[:80],
+                    "status": "❌ Error" if is_error else "✅ Success",
+                    "preview": (content or "")[:200]
+                })
+
+            except Exception as e_item:
+                # record the error for this link and continue
+                scraped_data[link] = {
+                    "title": "",
+                    "company_name": "",
+                    "company_code": "",
+                    "keyword": "",
+                    "published": "",
+                    "source": "",
+                    "link": link,
+                    "resolved_url": "",
+                    "content": f"[Error scraping item: {str(e_item)}]",
+                    "scraped_at": datetime.now().isoformat()
+                }
+                results_log.append({
+                    "original_link": (link or "")[:60],
+                    "resolved_url": "",
+                    "status": "❌ Exception",
+                    "preview": str(e_item)[:200]
+                })
 
             progress_bar.progress((i + 1) / len(selected_links))
 

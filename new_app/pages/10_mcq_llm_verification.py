@@ -155,6 +155,97 @@ def clean_pages_folder(doc_dir: Path):
     print(f"Cleaned markdown in {pages_dir}")
 
 
+# Ensure OCR helper moved here so it's defined before being called in main
+def list_ocr_candidates(company_dir: Path) -> dict:
+    """Return nearby OCR artifacts for diagnostics."""
+    candidates = {"ocr_dirs": [], "ocr_json": [], "pages_dirs": [], "images_dirs": []}
+    try:
+        for p in company_dir.rglob("ocr"):
+            if p.is_dir():
+                candidates["ocr_dirs"].append(p)
+        for j in company_dir.rglob("ocr_result.json"):
+            candidates["ocr_json"].append(j)
+        for p in company_dir.rglob("pages"):
+            if p.is_dir():
+                candidates["pages_dirs"].append(p)
+        for p in company_dir.rglob("images"):
+            if p.is_dir():
+                candidates["images_dirs"].append(p)
+    except Exception:
+        pass
+    return candidates
+
+
+def ensure_ocr_for_company(company_dir: Path, data_dir: Path) -> Path | None:
+    """
+    Ensure company_dir/ocr exists. If not, try to locate OCR artifacts anywhere under
+    the company_dir and copy them into company_dir/ocr. Returns the Path to the OCR
+    directory that will be used (company_dir/ocr) or None if nothing found.
+    """
+    ocr_dir = company_dir / "ocr"
+    # already present
+    if ocr_dir.exists() and any(ocr_dir.iterdir()):
+        return ocr_dir
+
+    # 1) Prefer an existing 'ocr' folder anywhere inside company_dir
+    for candidate in company_dir.rglob("ocr"):
+        if candidate.is_dir():
+            try:
+                ocr_dir.mkdir(parents=True, exist_ok=True)
+                # copy contents (images, pages, json) into company_dir/ocr
+                for child in candidate.iterdir():
+                    dst = ocr_dir / child.name
+                    if child.is_dir():
+                        shutil.copytree(child, dst, dirs_exist_ok=True)
+                    else:
+                        shutil.copy2(child, dst)
+                return ocr_dir
+            except Exception:
+                continue
+
+    # 2) Look for any ocr_result.json somewhere under company_dir and materialize pages/
+    for json_path in company_dir.rglob("ocr_result.json"):
+        try:
+            src = json_path.parent
+            ocr_dir.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(json_path, ocr_dir / "ocr_result.json")
+            # copy sibling folders if present
+            for name in ("pages", "images"):
+                src_dir = src / name
+                if src_dir.exists() and src_dir.is_dir():
+                    dst = ocr_dir / name
+                    shutil.copytree(src_dir, dst, dirs_exist_ok=True)
+            # if no pages directory present, try to materialize pages from the JSON
+            if not (ocr_dir / "pages").exists():
+                try:
+                    write_pages_from_ocr_json(company_dir, ocr_dir / "ocr_result.json")
+                    # write_pages_from_ocr_json writes into company_dir/pages — copy into ocr/pages
+                    generated = company_dir / "pages"
+                    if generated.exists():
+                        shutil.copytree(generated, ocr_dir / "pages", dirs_exist_ok=True)
+                except Exception:
+                    pass
+            return ocr_dir
+        except Exception:
+            continue
+
+    # 3) Look for any 'pages' folder under company_dir and copy into company_dir/ocr/pages
+    for pages in company_dir.rglob("pages"):
+        if pages.is_dir():
+            try:
+                ocr_dir.mkdir(parents=True, exist_ok=True)
+                dst = ocr_dir / "pages"
+                shutil.copytree(pages, dst, dirs_exist_ok=True)
+                # also copy sibling images if present
+                if (pages.parent / "images").exists():
+                    shutil.copytree(pages.parent / "images", ocr_dir / "images", dirs_exist_ok=True)
+                return ocr_dir
+            except Exception:
+                continue
+
+    return None
+
+
 def collect_ocr_text(company_dir: Path) -> str:
     """
     Improved recursive search for OCR files to handle nested structures
@@ -647,19 +738,42 @@ st.header("Step 2 — OCR Document Text")
 
 with st.spinner("Locating / Loading OCR text…"):
     # try to auto-fix by copying a found OCR bundle into company_dir/ocr/
-    ensured = ensure_ocr_for_company(company_dir, DATA_DIR)
-    ocr_text = get_ocr_text(company_dir)
+    ensured_path = ensure_ocr_for_company(company_dir, DATA_DIR)
+    # if ensure_ocr_for_company returned a specific ocr dir, use it; else fall back to recursive search
+    search_base = ensured_path if ensured_path is not None else company_dir
+    ocr_text = get_ocr_text(search_base)
     st.session_state.ocr_text = ocr_text
+    ocr_source = ensured_path
 
 if not ocr_text.strip():
-    st.warning(
-        f"⚠️ No OCR text found for **{company_name}**. "
-        "Verification will proceed but all answers will return NOT_FOUND."
-    )
+    # provide actionable diagnostics
+    candidates = list_ocr_candidates(company_dir)
+    msg_lines = [
+        f"⚠️ No OCR text found for **{company_name}**. Verification will proceed but all answers will return NOT_FOUND.",
+        "",
+        "I looked for common OCR artifacts under the company folder. Found:"
+    ]
+    if candidates["ocr_dirs"]:
+        msg_lines.append(f"- ocr folders: {', '.join(str(p.relative_to(DATA_DIR)) for p in candidates['ocr_dirs'])}")
+    if candidates["ocr_json"]:
+        msg_lines.append(f"- ocr_result.json files: {', '.join(str(p.relative_to(DATA_DIR)) for p in candidates['ocr_json'])}")
+    if candidates["pages_dirs"]:
+        msg_lines.append(f"- pages/ folders: {', '.join(str(p.relative_to(DATA_DIR)) for p in candidates['pages_dirs'])}")
+    if candidates["images_dirs"]:
+        msg_lines.append(f"- images/ folders: {', '.join(str(p.relative_to(DATA_DIR)) for p in candidates['images_dirs'])}")
+
+    msg_lines.append("")
+    msg_lines.append("Tip: If you see OCR bundles in the list above, you can copy them into the company `ocr/` folder and rerun the verification. The app attempts to auto-copy common structures but will show the candidates above if it couldn't.")
+    st.warning("\n".join(msg_lines))
     ocr_available = False
 else:
     ocr_available = True
-    st.success(f"✅ OCR text loaded — {len(ocr_text):,} characters from `{company_name}/ocr/`")
+    # show a clearer source path
+    try:
+        src_display = (ocr_source.relative_to(DATA_DIR) if ocr_source and DATA_DIR in ocr_source.parents else (ocr_source or company_dir))
+    except Exception:
+        src_display = ocr_source or company_dir
+    st.success(f"✅ OCR text loaded — {len(ocr_text):,} characters from `{src_display}`")
 
 with st.expander("👁️ Preview OCR text (first 3000 chars)", expanded=False):
     st.code(ocr_text[:3000] + ("…" if len(ocr_text) > 3000 else ""), language="markdown")
