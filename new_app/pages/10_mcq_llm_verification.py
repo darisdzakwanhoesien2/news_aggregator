@@ -2,18 +2,13 @@
 ────────────────────────────────────────────────────────────────────────────────
 MCQ LLM Verification & Scoring Page
 ────────────────────────────────────────────────────────────────────────────────
-Workflow:
-  1. Select a company folder
-  2. Select an MCQ answer JSON (manual or LLM)
-  3. LLM verifies each answer against OCR text
-  4. Displays score, pillar breakdown, and per-question reasoning
 """
 
-import argparse
 import html
 import json
 import os
 import re
+import shutil
 import time
 from datetime import datetime
 from pathlib import Path
@@ -23,7 +18,6 @@ import pandas as pd
 import requests
 import streamlit as st
 from dotenv import load_dotenv
-import shutil
 
 # ── Page config ────────────────────────────────────────────────────────────────
 st.set_page_config(
@@ -33,7 +27,7 @@ st.set_page_config(
 )
 
 # ── Paths & env ────────────────────────────────────────────────────────────────
-BASE_DIR = Path(__file__).resolve().parents[1]   # new_app/
+BASE_DIR = Path(__file__).resolve().parents[1]
 DATA_DIR = BASE_DIR / "data"
 load_dotenv(BASE_DIR / ".env")
 
@@ -41,14 +35,74 @@ OPENROUTER_API_URL    = os.getenv("OPENROUTER_API_URL", "https://openrouter.ai/a
 OPENROUTER_MODELS_URL = os.getenv("OPENROUTER_MODELS_URL", "https://openrouter.ai/api/v1/models")
 DEFAULT_MODEL         = "meta-llama/llama-3.1-8b-instruct:free"
 
-# ── Score mapping: selected choice → numeric score ─────────────────────────────
-# A = full compliance (3), B = partial (2), C = planning (1), D = no (0)
 CHOICE_SCORE = {"A": 3, "B": 2, "C": 1, "D": 0, "": 0}
 MAX_SCORE_PER_QUESTION = 3
 
+# ══════════════════════════════════════════════════════════════════════════════
+# VERIFICATION SYSTEM PROMPT  ← must be defined before UI
+# ══════════════════════════════════════════════════════════════════════════════
+
+VERIFICATION_SYSTEM_PROMPT = """
+You are an objective verifier comparing multiple-choice answers against an OCR-extracted document.
+Return a JSON array where each element corresponds to one input question ID and has the following keys:
+- id: (string) the question ID from the input
+- verification_status: one of ["SUPPORTED","PARTIALLY_SUPPORTED","NOT_FOUND","CONTRADICTED"]
+- confidence: numeric 0-100 estimating certainty of the verification
+- evidence_quote: short quote (<=250 chars) from the OCR that justifies the verdict, or "" if none
+- evidence_page: page identifier (e.g., "page_0003.md" or "Document JSON Page 2") where evidence was found, or "" if none
+- reasoning: plain-text explanation of how you reached the decision
+- suggested_answer: if the original selected answer seems wrong, suggest one of "A","B","C","D", or null
+
+Important:
+- Output only a single JSON array (or a fenced ```json block containing the array). Avoid extra commentary.
+- Be conservative: when evidence is partial, prefer PARTIALLY_SUPPORTED with a moderate confidence.
+- Use NOT_FOUND when no supporting text is present, not when contradictory evidence exists.
+"""
 
 # ══════════════════════════════════════════════════════════════════════════════
-# HELPERS — DATA LOADING
+# LLM / API HELPERS  ← defined BEFORE any UI code
+# ══════════════════════════════════════════════════════════════════════════════
+
+def fetch_models(api_key: str) -> list[dict]:
+    """Fetch available models from OpenRouter; fall back to a minimal list on error."""
+    if not api_key:
+        return [{"id": DEFAULT_MODEL, "name": DEFAULT_MODEL}]
+    try:
+        resp = requests.get(
+            OPENROUTER_MODELS_URL,
+            headers={"Authorization": f"Bearer {api_key}"},
+            timeout=8,
+        )
+        resp.raise_for_status()
+        raw = resp.json().get("data", []) or []
+        models = [{"id": m.get("id", ""), "name": m.get("name", m.get("id", ""))} for m in raw if m.get("id")]
+        return models or [{"id": DEFAULT_MODEL, "name": DEFAULT_MODEL}]
+    except Exception:
+        return [{"id": DEFAULT_MODEL, "name": DEFAULT_MODEL}]
+
+
+def call_openrouter(messages: list[dict], model: str, api_key: str,
+                    temperature: float = 0.2, max_tokens: int = 2000) -> str:
+    if not api_key:
+        raise RuntimeError("Missing OpenRouter API key.")
+    payload = {
+        "model": model,
+        "messages": messages,
+        "temperature": float(temperature),
+        "max_tokens": int(max_tokens),
+    }
+    headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
+    r = requests.post(OPENROUTER_API_URL, headers=headers, json=payload, timeout=120)
+    r.raise_for_status()
+    j = r.json()
+    choices = j.get("choices", [])
+    if choices and isinstance(choices, list):
+        msg = choices[0].get("message", {}) if isinstance(choices[0], dict) else {}
+        return msg.get("content", "") or str(j)
+    return str(j)
+
+# ══════════════════════════════════════════════════════════════════════════════
+# DATA HELPERS
 # ══════════════════════════════════════════════════════════════════════════════
 
 def load_json(path: Path):
@@ -63,29 +117,19 @@ def save_json(p: Path, data):
 
 
 def is_table_line(line: str) -> bool:
-    return line.strip().startswith("|") or re.match(r"^\s*\|.*\|\s*$", line)
+    return line.strip().startswith("|") or bool(re.match(r"^\s*\|.*\|\s*$", line))
 
 
 def clean_markdown(md: str) -> str:
-    # decode HTML entities
     md = html.unescape(md)
-
-    # remove image-only lines like ![img-0.jpeg](img-0.jpeg) but keep inline images if desired
     md = re.sub(r"^\s*!\[[^\]]*\]\([^\)]+\)\s*$\n?", "", md, flags=re.M)
-
-    # remove stray long base64 fragments if they accidentally ended up in markdown
     md = re.sub(r"data:image\/[a-zA-Z]+;base64,[A-Za-z0-9+/=\s]+", "", md)
-
-    # Fix hyphenation at line ends: "exam-\nple" -> "example"
     md = re.sub(r"(\w)-\n(\w)", r"\1\2", md)
-
-    # Split into lines and join lines into paragraphs while preserving headings and tables
     lines = md.splitlines()
     out_lines: List[str] = []
     inside_table = False
     for i, line in enumerate(lines):
         stripped = line.strip()
-        # detect table region start/stop
         if is_table_line(line):
             inside_table = True
             out_lines.append(line.rstrip())
@@ -93,33 +137,22 @@ def clean_markdown(md: str) -> str:
         else:
             if inside_table and stripped == "":
                 inside_table = False
-
-        # preserve headings, lists, blockquotes and explicit section separators
         if re.match(r"^(#{1,6}\s)|^(\s*[-*+]\s)|^>\s|^---\s*$|^\s*\d+\.\s", line):
             out_lines.append(line.rstrip())
             continue
-
-        # if we are in a paragraph: join broken lines (single newline -> space)
-        # join lines that are not empty and next line is not a heading/table/list
         if stripped == "":
-            out_lines.append("")  # preserve paragraph break
+            out_lines.append("")
             continue
-
-        # look ahead: if next line is end or special, keep newline; else join
-        next_line = lines[i+1] if i+1 < len(lines) else ""
-        if next_line.strip() == "" or re.match(r"^(#{1,6}\s)|^(\s*[-*+]\s)|^>\s|^\s*\d+\.\s", next_line) or is_table_line(next_line):
+        next_line = lines[i + 1] if i + 1 < len(lines) else ""
+        if (next_line.strip() == ""
+                or re.match(r"^(#{1,6}\s)|^(\s*[-*+]\s)|^>\s|^\s*\d+\.\s", next_line)
+                or is_table_line(next_line)):
             out_lines.append(line.rstrip())
         else:
-            # join with next line (space)
-            out_lines.append(line.rstrip() + " ")  # trailing space used to merge in next iteration
-
-    # now collapse sequences of "word␣ \nword␣ " that were produced above
+            out_lines.append(line.rstrip() + " ")
     joined = "\n".join(out_lines)
-    # collapse multiple spaces
     joined = re.sub(r"[ \t]{2,}", " ", joined)
-    # fix accidental space before punctuation that appeared after joining
     joined = re.sub(r"\s+([,.;:!?])", r"\1", joined)
-    # collapse >2 consecutive blank lines to 2
     joined = re.sub(r"\n{3,}", "\n\n", joined)
     return joined.strip() + "\n"
 
@@ -135,29 +168,24 @@ def write_pages_from_ocr_json(doc_dir: Path, ocr_json_path: Path):
         cleaned = clean_markdown(md)
         out = pages_dir / f"page_{idx:04d}.md"
         out.write_text(cleaned, encoding="utf-8")
-
-    # optionally update the json's markdown fields to cleaned version
     for p in pages:
         p["markdown"] = clean_markdown(p.get("markdown", ""))
     save_json(ocr_json_path, data)
-    print(f"Written {len(pages)} cleaned pages to {pages_dir}")
 
 
 def clean_pages_folder(doc_dir: Path):
     pages_dir = doc_dir / "pages"
     if not pages_dir.exists():
-        print("No pages/ folder to clean.")
         return
     for md in sorted(pages_dir.glob("*.md")):
         txt = md.read_text(encoding="utf-8")
-        cleaned = clean_markdown(txt)
-        md.write_text(cleaned, encoding="utf-8")
-    print(f"Cleaned markdown in {pages_dir}")
+        md.write_text(clean_markdown(txt), encoding="utf-8")
 
+# ══════════════════════════════════════════════════════════════════════════════
+# OCR DISCOVERY HELPERS
+# ══════════════════════════════════════════════════════════════════════════════
 
-# Ensure OCR helper moved here so it's defined before being called in main
 def list_ocr_candidates(company_dir: Path) -> dict:
-    """Return nearby OCR artifacts for diagnostics."""
     candidates = {"ocr_dirs": [], "ocr_json": [], "pages_dirs": [], "images_dirs": []}
     try:
         for p in company_dir.rglob("ocr"):
@@ -176,265 +204,281 @@ def list_ocr_candidates(company_dir: Path) -> dict:
     return candidates
 
 
+def _has_ocr_content(p: Path) -> bool:
+    try:
+        return any(p.rglob("*.md")) or (p / "ocr_result.json").exists() or any(p.rglob("ocr_result.json"))
+    except Exception:
+        return False
+
+
 def ensure_ocr_for_company(company_dir: Path, data_dir: Path) -> Path | None:
     """
-    Ensure company_dir/ocr exists. If not, try to locate OCR artifacts anywhere under
-    the company_dir and copy them into company_dir/ocr. Returns the Path to the OCR
-    directory that will be used (company_dir/ocr) or None if nothing found.
+    Find a usable OCR source for company_dir.
+    Priority:
+      1. company_dir/ocr (if it has content)
+      2. Any nested ocr/ folder inside company_dir
+      3. Any ocr_result.json inside company_dir
+      4. Any nested pages/ inside company_dir
+      5. GLOBAL FALLBACK: search all of data_dir for ocr_result.json
+         (handles the case where OCR lives in a sibling dataset folder)
     """
     ocr_dir = company_dir / "ocr"
-    # already present
-    if ocr_dir.exists() and any(ocr_dir.iterdir()):
+
+    # 1) Canonical location
+    if ocr_dir.exists() and _has_ocr_content(ocr_dir):
         return ocr_dir
 
-    # 1) Prefer an existing 'ocr' folder anywhere inside company_dir
-    for candidate in company_dir.rglob("ocr"):
-        if candidate.is_dir():
-            try:
-                ocr_dir.mkdir(parents=True, exist_ok=True)
-                # copy contents (images, pages, json) into company_dir/ocr
-                for child in candidate.iterdir():
-                    dst = ocr_dir / child.name
-                    if child.is_dir():
-                        shutil.copytree(child, dst, dirs_exist_ok=True)
-                    else:
-                        shutil.copy2(child, dst)
-                return ocr_dir
-            except Exception:
-                continue
-
-    # 2) Look for any ocr_result.json somewhere under company_dir and materialize pages/
-    for json_path in company_dir.rglob("ocr_result.json"):
-        try:
-            src = json_path.parent
-            ocr_dir.mkdir(parents=True, exist_ok=True)
-            shutil.copy2(json_path, ocr_dir / "ocr_result.json")
-            # copy sibling folders if present
-            for name in ("pages", "images"):
-                src_dir = src / name
-                if src_dir.exists() and src_dir.is_dir():
-                    dst = ocr_dir / name
-                    shutil.copytree(src_dir, dst, dirs_exist_ok=True)
-            # if no pages directory present, try to materialize pages from the JSON
-            if not (ocr_dir / "pages").exists():
-                try:
-                    write_pages_from_ocr_json(company_dir, ocr_dir / "ocr_result.json")
-                    # write_pages_from_ocr_json writes into company_dir/pages — copy into ocr/pages
-                    generated = company_dir / "pages"
-                    if generated.exists():
-                        shutil.copytree(generated, ocr_dir / "pages", dirs_exist_ok=True)
-                except Exception:
-                    pass
-            return ocr_dir
-        except Exception:
+    # 2) Nested ocr/ folders inside company_dir
+    nested_ocrs = sorted(
+        [p for p in company_dir.rglob("ocr") if p.is_dir() and p.resolve() != ocr_dir.resolve()],
+        key=lambda p: len(p.parts), reverse=True
+    )
+    for cand in nested_ocrs:
+        if not _has_ocr_content(cand):
             continue
+        try:
+            ocr_dir.mkdir(parents=True, exist_ok=True)
+            for child in cand.iterdir():
+                dst = ocr_dir / child.name
+                if child.is_dir():
+                    shutil.copytree(child, dst, dirs_exist_ok=True)
+                else:
+                    shutil.copy2(child, dst)
+            if _has_ocr_content(ocr_dir):
+                return ocr_dir
+        except Exception:
+            return cand
 
-    # 3) Look for any 'pages' folder under company_dir and copy into company_dir/ocr/pages
-    for pages in company_dir.rglob("pages"):
-        if pages.is_dir():
+    # 3) ocr_result.json anywhere inside company_dir
+    for j in company_dir.rglob("ocr_result.json"):
+        parent = j.parent
+        if _has_ocr_content(parent):
             try:
                 ocr_dir.mkdir(parents=True, exist_ok=True)
-                dst = ocr_dir / "pages"
-                shutil.copytree(pages, dst, dirs_exist_ok=True)
-                # also copy sibling images if present
-                if (pages.parent / "images").exists():
-                    shutil.copytree(pages.parent / "images", ocr_dir / "images", dirs_exist_ok=True)
-                return ocr_dir
+                shutil.copy2(j, ocr_dir / "ocr_result.json")
+                for name in ("pages", "images"):
+                    src = parent / name
+                    if src.exists() and src.is_dir():
+                        shutil.copytree(src, ocr_dir / name, dirs_exist_ok=True)
+                if _has_ocr_content(ocr_dir):
+                    return ocr_dir
             except Exception:
+                return parent
+
+    # 4) Nested pages/ inside company_dir
+    for pages in sorted(company_dir.rglob("pages"), key=lambda p: len(p.parts), reverse=True):
+        if pages.is_dir() and any(pages.glob("*.md")):
+            try:
+                ocr_dir.mkdir(parents=True, exist_ok=True)
+                shutil.copytree(pages, ocr_dir / "pages", dirs_exist_ok=True)
+                if _has_ocr_content(ocr_dir):
+                    return ocr_dir
+            except Exception:
+                return pages
+
+    # 5) ── GLOBAL FALLBACK ──────────────────────────────────────────────────
+    #    Search ALL of data_dir for any ocr_result.json.
+    #    This resolves the case where OCR lives in:
+    #      data/thesis_dataset/CSSA ESG support Document 2023_pdf/ocr_result.json
+    #    but selected company is:
+    #      data/Testing 2/
+    try:
+        for j in sorted(data_dir.rglob("ocr_result.json")):
+            # skip if this json is already inside company_dir (already checked above)
+            try:
+                j.relative_to(company_dir)
+                continue  # inside company_dir → already handled
+            except ValueError:
+                pass  # outside company_dir → good candidate
+
+            parent = j.parent
+            if not _has_ocr_content(parent):
                 continue
+            try:
+                ocr_dir.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(j, ocr_dir / "ocr_result.json")
+                for name in ("pages", "images"):
+                    src = parent / name
+                    if src.exists() and src.is_dir():
+                        shutil.copytree(src, ocr_dir / name, dirs_exist_ok=True)
+                if _has_ocr_content(ocr_dir):
+                    return ocr_dir
+            except Exception:
+                # can't copy → use in-place
+                return parent
+    except Exception:
+        pass
 
     return None
 
 
-def collect_ocr_text(company_dir: Path) -> str:
-    """
-    Improved recursive search for OCR files to handle nested structures
-    like 'company_dir/Subfolder_pdf/pages/*.md'
-    """
+def collect_ocr_text(source_dir: Path, company_base: Path | None = None) -> str:
     texts = []
-    seen_md_files = set()
-    found_json = False
+    seen_paths: set = set()
 
-    # 1. Search for any 'pages' folder recursively inside company_dir
-    # This handles the case where OCR is in 'company/Some_Document_pdf/pages/'
-    for pages_dir in company_dir.rglob("pages"):
-        if pages_dir.is_dir():
-            # Get all .md files, sorted by name (page_0000.md, etc.)
-            md_files = sorted(list(pages_dir.glob("*.md")))
-            for md in md_files:
-                if md.name not in seen_md_files:
+    # Try ocr_result.json first
+    json_path = source_dir / "ocr_result.json"
+    if json_path.exists():
+        data = load_json(json_path)
+        if data and isinstance(data.get("pages", []), list):
+            for page in data["pages"]:
+                idx = page.get("index", 0)
+                md = page.get("markdown", "").strip()
+                if md:
+                    texts.append(f"--- Document JSON Page {idx} ---\n{clean_markdown(md)}")
+            if texts:
+                return "\n\n".join(texts)
+
+    # Try pages/ directory
+    pages_dir = source_dir if source_dir.name == "pages" else source_dir / "pages"
+    if pages_dir.exists() and pages_dir.is_dir():
+        for md_file in sorted(pages_dir.glob("*.md")):
+            if md_file.resolve() in seen_paths:
+                continue
+            try:
+                content = md_file.read_text(encoding="utf-8").strip()
+                if content:
                     try:
-                        content = md.read_text(encoding="utf-8").strip()
+                        rel = md_file.relative_to(company_base) if company_base else md_file.name
+                    except ValueError:
+                        rel = md_file.name
+                    texts.append(f"--- Document: {rel} ---\n{content}")
+                    seen_paths.add(md_file.resolve())
+            except Exception:
+                continue
+
+    # Broad fallback
+    if not texts:
+        for pd2 in source_dir.rglob("pages"):
+            if pd2.is_dir():
+                for md_file in sorted(pd2.glob("*.md")):
+                    if md_file.resolve() in seen_paths:
+                        continue
+                    try:
+                        content = md_file.read_text(encoding="utf-8").strip()
                         if content:
-                            # Use relative path as a header so LLM knows the source
-                            rel_path = md.relative_to(company_dir)
-                            texts.append(f"--- Document: {rel_path} ---\n{content}")
-                            seen_md_files.add(md.name)
+                            texts.append(f"--- Document: {md_file} ---\n{content}")
+                            seen_paths.add(md_file.resolve())
                     except Exception:
                         continue
 
-    # 2. If no .md files found, fallback to searching for any 'ocr_result.json' recursively
+    # Final fallback: any ocr_result.json recursively
     if not texts:
-        for json_path in company_dir.rglob("ocr_result.json"):
+        for j in source_dir.rglob("ocr_result.json"):
             try:
-                raw = load_json(json_path)
+                raw = load_json(j)
                 if raw and "pages" in raw:
                     for page in raw["pages"]:
-                        md_text = page.get("markdown", "").strip()
-                        if md_text:
-                            idx = page.get("index", 0)
-                            texts.append(f"--- Document JSON Page {idx} ---\n{md_text}")
-                    found_json = True
-                    break # Usually one JSON is enough
+                        md = page.get("markdown", "").strip()
+                        if md:
+                            texts.append(f"--- Document JSON Page {page.get('index', 0)} ---\n{clean_markdown(md)}")
+                    if texts:
+                        break
             except Exception:
                 continue
 
     return "\n\n".join(texts)
 
 
-def get_ocr_text(company_dir: Path) -> str:
-    """Consolidated helper to return combined text found in the directory."""
-    return collect_ocr_text(company_dir)
+def get_ocr_text(company_dir: Path) -> tuple[str, Path | None]:
+    try:
+        ocr_source = ensure_ocr_for_company(company_dir, DATA_DIR)
+        if ocr_source:
+            text = collect_ocr_text(ocr_source, company_base=company_dir)
+            return text or "", ocr_source
+    except Exception:
+        pass
+    return "", None
 
+# ══════════════════════════════════════════════════════════════════════════════
+# FILESYSTEM UI HELPERS
+# ══════════════════════════════════════════════════════════════════════════════
 
 def list_companies() -> list[str]:
-    if not DATA_DIR.exists():
+    try:
+        return sorted([p.name for p in DATA_DIR.iterdir() if p.is_dir() and not p.name.startswith(".")])
+    except Exception:
         return []
-    return sorted([
-        d.name for d in DATA_DIR.iterdir()
-        if d.is_dir() and not d.name.startswith(".")
-        and (d / "mcq_answers").exists()
-    ])
 
 
 def list_answer_files(company_dir: Path) -> list[Path]:
-    ans_dir = company_dir / "mcq_answers"
-    if not ans_dir.exists():
+    candidate_dir = company_dir / "mcq_answers"
+    if candidate_dir.exists() and candidate_dir.is_dir():
+        return sorted(candidate_dir.glob("*.json"))
+    return sorted(company_dir.glob("*.json"))
+
+# ══════════════════════════════════════════════════════════════════════════════
+# CHUNKING + RETRIEVAL
+# ══════════════════════════════════════════════════════════════════════════════
+
+def chunk_text(text: str, size: int = 1000, overlap: int = 200) -> list[str]:
+    if not text:
         return []
-    return sorted(ans_dir.glob("*.json"), reverse=True)
+    chunks = []
+    i = 0
+    L = len(text)
+    while i < L:
+        chunks.append(text[i: min(i + size, L)])
+        i += size - overlap
+    return chunks
 
 
-# ══════════════════════════════════════════════════════════════════════════════
-# HELPERS — OPENROUTER
-# ══════════════════════════════════════════════════════════════════════════════
-
-@st.cache_data(ttl=3600, show_spinner=False)
-def fetch_models(api_key: str) -> list[dict]:
-    try:
-        r = requests.get(OPENROUTER_MODELS_URL,
-                         headers={"Authorization": f"Bearer {api_key}"},
-                         timeout=10)
-        r.raise_for_status()
-        return [{"id": m["id"], "name": m.get("name", m["id"])}
-                for m in r.json().get("data", [])]
-    except Exception:
-        return [{"id": DEFAULT_MODEL, "name": DEFAULT_MODEL}]
-
-
-def call_openrouter(messages: list[dict], model: str, api_key: str,
-                    temperature: float = 0.1, max_tokens: int = 8000) -> str:
-    if not api_key:
-        raise ValueError("No OpenRouter API key.")
-    payload = {
-        "model": model,
-        "messages": messages,
-        "temperature": temperature,
-        "max_tokens": max_tokens,
-    }
-    headers = {
-        "Authorization": f"Bearer {api_key}",
-        "Content-Type": "application/json",
-    }
-    for attempt in range(3):
-        try:
-            r = requests.post(OPENROUTER_API_URL, headers=headers,
-                              json=payload, timeout=120)
-            r.raise_for_status()
-            return r.json()["choices"][0]["message"]["content"]
-        except Exception as e:
-            if attempt == 2:
-                raise
-            time.sleep(2 ** attempt)
-    return ""
-
-
-# ══════════════════════════════════════════════════════════════════════════════
-# VERIFICATION PROMPT
-# ══════════════════════════════════════════════════════════════════════════════
-
-VERIFICATION_SYSTEM_PROMPT = """\
-You are an expert ESG analyst and auditor. Your task is to verify MCQ answers against company document evidence (OCR-extracted text).
-
-For EACH question, you must:
-1. Search the OCR text for relevant evidence.
-2. Determine if the selected answer is SUPPORTED, PARTIALLY SUPPORTED, CONTRADICTED, or NOT FOUND in the evidence.
-3. Provide a confidence score (0-100) for the verification.
-4. Extract a direct quote or relevant passage from the OCR as supporting evidence (max 200 chars).
-5. Provide brief reasoning (1-2 sentences).
-
-Return your response as a valid JSON array with this exact structure:
-[
-  {
-    "id": "E01",
-    "verification_status": "SUPPORTED" | "PARTIALLY_SUPPORTED" | "CONTRADICTED" | "NOT_FOUND",
-    "confidence": 85,
-    "evidence_quote": "direct quote from OCR text or empty string",
-    "evidence_page": "page reference or empty string",
-    "reasoning": "brief explanation of verification decision",
-    "suggested_answer": "A" | "B" | "C" | "D" | null
-  },
-  ...
-]
-
-Return ONLY the JSON array. No preamble, no explanation outside the array.
-"""
+def retrieve_relevant_chunks(query: str, chunks: list[str], top_k: int = 8) -> list[str]:
+    if not chunks:
+        return []
+    q_tokens = set(re.findall(r"\w+", query.lower()))
+    scored = []
+    for idx, c in enumerate(chunks):
+        c_tokens = set(re.findall(r"\w+", c.lower()))
+        scored.append((len(q_tokens & c_tokens), idx, c))
+    scored.sort(key=lambda x: (x[0], -x[1]), reverse=True)
+    top_sorted = sorted(scored[:top_k], key=lambda x: x[1])
+    return [t[2] for t in top_sorted]
 
 
 def build_verification_prompt(answers: list[dict], ocr_text: str, max_ocr_chars: int = 15000) -> str:
-    # Truncate OCR to fit context
-    ocr_snippet = ocr_text[:max_ocr_chars]
-    if len(ocr_text) > max_ocr_chars:
-        ocr_snippet += f"\n\n[... OCR text truncated at {max_ocr_chars} chars ...]"
+    if not ocr_text:
+        ocr_snippet = "[NO OCR TEXT PROVIDED]"
+    elif len(ocr_text) <= max_ocr_chars:
+        ocr_snippet = ocr_text
+    else:
+        qs = " ".join([a.get("question", "") + " " + a.get("selected_text", "") for a in answers])
+        chunks = chunk_text(ocr_text, size=1200, overlap=250)
+        top_chunks = retrieve_relevant_chunks(qs, chunks, top_k=12)
+        ocr_snippet = "\n\n---\n\n".join(top_chunks)
+        if len(ocr_snippet) > max_ocr_chars:
+            ocr_snippet = ocr_snippet[:max_ocr_chars]
+        ocr_snippet += f"\n\n[... OCR retrieved + truncated; original length: {len(ocr_text)} chars ...]"
 
     qa_block = []
     for a in answers:
         qa_block.append(
             f"ID: {a.get('id')}\n"
-            f"Pillar: {a.get('pillar','')}\n"
-            f"Question: {a.get('question','')}\n"
-            f"Selected Answer: {a.get('selected','')} — {a.get('selected_text','')}\n"
+            f"Pillar: {a.get('pillar', '')}\n"
+            f"Question: {a.get('question', '')}\n"
+            f"Selected Answer: {a.get('selected', '')} — {a.get('selected_text', '')}\n"
         )
 
-    return f"""
-OCR DOCUMENT TEXT:
-{ocr_snippet}
-
-===
-
-MCQ ANSWERS TO VERIFY ({len(answers)} questions):
-{'---'.join(qa_block)}
-
-Verify each answer against the OCR document text above. Return a JSON array as instructed.
-""".strip()
+    return (
+        f"OCR DOCUMENT TEXT (retrieved snippets):\n{ocr_snippet}\n\n===\n\n"
+        f"MCQ ANSWERS TO VERIFY ({len(answers)} questions):\n{'---'.join(qa_block)}\n\n"
+        f"Verify each answer against the OCR document text above. Return a JSON array as instructed."
+    )
 
 
 def parse_verification_json(raw: str) -> list[dict] | None:
-    """Extract and parse JSON array from LLM response."""
-    # try direct parse
     try:
         data = json.loads(raw.strip())
         if isinstance(data, list):
             return data
     except Exception:
         pass
-    # try extracting fenced block
     m = re.search(r"```(?:json)?\s*(\[.*?\])\s*```", raw, re.S)
     if m:
         try:
             return json.loads(m.group(1))
         except Exception:
             pass
-    # try finding bare array
     m2 = re.search(r"\[.*\]", raw, re.S)
     if m2:
         try:
@@ -443,7 +487,6 @@ def parse_verification_json(raw: str) -> list[dict] | None:
             pass
     return None
 
-
 # ══════════════════════════════════════════════════════════════════════════════
 # SCORING
 # ══════════════════════════════════════════════════════════════════════════════
@@ -451,13 +494,12 @@ def parse_verification_json(raw: str) -> list[dict] | None:
 STATUS_MULTIPLIER = {
     "SUPPORTED":           1.0,
     "PARTIALLY_SUPPORTED": 0.7,
-    "NOT_FOUND":           0.5,   # answer accepted but unverified
+    "NOT_FOUND":           0.5,
     "CONTRADICTED":        0.0,
 }
 
 
 def compute_scores(answers: list[dict], verifications: list[dict]) -> pd.DataFrame:
-    """Merge answers + verifications and compute scores."""
     ver_map = {v["id"]: v for v in verifications}
     rows = []
     for a in answers:
@@ -469,24 +511,23 @@ def compute_scores(answers: list[dict], verifications: list[dict]) -> pd.DataFra
         multiplier = STATUS_MULTIPLIER.get(status, 0.5)
         final_score = round(raw_score * multiplier, 2)
         rows.append({
-            "ID":                 qid,
-            "Pillar":             a.get("pillar", ""),
-            "Question":           a.get("question", "")[:80] + ("…" if len(a.get("question","")) > 80 else ""),
-            "Selected":           sel,
-            "Selected Text":      a.get("selected_text", ""),
-            "Raw Score":          raw_score,
-            "Max Score":          MAX_SCORE_PER_QUESTION,
-            "Status":             status,
-            "Confidence":         ver.get("confidence", 0),
-            "Multiplier":         multiplier,
-            "Final Score":        final_score,
-            "Evidence Quote":     ver.get("evidence_quote", ""),
-            "Evidence Page":      ver.get("evidence_page", ""),
-            "Reasoning":          ver.get("reasoning", ""),
-            "Suggested Answer":   ver.get("suggested_answer", ""),
+            "ID":               qid,
+            "Pillar":           a.get("pillar", ""),
+            "Question":         a.get("question", "")[:80] + ("…" if len(a.get("question", "")) > 80 else ""),
+            "Selected":         sel,
+            "Selected Text":    a.get("selected_text", ""),
+            "Raw Score":        raw_score,
+            "Max Score":        MAX_SCORE_PER_QUESTION,
+            "Status":           status,
+            "Confidence":       ver.get("confidence", 0),
+            "Multiplier":       multiplier,
+            "Final Score":      final_score,
+            "Evidence Quote":   ver.get("evidence_quote", ""),
+            "Evidence Page":    ver.get("evidence_page", ""),
+            "Reasoning":        ver.get("reasoning", ""),
+            "Suggested Answer": ver.get("suggested_answer", ""),
         })
     return pd.DataFrame(rows)
-
 
 # ══════════════════════════════════════════════════════════════════════════════
 # UI HELPERS
@@ -498,7 +539,6 @@ STATUS_COLORS = {
     "NOT_FOUND":           "🔵",
     "CONTRADICTED":        "🔴",
 }
-
 PILLAR_COLORS = {
     "Environmental": "#2e7d32",
     "Social":        "#1565c0",
@@ -532,9 +572,8 @@ def render_pillar_summary(df: pd.DataFrame):
         n_partial    = (sub["Status"] == "PARTIALLY_SUPPORTED").sum()
         n_contradict = (sub["Status"] == "CONTRADICTED").sum()
         n_notfound   = (sub["Status"] == "NOT_FOUND").sum()
-
+        color = PILLAR_COLORS.get(pillar, "#555")
         with cols[idx]:
-            color = PILLAR_COLORS.get(pillar, "#555")
             st.markdown(
                 f'<div style="border:2px solid {color};border-radius:10px;padding:16px;margin-bottom:8px">'
                 f'<h4 style="color:{color};margin:0">{pillar}</h4>'
@@ -543,13 +582,9 @@ def render_pillar_summary(df: pd.DataFrame):
                 f'<div style="font-size:0.85rem;color:#777">{total_raw} / {total_max} pts (raw)</div>'
                 f'<hr style="margin:8px 0">'
                 f'<div style="font-size:0.8rem">'
-                f'🟢 Supported: {n_supported} &nbsp;'
-                f'🟡 Partial: {n_partial}<br>'
-                f'🔵 Not Found: {n_notfound} &nbsp;'
-                f'🔴 Contradicted: {n_contradict}'
-                f'</div>'
-                f'</div>',
-                unsafe_allow_html=True
+                f'🟢 {n_supported} &nbsp;🟡 {n_partial}<br>🔵 {n_notfound} &nbsp;🔴 {n_contradict}'
+                f'</div></div>',
+                unsafe_allow_html=True,
             )
 
 
@@ -558,10 +593,8 @@ def render_overall_score(df: pd.DataFrame):
     total_max   = df["Max Score"].sum()
     total_raw   = df["Raw Score"].sum()
     pct         = (total_final / total_max * 100) if total_max > 0 else 0
-
     color = "#2e7d32" if pct >= 70 else "#f57c00" if pct >= 40 else "#c62828"
     grade = "A" if pct >= 80 else "B" if pct >= 65 else "C" if pct >= 50 else "D" if pct >= 35 else "F"
-
     st.markdown(
         f'<div style="background:linear-gradient(135deg,{color}22,{color}44);'
         f'border:3px solid {color};border-radius:16px;padding:24px;text-align:center;margin-bottom:24px">'
@@ -570,31 +603,28 @@ def render_overall_score(df: pd.DataFrame):
         f'{pct:.1f}% <span style="font-size:2rem">({grade})</span></div>'
         f'<div style="font-size:1.1rem;color:#555">'
         f'Verified: {total_final:.1f} / {total_max} pts &nbsp;|&nbsp; Raw: {total_raw} / {total_max} pts</div>'
-        f'<div style="font-size:0.85rem;color:#777;margin-top:8px">'
-        f'Score = Raw choice score × Verification multiplier '
-        f'(Supported=1.0 · Partial=0.7 · Not Found=0.5 · Contradicted=0.0)</div>'
         f'</div>',
-        unsafe_allow_html=True
+        unsafe_allow_html=True,
     )
 
 
 def render_question_detail(row: pd.Series, expanded: bool = False):
     status = row["Status"]
     icon   = STATUS_COLORS.get(status, "⚪")
-    color  = {"SUPPORTED": "#e8f5e9", "PARTIALLY_SUPPORTED": "#fffde7",
-               "CONTRADICTED": "#ffebee", "NOT_FOUND": "#e3f2fd"}.get(status, "#fafafa")
-
+    color  = {
+        "SUPPORTED": "#e8f5e9", "PARTIALLY_SUPPORTED": "#fffde7",
+        "CONTRADICTED": "#ffebee", "NOT_FOUND": "#e3f2fd",
+    }.get(status, "#fafafa")
     with st.container():
         st.markdown(
             f'<div style="background:{color};border-radius:8px;padding:12px 16px;margin-bottom:8px">'
-            f'<b>{row["ID"]}</b> {pillar_badge(row["Pillar"])} &nbsp; '
-            f'{icon} <b>{status}</b> &nbsp; '
-            f'Confidence: {row["Confidence"]}% &nbsp; '
+            f'<b>{row["ID"]}</b> {pillar_badge(row["Pillar"])} &nbsp;'
+            f'{icon} <b>{status}</b> &nbsp; Confidence: {row["Confidence"]}% &nbsp;'
             f'{score_badge(row["Final Score"], row["Max Score"])}'
             f'<br><span style="color:#333">{row["Question"]}</span>'
             f'<br><b>Selected:</b> {row["Selected"]} — {row["Selected Text"]}'
             f'</div>',
-            unsafe_allow_html=True
+            unsafe_allow_html=True,
         )
         if expanded:
             c1, c2 = st.columns([2, 1])
@@ -606,28 +636,26 @@ def render_question_detail(row: pd.Series, expanded: bool = False):
                     st.caption(f"Source: {row['Evidence Page']}")
             with c2:
                 if row["Suggested Answer"] and row["Suggested Answer"] != row["Selected"]:
-                    st.warning(f"💡 Suggested answer: **{row['Suggested Answer']}**")
-                st.metric("Raw Score", f"{row['Raw Score']}/{row['Max Score']}")
+                    st.warning(f"💡 Suggested: **{row['Suggested Answer']}**")
+                st.metric("Raw Score",      f"{row['Raw Score']}/{row['Max Score']}")
                 st.metric("Verified Score", f"{row['Final Score']}/{row['Max Score']}")
-
 
 # ══════════════════════════════════════════════════════════════════════════════
 # SESSION STATE
 # ══════════════════════════════════════════════════════════════════════════════
 
 _DEFAULTS = {
-    "api_key":        os.getenv("OPENROUTER_API_KEY", ""),
-    "model_id":       DEFAULT_MODEL,
-    "verification":   None,   # list[dict] from LLM
-    "score_df":       None,   # pd.DataFrame
-    "raw_llm_reply":  "",
-    "ocr_text":       "",
-    "answer_data":    None,
+    "api_key":       os.getenv("OPENROUTER_API_KEY", ""),
+    "model_id":      DEFAULT_MODEL,
+    "verification":  None,
+    "score_df":      None,
+    "raw_llm_reply": "",
+    "ocr_text":      "",
+    "answer_data":   None,
 }
 for k, v in _DEFAULTS.items():
     if k not in st.session_state:
         st.session_state[k] = v
-
 
 # ══════════════════════════════════════════════════════════════════════════════
 # SIDEBAR
@@ -636,10 +664,8 @@ for k, v in _DEFAULTS.items():
 with st.sidebar:
     st.header("⚙️ Settings")
     api_key_input = st.text_input(
-        "OpenRouter API Key",
-        value=st.session_state.api_key,
-        type="password",
-        help="Required for LLM verification"
+        "OpenRouter API Key", value=st.session_state.api_key,
+        type="password", help="Required for LLM verification",
     )
     if api_key_input:
         st.session_state.api_key = api_key_input
@@ -648,14 +674,10 @@ with st.sidebar:
         with st.spinner("Loading models…"):
             models = fetch_models(st.session_state.api_key)
         model_ids = [m["id"] for m in models]
-        default_idx = next(
-            (i for i, m in enumerate(model_ids) if DEFAULT_MODEL in m), 0
-        )
+        default_idx = next((i for i, mid in enumerate(model_ids) if DEFAULT_MODEL in mid), 0)
         selected_model = st.selectbox(
-            "Model",
-            options=model_ids,
-            index=default_idx,
-            format_func=lambda x: x.split("/")[-1]
+            "Model", options=model_ids, index=default_idx,
+            format_func=lambda x: x.split("/")[-1],
         )
         st.session_state.model_id = selected_model
     else:
@@ -680,7 +702,6 @@ with st.sidebar:
 | D | 0 |
 """)
 
-
 # ══════════════════════════════════════════════════════════════════════════════
 # MAIN PAGE
 # ══════════════════════════════════════════════════════════════════════════════
@@ -688,12 +709,12 @@ with st.sidebar:
 st.title("🔍 MCQ LLM Verification & Scoring")
 st.caption("Verify MCQ answers against OCR-extracted company documents using an LLM.")
 
-# ── Step 1: Company & file selection ──────────────────────────────────────────
+# ── Step 1 ─────────────────────────────────────────────────────────────────────
 st.header("Step 1 — Select Company & Answer File")
 
 companies = list_companies()
 if not companies:
-    st.error("No companies with MCQ answers found in the data directory.")
+    st.error("No company folders found in the data directory.")
     st.stop()
 
 col1, col2 = st.columns(2)
@@ -709,12 +730,10 @@ if not answer_files:
 
 with col2:
     selected_file = st.selectbox(
-        "MCQ Answer File",
-        options=answer_files,
-        format_func=lambda p: p.name
+        "MCQ Answer File", options=answer_files,
+        format_func=lambda p: p.name,
     )
 
-# Load answer file
 answer_data = load_json(selected_file)
 if not answer_data:
     st.error(f"Could not load {selected_file.name}")
@@ -723,7 +742,6 @@ if not answer_data:
 st.session_state.answer_data = answer_data
 answers: list[dict] = answer_data.get("answers", [])
 
-# Display answer file metadata
 with st.expander("📄 Answer file metadata", expanded=False):
     st.json({
         "company":     answer_data.get("company"),
@@ -733,61 +751,67 @@ with st.expander("📄 Answer file metadata", expanded=False):
         "source_mode": answer_data.get("source_mode", ""),
     })
 
-# ── Step 2: Load & preview OCR ────────────────────────────────────────────────
+# ── Step 2 ─────────────────────────────────────────────────────────────────────
 st.header("Step 2 — OCR Document Text")
 
-with st.spinner("Locating / Loading OCR text…"):
-    # try to auto-fix by copying a found OCR bundle into company_dir/ocr/
-    ensured_path = ensure_ocr_for_company(company_dir, DATA_DIR)
-    # if ensure_ocr_for_company returned a specific ocr dir, use it; else fall back to recursive search
-    search_base = ensured_path if ensured_path is not None else company_dir
-    ocr_text = get_ocr_text(search_base)
-    st.session_state.ocr_text = ocr_text
-    ocr_source = ensured_path
+with st.spinner("Locating / loading OCR text…"):
+    ocr_text, detected_source = get_ocr_text(company_dir)
+    st.session_state.ocr_text = ocr_text or ""
+    ocr_source = detected_source
 
-if not ocr_text.strip():
-    # provide actionable diagnostics
+    # Manual override: list every ocr_result.json found under DATA_DIR
+    all_ocr_jsons = sorted(DATA_DIR.rglob("ocr_result.json"))
+    ocr_options   = ["Auto-detect"] + [str(p.relative_to(DATA_DIR)) for p in all_ocr_jsons]
+    selected_ocr  = st.selectbox(
+        "Optional: select external OCR source (overrides auto-detect)",
+        options=ocr_options, index=0,
+    )
+
+    if selected_ocr != "Auto-detect":
+        sel_path = DATA_DIR / Path(selected_ocr)
+        if sel_path.exists():
+            ocr_text = collect_ocr_text(sel_path.parent, company_base=company_dir)
+            st.session_state.ocr_text = ocr_text or ""
+            ocr_source = sel_path.parent
+
+if not st.session_state.ocr_text.strip():
     candidates = list_ocr_candidates(company_dir)
     msg_lines = [
-        f"⚠️ No OCR text found for **{company_name}**. Verification will proceed but all answers will return NOT_FOUND.",
+        f"⚠️ No OCR text found for **{company_name}**. All answers will return NOT_FOUND.",
         "",
-        "I looked for common OCR artifacts under the company folder. Found:"
+        "Artifacts found under company folder:",
     ]
     if candidates["ocr_dirs"]:
-        msg_lines.append(f"- ocr folders: {', '.join(str(p.relative_to(DATA_DIR)) for p in candidates['ocr_dirs'])}")
+        msg_lines.append("- ocr folders: " + ", ".join(str(p.relative_to(DATA_DIR)) for p in candidates["ocr_dirs"]))
     if candidates["ocr_json"]:
-        msg_lines.append(f"- ocr_result.json files: {', '.join(str(p.relative_to(DATA_DIR)) for p in candidates['ocr_json'])}")
+        msg_lines.append("- ocr_result.json: " + ", ".join(str(p.relative_to(DATA_DIR)) for p in candidates["ocr_json"]))
     if candidates["pages_dirs"]:
-        msg_lines.append(f"- pages/ folders: {', '.join(str(p.relative_to(DATA_DIR)) for p in candidates['pages_dirs'])}")
-    if candidates["images_dirs"]:
-        msg_lines.append(f"- images/ folders: {', '.join(str(p.relative_to(DATA_DIR)) for p in candidates['images_dirs'])}")
-
+        msg_lines.append("- pages/ folders: " + ", ".join(str(p.relative_to(DATA_DIR)) for p in candidates["pages_dirs"]))
     msg_lines.append("")
-    msg_lines.append("Tip: If you see OCR bundles in the list above, you can copy them into the company `ocr/` folder and rerun the verification. The app attempts to auto-copy common structures but will show the candidates above if it couldn't.")
+    msg_lines.append("Tip: Use the dropdown above to manually select an OCR source from another dataset folder.")
     st.warning("\n".join(msg_lines))
     ocr_available = False
 else:
     ocr_available = True
-    # show a clearer source path
     try:
-        src_display = (ocr_source.relative_to(DATA_DIR) if ocr_source and DATA_DIR in ocr_source.parents else (ocr_source or company_dir))
+        src_display = ocr_source.relative_to(DATA_DIR) if ocr_source else company_dir
     except Exception:
         src_display = ocr_source or company_dir
-    st.success(f"✅ OCR text loaded — {len(ocr_text):,} characters from `{src_display}`")
+    st.success(f"✅ OCR loaded — {len(st.session_state.ocr_text):,} chars from `{src_display}`")
 
-with st.expander("👁️ Preview OCR text (first 3000 chars)", expanded=False):
-    st.code(ocr_text[:3000] + ("…" if len(ocr_text) > 3000 else ""), language="markdown")
+with st.expander("👁️ Preview OCR text (first 3 000 chars)", expanded=False):
+    preview = st.session_state.ocr_text
+    st.code(preview[:3000] + ("…" if len(preview) > 3000 else ""), language="markdown")
 
-# ── Step 3: Run verification ───────────────────────────────────────────────────
+# ── Step 3 ─────────────────────────────────────────────────────────────────────
 st.header("Step 3 — LLM Verification")
 
 col_run, col_clear = st.columns([2, 1])
 with col_run:
     run_btn = st.button(
-        "🚀 Run LLM Verification",
-        type="primary",
+        "🚀 Run LLM Verification", type="primary",
         disabled=not st.session_state.api_key,
-        help="Sends MCQ answers + OCR text to LLM for verification"
+        help="Sends MCQ answers + OCR text to LLM for verification",
     )
 with col_clear:
     if st.button("🗑️ Clear Results"):
@@ -803,15 +827,13 @@ if run_btn:
     if not answers:
         st.error("No answers found in the selected file.")
     else:
-        prompt_user = build_verification_prompt(answers, ocr_text, max_ocr_chars=14000)
+        prompt_user = build_verification_prompt(answers, st.session_state.ocr_text, max_ocr_chars=14000)
         messages = [
             {"role": "system", "content": VERIFICATION_SYSTEM_PROMPT},
             {"role": "user",   "content": prompt_user},
         ]
-
         progress = st.progress(0, text="Sending to LLM…")
         t0 = time.time()
-
         try:
             with st.spinner(f"Verifying {len(answers)} answers with **{st.session_state.model_id}**…"):
                 raw_reply = call_openrouter(
@@ -823,99 +845,73 @@ if run_btn:
                 )
             elapsed = time.time() - t0
             progress.progress(80, text="Parsing response…")
-
             verifications = parse_verification_json(raw_reply)
             if verifications is None:
                 st.error("❌ Could not parse JSON from LLM. See raw reply below.")
                 st.code(raw_reply)
             else:
-                # Merge any missing IDs with NOT_FOUND
                 ver_ids = {v["id"] for v in verifications}
                 for a in answers:
                     if a["id"] not in ver_ids:
                         verifications.append({
-                            "id":                  a["id"],
-                            "verification_status": "NOT_FOUND",
-                            "confidence":          0,
-                            "evidence_quote":      "",
-                            "evidence_page":       "",
-                            "reasoning":           "Not returned by LLM.",
-                            "suggested_answer":    None,
+                            "id": a["id"], "verification_status": "NOT_FOUND",
+                            "confidence": 0, "evidence_quote": "",
+                            "evidence_page": "", "reasoning": "Not returned by LLM.",
+                            "suggested_answer": None,
                         })
-
                 score_df = compute_scores(answers, verifications)
                 st.session_state.verification  = verifications
                 st.session_state.score_df      = score_df
                 st.session_state.raw_llm_reply = raw_reply
 
-                # Save verification result
                 out_dir  = company_dir / "mcq_answers"
                 out_dir.mkdir(parents=True, exist_ok=True)
                 ts       = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
                 out_path = out_dir / f"{ts}_verification.json"
                 result_payload = {
-                    "company":         company_name,
-                    "source_file":     selected_file.name,
-                    "timestamp":       datetime.utcnow().isoformat() + "Z",
-                    "model":           st.session_state.model_id,
-                    "total_final_score":  float(score_df["Final Score"].sum()),
-                    "total_max_score":    int(score_df["Max Score"].sum()),
-                    "total_raw_score":    int(score_df["Raw Score"].sum()),
-                    "pct_verified":    round(score_df["Final Score"].sum() / score_df["Max Score"].sum() * 100, 2),
-                    "verifications":   verifications,
-                    "scores":          score_df.to_dict(orient="records"),
+                    "company": company_name, "source_file": selected_file.name,
+                    "timestamp": datetime.utcnow().isoformat() + "Z",
+                    "model": st.session_state.model_id,
+                    "total_final_score": float(score_df["Final Score"].sum()),
+                    "total_max_score":   int(score_df["Max Score"].sum()),
+                    "total_raw_score":   int(score_df["Raw Score"].sum()),
+                    "pct_verified": round(score_df["Final Score"].sum() / score_df["Max Score"].sum() * 100, 2),
+                    "verifications": verifications,
+                    "scores": score_df.to_dict(orient="records"),
                 }
-                out_path.write_text(
-                    json.dumps(result_payload, ensure_ascii=False, indent=2),
-                    encoding="utf-8"
-                )
+                out_path.write_text(json.dumps(result_payload, ensure_ascii=False, indent=2), encoding="utf-8")
                 progress.progress(100, text=f"Done in {elapsed:.1f}s")
                 st.success(f"✅ Verification complete in {elapsed:.1f}s — saved to `{out_path.name}`")
-
         except Exception as e:
             st.error(f"LLM call failed: {e}")
             progress.empty()
 
-# ── Step 4: Results ────────────────────────────────────────────────────────────
+# ── Step 4 ─────────────────────────────────────────────────────────────────────
 if st.session_state.score_df is not None:
     st.divider()
     st.header("Step 4 — Results")
-
     df: pd.DataFrame = st.session_state.score_df
-
-    # Overall score banner
     render_overall_score(df)
-
-    # Pillar summary
     render_pillar_summary(df)
-
     st.divider()
 
-    # ── Tabs: Detail view, Table, Download ────────────────────────────────────
     tab_detail, tab_table, tab_raw, tab_download = st.tabs([
-        "📋 Question Detail", "📊 Score Table", "🤖 Raw LLM Reply", "⬇️ Download"
+        "📋 Question Detail", "📊 Score Table", "🤖 Raw LLM Reply", "⬇️ Download",
     ])
 
     with tab_detail:
-        pillar_filter = st.radio(
-            "Filter by pillar",
-            ["All", "Environmental", "Social", "Governance"],
-            horizontal=True,
-        )
+        pillar_filter = st.radio("Filter by pillar", ["All", "Environmental", "Social", "Governance"], horizontal=True)
         status_filter = st.multiselect(
             "Filter by verification status",
             ["SUPPORTED", "PARTIALLY_SUPPORTED", "NOT_FOUND", "CONTRADICTED"],
             default=["SUPPORTED", "PARTIALLY_SUPPORTED", "NOT_FOUND", "CONTRADICTED"],
         )
-
         filtered = df.copy()
         if pillar_filter != "All":
             filtered = filtered[filtered["Pillar"] == pillar_filter]
         if status_filter:
             filtered = filtered[filtered["Status"].isin(status_filter)]
-
         st.caption(f"Showing {len(filtered)} of {len(df)} questions")
-
         expand_all = st.checkbox("Expand all questions", value=False)
         for _, row in filtered.iterrows():
             render_question_detail(row, expanded=expand_all)
@@ -923,24 +919,9 @@ if st.session_state.score_df is not None:
     with tab_table:
         display_cols = [
             "ID", "Pillar", "Question", "Selected", "Selected Text",
-            "Raw Score", "Status", "Confidence", "Multiplier",
-            "Final Score", "Max Score", "Reasoning"
+            "Raw Score", "Status", "Confidence", "Multiplier", "Final Score", "Max Score", "Reasoning",
         ]
-        st.dataframe(
-            df[display_cols].style.apply(
-                lambda row: [
-                    "background-color:#e8f5e9" if row["Status"] == "SUPPORTED"
-                    else "background-color:#fffde7" if row["Status"] == "PARTIALLY_SUPPORTED"
-                    else "background-color:#ffebee" if row["Status"] == "CONTRADICTED"
-                    else "background-color:#e3f2fd"
-                    for _ in row
-                ],
-                axis=1
-            ),
-            use_container_width=True,
-            height=600,
-        )
-        # Pillar summary table
+        st.dataframe(df[display_cols], use_container_width=True, height=600)
         st.subheader("Pillar Totals")
         pillar_summary = df.groupby("Pillar").agg(
             Questions=("ID", "count"),
@@ -949,9 +930,7 @@ if st.session_state.score_df is not None:
             Max_Score=("Max Score", "sum"),
             Avg_Confidence=("Confidence", "mean"),
         ).reset_index()
-        pillar_summary["Score_%"] = (
-            pillar_summary["Final_Score"] / pillar_summary["Max_Score"] * 100
-        ).round(1)
+        pillar_summary["Score_%"] = (pillar_summary["Final_Score"] / pillar_summary["Max_Score"] * 100).round(1)
         st.dataframe(pillar_summary, use_container_width=True)
 
     with tab_raw:
@@ -960,18 +939,15 @@ if st.session_state.score_df is not None:
 
     with tab_download:
         st.subheader("Download Results")
-
-        # JSON download
         result_json = {
-            "company":          company_name,
-            "source_file":      selected_file.name,
-            "timestamp":        datetime.utcnow().isoformat() + "Z",
-            "model":            st.session_state.model_id,
+            "company": company_name, "source_file": selected_file.name,
+            "timestamp": datetime.utcnow().isoformat() + "Z",
+            "model": st.session_state.model_id,
             "total_final_score": float(df["Final Score"].sum()),
-            "total_max_score":  int(df["Max Score"].sum()),
-            "pct_verified":     round(df["Final Score"].sum() / df["Max Score"].sum() * 100, 2),
-            "scores":           df.to_dict(orient="records"),
-            "verifications":    st.session_state.verification,
+            "total_max_score":   int(df["Max Score"].sum()),
+            "pct_verified": round(df["Final Score"].sum() / df["Max Score"].sum() * 100, 2),
+            "scores": df.to_dict(orient="records"),
+            "verifications": st.session_state.verification,
         }
         st.download_button(
             "📥 Download Full Verification JSON",
@@ -979,8 +955,6 @@ if st.session_state.score_df is not None:
             file_name=f"{company_name}_verification_{datetime.utcnow().strftime('%Y%m%dT%H%M%S')}.json",
             mime="application/json",
         )
-
-        # CSV download
         st.download_button(
             "📥 Download Score Table CSV",
             data=df.to_csv(index=False),

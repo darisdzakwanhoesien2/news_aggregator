@@ -4,5 +4,17 @@
     "pages": 13,
     "json_output": "/Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/new_app/data/thesis_dataset/CSSA ESG support Document 2023_pdf/ocr_result.json",
     "time": "2026-04-02 09:52:55"
+  },
+  "SR_BMHS_Final_2021_Lowres.pdf": {
+    "status": "done",
+    "pages": 80,
+    "json_output": "/Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/new_app/data/thesis_dataset/SR_BMHS_Final_2021_Lowres_pdf/ocr_result.json",
+    "time": "2026-04-02 12:58:35"
+  },
+  "SR_Bundamedik_2024.pdf": {
+    "status": "done",
+    "pages": 102,
+    "json_output": "/Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/new_app/data/thesis_dataset/SR_Bundamedik_2024_pdf/ocr_result.json",
+    "time": "2026-04-02 12:59:06"
   }
 }
