@@ -63,43 +63,96 @@ Important:
 # LLM / API HELPERS  ← defined BEFORE any UI code
 # ══════════════════════════════════════════════════════════════════════════════
 
+def _get_api_key() -> str:
+    # 1. Session state (user typed it in)
+    if st.session_state.get("api_key", "").strip():
+        return st.session_state["api_key"].strip()
+    # 2. Env / .env / config.settings fallback
+    try:
+        from config.settings import settings
+        for attr in ("OPENROUTER_API_KEY", "openrouter_api_key", "api_key"):
+            val = getattr(settings, attr, None)
+            if val and str(val).strip():
+                return str(val).strip()
+    except Exception:
+        pass
+    return os.getenv("OPENROUTER_API_KEY", "")
+
+
 def fetch_models(api_key: str) -> list[dict]:
-    """Fetch available models from OpenRouter; fall back to a minimal list on error."""
-    if not api_key:
+    """
+    Fetch available models from OpenRouter; fall back to a minimal list on error.
+    Mirrors the Chatbot's model discovery (more robust headers & parsing).
+    """
+    def _fallback():
         return [{"id": DEFAULT_MODEL, "name": DEFAULT_MODEL}]
+
+    if not api_key:
+        return _fallback()
     try:
         resp = requests.get(
             OPENROUTER_MODELS_URL,
-            headers={"Authorization": f"Bearer {api_key}"},
-            timeout=8,
+            headers={
+                "Authorization": f"Bearer {api_key}",
+                "HTTP-Referer":  "https://pear-edtech.app",
+                "X-Title":       "Pear EdTech Chatbot",
+            },
+            timeout=10,
         )
         resp.raise_for_status()
         raw = resp.json().get("data", []) or []
-        models = [{"id": m.get("id", ""), "name": m.get("name", m.get("id", ""))} for m in raw if m.get("id")]
-        return models or [{"id": DEFAULT_MODEL, "name": DEFAULT_MODEL}]
+        models = []
+        for m in raw:
+            mid = m.get("id", "")
+            name = m.get("name", mid)
+            if not mid:
+                continue
+            # try to capture useful metadata if present
+            ctx = m.get("context_length", 0) if isinstance(m, dict) else 0
+            pricing = m.get("pricing", {}) if isinstance(m, dict) else {}
+            models.append({"id": mid, "name": name, "ctx": ctx, "pricing": pricing})
+        return models or _fallback()
     except Exception:
-        return [{"id": DEFAULT_MODEL, "name": DEFAULT_MODEL}]
+        return _fallback()
 
 
 def call_openrouter(messages: list[dict], model: str, api_key: str,
                     temperature: float = 0.2, max_tokens: int = 2000) -> str:
-    if not api_key:
+    """
+    Send a chat-style request to the OpenRouter API using the stronger headers used by the Chatbot.
+    Returns assistant content string (or an error string on failure).
+    """
+    effective_key = api_key or _get_api_key()
+    if not effective_key:
         raise RuntimeError("Missing OpenRouter API key.")
+
     payload = {
         "model": model,
         "messages": messages,
         "temperature": float(temperature),
         "max_tokens": int(max_tokens),
     }
-    headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
-    r = requests.post(OPENROUTER_API_URL, headers=headers, json=payload, timeout=120)
-    r.raise_for_status()
-    j = r.json()
-    choices = j.get("choices", [])
-    if choices and isinstance(choices, list):
-        msg = choices[0].get("message", {}) if isinstance(choices[0], dict) else {}
-        return msg.get("content", "") or str(j)
-    return str(j)
+    headers = {
+        "Authorization": f"Bearer {effective_key}",
+        "Content-Type":  "application/json",
+        "HTTP-Referer":  "https://pear-edtech.app",
+        "X-Title":       "Pear EdTech Chatbot",
+    }
+    try:
+        r = requests.post(OPENROUTER_API_URL, headers=headers, json=payload, timeout=120)
+        r.raise_for_status()
+        j = r.json()
+        # typical OpenRouter shape: {"choices":[{"message":{"role":"assistant","content":"..."}}], ...}
+        choices = j.get("choices", [])
+        if choices and isinstance(choices, list):
+            msg = choices[0].get("message", {}) if isinstance(choices[0], dict) else {}
+            return msg.get("content", "") or str(j)
+        # fallback: some implementations return choices[0]["text"]
+        if choices and isinstance(choices[0], dict) and "text" in choices[0]:
+            return choices[0]["text"]
+        return str(j)
+    except Exception as e:
+        return f"[LLM Error: {e}]"
 
 # ══════════════════════════════════════════════════════════════════════════════
 # DATA HELPERS
