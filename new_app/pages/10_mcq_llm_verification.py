@@ -880,6 +880,12 @@ if run_btn:
     if not answers:
         st.error("No answers found in the selected file.")
     else:
+        # prepare output path early so we can always write a result file
+        out_dir  = company_dir / "mcq_answers"
+        out_dir.mkdir(parents=True, exist_ok=True)
+        ts       = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+        out_path = out_dir / f"{ts}_verification.json"
+
         prompt_user = build_verification_prompt(answers, st.session_state.ocr_text, max_ocr_chars=14000)
         messages = [
             {"role": "system", "content": VERIFICATION_SYSTEM_PROMPT},
@@ -887,6 +893,7 @@ if run_btn:
         ]
         progress = st.progress(0, text="Sending to LLM…")
         t0 = time.time()
+        raw_reply = None
         try:
             with st.spinner(f"Verifying {len(answers)} answers with **{st.session_state.model_id}**…"):
                 raw_reply = call_openrouter(
@@ -899,11 +906,42 @@ if run_btn:
             elapsed = time.time() - t0
             progress.progress(80, text="Parsing response…")
             verifications = parse_verification_json(raw_reply)
+
+            # If parsing failed, still create a NOT_FOUND fallback for every question and save raw reply
             if verifications is None:
-                st.error("❌ Could not parse JSON from LLM. See raw reply below.")
-                st.code(raw_reply)
+                st.warning("⚠️ LLM returned a non-JSON or unparsable response. Saving raw reply and marking answers as NOT_FOUND.")
+                verifications = []
+                for a in answers:
+                    verifications.append({
+                        "id": a["id"],
+                        "verification_status": "NOT_FOUND",
+                        "confidence": 0,
+                        "evidence_quote": "",
+                        "evidence_page": "",
+                        "reasoning": "LLM response unparsable; raw reply saved.",
+                        "suggested_answer": None,
+                    })
+
+                # save failure payload with raw reply for debugging
+                result_payload = {
+                    "company": company_name,
+                    "source_file": selected_file.name,
+                    "timestamp": datetime.utcnow().isoformat() + "Z",
+                    "model": st.session_state.model_id,
+                    "status": "parse_error",
+                    "error": "LLM response could not be parsed as JSON",
+                    "raw_llm_reply": raw_reply,
+                    "verifications": verifications,
+                }
+                out_path.write_text(json.dumps(result_payload, ensure_ascii=False, indent=2), encoding="utf-8")
+                st.session_state.verification  = verifications
+                st.session_state.score_df      = compute_scores(answers, verifications)
+                st.session_state.raw_llm_reply = raw_reply or ""
+                progress.progress(100, text=f"Done in {elapsed:.1f}s (parse error saved)")
+                st.error("❌ Could not parse JSON from LLM. Raw reply saved to disk.")
             else:
-                ver_ids = {v["id"] for v in verifications}
+                # ensure every question has a verification entry
+                ver_ids = {v.get("id") for v in verifications}
                 for a in answers:
                     if a["id"] not in ver_ids:
                         verifications.append({
@@ -915,27 +953,41 @@ if run_btn:
                 score_df = compute_scores(answers, verifications)
                 st.session_state.verification  = verifications
                 st.session_state.score_df      = score_df
-                st.session_state.raw_llm_reply = raw_reply
+                st.session_state.raw_llm_reply = raw_reply or ""
 
-                out_dir  = company_dir / "mcq_answers"
-                out_dir.mkdir(parents=True, exist_ok=True)
-                ts       = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
-                out_path = out_dir / f"{ts}_verification.json"
                 result_payload = {
                     "company": company_name, "source_file": selected_file.name,
                     "timestamp": datetime.utcnow().isoformat() + "Z",
                     "model": st.session_state.model_id,
+                    "status": "ok",
                     "total_final_score": float(score_df["Final Score"].sum()),
                     "total_max_score":   int(score_df["Max Score"].sum()),
                     "total_raw_score":   int(score_df["Raw Score"].sum()),
-                    "pct_verified": round(score_df["Final Score"].sum() / score_df["Max Score"].sum() * 100, 2),
+                    "pct_verified": round(score_df["Final Score"].sum() / score_df["Max Score"].sum() * 100, 2) if score_df["Max Score"].sum() else 0,
                     "verifications": verifications,
                     "scores": score_df.to_dict(orient="records"),
+                    "raw_llm_reply": raw_reply,
                 }
                 out_path.write_text(json.dumps(result_payload, ensure_ascii=False, indent=2), encoding="utf-8")
+                elapsed = time.time() - t0
                 progress.progress(100, text=f"Done in {elapsed:.1f}s")
                 st.success(f"✅ Verification complete in {elapsed:.1f}s — saved to `{out_path.name}`")
         except Exception as e:
+            # Always save an error file with as much context as possible
+            err_info = {
+                "company": company_name,
+                "source_file": selected_file.name,
+                "timestamp": datetime.utcnow().isoformat() + "Z",
+                "model": st.session_state.model_id,
+                "status": "error",
+                "error": str(e),
+                "raw_llm_reply": raw_reply,
+            }
+            try:
+                out_path.write_text(json.dumps(err_info, ensure_ascii=False, indent=2), encoding="utf-8")
+            except Exception:
+                # best-effort write; ignore if disk write fails
+                pass
             st.error(f"LLM call failed: {e}")
             progress.empty()
 
