@@ -4,6 +4,9 @@
 
 import streamlit as st
 from pathlib import Path
+import os
+import glob
+import json
 
 # ============================================================
 # PAGE CONFIG
@@ -29,6 +32,37 @@ def load_markdown(file_path: str) -> str:
             return f"⚠️ File not found: {file_path}"
     except Exception as e:
         return f"❌ Error loading file: {str(e)}"
+
+
+def list_markdown_files(dir_path: str, recursive: bool = True):
+    """Return sorted list of .md files under dir_path"""
+    try:
+        base = Path(dir_path)
+        if not base.exists():
+            return []
+        pattern = "**/*.md" if recursive else "*.md"
+        files = [str(p) for p in base.glob(pattern)]
+        return sorted(files)
+    except Exception:
+        return []
+
+# Default metadata mapping for templates
+DEFAULT_TEMPLATE_METADATA = {
+    "header_prompt": "You are an academic researcher writing a Master's thesis.",
+    "title": "Thesis Title: \"Neurosymbolic Reasoning for Robust Greenwashing Detection and Actionable ESG Analysis\""
+}
+
+def load_metadata(path: str):
+    try:
+        p = Path(path)
+        if p.exists():
+            return json.loads(p.read_text(encoding="utf-8"))
+    except Exception:
+        pass
+    return DEFAULT_TEMPLATE_METADATA.copy()
+
+def save_metadata(path: str, obj: dict):
+    Path(path).write_text(json.dumps(obj, indent=2), encoding="utf-8")
 
 
 def section_header(title, icon="📌"):
@@ -158,15 +192,68 @@ elif section == "LLM Workflow":
 elif section == "Templates (Markdown)":
     section_header("Template Documentation")
 
-    md_path = "new_app/pages/documentation_succesful/001_templates.md"
-    md_content = load_markdown(md_path)
+    base_dir = "new_app/pages/documentation_succesful"
+    st.markdown("### 📂 Markdown Templates Directory")
+    st.caption(base_dir)
 
-    st.markdown("### 📄 Loaded Template File")
-    st.code(md_path)
+    md_files = list_markdown_files(base_dir)
+    if not md_files:
+        st.warning("No .md files found in the templates directory.")
+    else:
+        selected = st.selectbox("Select a markdown file to view", md_files)
+        st.code(selected)
+        st.markdown("---")
+        md_content = load_markdown(selected)
+        # show basic file info
+        try:
+            stat = Path(selected).stat()
+            st.caption(f"Last modified: {Path(selected).stat().st_mtime}")
+        except Exception:
+            pass
 
-    st.markdown("---")
+        # load template metadata (used for placeholder mapping)
+        meta_path = Path(base_dir) / "template_metadata.json"
+        metadata = load_metadata(str(meta_path))
 
-    st.markdown(md_content, unsafe_allow_html=True)
+        # Replace any metadata literal values in the markdown with their placeholders.
+        # This generalizes replacement so "title" (and other keys) are replaced too.
+        for key, val in metadata.items():
+            if not isinstance(val, str) or not val:
+                continue
+            placeholder = "{" + key + "}"
+            # direct match
+            if val in md_content:
+                md_content = md_content.replace(val, placeholder)
+            # match without surrounding quotes (common in templates)
+            val_no_quotes = val.replace('"', '')
+            if val_no_quotes in md_content:
+                md_content = md_content.replace(val_no_quotes, placeholder)
+            # match without a trailing period
+            val_no_period = val.rstrip(".")
+            if val_no_period in md_content:
+                md_content = md_content.replace(val_no_period, placeholder)
+
+        st.markdown(md_content, unsafe_allow_html=True)
+
+        # --- Template metadata editor / viewer ---
+        # metadata already loaded above
+        st.markdown("---")
+        st.markdown("### 🔖 Template Metadata")
+        edited = st.text_area("Edit JSON metadata", value=json.dumps(metadata, indent=2), height=200)
+        col_save, _ = st.columns([1, 3])
+        with col_save:
+            if st.button("Save metadata"):
+                try:
+                    parsed = json.loads(edited)
+                    save_metadata(str(meta_path), parsed)
+                    st.success("Template metadata saved.")
+                except Exception as e:
+                    st.error(f"Failed to save metadata: {e}")
+        # show parsed JSON preview
+        try:
+            st.json(json.loads(edited))
+        except Exception:
+            st.info("Current metadata is not valid JSON.")
 
 # ============================================================
 # SECTION: SCHEMA DESIGN
