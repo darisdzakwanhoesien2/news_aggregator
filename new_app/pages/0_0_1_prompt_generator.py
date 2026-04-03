@@ -80,6 +80,22 @@ meta_path = "new_app/pages/documentation_succesful/template_metadata.json"
 metadata = load_metadata(meta_path)
 thesis_title = extract_thesis_title(metadata.get("title", DEFAULT_TEMPLATE_METADATA["title"]))
 
+# Allow editing the thesis title and optionally save back to metadata
+edited_title = st.text_input("Thesis title", value=thesis_title)
+col_save_title, _ = st.columns([1, 3])
+with col_save_title:
+    if st.button("Save thesis title to metadata"):
+        try:
+            # store in the same format as DEFAULT_TEMPLATE_METADATA
+            metadata["title"] = f'Thesis Title: \"{edited_title}\"'
+            Path(meta_path).write_text(json.dumps(metadata, indent=2), encoding="utf-8")
+            st.success("Thesis title saved to template metadata.")
+        except Exception as e:
+            st.error(f"Failed to save metadata: {e}")
+
+# use the edited title in the generated template
+thesis_title = edited_title
+
 # allow filtering by Chapter (optional)
 chapters = sorted({r.get("Chapter", "").strip() for r in rows if r.get("Chapter")})
 chap_choice = st.selectbox("Filter by Chapter (optional)", options=["All"] + chapters, index=0)
