@@ -7,10 +7,14 @@ st.title("Public Account — News Collection Tools")
 st.write("Use the left sidebar (Pages) to open Login or Register pages, or run the following links:")
 
 base = Path(__file__).parent
-login_page = "pages/1.py"
-register_page = "pages/2.py"
+login_page = "/1"
+register_page = "/2"
+user = st.session_state.get("user")
+# if a user is logged in, include the query param so navigation keeps the session
+profile_page = f"/3?user={user}" if user else "/3"
 
 st.markdown(f"- [Login]({login_page})")
 st.markdown(f"- [Register]({register_page})")
+st.markdown(f"- [Personal page / Dashboard]({profile_page})")
 
 st.info("This app stores account data locally in JSON (users.json) inside the public_account folder. Passwords are hashed with salt.")
