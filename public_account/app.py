@@ -1,0 +1,16 @@
+import streamlit as st
+from pathlib import Path
+
+st.set_page_config(page_title="Public Account", layout="centered")
+
+st.title("Public Account — News Collection Tools")
+st.write("Use the left sidebar (Pages) to open Login or Register pages, or run the following links:")
+
+base = Path(__file__).parent
+login_page = "pages/1.py"
+register_page = "pages/2.py"
+
+st.markdown(f"- [Login]({login_page})")
+st.markdown(f"- [Register]({register_page})")
+
+st.info("This app stores account data locally in JSON (users.json) inside the public_account folder. Passwords are hashed with salt.")

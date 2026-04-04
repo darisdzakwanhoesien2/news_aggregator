@@ -1,0 +1,58 @@
+import streamlit as st
+from pathlib import Path
+import hashlib
+import json
+from datetime import datetime
+
+DATA_FILE = Path(__file__).parent.parent / "users.json"
+
+def load_users():
+    if not DATA_FILE.exists():
+        return {}
+    try:
+        raw = json.loads(DATA_FILE.read_text(encoding="utf-8") or "{}")
+        return {u["username"]: u for u in raw.get("users", [])}
+    except Exception:
+        return {}
+
+def verify_password(stored_salt_hex, stored_hash_hex, password_plain):
+    salt = bytes.fromhex(stored_salt_hex)
+    h = hashlib.pbkdf2_hmac("sha256", password_plain.encode("utf-8"), salt, 100_000)
+    return h.hex() == stored_hash_hex
+
+st.set_page_config(page_title="Login", layout="centered")
+st.title("🔐 Login")
+
+st.markdown(
+    """
+    <style>
+    .card {
+      background: #f8fafc;
+      padding: 18px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+with st.container():
+    st.markdown('<div class="card">', unsafe_allow_html=True)
+    username = st.text_input("Username")
+    password = st.text_input("Password", type="password")
+    submitted = st.button("Login")
+    st.markdown('</div>', unsafe_allow_html=True)
+
+if submitted:
+    users = load_users()
+    user = users.get(username)
+    if not user:
+        st.error("User not found. Please register first.")
+    else:
+        ok = verify_password(user["salt"], user["password_hash"], password)
+        if ok:
+            st.success(f"Welcome back, {username} — logged in at {datetime.utcnow().isoformat()}Z")
+            st.session_state["user"] = username
+        else:
+            st.error("Invalid password.")

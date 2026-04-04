@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "username": "testing",
+      "salt": "1b25eba6c65241097a66283f2120ab79",
+      "password_hash": "de061f7501489134ab88844eed1e839ab35bcf4c3b1fc147876abc6c485fd21c",
+      "created_at": "2026-04-04T08:16:31.738867Z"
+    },
+    {
+      "username": "testing_2",
+      "salt": "44983ab284ba1c899bbdcb1fd87fde83",
+      "password_hash": "d75e1043e012ec4203de6f5f23fe2ee44cebf88174e816b23e396d77d8f67192",
+      "created_at": "2026-04-04T08:25:04.318784Z"
+    }
+  ]
+}

@@ -63,10 +63,22 @@ st.set_page_config(page_title="Parse Thesis Table", layout="wide")
 st.title("Parse thesis chapter table → template")
 st.markdown("Load a markdown table and generate the dropdown-based template.")
 
-md_path = "new_app/pages/system/working/01.md"
-md_text = load_text(md_path)
+working_dir = Path("new_app/pages/system/working")
+md_files = sorted(list(working_dir.glob("*.md")))
+
+if not md_files:
+    st.error(f"No .md files found in {working_dir}")
+    st.stop()
+
+selected_file = st.selectbox(
+    "Select Markdown File", 
+    options=md_files, 
+    format_func=lambda x: x.name
+)
+
+md_text = load_text(str(selected_file))
 if not md_text:
-    st.error(f"Could not read {md_path}")
+    st.error(f"Could not read {selected_file}")
     st.stop()
 
 rows = parse_markdown_table(md_text)
@@ -120,12 +132,7 @@ template = f"""You are an academic researcher writing a Master's thesis.
 Thesis Title:
 \"{thesis_title}\"
 
----
-
-## THESIS CONTEXT
-
-{context}
----
+## THESIS CONTEXT: {context}
 
 ## PREVIOUSLY WRITTEN SECTION
 
@@ -135,17 +142,11 @@ This is the first section of the thesis.
 
 ## SECTION TO WRITE
 
-Section Title:
-{section_title}
----
+Section Title: {section_title}
 
-## SECTION OBJECTIVE
-{objective}
----
+## SECTION OBJECTIVE: {objective}
 
-## WRITING REQUIREMENTS
-{writing_requirements}
----
+## WRITING REQUIREMENTS: {writing_requirements}
 
 ## OUTPUT FORMAT
 
