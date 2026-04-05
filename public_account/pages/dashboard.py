@@ -1,9 +1,13 @@
 import streamlit as st
 from pathlib import Path
 import json
-import pandas as pd
+from datetime import datetime
 
-DATA_FILE = Path(__file__).parent.parent / "users.json"
+# new: central user_data folder
+ROOT = Path(__file__).parent.parent
+USER_DATA_DIR = ROOT / "user_data"
+USER_DATA_DIR.mkdir(parents=True, exist_ok=True)
+DATA_FILE = USER_DATA_DIR / "users.json"
 
 def load_users_list():
     if not DATA_FILE.exists():

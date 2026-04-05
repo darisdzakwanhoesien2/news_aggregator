@@ -5,7 +5,11 @@ import os
 import json
 from datetime import datetime
 
-DATA_FILE = Path(__file__).parent.parent / "users.json"
+# new: central user_data folder
+ROOT = Path(__file__).parent.parent
+USER_DATA_DIR = ROOT / "user_data"
+USER_DATA_DIR.mkdir(parents=True, exist_ok=True)
+DATA_FILE = USER_DATA_DIR / "users.json"
 
 def load_users():
     if not DATA_FILE.exists():
@@ -22,6 +26,7 @@ def load_users():
         return []
 
 def save_users(users_list):
+    USER_DATA_DIR.mkdir(parents=True, exist_ok=True)
     DATA_FILE.write_text(json.dumps({"users": users_list}, indent=2), encoding="utf-8")
 
 def username_exists(username, users_list):

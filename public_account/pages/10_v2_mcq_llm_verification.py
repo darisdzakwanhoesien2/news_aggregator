@@ -29,6 +29,12 @@ st.set_page_config(
 # ── Paths & env ────────────────────────────────────────────────────────────────
 BASE_DIR = Path(__file__).resolve().parents[1]
 DATA_DIR = BASE_DIR / "data"
+USER_DATA_DIR = BASE_DIR / "user_data"
+USER_DATA_DIR.mkdir(parents=True, exist_ok=True)
+# ensure data + logs exist (prevent DataDir missing NameErrors)
+LOG_DIR = BASE_DIR / "logs"
+DATA_DIR.mkdir(parents=True, exist_ok=True)
+LOG_DIR.mkdir(parents=True, exist_ok=True)
 load_dotenv(BASE_DIR / ".env")
 
 OPENROUTER_API_URL    = os.getenv("OPENROUTER_API_URL", "https://openrouter.ai/api/v1/chat/completions")
@@ -37,6 +43,24 @@ DEFAULT_MODEL         = "meta-llama/llama-3.1-8b-instruct:free"
 
 CHOICE_SCORE = {"A": 3, "B": 2, "C": 1, "D": 0, "": 0}
 MAX_SCORE_PER_QUESTION = 3
+
+# ══════════════════════════════════════════════════════════════════════════════
+# ESG MCQ — loaded from data/esg_mcq.json  (edit questions there, not here)
+# ══════════════════════════════════════════════════════════════════════════════
+ESG_MCQ_JSON = DATA_DIR / "esg_mcq.json"
+
+def _load_esg_mcq() -> list[dict]:
+    """Load questions from JSON file; return empty list if missing/broken."""
+    if ESG_MCQ_JSON.exists():
+        try:
+            data = json.loads(ESG_MCQ_JSON.read_text(encoding="utf-8"))
+            if isinstance(data, list) and data:
+                return data
+        except Exception:
+            pass
+    return []
+
+ESG_MCQ: list[dict] = _load_esg_mcq()
 
 # ══════════════════════════════════════════════════════════════════════════════
 # VERIFICATION SYSTEM PROMPT  ← must be defined before UI
@@ -453,6 +477,40 @@ def list_companies() -> list[str]:
     except Exception:
         return []
 
+def ensure_companies_from_users() -> list[str]:
+    """
+    Create company folders under DATA_DIR for any users defined in users.json.
+    Returns a list of created company folder names (empty if none created).
+    This is a minimal, safe fallback to avoid NameError when no company folders exist.
+    """
+    created = []
+    users_file = BASE_DIR / "users.json"
+    if not users_file.exists():
+        return created
+    try:
+        raw = json.loads(users_file.read_text(encoding="utf-8") or "{}")
+        # Normalize to a mapping of username -> meta
+        if isinstance(raw, dict):
+            users_map = raw
+        elif isinstance(raw, list):
+            users_map = { (u.get("username") or u.get("user") or u.get("id") or str(i)): u for i, u in enumerate(raw) }
+        else:
+            return created
+        for uname in users_map.keys():
+            if not uname or not isinstance(uname, str):
+                continue
+            cand = DATA_DIR / uname
+            if not cand.exists():
+                try:
+                    cand.mkdir(parents=True, exist_ok=True)
+                    created.append(uname)
+                except Exception:
+                    # ignore creation failures
+                    continue
+    except Exception:
+        return created
+    return created
+
 
 def list_answer_files(company_dir: Path) -> list[Path]:
     candidate_dir = company_dir / "mcq_answers"
@@ -763,46 +821,111 @@ st.title("🔍 MCQ LLM Verification & Scoring")
 st.caption("Verify MCQ answers against OCR-extracted company documents using an LLM.")
 
 # ── Step 1 ─────────────────────────────────────────────────────────────────────
-st.header("Step 1 — Select Company & Answer File")
+st.header("Step 1 — Select Company & Answer Source")
 
 companies = list_companies()
 if not companies:
-    st.error("No company folders found in the data directory.")
-    st.stop()
+    created = ensure_companies_from_users()
+    companies = list_companies()
+    if created:
+        st.info(f"Created {len(created)} company folder(s) from users (UKM).")
+    else:
+        st.error("No company folders found in the data directory.")
+        st.stop()
 
 col1, col2 = st.columns(2)
 with col1:
     company_name = st.selectbox("Company", options=companies)
 
 company_dir  = DATA_DIR / company_name
-answer_files = list_answer_files(company_dir)
 
-if not answer_files:
-    st.warning(f"No MCQ answer files found for **{company_name}**.")
-    st.stop()
-
+# Let the user pick whether to load an answer file or fill answers from ESG_MCQ
 with col2:
-    selected_file = st.selectbox(
-        "MCQ Answer File", options=answer_files,
-        format_func=lambda p: p.name,
-    )
+    answer_mode = st.radio("Answer source", ["Load from file", "Use ESG question set"], index=1)
 
-answer_data = load_json(selected_file)
-if not answer_data:
-    st.error(f"Could not load {selected_file.name}")
+answers: list[dict] = []
+st.session_state.answer_data = None
+
+if answer_mode == "Load from file":
+    answer_files = list_answer_files(company_dir)
+    if not answer_files:
+        st.warning(f"No MCQ answer files found for **{company_name}**.")
+    else:
+        selected_file = st.selectbox(
+            "MCQ Answer File", options=answer_files,
+            format_func=lambda p: p.name,
+        )
+        if selected_file:
+            answer_data = load_json(selected_file)
+            if not answer_data:
+                st.error(f"Could not load {selected_file.name}")
+            else:
+                st.session_state.answer_data = answer_data
+                answers = answer_data.get("answers", [])
+                with st.expander("📄 Answer file metadata", expanded=False):
+                    st.json({
+                        "company":     answer_data.get("company"),
+                        "timestamp":   answer_data.get("timestamp"),
+                        "mode":        answer_data.get("mode"),
+                        "n_answers":   len(answers),
+                        "source_mode": answer_data.get("source_mode", ""),
+                    })
+
+elif answer_mode == "Use ESG question set":
+    if not ESG_MCQ:
+        st.error("ESG question set not found. Place a valid data/esg_mcq.json file.")
+    else:
+        st.markdown(f"Using ESG question set ({len(ESG_MCQ)} questions). Fill answers below.")
+        # Render a form to collect selected answers for each question
+        with st.form("esg_answers_form", clear_on_submit=False):
+            esg_answers = []
+            for q in ESG_MCQ:
+                qid = str(q.get("id") or q.get("ID") or q.get("qid") or f"q_{len(esg_answers)+1}")
+                pillar = q.get("pillar", q.get("Pillar", ""))
+                question_text = q.get("question", q.get("text", ""))
+                # determine choices
+                raw_choices = q.get("choices") or q.get("options") or q.get("answers") or q.get("choices_map") or []
+                opts = []
+                # normalize choices into list of tuples (letter, text)
+                if isinstance(raw_choices, dict):
+                    for k, v in raw_choices.items():
+                        opts.append((str(k).upper(), str(v)))
+                elif isinstance(raw_choices, list):
+                    letters = ["A", "B", "C", "D", "E"]
+                    for i, item in enumerate(raw_choices):
+                        letter = letters[i] if i < len(letters) else str(i+1)
+                        opts.append((letter, str(item)))
+                else:
+                    opts = [("A", "A"), ("B", "B"), ("C", "C"), ("D", "D")]
+
+                # build display label and widget keys
+                choice_labels = [f"{ltr}: {txt}" for ltr, txt in opts]
+                default_idx = 0
+                sel = st.selectbox(f"{qid} — {pillar}\n{question_text}", options=choice_labels, key=f"esg_sel_{qid}")
+                selected_letter = sel.split(":", 1)[0].strip()
+                # allow optional selected_text override (pre-fill with option text)
+                opt_map = {ltr: txt for ltr, txt in opts}
+                selected_text = st.text_input(f"Selected text for {qid} (optional)", value=opt_map.get(selected_letter, ""), key=f"esg_text_{qid}")
+                esg_answers.append({
+                    "id": qid,
+                    "pillar": pillar,
+                    "question": question_text,
+                    "selected": selected_letter,
+                    "selected_text": selected_text,
+                })
+            submitted = st.form_submit_button("Use these answers")
+        if submitted:
+            answers = esg_answers
+            st.success(f"Collected {len(answers)} answers from ESG question set.")
+            st.session_state.answer_data = {
+                "company": company_name,
+                "timestamp": datetime.utcnow().isoformat() + "Z",
+                "mode": "esg_mcq_interactive",
+                "answers": answers,
+            }
+# if we still have no answers, stop here
+if not answers:
     st.stop()
-
-st.session_state.answer_data = answer_data
-answers: list[dict] = answer_data.get("answers", [])
-
-with st.expander("📄 Answer file metadata", expanded=False):
-    st.json({
-        "company":     answer_data.get("company"),
-        "timestamp":   answer_data.get("timestamp"),
-        "mode":        answer_data.get("mode"),
-        "n_answers":   len(answers),
-        "source_mode": answer_data.get("source_mode", ""),
-    })
 
 # ── Step 2 ─────────────────────────────────────────────────────────────────────
 st.header("Step 2 — OCR Document Text")
@@ -964,6 +1087,19 @@ if run_btn:
                     "verifications": verifications,
                 }
                 out_path.write_text(json.dumps(result_payload, ensure_ascii=False, indent=2), encoding="utf-8")
+                # per-user session: save under user_data/<user>/sessions/<ts>/*
+                current_user = st.session_state.get("user") or (st.experimental_get_query_params().get("user", [None])[0])
+                if current_user:
+                    sess_dir = USER_DATA_DIR / current_user / "sessions" / ts
+                    sess_dir.mkdir(parents=True, exist_ok=True)
+                    (sess_dir / "verification.json").write_text(json.dumps(result_payload, ensure_ascii=False, indent=2), encoding="utf-8")
+                    try:
+                        (sess_dir / "raw_llm_reply.txt").write_text(raw_reply or "", encoding="utf-8")
+                        # save score table if available
+                        df_fail = compute_scores(answers, verifications)
+                        (sess_dir / "scores.csv").write_text(df_fail.to_csv(index=False), encoding="utf-8")
+                    except Exception:
+                        pass
                 st.session_state.verification  = verifications
                 st.session_state.score_df      = compute_scores(answers, verifications)
                 st.session_state.raw_llm_reply = raw_reply or ""
@@ -999,6 +1135,17 @@ if run_btn:
                     "raw_llm_reply": raw_reply,
                 }
                 out_path.write_text(json.dumps(result_payload, ensure_ascii=False, indent=2), encoding="utf-8")
+                # persist into user session folder if user present
+                current_user = st.session_state.get("user") or (st.experimental_get_query_params().get("user", [None])[0])
+                if current_user:
+                    sess_dir = USER_DATA_DIR / current_user / "sessions" / ts
+                    sess_dir.mkdir(parents=True, exist_ok=True)
+                    (sess_dir / "verification.json").write_text(json.dumps(result_payload, ensure_ascii=False, indent=2), encoding="utf-8")
+                    try:
+                        (sess_dir / "raw_llm_reply.txt").write_text(raw_reply or "", encoding="utf-8")
+                        score_df.to_csv(sess_dir / "scores.csv", index=False)
+                    except Exception:
+                        pass
                 elapsed = time.time() - t0
                 progress.progress(100, text=f"Done in {elapsed:.1f}s")
                 st.success(f"✅ Verification complete in {elapsed:.1f}s — saved to `{out_path.name}`")
@@ -1015,6 +1162,13 @@ if run_btn:
             }
             try:
                 out_path.write_text(json.dumps(err_info, ensure_ascii=False, indent=2), encoding="utf-8")
+                current_user = st.session_state.get("user") or (st.experimental_get_query_params().get("user", [None])[0])
+                if current_user:
+                    sess_dir = USER_DATA_DIR / current_user / "sessions" / ts
+                    sess_dir.mkdir(parents=True, exist_ok=True)
+                    (sess_dir / "error.json").write_text(json.dumps(err_info, ensure_ascii=False, indent=2), encoding="utf-8")
+                    if raw_reply:
+                        (sess_dir / "raw_llm_reply.txt").write_text(raw_reply, encoding="utf-8")
             except Exception:
                 # best-effort write; ignore if disk write fails
                 pass
@@ -1065,7 +1219,7 @@ if st.session_state.score_df is not None:
             Max_Score=("Max Score", "sum"),
             Avg_Confidence=("Confidence", "mean"),
         ).reset_index()
-        pillar_summary["Score_%"] = (pillar_summary["Final_Score"] / pillar_summary["Max_Score"] * 100).round(1)
+        pillar_summary["Score_%"] = (pillar_summary["Final_Score"] / pillar_summary["Max Score"] * 100).round(1)
         st.dataframe(pillar_summary, use_container_width=True)
 
     with tab_raw:
@@ -1316,7 +1470,7 @@ with st.container():
             for e in reversed(user_files):
                 st.markdown(f"- **{e.get('title') or e['original_name']}** — {e.get('uploaded_at')}")
         else:
-            st.info("No uploaded files. Manage your files on the Files page.")
+            st.info("No files uploaded. Manage your files on the Files page.")
         st.markdown("- [Manage my files](/ukm_files)")
 
     elif role in ("Supplier", "Bank"):
