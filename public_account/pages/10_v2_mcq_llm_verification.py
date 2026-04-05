@@ -843,8 +843,15 @@ company_dir  = DATA_DIR / company_name
 with col2:
     answer_mode = st.radio("Answer source", ["Load from file", "Use ESG question set"], index=1)
 
+# Persist answers across reruns instead of wiping them each run
 answers: list[dict] = []
-st.session_state.answer_data = None
+selected_file = None
+if "answer_data" not in st.session_state:
+    st.session_state["answer_data"] = None
+
+# restore previously collected/loaded answers
+if st.session_state.get("answer_data"):
+    answers = st.session_state.answer_data.get("answers", []) or []
 
 if answer_mode == "Load from file":
     answer_files = list_answer_files(company_dir)
@@ -860,6 +867,9 @@ if answer_mode == "Load from file":
             if not answer_data:
                 st.error(f"Could not load {selected_file.name}")
             else:
+                # persist loaded answers and filename to session_state
+                answer_data = answer_data if isinstance(answer_data, dict) else {"answers": []}
+                answer_data["source_file"] = selected_file.name
                 st.session_state.answer_data = answer_data
                 answers = answer_data.get("answers", [])
                 with st.expander("📄 Answer file metadata", expanded=False):
@@ -921,6 +931,7 @@ elif answer_mode == "Use ESG question set":
                 "company": company_name,
                 "timestamp": datetime.utcnow().isoformat() + "Z",
                 "mode": "esg_mcq_interactive",
+                "source_file": "interactive_esg",
                 "answers": answers,
             }
 # if we still have no answers, stop here
@@ -930,51 +941,81 @@ if not answers:
 # ── Step 2 ─────────────────────────────────────────────────────────────────────
 st.header("Step 2 — OCR Document Text")
 
-with st.spinner("Locating / loading OCR text…"):
-    # Auto-detected OCR for selected company (keeps previous behavior)
-    auto_ocr_text, auto_detected_source = get_ocr_text(company_dir)
-    st.session_state.ocr_text = auto_ocr_text or ""
-    auto_source = auto_detected_source
+# Bulk OCR storage locations (shared with Bulk OCR page)
+TMP_DIR = BASE_DIR / "data" / "thesis_pdf"       # temporary uploaded files
+OUT_DIR = BASE_DIR / "data" / "thesis_dataset"   # OCR outputs produced by Bulk OCR
+TMP_DIR.mkdir(parents=True, exist_ok=True)
+OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-    # Build list of all OCR bundles under DATA_DIR for manual selection
-    all_ocr_jsons = sorted(DATA_DIR.rglob("ocr_result.json"))
-    ocr_display_options = [str(p.relative_to(DATA_DIR)) for p in all_ocr_jsons]
+# ── 2 · Document source mode ───────────────────────────────────────────
+st.markdown("#### 📄 Document Source")
+source_mode = st.radio(
+    "How will you attach supporting documents?",
+    [
+        "📂 Use existing company docs",
+        "📎 Upload per question",
+        "📤 Upload at end (general)",
+    ],
+    key="q_source_mode",
+    horizontal=True,
+)
 
-    # Offer multi-select: either Auto-detect OR one/more explicit OCR bundles
-    st.subheader("Choose OCR source(s)")
-    st.caption("Pick one or more OCR bundles from the dataset. Select 'Auto-detect' to use the app's automatic discovery for the selected company.")
-    ocr_multiselect = st.multiselect(
-        "Select OCR bundles (multiple allowed)",
-        options=["Auto-detect"] + ocr_display_options,
-        default=["Auto-detect"] if auto_detected_source else [],
-        help="Selecting multiple bundles will merge their text in the order chosen."
-    )
+# root where Bulk OCR writes output bundles (use OUT_DIR)
+ocr_root = OUT_DIR
+ocr_docs = [d.name for d in sorted(ocr_root.iterdir()) if d.is_dir()] if ocr_root.exists() else []
 
-    # If user explicitly picked external bundles (and did NOT pick Auto-detect),
-    # load and merge them. Otherwise keep auto-detect result.
-    combined_texts = []
-    selected_sources = []
+selected_ocr_bundle = None
+uploaded_bundle_paths = []
 
-    if ocr_multiselect and "Auto-detect" not in ocr_multiselect:
-        for choice in ocr_multiselect:
-            sel_path = DATA_DIR / Path(choice)
-            if sel_path.exists():
-                txt = collect_ocr_text(sel_path.parent, company_base=company_dir)
-                if txt:
-                    header = f"--- OCR: {str(sel_path.parent.relative_to(DATA_DIR))} ---"
-                    combined_texts.append(f"{header}\n{txt}")
-                    selected_sources.append(sel_path.parent)
+if source_mode == "📂 Use existing company docs":
+    if not ocr_docs:
+        st.info("No Bulk OCR bundles found in data/thesis_dataset. Run the Bulk OCR page to create bundles.")
     else:
-        # use auto-detect if present
-        if auto_ocr_text:
-            combined_texts.append(f"--- Auto-detected: {str(auto_source.relative_to(DATA_DIR)) if auto_source else company_name} ---\n{auto_ocr_text}")
-            if auto_source:
-                selected_sources.append(auto_source)
+        sel_name = st.selectbox("Choose an OCR bundle from Bulk OCR outputs", options=ocr_docs)
+        if sel_name:
+            selected_ocr_bundle = ocr_root / sel_name
+            st.caption(f"Selected OCR bundle: {selected_ocr_bundle.name}")
 
-    # Finalize session OCR text and source(s)
-    final_ocr_text = "\n\n".join(combined_texts).strip()
-    st.session_state.ocr_text = final_ocr_text or ""
-    ocr_source = selected_sources if selected_sources else (auto_source if auto_source else None)
+elif source_mode in ("📎 Upload per question", "📤 Upload at end (general)"):
+    st.caption("Upload PDFs / images here. Files are saved to the Bulk OCR upload folder for later OCR processing.")
+    uploads = st.file_uploader(
+        "Attach supporting document(s)",
+        type=["pdf", "png", "jpg", "jpeg"],
+        accept_multiple_files=True,
+        key="step2_uploads",
+    )
+    if uploads:
+        saved = []
+        # Create a folder per run/company for clarity
+        run_tag = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+        dest_dir = TMP_DIR / f"{company_name}_{run_tag}"
+        dest_dir.mkdir(parents=True, exist_ok=True)
+        for f in uploads:
+            out_path = dest_dir / safe_name(f.name)
+            out_path.write_bytes(f.getbuffer())
+            saved.append(out_path)
+            uploaded_bundle_paths.append(out_path)
+        st.success(f"Saved {len(saved)} file(s) to {str(dest_dir.relative_to(BASE_DIR))}")
+        st.info("Run the Bulk OCR page to process these uploads (or trigger your OCR pipeline).")
+
+# Now build OCR text: priority —
+# 1) If user selected an OCR bundle from OUT_DIR, use it
+# 2) Else use the app's auto-detect (existing behaviour)
+with st.spinner("Locating / loading OCR text…"):
+    final_ocr_text = ""
+    ocr_source = None
+    if selected_ocr_bundle and selected_ocr_bundle.exists():
+        final_ocr_text = collect_ocr_text(selected_ocr_bundle, company_base=company_dir)
+        ocr_source = selected_ocr_bundle
+    else:
+        # fallback to automatic discovery (keeps previous behaviour)
+        auto_ocr_text, auto_detected_source = get_ocr_text(company_dir)
+        final_ocr_text = auto_ocr_text or ""
+        ocr_source = auto_detected_source
+
+st.session_state.ocr_text = final_ocr_text or ""
+# expose the chosen source for downstream UI
+auto_source = ocr_source
 
 if not st.session_state.ocr_text.strip():
     candidates = list_ocr_candidates(company_dir)
@@ -1060,6 +1101,9 @@ if run_btn:
             progress.progress(80, text="Parsing response…")
             verifications = parse_verification_json(raw_reply)
 
+            # helpful safe label for persisted source
+            source_file_label = (st.session_state.get("answer_data") or {}).get("source_file") or "interactive_esg"
+
             # If parsing failed, still create a NOT_FOUND fallback for every question and save raw reply
             if verifications is None:
                 st.warning("⚠️ LLM returned a non-JSON or unparsable response. Saving raw reply and marking answers as NOT_FOUND.")
@@ -1078,7 +1122,7 @@ if run_btn:
                 # save failure payload with raw reply for debugging
                 result_payload = {
                     "company": company_name,
-                    "source_file": selected_file.name,
+                    "source_file": source_file_label,
                     "timestamp": datetime.utcnow().isoformat() + "Z",
                     "model": st.session_state.model_id,
                     "status": "parse_error",
@@ -1122,7 +1166,8 @@ if run_btn:
                 st.session_state.raw_llm_reply = raw_reply or ""
 
                 result_payload = {
-                    "company": company_name, "source_file": selected_file.name,
+                    "company": company_name,
+                    "source_file": source_file_label,
                     "timestamp": datetime.utcnow().isoformat() + "Z",
                     "model": st.session_state.model_id,
                     "status": "ok",
