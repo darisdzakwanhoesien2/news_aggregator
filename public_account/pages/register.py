@@ -12,7 +12,12 @@ def load_users():
         return []
     try:
         raw = json.loads(DATA_FILE.read_text(encoding="utf-8") or "{}")
-        return raw.get("users", [])
+        users = raw.get("users", [])
+        # ensure legacy users have a role
+        for u in users:
+            if "role" not in u:
+                u["role"] = "UKM"
+        return users
     except Exception:
         return []
 
@@ -48,6 +53,7 @@ st.markdown(
 with st.container():
     st.markdown('<div class="card">', unsafe_allow_html=True)
     username = st.text_input("Choose a username")
+    role = st.selectbox("Role", options=["UKM", "Supplier", "Bank"], index=0, help="UKM can fill forms; Supplier/Bank can view multiple UKM profiles/scores")
     password = st.text_input("Choose a password", type="password")
     password2 = st.text_input("Repeat password", type="password")
     submitted = st.button("Create account")
@@ -66,6 +72,7 @@ if submitted:
             salt_hex, hash_hex = hash_password(password)
             user = {
                 "username": username,
+                "role": role,
                 "salt": salt_hex,
                 "password_hash": hash_hex,
                 "created_at": datetime.utcnow().isoformat() + "Z"

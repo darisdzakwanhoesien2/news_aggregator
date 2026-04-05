@@ -12,7 +12,14 @@ def load_users():
         return {}
     try:
         raw = json.loads(DATA_FILE.read_text(encoding="utf-8") or "{}")
-        return {u["username"]: u for u in raw.get("users", [])}
+        users = raw.get("users", [])
+        # map and ensure role exists
+        out = {}
+        for u in users:
+            if "role" not in u:
+                u["role"] = "UKM"
+            out[u["username"]] = u
+        return out
     except Exception:
         return {}
 
@@ -26,12 +33,16 @@ st.title("🔐 Login")
 
 # already logged in view
 current_user = st.session_state.get("user")
+current_role = st.session_state.get("role")
 if current_user:
-    st.success(f"Already logged in as {current_user}")
-    st.markdown("- [Go to your personal page / dashboard](/dashboard)")
+    role_label = f" ({current_role})" if current_role else ""
+    st.success(f"Already logged in as {current_user}{role_label}")
+    st.markdown(f"- [Go to your personal page / dashboard](/dashboard?user={current_user})")
     if st.button("Logout"):
         if "user" in st.session_state:
             del st.session_state["user"]
+        if "role" in st.session_state:
+            del st.session_state["role"]
         st.experimental_set_query_params()  # clear url param
         st.experimental_rerun()
     st.stop()
@@ -67,6 +78,7 @@ if submitted:
         if ok:
             # persist login and set URL param so dashboard can rehydrate
             st.session_state["user"] = username
+            st.session_state["role"] = user.get("role", "UKM")
             st.experimental_set_query_params(user=username)
             # navigate to the dashboard immediately
             components.html(f"<script>window.location.href='/dashboard?user={username}';</script>", height=0)
