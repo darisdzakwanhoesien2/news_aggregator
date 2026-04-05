@@ -1,0 +1,218 @@
+{
+  "company": "users",
+  "timestamp": "2026-04-05T11:23:37.256959Z",
+  "mode": "esg_mcq_interactive",
+  "source_file": "interactive_esg",
+  "answers": [
+    {
+      "id": "E01",
+      "pillar": "Environmental",
+      "question": "Does the company track and report its greenhouse gas (GHG) emissions?",
+      "selected": "A",
+      "selected_text": "Yes, Scope 1 and 2"
+    },
+    {
+      "id": "E02",
+      "pillar": "Environmental",
+      "question": "Has the company set carbon-reduction or net-zero targets?",
+      "selected": "A",
+      "selected_text": "Yes, with a specific year and measurable target"
+    },
+    {
+      "id": "E03",
+      "pillar": "Environmental",
+      "question": "Does the company monitor its energy consumption?",
+      "selected": "A",
+      "selected_text": "Yes, with regular reporting"
+    },
+    {
+      "id": "E04",
+      "pillar": "Environmental",
+      "question": "What share of the company's energy comes from renewable sources?",
+      "selected": "A",
+      "selected_text": ">50 %"
+    },
+    {
+      "id": "E05",
+      "pillar": "Environmental",
+      "question": "Does the company have a water-management or water-reduction programme?",
+      "selected": "A",
+      "selected_text": "Yes, with targets"
+    },
+    {
+      "id": "E06",
+      "pillar": "Environmental",
+      "question": "Does the company measure and manage its waste generation?",
+      "selected": "A",
+      "selected_text": "Yes, with diversion targets (landfill avoidance)"
+    },
+    {
+      "id": "E07",
+      "pillar": "Environmental",
+      "question": "Does the company assess its climate-related physical and transition risks?",
+      "selected": "A",
+      "selected_text": "Yes, aligned with TCFD or similar framework"
+    },
+    {
+      "id": "E08",
+      "pillar": "Environmental",
+      "question": "Does the company have an environmental policy or management system (e.g. ISO 14001)?",
+      "selected": "A",
+      "selected_text": "Yes, certified"
+    },
+    {
+      "id": "E09",
+      "pillar": "Environmental",
+      "question": "Does the company consider environmental factors when selecting suppliers?",
+      "selected": "A",
+      "selected_text": "Yes, formal supplier ESG criteria"
+    },
+    {
+      "id": "E10",
+      "pillar": "Environmental",
+      "question": "Does the company disclose environmental data in an annual report or sustainability report?",
+      "selected": "A",
+      "selected_text": "Yes, publicly available"
+    },
+    {
+      "id": "S01",
+      "pillar": "Social",
+      "question": "Does the company have a formal health & safety (H&S) policy?",
+      "selected": "A",
+      "selected_text": "Yes, with regular audits and KPIs"
+    },
+    {
+      "id": "S02",
+      "pillar": "Social",
+      "question": "Does the company track employee injury or accident rates?",
+      "selected": "A",
+      "selected_text": "Yes, reported publicly"
+    },
+    {
+      "id": "S03",
+      "pillar": "Social",
+      "question": "Does the company offer employee training and professional-development programmes?",
+      "selected": "A",
+      "selected_text": "Yes, structured and funded"
+    },
+    {
+      "id": "S04",
+      "pillar": "Social",
+      "question": "Does the company have a diversity, equity & inclusion (DEI) policy?",
+      "selected": "A",
+      "selected_text": "Yes, with targets and reporting"
+    },
+    {
+      "id": "S05",
+      "pillar": "Social",
+      "question": "Does the company measure employee satisfaction or engagement?",
+      "selected": "A",
+      "selected_text": "Yes, regular surveys with action plans"
+    },
+    {
+      "id": "S06",
+      "pillar": "Social",
+      "question": "Does the company pay at least the local living wage to all employees?",
+      "selected": "A",
+      "selected_text": "Yes, above living wage"
+    },
+    {
+      "id": "S07",
+      "pillar": "Social",
+      "question": "Does the company engage with and support local communities?",
+      "selected": "A",
+      "selected_text": "Yes, with dedicated programmes and budget"
+    },
+    {
+      "id": "S08",
+      "pillar": "Social",
+      "question": "Does the company have a human-rights or fair-labour policy that covers its supply chain?",
+      "selected": "A",
+      "selected_text": "Yes, with audits"
+    },
+    {
+      "id": "S09",
+      "pillar": "Social",
+      "question": "Does the company collect and analyse customer satisfaction data?",
+      "selected": "A",
+      "selected_text": "Yes, with structured feedback loops"
+    },
+    {
+      "id": "S10",
+      "pillar": "Social",
+      "question": "Does the company provide parental leave or flexible working arrangements?",
+      "selected": "A",
+      "selected_text": "Yes, above statutory minimum"
+    },
+    {
+      "id": "G01",
+      "pillar": "Governance",
+      "question": "Does the company have a board or governance body that oversees ESG issues?",
+      "selected": "A",
+      "selected_text": "Yes, dedicated ESG committee"
+    },
+    {
+      "id": "G02",
+      "pillar": "Governance",
+      "question": "Does the company have a formal code of conduct or ethics policy?",
+      "selected": "A",
+      "selected_text": "Yes, published and enforced"
+    },
+    {
+      "id": "G03",
+      "pillar": "Governance",
+      "question": "Does the company have an anti-corruption or anti-bribery policy?",
+      "selected": "A",
+      "selected_text": "Yes, with training and controls"
+    },
+    {
+      "id": "G04",
+      "pillar": "Governance",
+      "question": "Does the company have a whistleblower / speak-up mechanism?",
+      "selected": "A",
+      "selected_text": "Yes, anonymous and independently managed"
+    },
+    {
+      "id": "G05",
+      "pillar": "Governance",
+      "question": "Does the company have a data-privacy and cybersecurity policy (e.g. GDPR-aligned)?",
+      "selected": "A",
+      "selected_text": "Yes, certified / audited"
+    },
+    {
+      "id": "G06",
+      "pillar": "Governance",
+      "question": "Does the company conduct regular financial audits by an independent auditor?",
+      "selected": "A",
+      "selected_text": "Yes, statutory external audit"
+    },
+    {
+      "id": "G07",
+      "pillar": "Governance",
+      "question": "Does the company publicly disclose its ownership structure and key management?",
+      "selected": "A",
+      "selected_text": "Yes, fully transparent"
+    },
+    {
+      "id": "G08",
+      "pillar": "Governance",
+      "question": "Does the company align its ESG reporting with a recognised standard (GRI, SASB, UN SDGs)?",
+      "selected": "A",
+      "selected_text": "Yes, fully aligned"
+    },
+    {
+      "id": "G09",
+      "pillar": "Governance",
+      "question": "Does the company have a formal risk-management framework that covers ESG risks?",
+      "selected": "A",
+      "selected_text": "Yes, integrated into enterprise risk management"
+    },
+    {
+      "id": "G10",
+      "pillar": "Governance",
+      "question": "Does the company set measurable ESG targets and report on progress annually?",
+      "selected": "A",
+      "selected_text": "Yes, all three pillars (E, S, G)"
+    }
+  ]
+}
