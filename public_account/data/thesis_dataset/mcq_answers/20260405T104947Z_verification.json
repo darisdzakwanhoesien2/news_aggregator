@@ -1,0 +1,281 @@
+{
+  "company": "thesis_dataset",
+  "source_file": "interactive_esg",
+  "timestamp": "2026-04-05T10:49:48.963633Z",
+  "model": "qwen/qwen3-next-80b-a3b-instruct:free",
+  "status": "parse_error",
+  "error": "LLM response could not be parsed as JSON",
+  "raw_llm_reply": "[LLM Error: 429 Client Error: Too Many Requests for url: https://openrouter.ai/api/v1/chat/completions]",
+  "verifications": [
+    {
+      "id": "E01",
+      "verification_status": "NOT_FOUND",
+      "confidence": 0,
+      "evidence_quote": "",
+      "evidence_page": "",
+      "reasoning": "LLM response unparsable; raw reply saved.",
+      "suggested_answer": null
+    },
+    {
+      "id": "E02",
+      "verification_status": "NOT_FOUND",
+      "confidence": 0,
+      "evidence_quote": "",
+      "evidence_page": "",
+      "reasoning": "LLM response unparsable; raw reply saved.",
+      "suggested_answer": null
+    },
+    {
+      "id": "E03",
+      "verification_status": "NOT_FOUND",
+      "confidence": 0,
+      "evidence_quote": "",
+      "evidence_page": "",
+      "reasoning": "LLM response unparsable; raw reply saved.",
+      "suggested_answer": null
+    },
+    {
+      "id": "E04",
+      "verification_status": "NOT_FOUND",
+      "confidence": 0,
+      "evidence_quote": "",
+      "evidence_page": "",
+      "reasoning": "LLM response unparsable; raw reply saved.",
+      "suggested_answer": null
+    },
+    {
+      "id": "E05",
+      "verification_status": "NOT_FOUND",
+      "confidence": 0,
+      "evidence_quote": "",
+      "evidence_page": "",
+      "reasoning": "LLM response unparsable; raw reply saved.",
+      "suggested_answer": null
+    },
+    {
+      "id": "E06",
+      "verification_status": "NOT_FOUND",
+      "confidence": 0,
+      "evidence_quote": "",
+      "evidence_page": "",
+      "reasoning": "LLM response unparsable; raw reply saved.",
+      "suggested_answer": null
+    },
+    {
+      "id": "E07",
+      "verification_status": "NOT_FOUND",
+      "confidence": 0,
+      "evidence_quote": "",
+      "evidence_page": "",
+      "reasoning": "LLM response unparsable; raw reply saved.",
+      "suggested_answer": null
+    },
+    {
+      "id": "E08",
+      "verification_status": "NOT_FOUND",
+      "confidence": 0,
+      "evidence_quote": "",
+      "evidence_page": "",
+      "reasoning": "LLM response unparsable; raw reply saved.",
+      "suggested_answer": null
+    },
+    {
+      "id": "E09",
+      "verification_status": "NOT_FOUND",
+      "confidence": 0,
+      "evidence_quote": "",
+      "evidence_page": "",
+      "reasoning": "LLM response unparsable; raw reply saved.",
+      "suggested_answer": null
+    },
+    {
+      "id": "E10",
+      "verification_status": "NOT_FOUND",
+      "confidence": 0,
+      "evidence_quote": "",
+      "evidence_page": "",
+      "reasoning": "LLM response unparsable; raw reply saved.",
+      "suggested_answer": null
+    },
+    {
+      "id": "S01",
+      "verification_status": "NOT_FOUND",
+      "confidence": 0,
+      "evidence_quote": "",
+      "evidence_page": "",
+      "reasoning": "LLM response unparsable; raw reply saved.",
+      "suggested_answer": null
+    },
+    {
+      "id": "S02",
+      "verification_status": "NOT_FOUND",
+      "confidence": 0,
+      "evidence_quote": "",
+      "evidence_page": "",
+      "reasoning": "LLM response unparsable; raw reply saved.",
+      "suggested_answer": null
+    },
+    {
+      "id": "S03",
+      "verification_status": "NOT_FOUND",
+      "confidence": 0,
+      "evidence_quote": "",
+      "evidence_page": "",
+      "reasoning": "LLM response unparsable; raw reply saved.",
+      "suggested_answer": null
+    },
+    {
+      "id": "S04",
+      "verification_status": "NOT_FOUND",
+      "confidence": 0,
+      "evidence_quote": "",
+      "evidence_page": "",
+      "reasoning": "LLM response unparsable; raw reply saved.",
+      "suggested_answer": null
+    },
+    {
+      "id": "S05",
+      "verification_status": "NOT_FOUND",
+      "confidence": 0,
+      "evidence_quote": "",
+      "evidence_page": "",
+      "reasoning": "LLM response unparsable; raw reply saved.",
+      "suggested_answer": null
+    },
+    {
+      "id": "S06",
+      "verification_status": "NOT_FOUND",
+      "confidence": 0,
+      "evidence_quote": "",
+      "evidence_page": "",
+      "reasoning": "LLM response unparsable; raw reply saved.",
+      "suggested_answer": null
+    },
+    {
+      "id": "S07",
+      "verification_status": "NOT_FOUND",
+      "confidence": 0,
+      "evidence_quote": "",
+      "evidence_page": "",
+      "reasoning": "LLM response unparsable; raw reply saved.",
+      "suggested_answer": null
+    },
+    {
+      "id": "S08",
+      "verification_status": "NOT_FOUND",
+      "confidence": 0,
+      "evidence_quote": "",
+      "evidence_page": "",
+      "reasoning": "LLM response unparsable; raw reply saved.",
+      "suggested_answer": null
+    },
+    {
+      "id": "S09",
+      "verification_status": "NOT_FOUND",
+      "confidence": 0,
+      "evidence_quote": "",
+      "evidence_page": "",
+      "reasoning": "LLM response unparsable; raw reply saved.",
+      "suggested_answer": null
+    },
+    {
+      "id": "S10",
+      "verification_status": "NOT_FOUND",
+      "confidence": 0,
+      "evidence_quote": "",
+      "evidence_page": "",
+      "reasoning": "LLM response unparsable; raw reply saved.",
+      "suggested_answer": null
+    },
+    {
+      "id": "G01",
+      "verification_status": "NOT_FOUND",
+      "confidence": 0,
+      "evidence_quote": "",
+      "evidence_page": "",
+      "reasoning": "LLM response unparsable; raw reply saved.",
+      "suggested_answer": null
+    },
+    {
+      "id": "G02",
+      "verification_status": "NOT_FOUND",
+      "confidence": 0,
+      "evidence_quote": "",
+      "evidence_page": "",
+      "reasoning": "LLM response unparsable; raw reply saved.",
+      "suggested_answer": null
+    },
+    {
+      "id": "G03",
+      "verification_status": "NOT_FOUND",
+      "confidence": 0,
+      "evidence_quote": "",
+      "evidence_page": "",
+      "reasoning": "LLM response unparsable; raw reply saved.",
+      "suggested_answer": null
+    },
+    {
+      "id": "G04",
+      "verification_status": "NOT_FOUND",
+      "confidence": 0,
+      "evidence_quote": "",
+      "evidence_page": "",
+      "reasoning": "LLM response unparsable; raw reply saved.",
+      "suggested_answer": null
+    },
+    {
+      "id": "G05",
+      "verification_status": "NOT_FOUND",
+      "confidence": 0,
+      "evidence_quote": "",
+      "evidence_page": "",
+      "reasoning": "LLM response unparsable; raw reply saved.",
+      "suggested_answer": null
+    },
+    {
+      "id": "G06",
+      "verification_status": "NOT_FOUND",
+      "confidence": 0,
+      "evidence_quote": "",
+      "evidence_page": "",
+      "reasoning": "LLM response unparsable; raw reply saved.",
+      "suggested_answer": null
+    },
+    {
+      "id": "G07",
+      "verification_status": "NOT_FOUND",
+      "confidence": 0,
+      "evidence_quote": "",
+      "evidence_page": "",
+      "reasoning": "LLM response unparsable; raw reply saved.",
+      "suggested_answer": null
+    },
+    {
+      "id": "G08",
+      "verification_status": "NOT_FOUND",
+      "confidence": 0,
+      "evidence_quote": "",
+      "evidence_page": "",
+      "reasoning": "LLM response unparsable; raw reply saved.",
+      "suggested_answer": null
+    },
+    {
+      "id": "G09",
+      "verification_status": "NOT_FOUND",
+      "confidence": 0,
+      "evidence_quote": "",
+      "evidence_page": "",
+      "reasoning": "LLM response unparsable; raw reply saved.",
+      "suggested_answer": null
+    },
+    {
+      "id": "G10",
+      "verification_status": "NOT_FOUND",
+      "confidence": 0,
+      "evidence_quote": "",
+      "evidence_page": "",
+      "reasoning": "LLM response unparsable; raw reply saved.",
+      "suggested_answer": null
+    }
+  ]
+}

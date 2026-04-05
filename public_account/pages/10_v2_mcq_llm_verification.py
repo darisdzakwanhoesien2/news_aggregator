@@ -14,6 +14,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import List
 
+import base64
 import pandas as pd
 import requests
 import streamlit as st
@@ -40,6 +41,11 @@ load_dotenv(BASE_DIR / ".env")
 OPENROUTER_API_URL    = os.getenv("OPENROUTER_API_URL", "https://openrouter.ai/api/v1/chat/completions")
 OPENROUTER_MODELS_URL = os.getenv("OPENROUTER_MODELS_URL", "https://openrouter.ai/api/v1/models")
 DEFAULT_MODEL         = "meta-llama/llama-3.1-8b-instruct:free"
+
+# Mistral OCR config (used by the inline Bulk OCR runner)
+MISTRAL_API_KEY = os.getenv("MISTRAL_API_KEY", "")
+MISTRAL_BASE    = "https://api.mistral.ai/v1"
+MISTRAL_HEADERS = {"Authorization": f"Bearer {MISTRAL_API_KEY}"} if MISTRAL_API_KEY else {}
 
 CHOICE_SCORE = {"A": 3, "B": 2, "C": 1, "D": 0, "": 0}
 MAX_SCORE_PER_QUESTION = 3
@@ -233,33 +239,196 @@ def clean_markdown(md: str) -> str:
     joined = re.sub(r"\n{3,}", "\n\n", joined)
     return joined.strip() + "\n"
 
-
-def write_pages_from_ocr_json(doc_dir: Path, ocr_json_path: Path):
-    data = load_json(ocr_json_path)
-    pages = data.get("pages", [])
-    pages_dir = doc_dir / "pages"
-    pages_dir.mkdir(parents=True, exist_ok=True)
-    for p in pages:
-        idx = p.get("index", 0)
-        md = p.get("markdown", "")
-        cleaned = clean_markdown(md)
-        out = pages_dir / f"page_{idx:04d}.md"
-        out.write_text(cleaned, encoding="utf-8")
-    for p in pages:
-        p["markdown"] = clean_markdown(p.get("markdown", ""))
-    save_json(ocr_json_path, data)
+# Add safe_name util
+def safe_name(name: str) -> str:
+    """Sanitize a filename to be safe for all OS."""
+    if not name:
+        return "file"
+    return re.sub(r'[\\/*?:"<>|]', "_", name).strip()
 
 
-def clean_pages_folder(doc_dir: Path):
-    pages_dir = doc_dir / "pages"
-    if not pages_dir.exists():
-        return
-    for md in sorted(pages_dir.glob("*.md")):
-        txt = md.read_text(encoding="utf-8")
-        md.write_text(clean_markdown(txt), encoding="utf-8")
+# ── ADD THESE TWO FUNCTIONS (ported from 0_0_0_2_Bulk_OCR.py) ─────────────────
+
+def safe_image_name(raw_id: str, fallback: str) -> str:
+    """
+    Sanitize an image ID from Mistral into a valid filename.
+    Keeps the extension if present, strips all path components.
+    """
+    base = re.split(r"[/\\]", raw_id)[-1]
+    base = re.sub(r'[\\/*?:"<>|]', "_", base).strip()
+    if not base:
+        base = fallback
+    if not re.search(r"\.(jpg|jpeg|png|gif|webp|bmp)$", base, re.IGNORECASE):
+        base += ".jpg"
+    return base
+
+
+def run_mistral_ocr(
+    files: list,
+    out_dir: Path,
+    tmp_dir: Path,
+    headers: dict,
+    status_widget=None,
+    progress_widget=None,
+) -> list:
+    """
+    Run Mistral OCR on a list of file paths.
+    Mirrors the working pipeline in 0_0_0_2_Bulk_OCR.py exactly.
+    Returns a list of created bundle directories (Path objects).
+    """
+    log_file = LOG_DIR / "bulk_ocr_log.json"
+
+    def _load_log():
+        if log_file.exists():
+            try:
+                return json.loads(log_file.read_text(encoding="utf-8"))
+            except Exception:
+                return {}
+        return {}
+
+    def _save_log(log):
+        try:
+            log_file.write_text(json.dumps(log, indent=2), encoding="utf-8")
+        except Exception:
+            pass
+
+    out_dir.mkdir(parents=True, exist_ok=True)
+    tmp_dir.mkdir(parents=True, exist_ok=True)
+
+    log = _load_log()
+    created_bundles: list = []
+    total = len(files)
+
+    for i, file_path in enumerate(files, start=1):
+        file_path = Path(file_path)
+        doc_key = safe_name(file_path.name)
+
+        if status_widget:
+            status_widget.info(f"Processing {i}/{total}: {file_path.name}")
+
+        # ── Resume-safe: skip already processed ───────────────────────────
+        if log.get(doc_key, {}).get("status") == "done":
+            bundle = out_dir / safe_name(file_path.name.replace(".", "_"))
+            if bundle.exists():
+                created_bundles.append(bundle)
+            if progress_widget:
+                progress_widget.progress(i / total)
+            continue
+
+        doc_name   = safe_name(file_path.name.replace(".", "_"))
+        out_root   = out_dir / doc_name
+        pages_dir  = out_root / "pages"
+        images_dir = out_root / "images"
+        pages_dir.mkdir(parents=True, exist_ok=True)
+        images_dir.mkdir(parents=True, exist_ok=True)
+
+        try:
+            # ── 1. Upload file to Mistral ──────────────────────────────────
+            with open(file_path, "rb") as f:
+                r = requests.post(
+                    f"{MISTRAL_BASE}/files",
+                    headers=headers,
+                    files={"file": (file_path.name, f)},
+                    data={"purpose": "ocr"},
+                    timeout=120,
+                )
+            if r.status_code != 200:
+                raise RuntimeError(f"Upload failed ({r.status_code}): {r.text}")
+            file_id = r.json()["id"]
+
+            # ── 2. Get signed URL ──────────────────────────────────────────
+            r = requests.get(
+                f"{MISTRAL_BASE}/files/{file_id}/url",
+                headers=headers,
+                timeout=60,
+            )
+            if r.status_code != 200:
+                raise RuntimeError(f"Signed URL failed ({r.status_code}): {r.text}")
+            signed_url = r.json()["url"]
+
+            # ── 3. Run OCR ─────────────────────────────────────────────────
+            payload = {
+                "model": "mistral-ocr-latest",
+                "document": {
+                    "type": "document_url",
+                    "document_url": signed_url,
+                },
+                "include_image_base64": True,
+            }
+            r = requests.post(
+                f"{MISTRAL_BASE}/ocr",
+                headers={**headers, "Content-Type": "application/json"},
+                json=payload,
+                timeout=300,
+            )
+            if r.status_code != 200:
+                raise RuntimeError(f"OCR failed ({r.status_code}): {r.text}")
+
+            result = r.json()
+
+            # ── 4. Save full JSON ──────────────────────────────────────────
+            json_path = out_root / "ocr_result.json"
+            json_path.write_text(
+                json.dumps(result, indent=2, ensure_ascii=False),
+                encoding="utf-8",
+            )
+
+            # ── 5. Save pages & images ─────────────────────────────────────
+            pages = result.get("pages", [])
+            img_counter = 0
+
+            for p in pages:
+                idx = p.get("index", 0)
+                md  = p.get("markdown", "")
+                cleaned = clean_markdown(md)
+                (pages_dir / f"page_{idx:04d}.md").write_text(cleaned, encoding="utf-8")
+
+                for img in p.get("images", []):
+                    b64_data = img.get("image_base64")
+                    if not b64_data:
+                        continue
+                    # Strip data URI prefix if present (e.g. "data:image/png;base64,...")
+                    if "," in b64_data:
+                        b64_data = b64_data.split(",", 1)[1]
+                    try:
+                        img_bytes = base64.b64decode(b64_data)
+                    except Exception:
+                        if status_widget:
+                            status_widget.warning(f"⚠ Could not decode image on page {idx}, skipping.")
+                        continue
+
+                    raw_id   = img.get("id", "")
+                    fallback = f"page{idx:04d}_img{img_counter:04d}.jpg"
+                    img_name = safe_image_name(raw_id, fallback) if raw_id else fallback
+                    img_counter += 1
+                    (images_dir / img_name).write_bytes(img_bytes)
+
+            log[doc_key] = {
+                "status":      "done",
+                "pages":       len(pages),
+                "json_output": str(json_path),
+                "time":        time.strftime("%Y-%m-%d %H:%M:%S"),
+            }
+            _save_log(log)
+            created_bundles.append(out_root)
+
+        except Exception as e:
+            log[doc_key] = {"status": "failed", "error": str(e)}
+            _save_log(log)
+            if status_widget:
+                status_widget.error(f"❌ Failed: {file_path.name} — {e}")
+
+        if progress_widget:
+            progress_widget.progress(i / total)
+        time.sleep(0.2)
+
+    if status_widget and created_bundles:
+        status_widget.success(f"✅ OCR complete — {len(created_bundles)} bundle(s) ready.")
+
+    return created_bundles
 
 # ══════════════════════════════════════════════════════════════════════════════
-# OCR DISCOVERY HELPERS
+# DATA DISCOVERY HELPERS
 # ══════════════════════════════════════════════════════════════════════════════
 
 def list_ocr_candidates(company_dir: Path) -> dict:
@@ -519,18 +688,19 @@ def list_answer_files(company_dir: Path) -> list[Path]:
     return sorted(company_dir.glob("*.json"))
 
 # ══════════════════════════════════════════════════════════════════════════════
-# CHUNKING + RETRIEVAL
-# ══════════════════════════════════════════════════════════════════════════════
-
-def chunk_text(text: str, size: int = 1000, overlap: int = 200) -> list[str]:
+# CH
+def chunk_text(text: str, size: int = 1200, overlap: int = 250) -> list[str]:
+    """Split text into overlapping chunks (size chars, overlap chars)."""
     if not text:
         return []
-    chunks = []
+    chunks: list[str] = []
     i = 0
     L = len(text)
+    # Prevent infinite loop if overlap >= size
+    step = max(1, size - overlap)
     while i < L:
         chunks.append(text[i: min(i + size, L)])
-        i += size - overlap
+        i += step
     return chunks
 
 
@@ -964,16 +1134,26 @@ source_mode = st.radio(
 ocr_root = OUT_DIR
 ocr_docs = [d.name for d in sorted(ocr_root.iterdir()) if d.is_dir()] if ocr_root.exists() else []
 
+# restore any persisted selection/uploads
 selected_ocr_bundle = None
-uploaded_bundle_paths = []
+if st.session_state.get("selected_ocr_bundle"):
+    try:
+        cand = Path(st.session_state.selected_ocr_bundle)
+        if cand.exists():
+            selected_ocr_bundle = cand
+    except Exception:
+        selected_ocr_bundle = None
+
+uploaded_bundle_paths = list(st.session_state.get("uploaded_bundle_paths", []))
 
 if source_mode == "📂 Use existing company docs":
     if not ocr_docs:
         st.info("No Bulk OCR bundles found in data/thesis_dataset. Run the Bulk OCR page to create bundles.")
     else:
-        sel_name = st.selectbox("Choose an OCR bundle from Bulk OCR outputs", options=ocr_docs)
+        sel_name = st.selectbox("Choose an OCR bundle from Bulk OCR outputs", options=ocr_docs, index=0 if ocr_docs else 0)
         if sel_name:
             selected_ocr_bundle = ocr_root / sel_name
+            st.session_state.selected_ocr_bundle = str(selected_ocr_bundle)
             st.caption(f"Selected OCR bundle: {selected_ocr_bundle.name}")
 
 elif source_mode in ("📎 Upload per question", "📤 Upload at end (general)"):
@@ -986,24 +1166,55 @@ elif source_mode in ("📎 Upload per question", "📤 Upload at end (general)")
     )
     if uploads:
         saved = []
-        # Create a folder per run/company for clarity
+        # Create a folder per run/company for clarity (persist folder name to session)
         run_tag = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
         dest_dir = TMP_DIR / f"{company_name}_{run_tag}"
         dest_dir.mkdir(parents=True, exist_ok=True)
         for f in uploads:
-            out_path = dest_dir / safe_name(f.name)
-            out_path.write_bytes(f.getbuffer())
-            saved.append(out_path)
-            uploaded_bundle_paths.append(out_path)
+            try:
+                out_path = dest_dir / safe_name(f.name)
+                out_path.write_bytes(f.getbuffer())
+                saved.append(out_path)
+                uploaded_bundle_paths.append(str(out_path))
+            except Exception as e:
+                st.warning(f"Could not save {f.name}: {e}")
+        # persist uploaded paths and folder so reruns keep them
+        st.session_state.uploaded_bundle_dir = str(dest_dir)
+        st.session_state.uploaded_bundle_paths = uploaded_bundle_paths
         st.success(f"Saved {len(saved)} file(s) to {str(dest_dir.relative_to(BASE_DIR))}")
-        st.info("Run the Bulk OCR page to process these uploads (or trigger your OCR pipeline).")
 
+        # Offer to run OCR now (runs the same pipeline as Bulk OCR page)
+        if not MISTRAL_API_KEY:
+            st.warning("MISTRAL_API_KEY not found in .env — cannot run OCR here. Open the Bulk OCR page to process these files.")
+            st.markdown("Open the Bulk OCR page to process these files: [Bulk OCR](/pages/0_0_0_2_Bulk_OCR.py)")
+        else:
+            run_now = st.button("🚀 Run OCR now for uploaded files", key=f"run_ocr_{run_tag}")
+            if run_now:
+                status = st.empty()
+                progress = st.progress(0)
+                files_to_process = [Path(p) for p in uploaded_bundle_paths]
+                created_bundles = run_mistral_ocr(files_to_process, OUT_DIR, TMP_DIR, headers=MISTRAL_HEADERS, status_widget=status, progress_widget=progress)
+                if created_bundles:
+                    # select first created bundle by default
+                    st.session_state.selected_ocr_bundle = str(created_bundles[0])
+                    st.success(f"OCR finished — created {len(created_bundles)} bundle(s). Selected `{created_bundles[0].name}` for verification.")
+                else:
+                    st.error("OCR run completed but no bundles were created. Check logs.")
 # Now build OCR text: priority —
 # 1) If user selected an OCR bundle from OUT_DIR, use it
 # 2) Else use the app's auto-detect (existing behaviour)
 with st.spinner("Locating / loading OCR text…"):
     final_ocr_text = ""
     ocr_source = None
+    # coerce persisted selected bundle if not set above
+    if not selected_ocr_bundle and isinstance(st.session_state.get("selected_ocr_bundle"), str):
+        try:
+            cand = Path(st.session_state.selected_ocr_bundle)
+            if cand.exists():
+                selected_ocr_bundle = cand
+        except Exception:
+            selected_ocr_bundle = None
+
     if selected_ocr_bundle and selected_ocr_bundle.exists():
         final_ocr_text = collect_ocr_text(selected_ocr_bundle, company_base=company_dir)
         ocr_source = selected_ocr_bundle
@@ -1016,6 +1227,9 @@ with st.spinner("Locating / loading OCR text…"):
 st.session_state.ocr_text = final_ocr_text or ""
 # expose the chosen source for downstream UI
 auto_source = ocr_source
+
+# Compute safe source_file_label for downstream usage (avoids selected_file.name errors)
+source_file_label = (st.session_state.get("answer_data") or {}).get("source_file") or (getattr(selected_file, "name", None) if 'selected_file' in locals() else None) or "interactive_esg"
 
 if not st.session_state.ocr_text.strip():
     candidates = list_ocr_candidates(company_dir)
@@ -1198,7 +1412,8 @@ if run_btn:
             # Always save an error file with as much context as possible
             err_info = {
                 "company": company_name,
-                "source_file": selected_file.name,
+                # use safe source_file_label (may come from session)
+                "source_file": source_file_label,
                 "timestamp": datetime.utcnow().isoformat() + "Z",
                 "model": st.session_state.model_id,
                 "status": "error",
@@ -1264,7 +1479,7 @@ if st.session_state.score_df is not None:
             Max_Score=("Max Score", "sum"),
             Avg_Confidence=("Confidence", "mean"),
         ).reset_index()
-        pillar_summary["Score_%"] = (pillar_summary["Final_Score"] / pillar_summary["Max Score"] * 100).round(1)
+        pillar_summary["Score_%"] = (pillar_summary["Final_Score"] / pillar_summary["Max_Score"] * 100).round(1)
         st.dataframe(pillar_summary, use_container_width=True)
 
     with tab_raw:
@@ -1335,6 +1550,11 @@ if st.session_state.score_df is not None:
 - Clean markdown in all `pages/*.md` files: fix formatting, remove empty lines, etc.
 - This will restructure the OCR data. Ensure you have backups if needed.
 """)
+
+# Prevent the concatenated "My Files" / other page code below from running
+# when this file is served as the MCQ page. This avoids multiple calls to
+# st.set_page_config() and other duplicate Streamlit top-level calls.
+st.stop()
 
 """
 ────────────────────────────────────────────────────────────────────────────────
