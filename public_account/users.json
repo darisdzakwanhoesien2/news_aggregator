@@ -2,8 +2,8 @@
   "users": [
     {
       "username": "testing",
-      "salt": "1b25eba6c65241097a66283f2120ab79",
-      "password_hash": "de061f7501489134ab88844eed1e839ab35bcf4c3b1fc147876abc6c485fd21c",
+      "salt": "c4fd819b041d3c441d09a2bcf88bf0ef",
+      "password_hash": "a16d45f00d166036ec4967643369f223c836c2cd92e10f5104b770ff10e056f7",
       "created_at": "2026-04-04T08:16:31.738867Z",
       "role": "UKM"
     },

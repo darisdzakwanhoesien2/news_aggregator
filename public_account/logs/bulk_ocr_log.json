@@ -10,5 +10,17 @@
     "pages": 46,
     "json_output": "/Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T113542Z/documents/doc_002/ocr/ESG-Supporting-Document-2024_pdf/ocr_result.json",
     "time": "2026-04-05 18:43:27"
+  },
+  "esg.pdf": {
+    "status": "done",
+    "pages": 36,
+    "json_output": "/Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/ocr_result.json",
+    "time": "2026-04-05 19:12:02"
+  },
+  "ESG Supporting Document IFS 2024.pdf": {
+    "status": "done",
+    "pages": 18,
+    "json_output": "/Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121544Z/documents/doc_001/ocr/ESG Supporting Document IFS 2024_pdf/ocr_result.json",
+    "time": "2026-04-05 19:22:20"
   }
 }

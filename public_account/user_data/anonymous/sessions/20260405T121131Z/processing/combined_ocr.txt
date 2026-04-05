@@ -1,0 +1,910 @@
+=== Document: esg.pdf ===
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0000.md ---
+1
+# LATAM
+
+ESG SUPPORTING DOCUMENT 2025
+
+September 2025
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0001.md ---
+2
+
+# LATAM GROUP ESG SUPPORTING DOCUMENT 2025
+
+The information reported by the LATAM group in this ESG supporting document reflects 2024 results and complements the 2024 Annual Report, including all activities consolidated for financial reporting purposes. If there are any discrepancies in the coverage of information, we will provide an explicit explanatory note.
+
+## Conventions:
+
+Currency: The information in this document is presented in US dollars (USD), as most of LATAM affiliates financial statements.
+
+## Names:
+
+- LATAM Airlines Group: Except in cases where the context requires it, mentions of LATAM Airlines Group, "LATAM Airlines", "LATAM", the "Company" refers to LATAM Airlines Group S.A.
+- LATAM Group or the Group: References to LATAM Group, the Group, refer to LATAM Airlines Group S.A. and its affiliates, as defined below.
+- Affiliates: These are Transporte Aéreo S.A. (LATAM Airlines Chile); LATAM Airlines Perú S.A. (LATAM Airlines Peru), Aerolane, Líneas Aéreas Nacionales del Ecuador S.A. (LATAM Airlines Ecuador); LAN Argentina S.A. (LATAM Airlines Argentina, formerly Aero 2000 S.A.); Aerovías de Integración Regional, Aires S.A. (LATAM Airlines Colombia); TAM S.A. (TAM or LATAM Airlines Brazil); Transportes Aéreos del Mercosur S.A.(LATAM Paraguay); and the cargo subsidiaries, which are: LAN Cargo S.A. (LATAM Cargo Chile); Línea Aérea Carguera de Colombia S.A. (LANCO or LATAM Cargo Colombia); and Aerolinhas Brasileiras S.A. (ABSA or LATAM Cargo Brazil).
+
+Other references to LATAM, as the context may require, refer to the LATAM brand, launched in 2016, and comprises, under one internationally recognized name, all of the affiliate brands, such as LATAM Airlines Chile, LATAM Airlines Peru, LATAM Airlines Argentina, LATAM Airlines Colombia, LATAM Airlines Ecuador, and LATAM Airlines Brazil.
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0002.md ---
+3
+
+# INDEX
+
+## ECONOMIC DIMENSION
+3
+- 1.2 Corporate Governance 3
+- 1.3 Materiality 3
+- 1.4 Risk Management 8
+- 1.5 Business Ethics 10
+- 1.6 Policy Influence 11
+- 1.7 Supply Chain 11
+
+## ENVIRONMENTAL DIMENSION
+15
+- 2.1 Environmental Policy & Management 15
+- 2.3 Packaging 16
+- 2.4 Waste & Pollutants 17
+- 2.5 Water 21
+- 2.6 Climate Strategy 22
+- 2.8 Product Stewardship 26
+
+## SOCIAL DIMENSION
+28
+- 3.3 Human Capital Management 28
+- 3.5 Transportation Safety 35
+- 3.6 Customer Relations 36
+- 3.7 Privacy Protection 37
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0003.md ---
+GOVERNANCE & ECONOMIC DIMENSION
+
+## 1.2 Corporate Governance
+
+### 1.2.6 Board Accountability
+
+LATAM Airlines Group's board accountability framework is grounded in strict adherence to Chilean law and governance mechanisms aligned with international standards.
+
+In accordance with Chilean Law No. 18.046, any modification to the LATAM Group's bylaws must be approved by shareholders through an Extraordinary Shareholders' Meeting, ensuring their oversight on fundamental governance matters. Furthermore, directors are liable under Law 18.045 on Stock Market, Law 18.046 on Corporations and Law No. 21.595 on Economic Crimes.
+
+The LATAM Group's Board of Directors is elected every two years, as established in the LATAM Group's bylaws and informed in its Annual Report. Following the repeal of NCG No. 385, and the incorporation of some of its topics into the Annual Report, the Board has not implemented additional performance evaluations.
+
+In line with NYSE regulations applicable to LATAM, the LATAM Group maintains a clawback policy. This policy allows the recovery of incentive-based executive compensation in the event of significant financial restatements.
+
+### 1.2.16 ESG Governance Oversight
+
+LATAM Group has established a governance framework to oversee sustainability at both the Board and executive levels.
+
+At the Board level, the Strategy and Sustainability Committee, composed of five board members, acts as the authority responsible for monitoring progress, overseeing commitments, and making strategic decisions related to ESG matters. This Committee meets at least annually, and sustainability performance and the most relevant developments in the Group's strategy are formally reported at this level.
+
+At the executive level, the Executive Committee, chaired by the CEO and composed of all Vice Presidents, meets weekly to review strategic issues, including sustainability. Within this structure, the Corporate Affairs and Sustainability Directorate, led by Juan José Tohá, reports directly to the CEO and acts as the C-level executive accountable for the sustainability strategy.
+
+## Board of Directors
+
+- Strategy & Sustainability Committee
+
+## Executive Committee (CEO + Vice Presidents)
+
+- Corporate Affairs & Sustainability Directorate
+
+(Led by Juan José Tohá, reporting directly to the CEO)
+
+Source: LATAM Integrated Annual Report 2024, Governance & Sustainability sections, pp. 48 - 49.
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0004.md ---
+5
+
+# 1.3 Materiality
+
+## 1.3.3 Materiality Metrics for Enterprise Value Creation
+
+Material topics linked to Executive Compensation
+
+LATAM Group integrates its key sustainability and operational priorities into the performance evaluation and compensation structure of selected senior executives. Specifically, the compensation Director of Corporate Affairs and Sustainability and the CEO of LATAM Cargo includes variable components linked to the LATAM Group's material topics. For Sustainable Innovation, incentives are tied to the implementation of the waste management system. For Climate Change Strategy, targets include fuel efficiency, the rollout of climate initiatives, and conservation projects. Finally, regarding Fleet Efficiency, a portion of variable compensation for certain executives is directly linked to company-wide efficiency goals, particularly in fuel consumption, given its direct impact on cost reduction and alignment with the 'Fleet Efficiency' strategy. This material topic is especially relevant for operational areas, where it drives critical performance metrics.
+
+## 1.4 Risk Management
+
+### 1.4.2 Risk Management Processes
+
+The following table summarizes two of LATAM Group's most relevant risks within a broad range of risks included in the Group's risk matrix, outlining their description, likelihood and impact assessment, the LATAM Group's risk tolerance framework, and the mitigating actions implemented. The evaluation is based on LATAM's risk matrix, which applies a five-dimension scale for both probability and impact, ensuring a structured and consistent approach to risk assessment.
+
+| Risk | Description | Likelihood & Impact Assessment | Risk tolerance | Mitigating Actions |
+| --- | --- | --- | --- | --- |
+| Aircraft Accident | Critical operational risk of low probability with potentially catastrophic consequences. | Likelihood: (Very Low)
+Impact: (Very High) | Very Low: LATAM maintains minimal tolerance for safety-related risks, prioritizing investments and controls to keep exposure within acceptable limits. | • Comprehensive SMS aligned with ICAO standards. 
+• Safety Review Board & Action Groups. - Flight Data Monitoring (95%+ coverage). 
+• Predictive analytics (Safety II). - Civil aviation security protocols (SeMS). 
+• Emergency Response Plans in multiple geographies. 
+• Training and safety culture initiatives. 
+• External audits and certifications, including adoption of the Pre-IOSA Unified methodology aligned with IATA Risk-Based |
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0005.md ---
+6
+
+| | | | | IOSA.External audits and certifications, including adoption of the Pre-IOSA Unified methodology aligned with IATA Risk-Based IOSA. |
+| --- | --- | --- | --- | --- |
+| Foreign Currency Fluctuations | Exposure to revenue and cost mismatches between USD, local currencies, and the Brazilian real. | Likelihood: 3 (Moderate)
+Impact: 2 (Low-Moderate) | Low-Moderate: LATAM accepts controlled exposure consistent with its growth strategy, but deploys hedging to limit volatility in cash flows. | • Revenue diversification in USD, EUR, and local currencies. 
+• USD-denominated expense management (fuel, leases). 
+• Active hedging strategy for Brazilian Real (USD 180 million in BRL hedges). 
+• Continuous monitoring of exposures through treasury and risk teams. |
+
+## Internal and External Audits
+
+As part of its governance framework, LATAM Group ensures that its risk management model is regularly reviewed through both internal and external audits. These processes provide independent assurance to the Board and stakeholders, reinforcing transparency, compliance with international standards, and the continuous improvement of the LATAM Group's risk governance practices.
+
+LATAM Group's risk management framework is subject to continuous oversight by the Internal Audit function. In 2024, the Internal Audit Plan was approved in January, with progress and updates reviewed regularly throughout the year by the Directors' Committee. These sessions examined key projects, the execution of audits, and the status of internal controls. The Internal Audit team not only reviews compliance with procedures but also audits the LATAM Group's risk model itself, reinforcing transparency and alignment with international governance standards.
+
+In parallel, LATAM's processes undergo rigorous external audits. PwC, as the independent external auditor, reviewed compliance with Sarbanes-Oxley (SOX) regulations in 2023 and reported the results in 2024 sessions of the Directors' Committee. PwC also presented the integrated external audit plan for 2024, covering internal control reviews, progress monitoring, and the evaluation of auditor performance. These audits ensure adherence to international standards and provide assurance to shareholders and regulators. Additionally, LATAM commissioned Deloitte to conduct a maturity evaluation of the risk management framework, which included diagnostics, prioritized recommendations, and a roadmap for strengthening governance and control.
+
+## Presentation and Risk Culture
+
+Together, these internal and external audits create a robust assurance ecosystem, validating LATAM's commitment to strong risk governance and continuous improvement. This framework is complemented by a strong emphasis on fostering a risk-aware culture throughout the organization, beginning with the Board of Directors.
+
+The Directors' Committee and the Audit Committee play a central role in overseeing the effectiveness of risk management and ensuring that directors remain informed and engaged with the
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0006.md ---
+LATAM Group's evolving risk profile. At least once a year, the Risk Management team provides the Board of Directors with an update on the LATAM Group main risks, their context, and methodology. In 2024, directors also participated in a specific session on Artificial Intelligence, addressing opportunities and potential risks for the Group.
+
+Beyond the Board of Directors, risk culture is embedded across the organization. Risk-related behaviors are assessed in employee performance evaluations through the "Safe Behavior" competency, and awareness initiatives reinforce accountability at all levels.
+
+## Board Report and Engagement on Risk Oversight
+
+As part of this process, the Risk Management team provides the Board with at least one annual update on the LATAM Group's principal risks, the context in which they develop, and the methodology used for calculating residual risk. These sessions allow directors to ask targeted questions and deepen their understanding of LATAM's risk exposure and management practices.
+
+In addition, specific sessions were organized on Artificial Intelligence, focusing on both the opportunities of its implementation and the potential risks for the Group. Through these initiatives, the LATAM Group reinforces the Board's ability to exercise effective oversight and to ensure that risk culture is embedded as a core element of its governance model.
+
+## Risk-Linked Financial Initiatives
+
+LATAM Group explicitly incorporates risk management into its financial incentive structures for key executives and embeds it across the organization through the performance evaluation system, which integrates the 'Safe Behavior' competency. This integration reinforces the alignment between the LATAM Group's risk culture and compensation practices
+
+### 1. Executive Accountability for Material Risks
+
+LATAM is progressively incorporating incentives linked to these matters and, for those directly related to sustainability topics, including the Corporate Affairs and Sustainability Director and the CEO of LATAM Cargo, a portion of their compensation is tied to climate risk metrics, fuel efficiency, and environmental initiatives. Risk-related financial incentives are embedded at multiple organizational levels. For instance, LATAM's variable compensation framework includes a specific component tied to its strict zero-tolerance policy for flight safety incidents, which, where applicable, also extends to occupational safety. This approach seeks to reinforce individual and collective accountability while aligning variable pay with compliance to legal, regulatory, and governance standards.
+
+### 2. Department-Specific Incentives
+
+To strengthen key control functions, in the areas of Internal Audit, Legal Affairs, and Compliance, a portion of annual bonuses for key positions is directly linked to performance against defined internal controls, adherence to the Code of Conduct, and management of the Ethics and Whistleblower Channel.
+
+### 3. Embedding Risk Culture Across the Organization
+
+Additionally, LATAM's performance evaluation framework includes the competency "Safe Behavior," which covers not only physical safety but also compliance with internal policies and digital security
+
+7
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0007.md ---
+standards. Employees are expected to demonstrate behaviors aligned with LATAM's safety and risk policies, which directly influence performance ratings and bonus eligibility.
+
+## 1.4.3 Emerging Risks
+
+The following table summarizes two of LATAM Group's emerging risks, outlining their description, potential impacts and the mitigating actions.
+
+| Emerging Risk | Description | Potential Impact | Mitigating Actions |
+| --- | --- | --- | --- |
+| SAF Market Volatility and Competitive Regulatory Pressure | The global transition to a low-carbon economy creates physical and transitional risks. For LATAM, this translates into the challenge of adapting its business model to new regulations (such as SAF usage mandates), technological shifts, and changes in consumer preferences for more sustainable travel. This risk is expected to have significant implications over the next 3–5 years and beyond. | 1. Financial: Significant increase in operating costs driven by the high price and volatility of SAF, or the imposition of new regulatory mandates or carbon pricing instruments (e.g., carbon taxes or cap-and-trade schemes). Mandates for SAF use could increase costs and reduce demand
+2. Competitive: Airlines in other markets may gain competitive advantages through government incentives and established supply chains.
+3. Reputational:
+* Limited SAF availability or higher costs compared to competitors could constrain LATAM's ability to meet environmental targets and weaken its positioning in carbon-sensitive markets. This, in turn, may reduce LATAM's appeal to corporate customers with strong sustainability commitments and negatively impact its performance in sustainability rankings.
+* Furthermore, limited access to SAF under competitive conditions could create the perception that LATAM is not | 1. Industry Alliances: Active participation in regional and global initiatives to promote SAF development. This includes collaborating with world-class research centers such as the Massachusetts Institute of Technology (MIT), and participating in public-private roundtables such as the SAF Technical Roundtable in Colombia, the public-private roundtable on Sustainable Aviation Fuels in Chile (within the framework of the Vuelo Limpio program), and ProBioQAV in Brazil, among others
+2. Strategic Sourcing: Exploring long-term agreements and partnerships to secure a future supply of SAF, reducing exposure to price volatility.
+3. Operating Efficiency and New Technologies – Fleet Efficiency: Continuous renewal of the fleet with more fuel-efficient aircraft, along with the implementation of several initiatives to optimize fuel use and reduce consumption in operations, mitigating the financial impact of SAF costs.
+4. Regulatory Monitoring: Constant monitoring of global regulatory trends to anticipate changes and adapt the company's strategy, |
+
+8
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0008.md ---
+9
+
+| | | fully aligned with global decarbonization objectives, generating additional reputational risks despite the LATAM Group's commitments. | ensuring early alignment and compliance. |
+| --- | --- | --- | --- |
+| Generative AI and Cybersecurity Vulnerabilities | The growing use of digital platforms and the integration of advanced analytics and AI into key processes expose LATAM to new threats. Generative AI could be used for identity theft in payment platforms, fraud in mileage redemption, theft of LATAM Pass points, or manipulation of critical operating systems. The presence in multiple jurisdictions with differing data regulations further increases the complexity of protection. This risk is expected to have significant implications over the next 3–5 years and beyond. | * Generative AI could be used for identity theft in payment platforms, fraud in mileage redemption, theft of LATAM Pass points, or manipulation of critical operating systems. The presence in multiple jurisdictions with differing data regulations further increases the complexity of protection.
+* An AI-driven fraud incident could reduce revenues through payment disputes, mileage losses, and lawsuits, and lead to a loss of trust in LATAM Pass.
+* This would directly affect customer loyalty, reducing repeat sales and impacting high-yield routes. | * Comprehensive Cybersecurity Program: LATAM maintains a company-wide cybersecurity program focused on “protect, detect, and respond” to incidents, with regular reviews of systems and protocols to identify vulnerabilities before they materialize.
+* Information Security Policies: The LATAM Group has clear policies that assign responsibilities at different organizational levels and include employee training on data protection and incident prevention.
+* Strengthened Internal Controls and Continuous Monitoring: Reinforced internal controls and ongoing monitoring are applied to reduce exposure to cyber threats.
+* Incident Response and Continuity Plans: LATAM has incident response protocols to minimize exposure time to attacks, along with continuity and recovery plans for critical operational and customer service systems. |
+
+## 1.6 Policy Influence
+
+### 1.6.3 Lobbying and Trade Associations - Climate Alignment
+
+**Management System for Trade Association Memberships**
+
+Guided by our public ‘Commitment on Public Policy Engagement and Climate Alignment’, LATAM Group manages its memberships in trade associations through a centralized and strategic system. This framework, overseen by the Corporate Affairs and Sustainability Directorate and supervised by the Board's Strategy and Sustainability Committee, ensures that all affiliations are consistent with our business objectives and, critically, with our sustainability strategy and climate commitments.
+
+The process includes:
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0009.md ---
+1. Mapping and Justification: We maintain a record of all memberships at local, regional, and international levels. Each membership must have a clear strategic rationale, linked to priorities such as operational safety, market competitiveness, customer experience, or the promotion of public policies related to climate change management as outlined in our commitment.
+
+2. Annual Evaluation: Each membership undergoes an annual review to assess its alignment with our climate strategy, global commitments such as the Paris Agreement, and the pillars of our public commitment. Particular attention is given to policies supporting Sustainable Aviation Fuels (SAF), operational efficiency, and technological innovation.
+
+3. Designation of Responsible Officers: For each key association, a LATAM executive or representative participates actively in committees and working groups. This individual is responsible for defending the LATAM Group's positions, as defined in our public commitment, and reporting internally on the association's activities and stances.
+
+This system ensures that LATAM's involvement in the trade association ecosystem acts as a catalyst for achieving the LATAM Group's sustainability and climate objectives.
+
+## Governance Framework for Public Policy Engagement
+
+As established in our public 'Commitment on Public Policy Engagement and Climate Alignment', LATAM's governance framework for this matter is structured as follows:
+
+### 1. Board Oversight:
+
+Oversight of LATAM's climate-related public policy engagement resides with the Board of Directors, supported by the Board's Strategy and Sustainability Committee, which is responsible for actively monitoring strategic alignment.
+
+### 2. Executive Management:
+
+Execution is led by the Corporate Affairs and Sustainability Directorate, which defines LATAM's positions on regulatory issues and manages relationships with trade associations and governmental authorities, reporting directly to the CEO. Sustainability Management provides technical expertise and ensures that public positions are science-based and consistent with our Net Zero 2050 commitment.
+
+### 3. Ethical Framework:
+
+All lobbying and advocacy activities are conducted under LATAM's Code of Conduct, which establishes guidelines for ethics, transparency, and legality in all interactions with public officials.
+
+## Public Position on Climate Policies
+
+The public position, as formally stated in LATAM's published Commitment on Public Policy Engagement and Climate Alignment, underscores full alignment with the Paris Agreement and the company's Net Zero 2050 target. This position applies consistently across all jurisdictions where LATAM operates.
+
+In practice, our advocacy focuses on three key pillars to promote evidence-based policies for decarbonization:
+
+10
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0010.md ---
+11
+
+- Promoting Sustainable Aviation Fuels (SAF): Fostering policies that incentivize the production, technological development, and scaling of SAF in the region, with a focus on competitiveness, sustainability, and contributing to regional connectivity
+- Modernizing Infrastructure: Supporting the modernization of air traffic management and investment in technologies that enable more efficient and sustainable operations.
+- Advocating for Smart Regulatory Frameworks: Advocating for regulations that facilitate the transition to a more efficient aviation industry, encouraging innovation and public-private collaboration.
+- Recognizing the Role of Carbon Markets and Offsetting Mechanisms: Positioning them as complementary measures to advance global decarbonization goals.
+
+## Reviewing and Monitoring Process and Management of Misalignments
+
+LATAM follows a systematic process to ensure alignment between its climate commitments and association memberships:
+
+- Annual Alignment Review: Every year, the climate positions and activities of our main trade associations are formally evaluated against LATAM’s sustainability strategy and the Paris Agreement, using both public information and internal reports from our representatives.
+- Action Plan for Misalignment: When a significant misalignment is identified, LATAM follows a clear escalation protocol.
+- Dialogue and Influence: We engage in direct dialogue with the association to advocate for our position and seek to influence their stance from within.
+- Formal Escalation: If dialogue is not effective, LATAM formally communicates its concern to the leadership of the association, requesting a review of its position.
+- Public Divergence: In cases of significant and persistent misalignment on a strategic issue, we reserve the right to issue a public statement clarifying our specific position.
+- Membership Review: As a last resort, if an association consistently obstructs meaningful climate action, the Corporate Affairs and Sustainability Directorate will evaluate the appropriateness of continued membership.
+
+## Process for Managing Misalignments
+
+When discrepancies arise between LATAM’s climate position and that of a trade association, a predefined escalation protocol applies:
+
+1. Dialogue and Influence: LATAM’s representatives advocate within association forums, seeking to align positions with the Paris Agreement.
+2. Formal Escalation: If initial dialogue proves ineffective, concerns are formally raised with the association’s leadership, requesting a review of its position.
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0011.md ---
+3. Public Positioning: For significant misalignments on strategically relevant issues, LATAM reserves the right to issue a public statement clarifying its stance.
+
+4. Membership Review: As a last resort, persistent misalignment triggers a review by the Corporate Affairs and Sustainability Directorate and the Strategy Committee, with the Board making the final decision on continued membership.
+
+## 1.7 Supply Chain
+
+## 1.7.4 Supplier Assessment and Development
+
+### Supplier Assessment
+
+#### 1. Desk Assessments and Due Diligence
+
+New suppliers are generally subject to a due diligence process led by the Master Data team, which includes financial, legal, and compliance screening through an internal digital risk tool and supplier-submitted documentation. High-risk cases are escalated to the Compliance department, which may either authorize the relationship under conditions or reject it entirely. Continuous oversight is maintained through monthly Lexis Nexis reviews of suppliers with recent payments and no recent evaluations. (please see also LATAM's 2024 Integrated Annual Report p. 188 in the "Evaluation" section)
+
+Additionally, in 2024, LATAM's Procurement and Sustainability teams launched an ESG evaluation program targeting strategic, critical, and SME suppliers. The process involved surveys completed by 95 suppliers, covering approximately 40% of LATAM's total supplier spend.
+
+#### 2. On-Site Assessments (2nd Party)
+
+In 2024, LATAM continued to implement its Environmental Management System (EMS), which includes on-site assessments performed by internal teams. These evaluations focus on compliance with LATAM's environmental standards and legal obligations, including waste management practices.
+
+#### 3. Independent On-Site Audits (3rd Party)
+
+In addition to internal checks, LATAM engages accredited external bodies such as IATA, Bureau Veritas, ACS Global HQ (IATA-certified), and a Chilean Ministry of Energy-certified firm to conduct audits or inspections in specific cases, such as regulatory certification processes or high-risk suppliers verifying compliance with environmental and legal standards. Occupational safety inspections are also conducted by the Chilean Safety Association (ACHS), at airports in Chile, as required by local regulations.
+
+### Methodologies and Corrective Actions
+
+#### 1. Recognized Standards and Methodologies
+
+Environmental and labor evaluations are based on internationally recognized standards including ISO 14001, ISO 50001, and IEnvA (IATA Environmental Assessment), as well as key local regulations such as DS594 (Chile), NR regulations (Brazil), the General Occupational Health and Safety System (Colombia) and Chilean Energy Law 21.305 among others.
+
+12
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0012.md ---
+13
+
+2. Corrective Action and Improvement Plans
+
+Corrective actions are implemented in relation to findings from supplier evaluations, including occupational health and safety audits, environmental assessments under the EMS, and due diligence reviews, associated with the obligations that suppliers have in 2024, LATAM in Chile applied corrective measures to 33 of 48 fixed suppliers audited for the Occupational Health and Safety program (please see LATAM's 2024 Integrated Annual Report p. 196, and see also section 1.7.6 KPIs for Supplier Assessment and/or Development below). Additionally to this, in Brazil, 9 critical cases were addressed, resulting in contract termination, revalidation, or continued monitoring. The Environmental Management System (EMS) also applied corrective measures to 4 of the 13 suppliers audited.
+
+Supplier Development Programs
+
+1. Information and Capacity Building:
+
+To ensure our procurement process is aligned with our ESG objectives, in April 2024, LATAM held a dedicated ESG training session with its Procurement leadership. Additionally, a support matrix has been created to guide buyers during tenders, incorporating ESG criteria such as environmental policies, waste management, carbon reduction programs, and recyclable materials. This ensures that ESG requirements are clearly communicated to suppliers from the beginning of the relationship.
+
+2. Support for Corrective Actions:
+
+In both Chile and Brazil, suppliers are supported during the implementation of corrective actions required as a result of performance evaluations, including remote and on-site meetings, follow-ups, and technical support provided by LATAM's sustainability team and other areas responsible.
+
+3. In-Depth Technical Programs:
+
+LATAM conducts joint environmental work programs with selected suppliers that include both remote and in-person engagement and expert technical assistance to build capacity and drive continuous improvement of ESG performance.
+
+1.7.6 KPIs for Supplier Assessment and/or Development
+
+Below is an update based on the information disclosed in LATAM's 2024 Integrated Annual Report (p. 196): "The audits consist of the analysis of information relating to deferred years, with a focus on occupational health and safety. The 2024 audits will be conducted in March and April 2025, and their results will be available during the year."
+
+| KPI | 2024 |
+| --- | --- |
+| Audited suppliers | 48 |
+| Suppliers with corrective/mitigation plans in place (% of audited suppliers) | 68.5% |
+| Action plans defined based on audits | 33 |
+| Contracts terminated due to | 0 |
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0013.md ---
+The results of these occupational health and safety audits will be disclosed later in 2025 and are therefore not included in the table above.
+
+The following table consolidates the results disclosed in the Integrated Report externally assured information together with other supplier assessment programs implemented during 2024, including a new risk-based program led by the Third Party Management team in Brazil and the continuation of the implementation of the Environmental Management System (EMS). Both initiatives included on-site assessments, action plans and capacity building programs for the suppliers involved. While these additional results were not included in the Integrated Report, they are documented and will be incorporated into the external assurance processes scheduled for the current year.
+
+| Supplier Assessment program in 2024 | Occupational Health and Safety | Third Party Management (Brazil) | Environmental Management | Total |
+| --- | --- | --- | --- | --- |
+| Audited suppliers | 48 | 40 | 13 | 101 |
+| Suppliers with corrective/mitigation plans in place (% of audited suppliers) | 68.5% | 20.0% | 30.8% | 44.5% |
+| Action plans defined based on audits | 33 | 8 | 4 | 45 |
+| Contracts terminated due to noncompliance | 0 | 1 | 0 | 1 |
+| Total number of suppliers supported in corrective action plan implementation | 33 | 8 | 4 | 45 |
+| Total number of suppliers in capacity building programs | 33 | 8 | 4 | 45 |
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0014.md ---
+15
+
+# Governance & Economic Dimension Policies:
+
+At LATAM Group, transparency is a fundamental pillar of our Corporate Governance framework. Some of our policies, procedures, and governance frameworks are made publicly and centrally available to our stakeholders through the Corporate Practices Manual.
+
+The manual is permanently available on our official Investor Relations website at:
+
+- LATAM Investor Relations Portal (ir.latam.com)
+- Governance Section > Governance Guidelines
+- Document: Corporate Practices Manual
+
+Within this manual, specific governance policies are referenced and directly linked, allowing for public access. This centralized structure is a strategic decision aligned with our commitment to an orderly, robust, and transparent corporate governance system. Some of the policies related to the Governance & Economic Dimension include, but are not limited to, the following:
+
+- Crime Prevention Corporate Policy
+- Donations and Political Contributions Procedure
+- Anti-Corruption Corporate Policy
+- Gifts, Entertainment, Travel and Preferential Services Operational Policy
+- Information Security Corporate Policy
+- Procurement Operational Policy
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0015.md ---
+16
+
+# ENVIRONMENTAL DIMENSION
+
+## LATAM's Climate Efficiency Targets:
+
+LATAM's commitment to sustainability is reflected in the definition of climate targets based on a fundamental pillar: being more efficient compared to our 2023 performance. This approach ensures that operational growth does not translate into a proportional increase in emissions, but rather into continuous improvements in efficiency.
+
+Across all categories—specific fuel consumption in passenger and cargo operations, fleet GHG emission intensity, and NOx emissions —the 2024 targets were set based on 2023 results, as detailed in the following table:
+
+| Measure | 2023 Result | 2024 Target |
+| --- | --- | --- |
+| Specific fuel consumption – passengers | 3.1 L/100 RPK | ≤ 3.1 L/100 RPK |
+| Specific fuel consumption – cargo | 0.231 L/RTK | ≤ 0.231 L/RTK |
+| GHG intensity – passengers | 9.1 kg CO2e/RPK | ≤ 9.1 kg CO2e/RPK |
+| GHG intensity – cargo | 29.2 kg CO2e/RTK | ≤ 29.2 kg CO2e/RTK |
+| Scope 1 emissions | 11,524,420 tCO2e | 2% less than operational growth (maximum growth of 14.8%, equivalent to 13,230,034 tCO2e) |
+| Scope 2 emissions | 5,217 tCO2e | 2% less than operational growth (maximum growth of 14.8%, equivalent to 5,989 tCO2e) |
+| Scope 3 emissions | 3,094,768 tCO2e | 2% less than operational growth (maximum growth of 14.8%, equivalent to 3,552,790 tCO2e) |
+| Fleet decarbonization | 0.01% | 0.01% |
+| NOx emissions – passengers | 0.266 g/RPK | ≤ 0.266 g/RPK |
+| NOx emissions – cargo | 2.00 g/RTK | ≤ 2.00 g/RTK |
+
+## Initiatives to Achieve Our Targets:
+
+The LATAM Fuel Efficiency program, in place since 2012, is the backbone of this strategy. Key initiatives include:
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0016.md ---
+$\diamond$ Operational Efficiency: Increasing efficiency in all flight phases through route optimization, onboard weight reduction, use of advanced analytics, and the incorporation of technologies such as AeroShark. 
+$\diamond$ Fleet Renewal: A continuous fleet renewal strategy ensures the systematic reduction of fuel consumption and associated emissions. 
+$\diamond$ Sustainable Aviation Fuels (SAF): LATAM seeks to contribute to the regional roadmap for SAF development, ensuring a comprehensive approach to sustainability that also incorporates the development of connectivity.. In 2024, the LATAM Group incorporated more than 900,000 gallons into its operations and continues to play a key role in developing the SAF market in the region.
+
+# 2.1 Environmental Policy & Management
+
+# 2.1.4 Environmental Violations
+
+LATAM is committed to full compliance with all applicable environmental laws and regulations in the jurisdictions where it operates. Our Environmental Management System (EMS) is designed to proactively identify, manage, and mitigate environmental risks, with the primary goal of preventing any non-compliance.
+
+In line with the CSA methodology, LATAM discloses violations and sanctions for the last four fiscal years. Only cases where the individual sanction exceeded USD 10,000 are reported, consistent with CSA's definition of a significant environmental violation.
+
+The following table transparently reports on sanctions for the 2021-2024 fiscal years, according to the thresholds and definitions established by the S&P Global CSA methodology:
+
+| | FY 2021 | FY 2022 | FY 2023 | FY 2024 |
+| --- | --- | --- | --- | --- |
+| Number of violations of legal obligations/regulations | 0 | 0 | 3 | 0 |
+| Amount of fines/penalties related to the above. Currency: | 0 | 0 | 32,062 | 0 |
+| USD - Dollar | | | | |
+| Environmental liability accrued at year end. Currency: | 0 | 0 | 30,063.12 | 0 |
+| USD - Dollar | | | | |
+
+# 2.3 Packaging
+
+# 2.3.2 Packaging Materials
+
+LATAM is actively working to reduce the environmental impact of its packaging materials through a strategy focused on increasing the use of recyclable, compostable, and recycled-content materials.
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0017.md ---
+We have established clear, quantitative targets to drive this transition, and we monitor our progress annually.
+
+The following table details our performance and progress against our 2024 targets, demonstrating progress in key areas such as the recyclability and use of certified materials in key areas such as the recyclability of our packaging.
+
+| Packaging Materials | Coverage (% of cost of goods sold) | Total Weight (metric tonnes) | Recycled and/or Certified Material (% of total weight) | Target 2024 (% of total weight) |
+| --- | --- | --- | --- | --- |
+| Wood/paper fiber packaging | 100 | 2,170 | 22.6% | 20% |
+| Metal packaging | 100 | 504 | 4.5% | 2% |
+| Glass packaging | 100 | 875 | 12.8% | 10% |
+
+Reported figures cover $100\%$ of the cost of goods sold, based on documentary evidence or reliable estimates from LATAM's group main operating bases and locations where data is accessible.
+
+# 2.3.3 Plastic Packaging
+
+LATAM is committed to reducing the environmental footprint of its plastic packaging by progressively increasing the share of recyclable, compostable, and recycled-content materials. The LATAM Group has established clear quantitative targets for 2024 and monitors performance annually.
+
+The table below presents LATAM's performance against these targets for the 2021-2024 period:
+
+| | FY 2021 | FY 2022 | FY 2023 | FY 2024 | Meta FY 2024 |
+| --- | --- | --- | --- | --- | --- |
+| A. Total weight (tonnes) of all plastic packaging | 4,035 | 2,550 | 2,624 | 2,154 | 2,624 |
+| B. Percentage of recyclable plastic packaging (as a % of the total weight of all plastic packaging) | 0.6 | 1.2 | 32.46 | 24.51 | 20 |
+| C. Percentage of compostable plastic packaging (as a % of the total weight of all plastic packaging) | 0 | 1.1 | 1.1 | 1.51 | 2 |
+| D. Percentage of recycled content within the company's plastic packaging (as a % of the total weight of all plastic packaging) | 0.05 | 1.1 | 2.2 | 2.58 | 2 |
+| Coverage (as a % of cost of goods sold) | 100 | 100 | 100 | 100 | - |
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0018.md ---
+19
+
+# Strategy and Actions for Plastic Packaging
+
+In addition to our quantitative data and targets, LATAM has a comprehensive strategy to address the impacts of plastic packaging, based on circular economy principles. Our approach is detailed below, providing context for the affirmative answers in the corresponding table.
+
+Strategy to Reduce Plastic Packaging: Focused on three pillars — elimination of unnecessary single-use plastics, innovation to ensure that necessary plastics are reusable, recyclable, or compostable, and circulation of materials to keep them within the economy and out of the environment.
+
+- Elimination of Problematic Plastics: Progressive elimination of single-use plastics from onboard service, replacing millions of plastic items with sustainable alternatives such as bamboo cutlery and paper-based containers.
+- Innovation for Circularity: Collaboration with suppliers to redesign packaging and onboard service items, transitioning to more recyclable or compostable materials.
+- Circulation of Plastics in the Economy: Onboard waste segregation programs on domestic flights in Chile, Ecuador, and Colombia to recycle PET bottles and reintroduce them into the circular economy.
+
+These initiatives directly support LATAM’s 2024 packaging targets and the broader transition to circular economy principles.
+
+## 2.6 Climate Strategy
+
+### 2.6.6 Climate-Related Management Incentives
+
+LATAM Group links climate change management to the incentive systems of its senior leadership. Climate-related performance indicators are integrated into the annual compensation objectives of selected key executives, ensuring that sustainability is embedded into corporate decision-making and governance.
+
+| Benefited position | Type of incentive | Incentivized KPIs |
+| --- | --- | --- |
+| Director of Corporate Affairs and Sustainability | Monetary | Fulfillment of cross-cutting goals of the sustainability strategy in climate change management, including fuel efficiency, climate initiatives, and conservation projects. |
+| Executive Director of LATAM Cargo | Monetary | KPIs shared with the Sustainability Department: fuel consumption efficiency, management of climate initiatives, and conservation projects. |
+
+Through this approach, LATAM demonstrates that progress on fuel efficiency, the scaling up of Sustainable Aviation Fuels (SAF), the implementation of climate initiatives, and conservation projects is not only managed at a technical level but also incorporated into the performance evaluation and
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0019.md ---
+remuneration of its senior leaders. This practice strengthens accountability and aligns LATAM with international best practices promoted by the S&P Global CSA.
+
+# 2.6.8 Financial Risks of Climate Change
+
+Physical Risk Matrix
+
+| Risk | Horizon (TCFD) | Operational Impact | Financial Impact |
+| --- | --- | --- | --- |
+| Extreme events: Heavy rainfall, storms, strong winds | 2050 | Airport closuresFlight delays and cancellationsDamage to aircraft and infrastructure | |
+| Heat waves / extreme temperatures | 2050 | Impact of extreme heat on airport and aircraft operationLower operational efficiency | |
+| Coastal / river flooding | 2050 | Risk to terminals and hubsNeed for protection works or relocation | |
+| Water scarcity / increase in electricity costs | 2050 | Higher electricity ratesRisk at airports dependent on hydropowerIncrease in operating expenses due to energy consumption | |
+
+Conventions:
+
+| High impact | | Medium impact | | Low impact | |
+| --- | --- | --- | --- | --- | --- |
+
+In 2023, LATAM Group carried out its first climate-related risk and opportunity analysis under the TCFD framework. This initial exercise consisted of mapping all potential risks and opportunities, both physical and transitional, defining three time horizons: i) Short Term (2025); ii) Medium Term (2030); and iii) Long Term (2050). Under this initial conceptual analysis, the Group evaluates the main long-term (2050) financial impacts, based on scenario analysis and literature review conducted during the analysis. In line with this, the priority physical risk is extreme events: heavy rainfall, storms, and strong winds.
+
+In addition, the Group identifies other priority risks such as heat waves/extreme temperatures and coastal/river flooding; all consistent with the set of climate parameters assessed under TCFD.
+
+Transition Risk Matrix
+
+| Risk | Horizon (TCFD) | Operational Impact | Financial Impact |
+| --- | --- | --- | --- |
+| Exposure to carbon prices affecting the aviation sector | 2050 | • Increase in Operating Expenses due to taxes and purchase of carbon credits • Direct impact on fares | |
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0020.md ---
+21
+
+| Technological transition toward a low-carbon economy / SAF availability | 2050 | • Increase in fuel costs due to limited SAF supply in the region
+• Supply risk in Latin America 
+• Fares could rise up to 18% by 2050 | |
+| --- | --- | --- | --- |
+| Changes in passenger/consumer behavior and preferences | 2050 | • Lower corporate demand
+• Modal shift toward travel alternatives to aviation 
+• Reduction in travel due to teleworking | |
+
+In terms of prioritized transition risks, these are distributed according to their probability of materialization and financial impact. The most critical elements are:
+
+- Exposure to carbon prices affecting the aviation sector: Exposure to different regulatory schemes that impose a carbon price, such as EU/UK-ETS, CORSIA, and national carbon taxes. These mechanisms may increase operating expenses. The Group approaches these proactively, seeking to position itself to turn these risks into opportunities through proper risk management. To this end, the Group leverages monitoring, reporting, and verification management to help increase the efficiency of its LATAM Fuel Efficiency program.
+- Technological transition toward a low-carbon economy SAF availability: Sustainable Aviation Fuels (SAF) are expected to be the main driver of aviation decarbonization. However, SAF currently costs 3 to 5 times more than conventional fuel and represents less than 0.3% of global jet fuel consumption. This combination of high cost and scarcity significantly restricts its availability in the region. The Group continues to work with governments in the region and academia to generate evidence-based information that enables the creation of public policies tailored to specific country contexts. An example of this is the independent study carried out by MIT and co-financed with Airbus. The Group also works with its customers and partners to support the purchase and use of SAF.
+- Changes in passenger/consumer behavior and preferences: Potential shifts in client and stakeholder preferences toward travel alternatives to aviation may affect the relative demand for routes and products.
+
+As with physical risks, transition risks are managed under the TCFD framework and its time horizons (short, medium, and long term). In this case, the long-term horizon (2050) is applied.
+
+## 2.6.9 Financial Opportunities Arising from Climate Change
+
+Financial Opportunities Matrix
+
+| Opportunity | Horizon (TCFD) | Strategic Impact | Financial Impact |
+| --- | --- | --- | --- |
+| Efficient fleet renewal | 2050 | • Incorporation of next-generation aircraft
+• Reduction of operating costs and emissions 
+• Improved competitiveness | |
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0021.md ---
+In line with TCFD recommendations, LATAM manages climate risks while also capitalizing on the opportunities offered by the transition to a low-carbon economy, which can generate efficiencies, new revenues, and access to sustainable capital. These opportunities are evaluated considering short-, medium-, and long-term horizons, with priority given to those with the greatest strategic and financial impact for the LATAM Group:
+
+- Efficient fleet renewal: progressive incorporation of next-generation aircraft that deliver substantial improvements in fuel efficiency and emissions reduction, generating significant recurring savings in operating expenses and improving long-term competitiveness.
+- Adoption of sustainable aviation fuels (SAF): regional leadership in the energy transition through collaboration agreements with SAF manufacturers and suppliers, which in addition to mitigating regulatory risks, positions LATAM to strengthen relationships with corporate clients with emission-reduction targets and the possibility of accessing regulatory incentives.
+- Access to sustainable financing: issuance of bonds and loans linked to ESG performance, which broaden funding sources and support a reduction in the cost of capital reinforcing LATAM's sustainability commitments.
+- Corporate programs and commercial differentiation: expansion of initiatives such as the LATAM 1+1 program, which strengthens the value proposition for corporate clients through emissions offsetting, generating additional revenues and long-term loyalty and positioning LATAM with sustainability-related products and services in the aviation sector.
+
+# 2.6.12 Emissions Reduction Targets
+
+LATAM Group has established absolute emissions-reduction targets covering Scopes 1, 2 and 3 for the 2024 target year (base year 2023). Targets cover $100\%$ of base-year emissions and are set so that emissions growth is $2\%$ lower than operational growth across each scope.
+
+| Scope covered | Target type | Base year | Target year | Base year emissions covered and as % of total base year emissions | % reduction target compared to base year | Is this target validated by SBTi? |
+| --- | --- | --- | --- | --- | --- | --- |
+| 1 | LATAM 1+1 | 2024 | 2024 | 1.0 | 100 | Yes |
+| 2 | LATAM 2+1 | 2024 | 2024 | 1.0 | 100 | Yes |
+| 3 | LATAM 3+1 | 2024 | 2024 | 1.0 | 100 | Yes |
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0022.md ---
+23
+
+| Scope 1 | Absolute | 2023 | 2024 | Base year emissions (tCO2): 11,524,420 % of total base year emissions: 100% | 2% less than operational growth | No, but we consider the target to have a scientific basis. |
+| --- | --- | --- | --- | --- | --- | --- |
+| Scope 2 | Absolute | 2023 | 2024 | Base year emissions (tCO2): 5,989 % of total base year emissions: 100% | 2% less than operational growth | No, but we consider the target to have a scientific basis. |
+| Scope 3 | Absolute | 2023 | 2024 | Base year emissions (tCO2): 3,094,768 % of total base year emissions: 100% | 2% less than operational growth | No, but we consider the target to have a scientific basis. |
+
+These short-term, absolute targets provide a clear framework to track decoupling of emissions from operational growth and are presented in line with CSA/TCFD expectations for Emissions Reduction Targets
+
+## 2.6.13 Internal Carbon Pricing
+
+The internal price is used as a strategic and financial planning tool in projecting offsetting expenses in programs such as CO2BIO, and for integrating climate risks into corporate strategy, aligning the LATAM Group with its Net Zero 2050 goal.
+
+| Objectives to implement a carbon price | Explanation |
+| --- | --- |
+| Conduct cost-benefit analysis | Anticipate financial impacts of emerging regulations and carbon market scenarios. |
+| Promote energy efficiency | Prioritize projects that reduce fuel consumption. |
+| Foster low-carbon investments | Include the shadow price in the evaluation of next-generation fleet and SAF investments. |
+| Encourage consideration of climate change in decision-making | Integrate the cost of carbon into financial and risk planning. |
+| Facilitate regulatory compliance | Prepare the organization for schemes such as CORSIA, EU ETS, and national taxes. |
+| Establish carbon offset budgets | Allocate resources for offset programs and strategic projects such as CO2BIO. |
+| Conduct stress tests on investments | Assess the sensitivity of projects to rising carbon prices. |
+
+- GHG Scopes covered: Scope 1
+- Type of internal carbon price: Implicit price
+- Price: USD 10
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0023.md ---
+This mechanism ensures that carbon costs are systematically considered in investment evaluations, budget allocation, and regulatory preparedness, reinforcing LATAM's long-term decarbonization strategy.
+
+## 2.6.14 Net-Zero Commitment
+
+| Target timeframe | Scope and emission reduction target (as % of base year emissions) * | Is this target validated by the Science Based Targets initiative (SBTI)? |
+| --- | --- | --- |
+| Base year: 2019 | Scope 1 & 2: 81% reduction and 19% offset | No, but we consider the target to be science-based. |
+| Target year: 2050 | Scope 3: 81% reduction and the remainder enters into the neutralization of 19% at industry level. This is mainly due to the projected use of SAF, which is expected to reduce Scope 1 emissions and therefore also a portion of Scope 3 emissions, since more than 80% of Scope 3 emissions are fuel-related. | |
+
+* The information regarding the sectoral decarbonization pathway toward Net Zero 2050 (65% SAF, 13% new technologies, 3% operational and infrastructure efficiency, and 19% carbon offsetting/capture) comes from official international aviation industry sources: IATA – Fly Net Zero https://www.iata.org/en/programs/sustainability/flynetzero/. LATAM replicates this information on its Climate Change Management webpage, as it is aligned with ICAO and IATA's international commitments.
+
+LATAM operates a comprehensive climate management program structured around four pillars:
+
+- Operational efficiency through the LATAM Fuel Efficiency program: route and descent profile optimization, weight management, and APU usage, with proven improvements in consumption and emission intensities.
+- New technologies and fleet renewal, including aerodynamic enhancements such as AeroShark and aircraft modernization to enhance efficiency and reduce emissions.
+- Use and development of SAF, with pilots and supply (over 900,000 gallons in 2024) and a scale-up plan subject to market availability.
+- Compensation and conservation as a complementary measure, including the CO2BIO project and the corporate "1+1" scheme.
+
+This framework covers Scope 1 and 2 and addresses material categories of Scope 3, with public targets and indicators and annual monitoring for the reduction of emissions and fuel consumption.
+
+LATAM Group has defined that offsetting emissions that cannot be directly reduced is an essential component of its commitment to net zero emissions by 2050. The main project in this area is CO2BIO, a pioneering initiative in the region that by 2024 has conserved more than 278,000 hectares of forest linked to 289 properties in the Colombian Orinoquia, benefiting over 338 local families while also contributing to the protection of more than 2,000 species of flora and fauna.
+
+Through CO2BIO, LATAM is already offsetting emissions while generating social, environmental, and economic co-benefits. The program is also integrated with the corporate "1+1" scheme, under
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0024.md ---
+which the LATAM Group matches customer contributions in the purchase of credits, expanding the scope of offsetting and strengthening corporate engagement.
+
+In this way, LATAM demonstrates that its offsetting strategy is not limited to future commitments but is being executed today with high-integrity, nature-based projects, always as a complementary measure to its strategy focused on emission reductions through operational efficiencies, new technologies, and the gradual use of Sustainable Aviation Fuels (SAF)
+
+25
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0025.md ---
+SOCIAL DIMENSION
+
+## 3.1 Labor Practices
+
+### 3.1.1 Labor Practices Commitment
+
+At LATAM Group, we are committed to promoting fair, safe, equitable, and respectful working conditions across all our operations. This commitment is supported by our Code of Conduct, Third Parties Code of Conduct, Diversity and Inclusion Policy, and our Human Rights Commitment Declaration, and applies to all employees across the LATAM Group.
+
+Our practices is aligned with the International Labour Organization (ILO) Fundamental Principles and Rights at Work, and is structured around the following pillars:
+
+- Freedom from Forced Labor and Child Labor: We explicitly reject any form of child labor, forced labor, or modern slavery. We ensure compliance with all applicable laws and international standards regarding legal working age and voluntary employment.
+- Compensation and Working Conditions: We uphold a policy of non-discriminatory compensation and ensure full compliance with all applicable labor laws, including those that prohibit gender-based pay discrimination. We respect all regulations regarding working hours, rest periods, and paid leave.
+- Non-Discrimination and Harassment-Free Workplace: Our internal procedures foster an inclusive and harassment-free workplace. LATAM offers confidential and accessible reporting channels to raise concerns related to discrimination, labor rights violations, or unethical behavior, with full protection for whistleblowers.
+- Application in the Supply Chain: We expect all third parties in our supply chain to adhere to the same principles outlined in this commitment. Our Third Parties Code of Conduct and Human Rights Declaration explicitly require compliance with all applicable national and international labor standards, ensuring that our entire value chain upholds fair and respectful working conditions.
+
+### 3.1.2 Labor Practices Programs
+
+- Promote adequate wages at or above cost of living estimates or benchmarks: The LATAM Group seeks to ensure adequate and competitive salaries through the annual review of its salary scales, aligning them with market standards. To this end, compensation studies are periodically conducted by specialized external consulting firms, which ensures that remuneration is consistent with both cost of living estimates and industry benchmarks.
+- Monitor working hours including overtime management: The LATAM Group monitors working hours, including the control of overtime, ensuring that all comply with current legislation. This monitoring guarantees regulatory compliance and the proper management of employees' working hours.
+
+26
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0026.md ---
+- Ensure employees are paid for overtime work: The LATAM Group ensures payment for overtime work by applying the corresponding payment for all extra hours worked, in compliance with current labor legislation. In this way, fair and transparent compensation for employees is guaranteed. Likewise, the LATAM Group monitors working hours, including the recording of overtime, to ensure that all comply with current regulations and that payment for overtime work is accurate and timely.
+
+- Regularly engage with workers' representatives on working conditions: The LATAM Group regularly engages with workers' representatives through formal labor relations bodies and the joint committee. These spaces allow for ongoing dialogue on working conditions, promoting employee participation and ensuring compliance with current regulations. Additionally, 87% of employees are covered by collective bargaining agreements and 46% are unionized, which strengthens dialogue and worker participation in defining working conditions.
+
+- Routinely monitor the gender pay gap to achieve equal remuneration for men and women: The LATAM Group ensures pay equity by establishing compensation scales that make no distinction based on gender. In this way, it seeks to ensure that men and women receive the same compensation for equivalent roles, reinforcing the commitment to equity and non-discrimination in salary matters.
+
+- Expand social protection coverage for workers beyond public programs: LATAM Group expands social protection coverage beyond public programs by providing additional benefits, such as medical insurance and other complementary benefits. These measures help strengthen employee well-being and support broader coverage in health and social protection. Among these benefits are: life insurance available in most of the countries where the Group operates; private health insurance that includes outpatient, hospital, medication, and treatment coverage; and in some countries, such as Chile, free telemedicine in various specialties and collective agreements with preferential prices. In addition, medical assistance insurance is provided for business travel abroad, and the "Seguramente" program has been strengthened, offering medical consultations, psychological support, and a peer-support system among pilots to promote emotional well-being and mental health of flight crews.
+
+- Promote employees are taking their paid annual leave entitlements: The LATAM Group promotes and facilitates the use of annual paid vacation, in compliance with the labor legislation in force in each country where it operates. In this way, it seeks to ensure respect for employees' rights and compliance with applicable regulations.
+
+- To foster a deeper understanding of our sustainability challenges and strategy, LATAM makes a range of voluntary training and awareness initiatives available to all employees. These programs, offered through formats like Sustainability Webinars and e-learning modules, empower our teams to learn about our key strategic pillars.
+
+Examples include:
+
+1. Climate Change management: Employees are invited to access e-learning modules that explain the risks and impacts of climate change and LATAM's mitigation strategy, including our Net Zero 2050 commitment and the role of Sustainable Aviation Fuels (SAF).
+
+2. Circular Economy: We offer specialized webinars that provide employees with insights into waste reduction, recycling, and upcycling, showcasing key initiatives such as our onboard recycling programs and uniform repurposing.
+
+27
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0027.md ---
+3. Environmental Management: As a key pillar of our certified environmental management system, we implemented an annual training program that achieved 100% coverage of operational and management staff at our main facilities, as well as key suppliers. These briefings, conducted by our in-house environmental team, focused on critical topics such as waste and energy management, water efficiency, and the handling of hazardous materials. Furthermore, we went beyond theoretical training by conducting emergency simulation drills for potential spill and we also developed an e-learning module that includes a formal evaluation.
+
+## 3.2 Human Rights
+
+### 3.2.3 Human Rights Assessment
+
+| Category | A. % of total assessed in last three years | B. % of total assessed (column A) where risks have been identified | C. % of risk (column B) with mitigation actions taken |
+| --- | --- | --- | --- |
+| Own operations | 100% | 42% | 100% |
+| Contractors and Tier I suppliers | 100% | 19% | 100% |
+
+### 3.2.4 Human Rights Mitigation & Remediation
+
+Remediation and/or mitigation actions are carried out in accordance with applicable local legislation, and in addition, LATAM reinforces them through training, communications, or as instructed by the local Code of Conduct Management Committee.
+
+## 3.3 Human Capital Management
+
+### 3.3.2 Employee Development Programs
+
+Learning methods are diverse and include formal and informal approaches. The LATAM Group operates MentorMatch, an internal mentoring program that connects employees through an app, enabling mentors and mentees to engage in structured knowledge-sharing relationships. By 2025, more than 600 employees had registered, including over 200 mentors and 500 mentees, with 100 matches completed and an average satisfaction score of 4.5/5. In addition, the Leadership Route program provides live sessions, video podcasts, and interviews with senior leaders, ensuring that employees can learn from peer networks and leadership role models across the organization. LATAM also runs the Digital Curriculum through LATAM Academy, offering 39 courses in three languages on data, collaboration, citizen development and agile practices, with more than 19,800 voluntary completions in 2025.
+
+A robust Leadership Development Program is delivered under the Leadership Route. This includes onboarding for new leaders, in-person "Leadership JETS" workshops, live online management training, and continuous learning resources. Approximately 1,750 leaders (700 Spanish-speaking and
+
+28
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0028.md ---
+1,050 Portuguese-speaking) participated in workshops in 2024, covering inclusive leadership, delegation, transparent communication, and team management. Results from these initiatives demonstrate a statistically significant correlation between strong leadership practices (as measured in the internal Barometer) and customer Net Promoter Score ( $r = 0.7$, $p < 0.05$ ), confirming the link between leadership training and tangible improvements in customer experience.
+
+Cultural education is fostered through targeted awareness programs, such as the Women's Month campaign in 2025, which included workshops, talks, and communication initiatives on gender equity and inclusion. These activities reinforce respect for diversity and strengthen LATAM's inclusive workplace culture.
+
+In the field of Digital transition, LATAM has implemented its Digital Curriculum ("Malla Digital") to prepare employees for new technologies and digital ways of working. The program covers data literacy, artificial intelligence, agile practices, and automation tools such as Appsheet and PowerApps. It is structured in three levels (basic, intermediate, advanced) and available in Spanish, Portuguese and English. In 2025 alone, more than 19,800 employees completed courses voluntarily, ensuring the workforce is digitally prepared.
+
+# Quantitative business impact:
+
+LATAM also provides disclosure of quantitative business impact for its development programs. The Leadership Route program shows measurable links to business outcomes: airports with higher scores in leadership practices also achieve higher NPS scores, proving the direct impact of leadership development on customer satisfaction and operational performance. This program therefore simultaneously addresses leadership development and quantitative impact.
+
+# Contractual or part time employees:
+
+Finally, LATAM's programs also cover contractual and part-time employees. Part-time employees in LATAM facilities have full access to all training and development initiatives. Additionally, "staffing" employees, who work exclusively for LATAM through external providers, are trained $100\%$ by LATAM to ensure consistency in competencies. Only in cases of fully outsourced services are training activities not managed by LATAM, though operational tools are provided. This ensures equal access to development opportunities across the internal workforce.
+
+# 3.3.4 Hiring
+
+Data Breakdown of 2024 hires:
+
+- By Management level
+
+| Item | FY 2024 |
+| --- | --- |
+| Top Management | 0 |
+| Senior Management | 1% |
+| Junior Management | 2% |
+| Operator | 2% |
+| Sales force | 4% |
+| Other professionals | 7% |
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0029.md ---
+| Administrative | 21% |
+| --- | --- |
+| Other technicians | 62% |
+| Total | 100% |
+
+## 3.3.5 Employee Turnover Rate
+
+| Item | FY 2024 |
+| --- | --- |
+| Top Management | 0% |
+| Senior Management | 1% |
+| Junior Management | 4% |
+| Operator | 62% |
+| Sales force | 2% |
+| Other professionals | 7% |
+| Administrative | 2% |
+| Other technicians | 21% |
+| Total | 100% |
+
+## 3.4 Occupational Health & Safety
+
+### 3.4.1 OHS Policy
+
+LATAM Group maintains a formal Occupational Health and Safety (OHS) Policy that applies to all employees, executives, and contractors across its operations. The policy explicitly establishes that the OHS management system is designed to "promote the development of an Occupational Health and Safety Management System for all workers (executives and employees) involved in operational activities, as well as contractors, ensuring the prevention of occupational injuries and illnesses." This demonstrates the Company-wide scope of the policy and its inclusion of contractors under LATAM's supervision.
+
+To reinforce awareness and reduce risks, LATAM provides extensive training programs on health and safety for its workforce and relevant personnel. Examples of mandatory training modules include:
+
+- BR/PT/@-NR11 - Safety in Equipment Operations
+- BR/PT/@-Workplace Health and Safety - NR01
+- EC/ES/@-Occupational Risk Prevention - Administrative staff (Ecuador)
+- EC/ES/@-Occupational Risk Prevention SSL ATO
+- EC/ES/@-Occupational Risk Prevention - Cabin Crew
+- LATAM/ES/@-Emergency Brigade Training
+- LATAM/ES/@-First Aid for Emergency Brigades
+
+These programs are aimed at strengthening employees' ability to prevent incidents and to act effectively in emergency or risk situations.
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0030.md ---
+In addition, LATAM integrates OHS requirements into supplier and contractor management. Contracts signed with providers include mandatory provisions on compliance with all applicable health and safety regulations in the countries of operation, as well as specific clauses covering event reporting, investigation, and audit procedures. This ensures that LATAM's safety culture and risk prevention standards are consistently extended throughout its supply chain.
+
+## 3.6 Customer Relations
+
+### 3.6.1 Online Strategies & Customers Online
+
+In 2024, LATAM Group continued to strengthen its online service channels, setting clear quantitative goals to expand digital adoption among customers and to grow revenue generated from online sales. These objectives reflect LATAM's commitment to enhancing customer experience through digital solutions while further consolidating e-commerce as a key driver of its business model.
+
+## 3.7 Privacy Protection
+
+### 3.7.1 Privacy Policy: Systems/ Procedures
+
+LATAM Group S.A. and its affiliates maintain an Internal Privacy and Personal Data Protection Policy that applies to all employees, who may handle personal data on behalf of the LATAM Group. The policy contributes to compliance with local and international data protection regulations across the jurisdictions where LATAM operates and establishes internal rules for the collection, use, storage, transfer, and deletion of personal data.
+
+The policy is built on core data protection principles such as purpose limitation, necessity, transparency, security, accountability, and privacy by design. To guarantee its effective implementation, LATAM has created a Data Protection Committee, appointed Data Protection Officers (DPOs), and established Privacy Ambassadors in each country, according to applicable local data protection regulations. These roles oversee compliance, incident management, and reporting obligations to authorities when required.
+
+Privacy protection is also embedded in LATAM's Code of Conduct (Sections 5.4 "Privacy and Confidential Information" and 5.12 "Information Security"), which defines obligations for employees and collaborators, as well as disciplinary measures in case of breach, ranging up to contract termination or legal actions. Similarly, LATAM's Global Code of Conduct for Third Parties and Intermediaries (TPIs) includes explicit clauses on brand, privacy, cybersecurity, and personal data protection (Sections 3.1.6 and 3.1.7), and establishes sanctions for non-compliance, including termination of contracts and reporting to authorities.
+
+The LATAM Group's Annual Report 2024 further confirms that suppliers and intermediaries must adhere to LATAM's Code of Conduct for Providers and TPIs, which sets clear expectations on labor practices, health and safety, cybersecurity, and data protection. coebtributes that privacy obligations extend to the supply chain and external partners.
+
+In practice, LATAM enforces its privacy framework through internal controls, periodic reviews, and alignment with global compliance and risk management systems. This integrated approach contributes to ensuring the confidentiality of customers', employees', and suppliers' personal data, reinforcing LATAM's commitment to maintaining a safe and reliable environment for all stakeholders.
+
+- Privacy policy applies across LATAM's operations, and extends to some suppliers:
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0031.md ---
+In accordance with applicable laws in each jurisdiction, suppliers are required to sign individual contracts that include specific clauses to guarantee compliance with LATAM's privacy policies and standards. These contractual obligations are adapted to the nature of each supplier—whether acting as data processor or controller—to secure legal compliance and protect the rights of LATAM and its stakeholders.
+
+Those suppliers and subcontractors may only access personal data to the extent necessary to fulfill their contractual obligations with LATAM and cannot use such data for purposes not previously authorized by LATAM. Similarly, data may only be shared with partner companies or commercial allies when explicit consent has been obtained from the customer.
+
+Additionally, suppliers are required to provide LATAM with results of their independent evaluations or audits of information security controls, such as ISO27001 certifications, SOC2 Type II reports, PCI AOCs, and SOC1 Type II reports. These requirements are publicly referenced in LATAM's Annual Report 2024, section "Supply Chain Management."
+
+To further strengthen oversight, LATAM has developed a supplier portal which provides can access to the Third-Party Cybersecurity Guidelines and Clauses, including those on privacy and data protection. Complementing this, LATAM has an Information Security Policy, designating the Information Security Management Office as the focal point for overseeing compliance with privacy and data protection requirements.
+
+Through these measures, LATAM works to strengthen that its privacy standards are not only applied internally but also fully extend to its suppliers and business partners, ensuring a consistent and legally compliant approach across its entire value chain.
+
+- Designated person or department responsible for privacy issues:
+
+LATAM Group and its affiliates have implemented a strategic privacy program to support compliance with data protection and privacy laws in all jurisdictions where it operates. As part of this framework, Data Protection Officers (DPOs) are formally designated in countries where required by law, or the corresponding legal representative is appointed in jurisdictions where a DPO is not legally mandated. These individuals are responsible for overseeing compliance with applicable data protection laws and for managing the LATAM Group's Privacy Program.
+
+The DPO or legal representative role is carried out by professionals with proven expertise in legal and technical requirements of their respective jurisdictions, ensuring that they can effectively protect data subjects' rights. Importantly, DPOs operate with independence from LATAM Group management, in line with international standards.
+
+LATAM currently has appointed DPOs or legal representatives in:
+
+1. Brazil
+2. Colombia
+3. Ecuador
+4. Peru
+5. Argentina (also covering Bolivia, Paraguay, and Uruguay)
+6. Europe
+
+In Chile, Law 21.719—enacted in December 2024 and effective as of December 2026—will require the designation of a DPO. For the United States, where no DPO is legally mandated, LATAM has
+
+32
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0032.md ---
+appointed a representative from the Legal Department, who also acts as the privacy point of contact for North America, the Caribbean, Asia, and Oceania.
+
+To strengthen governance, LATAM has also established Data Protection Committees in some countries, according to local data protection regulations. These committees are formed by both permanent and rotating members from key business areas that handle personal data, including IT, Information Security, Data Governance, Legal, Compliance, HR, Commercial, Marketing, Airports, Corporate Risk, and Internal Control. They are involved in decision-making for high-risk or critical data processing activities, in line with local data protection laws.
+
+At the group level, LATAM applies a tripartite governance approach that integrates:
+
+- The local DPOs or legal representatives,
+- The Chief Information Security Officer (CISO) with transversal responsibility for the entire group, and
+- A Chief Data Officer responsible for the corporate Data Strategy Office.
+
+- Privacy policy system embedded in group-wide risk/compliance management:
+
+LATAM Group and its affiliates integrate their Privacy and Personal Data Protection Policy within the LATAM Group's broader risk and compliance management framework. The policy is explicitly embedded in the Code of Conduct, which requires all employees and third parties to comply with local and international laws on data protection, as well as LATAM's internal privacy and information security policies. Failure to comply with these provisions constitutes a violation of the Code and may result in disciplinary measures, including termination of the employment or contractual relationship, and may also lead to legal action where applicable.
+
+Privacy management is overseen within the LATAM Group's three lines of defense model. The Chief Information Security Officer (CISO) is responsible for monitoring risk management strategies in this area, reporting outcomes, and operating as part of the "second line of defense." The Information Security Management division applies internationally recognized standards such as ISO/IEC 27001 and NIST, conducts inspections and verifications, and undergoes external audits. The Annual Report 2024 highlights that information security and privacy are managed as part of LATAM's risk oversight system, alongside other areas such as operational safety and sustainability.
+
+Internally, LATAM has also implemented a comprehensive framework to address risks associated with personal data processing, defined in its Technology Risk Management Standard and the Personal Data Lifecycle Protection Standard (published internally in the "Technology Risk Portal"). This dual-track system combines technological risk assessment with dedicated privacy risk evaluation:
+
+- Technology risks involving personal data security are reported through formal channels (internal forms, designated emails, or direct communication with the Technology Risk unit), which records, classifies, and tracks risks in a centralized inventory while monitoring mitigation actions.
+- Privacy risks are reported by process owners to the Data Protection Officer (DPO) or, where not available, to the local Legal Department. In such cases, a Privacy Impact Assessment (PIA) is performed according to local regulations to evaluate potential consequences for LATAM and for data subjects.
+- Conduct third-party audits of the privacy policy compliance:
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0033.md ---
+LATAM Group and its affiliates demonstrate their commitment to privacy and data protection through independent third-party audits and certifications. In 2025, the LATAM Group achieved its seventh consecutive certification of compliance with the Payment Card Industry Data Security Standard (PCI DSS, version 4.0), following an external audit conducted by a Qualified Security Assessor (QSA). This certification attests that LATAM has implemented security measures designed to protect customer payment card information when purchasing products and services through LATAM's sales channels.
+
+Beyond PCI DSS, LATAM's information security policies and standards are aligned with ISO/IEC 27001 and NIST, ensuring robust, internationally recognized practices. LATAM's digital infrastructure is subject to ongoing external evaluations through SOC1 Type II and SOC2 Type II reports, prepared under the Statement on Standards for Attestation Engagements No. 18 (SSAE18).
+
+As part of its digital transformation strategy, LATAM also utilizes Google Cloud Platform (GCP) for data processing and storage. All GCP services used by LATAM, including Storage and Workspace, are accredited under the ISO/IEC 27701 certification for Privacy Information Management Systems (PIMS). Furthermore, GCP's compliance with Level 2 of the EU Cloud Code of Conduct (aligned with GDPR requirements) has been independently verified by external auditors (verification ID: 2020LVL02SCOPE015).
+
+- Conduct internal audits of the privacy policy compliance:
+
+LATAM Group S.A. and its affiliates conduct annual internal reviews to ensure compliance with privacy and data protection controls across all systems that process personal information. These reviews include updating documentation, identifying and mitigating potential risks, and strengthening LATAM's overall security posture. Internal Audit also provides independent assurance of adherence to LATAM's security and privacy policies.
+
+The LATAM Group's internal reviews are based on a privacy and data protection control matrix of 24 controls, aligned with applicable national laws and international standards such as ISO/IEC 27701:2019 and ISO/IEC 29100:2019. These controls are structured around 11 core privacy principles:
+
+1. Consent and choice
+2. Purpose legitimacy and specification
+3. Collection limitation
+4. Data minimization
+5. Use, retention, and disclosure limitation
+6. Accuracy and quality
+7. Openness, transparency, and notification
+8. Individual participation and access
+9. Accountability
+10. Information security
+11. Privacy compliance
+
+The Data Protect team, part of LATAM's Cybersecurity Management, conducts compliance evaluations by requesting interviews and evidence from process owners responsible for handling personal data. Each control is assessed to determine applicability and compliance. Where gaps are identified, corrective action plans are defined, implemented, and monitored until full compliance is demonstrated.
+
+34
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0034.md ---
+This process helps to ensure that LATAM's internal privacy controls are effectively implemented, continuously monitored, and regularly updated in line with local laws—including LGPD (Brazil), GDPR (EU), CCPA (California), and others across LATAM's jurisdictions—as well as international standards. The details of this methodology are documented in LATAM's "Personal Data Protection Lifecycle Standard", available to all employees through the internal Technology Risk Portal.
+
+## 3.7.2 Customer Privacy Information
+
+### Nature of information captured
+
+LATAM Airlines Group S.A. and its affiliates collect personal data in line with purposes informed to customers, limiting required fields in forms to those necessary for the provision of services. Country-specific privacy notices detailing the categories of data collected, uses, and protections are published on latamairlines.com for each jurisdiction (e.g., Brazil, Chile, EU, USA, Mexico, Peru, etc., via each country's "Privacy Policy" page).
+
+### Use of the collected information
+
+Collected data are used to: (i) perform all travel-related procedures and deliver requested services; (ii) manage LATAM Pass/LATAM Fidelidade accounts; (iii) improve services through satisfaction analysis, audits, and fraud prevention (including follow-up contacts about customer experience); (iv) handle complaints/claims submitted via the website; and (v) create customer profiles and send commercial communications about products and services—customized to the customer profile. Customers may object at any time to processing for marketing purposes by using the unsubscribe option provided in communications. All processing is conducted in line with applicable law, when strictly necessary for service provision and/or LATAM's legitimate interests without overriding the rights and freedoms of data subjects.
+
+### Customer control over how data are collected, used, retained, and processed
+
+- Opt-out option available: Data subjects may exercise restriction/limitation of processing (including unsubscribing from marketing) through country-specific email contacts and channels listed in the respective privacy policies (e.g., grp_soportegdpr@latam.com for Europe/; grp_datospersonalesperu@latam.com for Peru; grp_solicitudes-datos-cl@latam.com and 600 526 2000 for Chile; dadopessoal@latam.com for Brazil; etc.).
+- Opt-in/consent required: Processing may be based on consent that can be withdrawn at any time (e.g., marketing subscriptions, cookie consent via the website banner). Consents are independent—one may be revoked without affecting others. For other purposes, processing may rely on contract performance (e.g., booking/travel management) or legitimate interest (e.g., service improvement, personalization, market analysis), with appropriate balancing of rights.
+- Special cases: In Brazil, when processing minors' data (up to 12 years), LATAM obtains legal guardian consent or relies on other LGPD legal bases in the best interest of the child.
+
+### Data subject rights and request channels
+
+- Access: Customers can request confirmation whether LATAM processes their personal data and access related details (purposes, categories, recipients, retention, etc.).
+
+--- Document: /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/pages/page_0035.md ---
+- Portability: Customers can receive the personal data they provided in a structured, commonly used, machine-readable format and transmit it to another controller, where legally applicable.
+- Rectification: Customers can request correction of inaccurate data.
+- Deletion (cancellation/suppression): Customers may request erasure when legal requirements are met.
+
+Requests are handled through the country-specific emails/contacts set out in each local privacy policy (examples above).
+
+## Retention period
+
+Personal data are retained for as long as necessary for the purposes for which they were collected and as required by applicable law, including statutory limitation periods. If a customer unsubscribes, objects, or withdraws consent, LATAM honors those rights in accordance with applicable law. Detailed retention information is available in each jurisdiction's privacy page on latamairlines.com.
+
+## How the information is protected
+
+LATAM implements strict technical and operational measures to protect personal data against unauthorized access, alteration, disclosure, or destruction; works only with partners that adhere to equally rigorous privacy and security standards and applicable data-protection laws; and provides ongoing staff training on data protection to ensure proper handling and legal compliance.
+
+## Third-party disclosure policy (private and public entities)
+
+LATAM shares personal data only in the cases described in its public privacy notices, including: (i) airports, government authorities, and law-enforcement bodies when required for public safety and control; (ii) travel agencies or companies through which customers book LATAM flights; (iii) credit/debit card companies; (iv) LATAM requires that providers use the data solely within the scope of their contractual obligations and not for unrelated purposes.; (v) public authorities, regulators, supervisory bodies, tax and judicial authorities; and (vi) partner or allied companies only with the customer's prior authorization and solely to offer products, services, or benefits. Country-specific disclosure details are available via each jurisdiction's privacy policy page on latamairlines.com.

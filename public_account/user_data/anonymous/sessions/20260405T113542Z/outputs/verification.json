@@ -2,7 +2,7 @@
   "company": "users",
   "session_id": "20260405T113542Z",
   "source_file": "interactive_esg",
-  "timestamp": "2026-04-05T11:56:27.112075Z",
+  "timestamp": "2026-04-05T12:02:18.269394Z",
   "model": "google/gemma-4-26b-a4b-it",
   "status": "ok",
   "total_final_score": 45.0,

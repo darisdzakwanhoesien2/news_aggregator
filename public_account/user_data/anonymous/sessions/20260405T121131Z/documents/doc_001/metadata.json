@@ -1,0 +1,12 @@
+{
+  "doc_id": "doc_001",
+  "original_name": "esg.pdf",
+  "filename": "esg.pdf",
+  "size": 834946,
+  "uploaded_at": "2026-04-05T12:11:51.577077Z",
+  "ocr_status": "done",
+  "ocr_completed": "2026-04-05T12:12:03.080592Z",
+  "ocr_bundles": [
+    "ocr/esg_pdf"
+  ]
+}
