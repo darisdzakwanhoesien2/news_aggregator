@@ -13,6 +13,48 @@
       "password_hash": "d75e1043e012ec4203de6f5f23fe2ee44cebf88174e816b23e396d77d8f67192",
       "created_at": "2026-04-04T08:25:04.318784Z",
       "role": "Supplier"
+    },
+    {
+      "username": "ukm_1",
+      "role": "UKM",
+      "salt": "4c7b2498af66c667133ce954830123d7",
+      "password_hash": "3fc0b297dfc6087401cd4335b6f2be43e28eebd419c6fd7c571d805a3513f21c",
+      "created_at": "2026-04-05T06:34:45.511408Z"
+    },
+    {
+      "username": "ukm_2",
+      "role": "UKM",
+      "salt": "309bd61401d82a5868f07fbdc1f441ba",
+      "password_hash": "e3680216119ad233376c46ece69ae14c527021d9dd9a96f56a1c4d94d5c1cf71",
+      "created_at": "2026-04-05T06:34:45.526789Z"
+    },
+    {
+      "username": "supplier_1",
+      "role": "Supplier",
+      "salt": "9b38fa8ace68defa195b2146e2184c60",
+      "password_hash": "8588866f56de22860e33a34f715f930c465028c2abdfafc194c3eb6ec0f423a6",
+      "created_at": "2026-04-05T06:34:45.545393Z"
+    },
+    {
+      "username": "supplier_2",
+      "role": "Supplier",
+      "salt": "7cdf068462d09a98d848dcab3ee7dcd8",
+      "password_hash": "8717d6d339c2063392326985c3627e18e6c8dc672db98ffa39f4d05c4c76b333",
+      "created_at": "2026-04-05T06:34:45.558835Z"
+    },
+    {
+      "username": "bank_1",
+      "role": "Bank",
+      "salt": "d2319ceb8dc6fe0db499048a0f214233",
+      "password_hash": "55bf1a35824f9d84bde1f68c1664de115c7612585ea3ceebc898b9313b6093c6",
+      "created_at": "2026-04-05T06:34:45.571805Z"
+    },
+    {
+      "username": "bank_2",
+      "role": "Bank",
+      "salt": "ec1bad5ed63a3b32bd040ec03d9c3e9e",
+      "password_hash": "8e30670be1ceaab2e3527a5a3ab43d425e0c43a1f1ac87d8c79e559b8eadbaf0",
+      "created_at": "2026-04-05T06:34:45.583449Z"
     }
   ]
 }

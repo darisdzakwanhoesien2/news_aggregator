@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "username": "ukm_1",
+      "password": "password_1",
+      "role": "UKM"
+    },
+    {
+      "username": "ukm_2",
+      "password": "password_2",
+      "role": "UKM"
+    },
+    {
+      "username": "supplier_1",
+      "password": "password_1",
+      "role": "Supplier"
+    },
+    {
+      "username": "supplier_2",
+      "password": "password_2",
+      "role": "Supplier"
+    },
+    {
+      "username": "bank_1",
+      "password": "password_1",
+      "role": "Bank"
+    },
+    {
+      "username": "bank_2",
+      "password": "password_2",
+      "role": "Bank"
+    }
+  ]
+}
