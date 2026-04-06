@@ -1,0 +1,401 @@
+=== Document: CSSA ESG support Document 2023.pdf ===
+--- Document JSON Page 0 ---
+#ServicioDeExcelencia
+
+# ESG Support Document 2023
+
+
+--- Document JSON Page 1 ---
+Governance & Economic Dimension
+
+## 1.3 Materiality
+
+### 1.3.3 Materiality Metrics for Enterprise Value Creation
+
+Environmental Management, Omnichannel and Innovation, and Visitors' Experience, considered as material topics, have targets related to executive compensation.
+
+## 1.4 Risk & Crisis Management
+
+### 1.4.1 Risk Governance
+
+Rafael Fernández, member of the board of Cencosud Shopping have 16 years of experience in risk management.
+
+### 1.4.2 Risk Management Process
+
+The Cencosud Shopping group's risk management model is supported over two documents recently refreshed and approved by de bord of directors: a policy with the general roles of the different stakeholders and a procedure with details definitions, like risk tolerance, impact and likelihood metrics, among others.
+
+The model starts with the inherent identification and evaluation by the bord of directors. Thus, the model only considers the most relevant topics for the analysis and treatment for risk procedures, in order to the Company's objectives and the industry environment. In the end, the process output is a residual risk map and the response plans for each critical risk.
+
+### 1.4.3 Emerging Risks
+
+Complementing what we communicate in our Annual Report 2022, we present two emerging risks identified:
+
+| | Description | Impact | Mitigation actions |
+| --- | --- | --- | --- |
+| Changing social context | The role of Shopping Centers has been changing not only due to generational and consumer changes, but also by the sociopolitical context that affects our region. | Changes in customer consumption habits can lead to a lower flow of public in shopping centers, which leads to loss of tenants. Likewise, the trends point towards digitization, which could add new competitors, making it necessary to review the business model. | 1. Given the changing habits of the end customer and a dynamic competitive scenario, we focused on an experience value proposition, w/ complementary services giving differentiating proposal.
+2. Customer Satisfaction is measured monthly (CSAT&NPS) and action plans associated with the results. Both measurements and plans presented to Executive Committee.
+3. Construction of a "Shopping customer" profile is promoted, allowing a more complete and proactive knowledge of the final customer.
+4. We work to be at the forefront and follow the future trends of shopping centers, |
+
+2
+
+
+--- Document JSON Page 2 ---
+| | | | putting experience at the center, seeking to integrate the community, and context.
+5. Omnichannel strategy has been strengthened, focused on improving the experience of our customers and tenants.
+6. All reinforced by a portfolio with the best locations and a commercial mix in line with visitor expectations. |
+| --- | --- | --- | --- |
+| Digital transformation | Greater digitization accompanied by changes in consumer behavior and habits has a direct impact on our business of shopping centers. | Our shopping centers depends on the operation of commerce and its physical channels, but the increase in digital businesses could cause the flow to stores to decrease more and more, causing to transform and adapt. However, this situation also represents the opportunity to explore and develop new services that adapt to the needs of customers. | The Company has developed services that complement the value proposition of the shopping center, such as the implementation of mixed work and study spaces, rest areas and lactation rooms, as well as the custody service and delivery of purchases to the home of "Hands Free" customers. Along with the above, the "Mi Mall" app was implemented with solutions such as parking charges, Wi-Fi networks, among others. |
+
+## 1.5 Business Ethics
+
+### 1.5.3 Corruption & Bribery
+
+The company does not make contributions and donations as a means of bribery and corruption.
+
+### 1.5.4 Codes of Conduct: Systems/ Procedures
+
+In addition to what we communicate in our Integrated Annual Report 2022, about compliance linked to employee remuneration and employee performance appraisal systems integrates compliance/codes of conduct, we consider in Cencosud and Cencosud Shopping a procedure where each collaborator is given the Code of Ethics at the time of entry or, failing that, it is sent by file, then the collaborator must sign the document called "Letter of adherence to the Code of Ethics", which indicates "I certify that I have read the company's Code of Ethics and that I understand the importance and context of the rules contained herein...", this information is stored in the virtual folder of each worker.
+
+Furthermore, the Code of Ethics is fully incorporated into the Internal Order, Hygiene and Safety Regulations of the companies that make up the Cencosud Group (including Cencosud Shopping), in order to safeguard and consider for the purposes of the Labor Code any breach. This can affect performance evaluations, and therefore, employee remuneration (bonuses).
+
+Finally, the Company has a communication campaign of ten ethical commitments that we disseminate every month, which includes mailing, posters, use of TV screens, computer screen savers, information through WhatsApp to reach all employees, this communication campaign includes the main issues addressed by our Code of Ethics, which are: "Ensure fair and equitable treatment with our employees,
+
+
+--- Document JSON Page 3 ---
+suppliers and customers", "Do not discriminate under any circumstances", among others. Finally, non-compliance with our Code of Ethics implies sanctions contemplated in the law.
+
+## 1.5.5 Reporting on breaches
+
+In addition to what we communicate in our Integrated Annual Report 2022, we report breaches against our Codes of Conduct:
+
+| Reporting areas | Number of breaches in 2022 |
+| --- | --- |
+| Customer Privacy Data | 0 |
+| Conflicts of Interest | 0 |
+| Money Laundering or Insider trading | 0 |
+
+## 1.6 Policy Influence
+
+### 1.6.1 Contributions & Other Spending
+
+Cencosud Shopping did not make contributions to political campaigns, political, lobby or commercial organizations, or any other tax-exempt group in the last fiscal year.
+
+## 1.7 Supply Chain Management
+
+### 1.7.2 Supplier ESG Program
+
+In addition to what we inform in our Annual Report 2022, we make explicit that suppliers are excluded from contracting if they cannot achieve minimum ESG and other requirements within a set timeframe. Also, the ones with better ESG performance are preferred by applying a better score in supplier selection and contract awarding.
+
+### 1.7.6 KPIs for Supplier Assessment and Development
+
+In addition to what we inform in our Annual Report 2022, Cencosud Shopping achieved 68 suppliers assessed via desk assessments.
+
+## 1.8 Tax Strategy
+
+### 1.8.1 Tax Strategy and Governance
+
+Cencosud S.A. have a tax strategy applicable to all the group. Since Cencosud Shopping is part of the group, it is governed by the same policy, which we detail below:
+
+Cencosud group's tax policy aligns with the Company's mission, values, and the commitments stated in its Code of Ethics. Consistent with this, the Company complies with all current tax laws and regulations, understanding that tax payments contribute to its positive social impact in all countries where it operates.
+
+Fiscal decisions are adopted responsibly, with a reasonable interpretation of tax regulations, maintaining an alignment with the economic activities of Cencosud's different businesses.
+
+The teams and areas responsible for reviewing and approving the Company's tax strategy include: Finance and Administration Management -based on proposals made by the Tax Committee-, comprising the Corporate CFO, the Regional Tax Manager, and the Corporate Accounting Manager. Exceptionally, it may include the Business Managers, Country Managers, Country CFO, and/or Legal Manager.
+
+
+--- Document JSON Page 4 ---
+Among other tasks, the goal of this team is to:
+
+- Review and communicate situations that may involve tax or reputational risks (due to issues related to this matter) at the Group level.
+- Propose and assess restructurings measures.
+- Inform about decisions made and the status of tax litigations, both eventual and current, that may impact the Financial Statements.
+
+The tax strategy may undergo modifications in the case of regulatory changes, Board of Directors or CEO requests, or other situations that merit its update and/or review.
+
+It is important to note that the Company's tax structure does not seek to transfer value creation to low-tax jurisdictions, or use tax structures without commercial substance or secret jurisdictions, and does not operate in regions considered to be tax havens. In this sense, Cencosud is committed to always doing the right thing, honoring this promise through consistent and coherent actions.
+
+In order to maintain corporate probity, in the event of any question arising in regard to tax regulation interpretations, the Company seeks expert advice or raises said questions to tax authorities, thereby supporting and ensuring compliance.
+
+## Environmental Dimension
+
+### 2.1 Environmental Policy & Management Systems
+
+#### 2.1.3 EMS: Certification / Audit / Verification
+
+Cencosud Shopping do internal audits in shopping centers, where a control matrix is applied to each center visited. Particularly for environmental issues, there are the following controls considered:
+
+- Review of monthly statements of non-hazardous waste (SINADER).
+- Review of certificates delivered by suppliers for the removal of waste that has been carried out (cleaning of greasy chambers).
+- Review of annual declaration of emissions F138 (RETC).
+- Physical inspection of the equipment declared in F138.
+- Review of the existence of dispatch guides issued by Recupac, related to the removal of paper and cardboard.
+- Review of samples from commercial premises for each center that is visited, verifying that they have the oil withdrawal certificates with their final disposal.
+
+In 2022, the coverage of this internal audits, with a 66% GLA (considering Chile, Perú and Colombia).
+
+### 2.3 Resource Efficiency and Circularity
+
+#### 2.3.5 Building Certification & Benchmarking
+
+Costanera Center Building has the Certification LEED GOLD, equivalent to 7.49% of the total m² built as of December 31, 2022.
+
+
+--- Document JSON Page 5 ---
+6
+
+## 2.4 Waste
+
+### 2.4.2 Construction Waste Management
+
+Since 2022, we have included in the bidding process for suppliers associated with construction processes, taking charge of the waste generated on site in order to promote an eco-efficient process from the beginning, promoting a circular economy. This is included in the demolition and disassembly processes of large structures in our campaigns, requiring the associated waste mitigation certificates for producers.
+
+We are also developing a strategy to control and reduce the amount of construction and demolition waste from the buildings we build. In addition, we align ourselves with current regulations to respect environmental impacts and segregate them correctly.
+
+We consider the following plans for the control and reduction of waste in construction:
+
+- Waste management plans are part of all our projects as a fundamental part of the eco-efficient operations strategy and this is also added to new projects.
+- We are in the process of implementation, the bidding conditions will require that the contractor companies implement training on waste management techniques.
+- Waste management in the separation of waste in 100% of our operations, which applies to new projects.
+
+## 2.6 Climate Strategy
+
+### 2.6.3 Climate-Related Management
+
+| Position | Incentivized KPIs |
+| --- | --- |
+| CEO | The KPIs associated with climate change are relevant issues associated with the weekly Executive Committee, as part of the CEO's agenda, and other senior executives such as the CFO and IR. This is a commitment and seal that the CEO wants to leave to throughout the company and contributes to his career as a leader. |
+| Regional Operation Manager | Sustainability KPIs have a weight in total incentives. This is encouraged through corporate and public recognition, in addition to have a monetary impact. Climate change has focused on actions related to water and energy efficiency in our operations. |
+| New Business Manager and team in charge | Project associated with the promotion of reduction of Co2 emissions and promotion of eco-friendly initiatives. It directly impacts monetary incentives related to the annual KPIs. In addition, all new projects have an environmental evaluation, in order to anticipate current legislation and comply with regulations. |
+| Shopping Centers Managers and Operations Deputy Managers | The KPIs directly influence the strategic objectives of the year of this positions. These are encouraged through monetary incentives and, corporate and public recognition. Climate change has focused on actions related to water and energy efficiency of operations. |
+| Regional Customer Manager, Sustainability Assistant Manager and Sustainability Coordinator | The Sustainability Area has climate-related incentives: KPIs associated with the implementation of strategic environmental issues in the different areas of the company and the management and reduction of its eco-efficiency indicators. This support actions related to climate change to promote sustainability in campaigns for different stakeholders, with the definition and implementation of the internal and external communications (ESG) strategy, associated with disseminating the different Sustainability Milestones with a Climate focus. |
+
+
+--- Document JSON Page 6 ---
+7
+
+# Social Dimension
+
+## 3.1 Labor Practice Indicators
+
+### 3.1.1 Discrimination & Harassment
+
+Trainings for all employees on discrimination and harassment in the workplace:
+
+- Colombia has trainings on discrimination and harassment.
+- Chile has training through talks, related to the Code of Ethics and fundamental rights. Therefore, the contents considered are discrimination and labor and sexual harassment. In 2022, 116 employees of Shopping Cencosud participated.
+- Peru does not have training on this topics.
+
+### 3.1.2 Workforce Breakdown: Gender
+
+| Indicator 2022 | % |
+| --- | --- |
+| Share of women in total workforce (as % of total workforce) | 26.80 |
+| Share of women in all management positions, including junior, middle and top management (as % of total management positions) | 20.16 |
+| Share of women in junior management positions, i.e. first level of management (as % of total junior management positions) | 19.26 |
+| Share of women in top management positions, i.e. maximum two levels away from the CEO or comparable positions (as % of total top management positions) | 40.00 |
+| Share of women in management positions in revenue-generating functions (e.g. sales) as % of all such managers (i.e. excluding support functions such as HR, IT, Legal, etc.) | 75.00 |
+| Share of women in STEM-related positions (as % of total STEM positions) | 62.50 |
+| Coverage | 100 |
+
+## 3.2 Human Rights
+
+### 3.2.2 Human Rights Due Diligence Process
+
+In 2022, we participated in Cencosud's Human Rights Due Diligence evaluation to identify areas of potential risk. All Cencosud business units participated in this process (including Cencosud Shopping).
+
+#### 1. Process and methodology.
+
+To implement and provide a framework for reporting on this topic at the corporate level, the United Nations Guiding Principles (UNGP) Reporting Framework was used as a guide, where:
+
+- The due diligence process begins with the identification of current adverse effects and potential impacts on human rights in which the company may be involved. The goal is to understand the negative impacts on specific stakeholders, given an operational context.
+- Based on the universe of 32 human rights listed in the UNGP framework and together with the universal rights declared by the UN in April 2022 "Right to a clean, healthy and sustainable environment", a short list of 17 human rights grouped into 5 categories was defined in 2022 for the entire company.
+- The analysis covered various sources of information, such as the review of primary and secondary sources of the company and industry, corporate documentation and interviews in Human
+
+
+--- Document JSON Page 7 ---
+Resources areas (from Cencosud Corporate and from each business unit, including Cencosud Shopping), Sustainability, Audit and Legal), with the objectives of:
+
+- Identify and categorize human rights at potential risk.
+- Describe the potential human rights affected and their risks.
+- Define the approach through an evaluation of potential specific risks based on the factors of Gravity and Probability where the degree of each of these is determined.
+- Determine current management and gaps.
+- Establish plans for improvement and closing gaps.
+
+- Scope of operations: Own Operations.
+- Groups of interest considered: Employees from all business units (Central Administration, Cencosud Shopping, Supermarkets, Home Improvement and Construction, Department Stores).
+
+## 3.2.4 Human Rights Mitigation & Remediation
+
+- Process implemented to mitigate human rights:
+
+The Company has a communication campaign of ten ethical commitments that we disseminate at the regional level (Chile, Argentina, Brazil, Colombia and Peru), which includes mailing, posters, use of TV screens, screen protectors of computers, information through WhatsApp, to reach all employees of business units (including Cencosud Shopping).
+
+This communication campaign includes the main issues addressed by our Code of Ethics and related to our Human Rights Commitment, for example, "Ensure fair and equitable treatment with our employees, suppliers and customers", "Do not discriminate under any circumstances", among others. Finally, non-compliance with our Code of Ethics implies sanctions contemplated in the law.
+
+In this line, our Code of Ethics has an Ethics line where anyone who has access to our channels (employees, customers, suppliers, etc.) can report irregularities. These complaints are investigated by an independent team, who have the power to take action depending on the seriousness of the facts they were able to prove. The team that carries out the investigation must make inquiries (interviews, document review, television camera reviews, etc.), where it must ensure: a. impartiality (objectivity avoiding prejudices), b. bilaterality (that the parties are heard), c. voluntary (the participation in the investigation is voluntary), d. conclusiveness (every complaint once initiated must end with a report), e. confidentiality, Consistency (the conclusions must be justified with evidence), f. notarization (the stages of the process are in writing) and g. speed (conclusion in the shortest possible time). Once the complaint is made, a report must be submitted to the Corporate Internal Audit Management, guaranteeing the independence of this process.
+
+- The number of sites with mitigation plans are 40, including shopping centers and Central Administration.
+- To date, there are no real human rights violations, therefore no remediation actions have been implemented.
+
+## 3.3 Human Capital Development
+
+### 3.3.2 Employee Development Programs
+
+We report the best 2 programs in 2022 that have been developed to upgrade and improve employee skills:
+
+
+--- Document JSON Page 8 ---
+| Description of the program | LinkedIn Learning | Digital Marketing Analytics |
+| --- | --- | --- |
+| Description of the program | Digital self-learning tool focused on Cencosud Group administration positions. This program is transversal to all the business units, considering Cencosud Shopping. Learning paths are used for specific positions, for example, to complement the onboarding experience for new collaborators, like young talent development. Some of these learning pathways are: "Social Skills", "Cognitive Skills", "Methodical Skills" and "Soft and Communication Skills".
+Another example is for Talent Attraction positions with 8 different courses and we also deliver a license and suggest a route to all new management interns, with 6 courses. In addition, this platform has more than 20,000 courses taught by industry specialists, leading teachers and opinion leaders. This platform makes it possible to generate value in the personal brand of each collaborator by sharing in their network the skills that they are acquiring by browsing and developing the courses. Some of the most successful courses are: 
+"How and why to develop a continuous learning mindset" 
+"Learn data analysis" 
+"Power BI for beginners" 
+"How to have difficult conversations" 
+"Fundamentals of Project Management" | The objective of the course was to introduce the use of a series of digital tools that allow us to approach the optimization of investment in advertising, in addition to improving our website in a scientific way, in order to learn how to increase business sales. Marketing managers in charge of the campaigns of the different shopping centers participated in this hybrid course (eclass and face-to-face modality) certified by the Adolfo Ibáñez University. The course consisted of 9 units and a final exam. The contents were: Unit 1: Introduction, Unit 2: Conceptual bases, Unit 3: Introduction to Google Analytics, Unit 4: Google Analytics applied with real bases, Unit 5: Media planning, setting of technical goals and return on investment, Unit 6: Scientific optimization method, Unit 7: Other analytical tools, Unit 8: Building and reading dashboards, Unit 9: Live class, Final exam: Final exam |
+| Description of program objective/business benefits | Through this self-learning model, Cencosud Shopping promotes the development of skills that employees require to generate a positive impact on their productivity and contribution to the company's results.
+Likewise, within the training budget strategy, bets with this tool on volume and supply for an administration of 70 employees. 
+With this training offer, we seek to develop and retain the organization's talents, giving them the opportunity to strengthen their skills and improve their performance, impacting their permanence and contribution to the company's results. With this, we also generate internal mobility with people who are better prepared for the challenges that the organization faces. | The objective for us was for the marketing managers of the different shopping centers to integrate the analytics of the data of the marketing actions into their work. We hoped that our marketing managers could learn to identify, collect, study and assess the data we have available to correctly interpret it and measure the impact and behavior of the people who visit our website. Specifically, it was intended that the participants learn the following: - Use of digital tools that allow the optimization of investment in advertising - Website improvement in order to learn how to increase business sales. - Obtaining useful data for decision-making in digital campaigns. The benefit for the company is being able to optimize marketing efforts through tools that will serve when making decisions when evaluating marketing campaigns or actions in Cencosud Shopping centers. In addition, this will also allow to increase sales and reduce unnecessary expenses. |
+| Quantitative Impact of business benefits | % of satisfied employees of 82%, % license activation: 63%, Media e-learning hours: 1 hour, Increase leadership skills and career development, Increase in internal mobility, Increase in productivity, Decrease turnover, Improve in decision making (time and costs), and Increase in motivation from less frustration.
+5 most viewed courses: "How to manage the potential of your high capacity". "Learn to use LL". "How and why to develop a continuous learning mindset"; "Scrum with a coffee"; and "Collaborative Leadership" | % of satisfied employees of 82%, Optimization of investment in advertising, increase business sales, decision-making in digital campaigns, Increase in internal mobility, Increase in productivity, Decrease turnover, Improve in decision making (time and costs), and Increase in motivation from less frustration. |
+| % of total employees participating in the program | 9% | 1% |
+
+
+--- Document JSON Page 9 ---
+10
+
+# 3.4 Talent Attraction & Retention
+
+## 3.4.2 Type of Performance Appraisal
+
+To complement what we inform in our Annual Report 2022, the next types of performance appraisals:
+
+1. Management by objectives
+2. Team-based performance appraisal
+3. Agile conversations
+
+The frequency of the of performance appraisals are at least yearly.
+
+## 3.4.4 Employee Support Programs
+
+In addition to what we communicate in our Integrated Annual Report 2022, we also have the following programs and policies in place:
+
+### Employee Benefits
+
+- Workplace stress management:
+- Chile: It has the Emotional Well-being Program – SISA: Promote the exercise of personal leadership through the development of their emotional well-being. delivered practical tools that facilitate self-management of emotions. The target audience was Store Managers. There is also a Mental and Emotional Well-being program (Cencosud): Offer collaborators a human space, contributing to their needs, interests and motivations in the dimensions of mental and emotional health, upbringing and personal management. The target audience is the entire organization.
+- Colombia: There are programs with different periodicities during the year, such as physical and mental active breaks, comprehensive health day, training programs, webinars, support compensation funds in health and entertainment activities.
+
+### Work Conditions
+
+- Part-time working options:
+- Chile: The WellOne application (still active) was made available to employees, which allows them to access health and exercise programs. Another benefit that existed for six months was access to the Raak+ web, which allows them to carry out exercise routines.
+- Colombia: Within the Wellness plan, we have the “Cencolympics”, which is a competition program and sports activities such as Soccer, Bowling, Athletics, etc., “Cencopaseos”, which are one-day activities for integration among employees, twice a year in the administration it carries out health week, with different human care specialties, and HR fairs focused on the integral well-being of employees are held in the operation.
+
+### Work Conditions
+
+- Part-time working options:
+- Chile, Colombia and Peru have employees with this work format. Also, we give reduced hours for mothers during the first year of their son or daughter’s life.
+
+### Family benefits
+
+- Childcare facilities or contributions:
+- Chile: Employees can opt for a nursery bonus.
+- Colombia: We currently do not have daycare programs.
+
+- Breast-feeding/lactation facilities or benefits:
+
+
+--- Document JSON Page 10 ---
+- Chile: Employees of the Central Administration are granted an additional hour to the legal leave for lactation, after the parental leave for the main caregiver, for a period of two months.
+
+- Paid parental leave for the primary caregiver:
+- Chile: The health system pays for Maternity leave (18 weeks) and not the company. However, the health system puts a maximum limit on the amount women receive monthly. For some women, the maximum payment is below their normal salary. The company, as a benefit to mothers, pays the salary difference to the employee in order to ensure their employees continue to receive their full salary.
+- Colombia: By legal regulations of the country there is a maternity leave for a period of 18 weeks.
+
+- Paid parental leave for the non-primary caregiver:
+- Chile: We grant 5 more days (additional to the 5 legal days) corresponding to the birth of a child for parents and secondary caregivers to encourage co-parenting.
+- Colombia: For the father we have a benefit of 2 weeks.
+
+- Paid family or care leave beyond parental leave (care for a child, spouse, partner, dependent, parent, sibling, or other designated relation with a physical or mental health condition):
+- Chile: Central Administration employees can request a reduction in working hours to care for a loved one in special situations that warrant it. Also, with "Cuponera Mi Tiempo Libre", we give each year 5 administrative days off.
+- Colombia: There are no permits established in this regard.
+- Peru: We have "Cuponera Mi Tiempo Libre" in which employees have a number of days off that they can opt for time in family activities, to take care of a relative, adoption, mourning, etc.
+
+## 3.5 Occupational Health & Safety
+
+### 3.5.3 Absentee Rate
+
+We confirm what was communicated in our Annual Report 2022:
+
+| Absentee Rate | Unit | FY 2022 |
+| --- | --- | --- |
+| Employees | % of total days scheduled | 3,4 |
+| Data coverage | % of employees | 100 |
+
+## 3.6 Customer Relationship Management
+
+### 3.6.1 Tenant Health & Wellbeing Program
+
+We have a Tenant's Health & Wellbeing program that covers the following elements:
+
+1. Assessments to identify risks and opportunities for improving the health and wellbeing of tenants:
+- Testing of emergency and evacuation systems at least 2 times a year in order to prepare and train our tenants to reduce the risk in case of an emergency.
+- An operational audit of critical aspects is carried out inside the premises, such as electrical panel conditions, fire-fighting system operation, order and cleanliness of warehouses and lofts, emergency preparation and evacuation.
+
+
+--- Document JSON Page 11 ---
+- Occupational hygiene reports are made annually, evaluating air quality, thermal comfort, lighting and noise by the managing body (Security Mutual), this with the aim of complying with the parameters established by current legal regulations.
+
+2. Integration of actions to promote the health and wellbeing of tenants:
+- Participation in the mental well-being program established by the Ministry of Health, particularly with regard to suicide prevention. Due to the increase in this type of situation, this is done by raising awareness inside shopping centers by promoting help numbers and by having personnel prepared for events associated with mental health.
+
+3. Establishment of quantitative targets and objectives to promote the health and wellbeing of tenants
+- In our strategic plan to deliver more and better information to our tenants, during 2023 an improvement has been made in the risk prevention manual for tenants, incorporating updated information, both on resources, initiatives, practices, procedures and others, focused on improving on health and safety of our tenants. It has been established that by December 2023, 100% of the tenants of our 14 shopping centers will have digitized and updated information.
+
+4. Monitoring progress towards achieving the established health and wellbeing targets:
+- A report on the activities program is made monthly in order to verify compliance with the objectives, this through the commitments established in the annual program.
+
+## 3.6.2 Tenant Health & Wellbeing Measures
+
+We have implemented the following health & wellbeing measures through the design, construction, operation of buildings and/or wellbeing programs:
+
+1. Indoor air quality:
+Maintenance is carried out according to the program established by the maintenance team for the operation of the air conditioning units arranged in each of our premises. The equipment considered in the installation complies with the amount of air volume replacement required according to regulations. Furthermore, the evaluation of air quality and thermal comfort is coordinated annually with the Administrative Body (Mutual de Seguridad).
+
+2. Water quality:
+An annual sanitization is carried out on the drinking water tanks that supply all the stores in the shopping centers. Additionally, the status, quantity and replacements are verified during the year to maintain the autonomous operation.
+
+3. Nourishment or healthy food:
+Dining rooms are available in all shopping centers, complying with all current legal regulations for these cases, to facilitate the consumption of healthier food by each worker.
+
+4. Visual comfort of daylight:
+Time channels are established to alternate daylight with artificial light depending on the time and time of year. In addition, shopping centers have large windows in order to take advantage of natural lighting during the day, complementing it with artificial light.
+
+5. Thermal comfort:
+Shopping centers have air conditioning equipment in all their premises and common areas, as well as air curtains at their entrances, this in order to regulate the thermal sensation based on the outside temperature.
+
+6. Acoustical comfort:
+The PREXOR protocol of the Ministry of Health is carried out together with the Administrative Body, where noise exposure is evaluated over what is allowed by regulations in the workplace. In the last evaluation, no exposure to noise was recorded in shopping centers.
+
+7. Mental health:
+
+
+--- Document JSON Page 12 ---
+A mental health wellness program from the Ministry of Health is promoted in all shopping centers. Additionally, we implement the next programs:
+
+- CIRT (Critical Incident Response Team): It consists of delivering an early response in psychological first aid for those tenants who were directly exposed to a critical labor incident.
+- RCIWDE (Response to critical incident without direct exposure): It consists of emotional support to workers who have seen their workplace accepted (due to damage to the infrastructure), due to the occurrence of an incident.
+- SSCC (Support in specific critical context): Provides tools and general recommendations, with the aim of promoting adaptive coping, either due to the occurrence of a specific critical situation, which does not constitute damage in the workplace or direct exposure to its workers, or, in the interest of the companies, to prepare their collaborators before possible critical scenarios occur.
+
+8. Accessibility:
+Our shopping centers have universal design in accesses, bathrooms, fitting rooms inside premises, common areas, and environment. The last implementation carried out was the application of tactile fingerprints on all fixed and emergency stairs inside the centers.
+
+Note: Physical activity and Biophilic design or connection to environment measures are not applicable.
+
+3.6.3 Customer Satisfaction Measurement 
+In addition to what we communicate in our Integrated Annual Report 2022, we report that the percentage of satisfied customers was 78% with a 62% coverage.
+
+13

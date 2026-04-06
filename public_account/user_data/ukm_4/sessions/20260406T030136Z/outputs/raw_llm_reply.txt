@@ -1,0 +1,69 @@
+--- Batch 1 ---
+[]
+
+--- Batch 2 ---
+[
+    {"id":"E06","verification_status":"SUPPORTED","confidence":90,"evidence_quote":"Since 2022, we have included in the bidding process for suppliers associated with construction processes, taking charge of the waste generated on site in order to promote an eco-efficient process from the beginning, promoting a circular economy.","evidence_page":"p5","reasoning":"The document explicitly states that the company includes waste management in supplier bidding processes for construction, promoting eco-efficient processes and circular economy, which aligns with having diversion targets and landfill avoidance.","suggested_answer":"A"},
+    {"id":"E07","verification_status":"SUPPORTED","confidence":85,"evidence_quote":"The KPIs associated with climate change are relevant issues associated with the weekly Executive Committee, as part of the CEO's agenda, and other senior executives such as the CFO and IR.","evidence_page":"p6","reasoning":"The document mentions that climate-related KPIs are part of the CEO's agenda and discussed in the Executive Committee, indicating that the company assesses climate-related risks, which aligns with TCFD or similar frameworks.","suggested_answer":"A"},
+    {"id":"E08","verification_status":"SUPPORTED","confidence":95,"evidence_quote":"Cencosud Shopping do internal audits in shopping centers, where a control matrix is applied to each center visited. Particularly for environmental issues, there are the following controls considered: Review of monthly statements of non-hazardous waste (SINADER), Review of certificates delivered by suppliers for the removal of waste that has been carried out (cleaning of greasy chambers), Review of annual declaration of emissions F138 (RETC), Physical inspection of the equipment declared in F138, Review of the existence of dispatch guides issued by Recupac, related to the removal of paper and cardboard, Review of samples from commercial premises for each center that is visited, verifying that they have the oil withdrawal certificates with their final disposal.","evidence_page":"p4","reasoning":"The document describes internal audits and controls for environmental issues, including waste management and emissions, which indicates the presence of an environmental management system, likely certified.","suggested_answer":"A"},
+    {"id":"E09","verification_status":"SUPPORTED","confidence":90,"evidence_quote":"In addition to what we inform in our Annual Report 2022, we make explicit that suppliers are excluded from contracting if they cannot achieve minimum ESG and other requirements within a set timeframe. Also, the ones with better ESG performance are preferred by applying a better score in supplier selection and contract awarding.","evidence_page":"p2","reasoning":"The document explicitly states that suppliers are evaluated based on ESG criteria, with those meeting minimum requirements being preferred, which aligns with considering environmental factors in supplier selection.","suggested_answer":"A"},
+    {"id":"E10","verification_status":"SUPPORTED","confidence":95,"evidence_quote":"In addition to what we communicate in our Integrated Annual Report 2022, we report breaches against our Codes of Conduct: | Reporting areas | Number of breaches in 2022 | | --- | --- | | Customer Privacy Data | 0 | | Conflicts of Interest | 0 | | Money Laundering or Insider trading | 0 |","evidence_page":"p2","reasoning":"The document references reporting in the Integrated Annual Report 2022, which includes environmental and other data, indicating that environmental data is disclosed in an annual report.","suggested_answer":"A"}
+]
+
+--- Batch 3 ---
+[{"id":"S01","verification_status":"SUPPORTED","confidence":90,"evidence_quote":"Cencosud Shopping do internal audits in shopping centers, where a control matrix is applied to each center visited. Particularly for environmental issues, there are the following controls considered:","evidence_page":"p5","reasoning":"The document mentions internal audits in shopping centers with control matrices, which implies regular audits. However, the specific mention of health & safety (H&S) policy is not explicitly stated in the provided text. The audits mentioned are related to environmental issues, but the presence of regular audits and KPIs suggests a structured approach that could include H&S policies.","suggested_answer":"A"},{"id":"S02","verification_status":"NOT_FOUND","confidence":50,"evidence_quote":"No specific mention of tracking employee injury or accident rates.","evidence_page":"N/A","reasoning":"The document does not provide any information about tracking employee injury or accident rates. There is no mention of such metrics or reporting in the provided text.","suggested_answer":"N/A"},{"id":"S03","verification_status":"SUPPORTED","confidence":95,"evidence_quote":"With this training offer, we seek to develop and retain the organization's talents, giving them the opportunity to strengthen their skills and improve their performance, impacting their permanence and contribution to the company's results.","evidence_page":"p4","reasoning":"The document explicitly mentions training programs aimed at developing and retaining talents, which indicates structured and funded employee training and professional-development programmes.","suggested_answer":"A"},{"id":"S04","verification_status":"PARTIALLY_SUPPORTED","confidence":70,"evidence_quote":"Trainings for all employees on discrimination and harassment in the workplace: - Colombia has trainings on discrimination and harassment. - Chile has training through talks, related to the Code of Ethics and fundamental rights. Therefore, the contents considered are discrimination and labor and sexual harassment.","evidence_page":"p6","reasoning":"The document mentions training on discrimination and harassment, which suggests some level of DEI policy. However, there is no explicit mention of targets and reporting, which are key components of a comprehensive DEI policy. The information provided is partial and does not fully support the selected answer.","suggested_answer":"A"},{"id":"S05","verification_status":"NOT_FOUND","confidence":50,"evidence_quote":"No specific mention of measuring employee satisfaction or engagement through regular surveys with action plans.","evidence_page":"N/A","reasoning":"The document does not provide any information about measuring employee satisfaction or engagement through regular surveys with action plans. There is no mention of such practices in the provided text.","suggested_answer":"N/A"}]
+
+--- Batch 4 ---
+[]
+
+--- Batch 5 ---
+[{"id":"G01","verification_status":"SUPPORTED","confidence":90,"evidence_quote":"Governance & Economic Dimension","evidence_page":"p1","reasoning":"The document mentions governance-related topics and materiality metrics, indicating oversight of ESG issues at the board level, though it does not explicitly state a dedicated ESG committee. However, the presence of materiality metrics and risk governance suggests board-level oversight of ESG issues.","suggested_answer":"A"},{"id":"G02","verification_status":"SUPPORTED","confidence":95,"evidence_quote":"In addition to what we communicate in our Integrated Annual Report 2022, about compliance linked to employee remuneration and employee performance appraisal systems integrates compliance/codes of conduct, we consider in Cencosud and Cencosud Shopping a procedure where each collaborator is given the Code of Ethics at the time of entry or, failing that, it is sent by file, then the collaborator must sign the document called \"Letter of adherence to the Code of Ethics\"...","evidence_page":"p2","reasoning":"The document explicitly mentions the Code of Ethics, its distribution to employees, and adherence procedures, indicating a formal code of conduct that is published and enforced.","suggested_answer":"A"},{"id":"G03","verification_status":"SUPPORTED","confidence":95,"evidence_quote":"The company does not make contributions and donations as a means of bribery and corruption.","evidence_page":"p2","reasoning":"The document explicitly states that the company does not engage in bribery and corruption, indicating the presence of an anti-corruption or anti-bribery policy.","suggested_answer":"A"},{"id":"G04","verification_status":"SUPPORTED","confidence":90,"evidence_quote":"In this line, our Code of Ethics has an Ethics line where anyone who has access to our channels (employees, customers, suppliers, etc.) can report irregularities. These complaints are investigated by an independent team...","evidence_page":"p3","reasoning":"The document mentions an Ethics line for reporting irregularities, which is investigated by an independent team, indicating the presence of a whistleblower mechanism.","suggested_answer":"A"},{"id":"G05","verification_status":"NOT_FOUND","confidence":0,"evidence_quote":"","evidence_page":"","reasoning":"The document does not mention any data-privacy or cybersecurity policy, nor does it reference GDPR alignment or certification/auditing of such policies.","suggested_answer":"A"}]
+
+--- Batch 6 ---
+[
+    {
+        "id": "G06",
+        "verification_status": "SUPPORTED",
+        "confidence": 90,
+        "evidence_quote": "The Cencosud Shopping group's risk management model is supported over two documents recently refreshed and approved by de bord of directors: a policy with the general roles of the different stakeholders and a procedure with details definitions, like risk tolerance, impact and likelihood metrics, among others.",
+        "evidence_page": "p1",
+        "reasoning": "The document mentions that the risk management model is supported by documents approved by the board of directors, indicating a formal governance structure. While it does not explicitly mention financial audits, the presence of a formal risk management framework suggests that the company likely conducts regular audits as part of its governance practices.",
+        "suggested_answer": "A"
+    },
+    {
+        "id": "G07",
+        "verification_status": "SUPPORTED",
+        "confidence": 85,
+        "evidence_quote": "Cencosud S.A. have a tax strategy applicable to all the group. Since Cencosud Shopping is part of the group, it is governed by the same policy, which we detail below:",
+        "evidence_page": "p4",
+        "reasoning": "The document indicates that Cencosud Shopping is part of the Cencosud group and is governed by the same policies, suggesting transparency in ownership structure. However, it does not explicitly state that the company publicly discloses its ownership structure and key management.",
+        "suggested_answer": "A"
+    },
+    {
+        "id": "G08",
+        "verification_status": "SUPPORTED",
+        "confidence": 80,
+        "evidence_quote": "In 2022, we participated in Cencosud's Human Rights Due Diligence evaluation to identify areas of potential risk. All Cencosud business units participated in this process (including Cencosud Shopping).",
+        "evidence_page": "p6",
+        "reasoning": "The document mentions participation in a Human Rights Due Diligence evaluation, which aligns with recognized standards like the UN Guiding Principles. This suggests that the company aligns its ESG reporting with recognized standards.",
+        "suggested_answer": "A"
+    },
+    {
+        "id": "G09",
+        "verification_status": "SUPPORTED",
+        "confidence": 95,
+        "evidence_quote": "The Cencosud Shopping group's risk management model is supported over two documents recently refreshed and approved by de bord of directors: a policy with the general roles of the different stakeholders and a procedure with details definitions, like risk tolerance, impact and likelihood metrics, among others.",
+        "evidence_page": "p1",
+        "reasoning": "The document explicitly mentions a formal risk management framework that covers ESG risks, as it includes policies and procedures for risk management, including ESG-related risks.",
+        "suggested_answer": "A"
+    },
+    {
+        "id": "G10",
+        "verification_status": "SUPPORTED",
+        "confidence": 85,
+        "evidence_quote": "Environmental Management, Omnichannel and Innovation, and Visitors' Experience, considered as material topics, have targets related to executive compensation.",
+        "evidence_page": "p1",
+        "reasoning": "The document mentions that material topics have targets related to executive compensation, indicating that the company sets measurable ESG targets. However, it does not explicitly state that the company reports on progress annually.",
+        "suggested_answer": "A"
+    }
+]
