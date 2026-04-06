@@ -1,0 +1,13 @@
+{
+  "doc_id": "doc_001",
+  "original_name": "ESG Supporting Document IFS 2024.pdf",
+  "filename": "ESG Supporting Document IFS 2024.pdf",
+  "size": 905592,
+  "uploaded_at": "2026-04-05T15:29:35.982751Z",
+  "ocr_status": "done",
+  "ocr_completed": "2026-04-06T02:12:21.319180Z",
+  "ocr_bundles": [
+    "ocr/ESG Supporting Document IFS 2024_pdf"
+  ],
+  "ocr_error": "OCR ran but produced no output files in /Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/ukm_3/sessions/20260405T152914Z/documents/doc_001/ocr. Files found: []. Check MISTRAL_API_KEY and Mistral API quota."
+}

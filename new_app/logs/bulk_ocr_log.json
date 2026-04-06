@@ -16,5 +16,11 @@
     "pages": 102,
     "json_output": "/Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/new_app/data/thesis_dataset/SR_Bundamedik_2024_pdf/ocr_result.json",
     "time": "2026-04-02 12:59:06"
+  },
+  "ESG Supporting Document IFS 2024.pdf": {
+    "status": "done",
+    "pages": 18,
+    "json_output": "/Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/new_app/data/thesis_dataset/ESG Supporting Document IFS 2024_pdf/ocr_result.json",
+    "time": "2026-04-06 09:03:07"
   }
 }

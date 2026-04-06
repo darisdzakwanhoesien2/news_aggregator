@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "username": "ukm_3",
+      "role": "UKM",
+      "salt": "4e09895bfbd5e54289e5f84908784918",
+      "password_hash": "0f13f60dc6f509e353880a398d51ccd81f379390b8da1e4022d2a64e7039bc53",
+      "created_at": "2026-04-05T15:28:53.282393Z"
+    }
+  ]
+}

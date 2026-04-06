@@ -1,6 +1,6 @@
 """
 ────────────────────────────────────────────────────────────────────────────────
-MCQ LLM Verification & Scoring Page
+MCQ LLM Verification & Scoring Page  (v2 – stable rewrite)
 ────────────────────────────────────────────────────────────────────────────────
 """
 
@@ -8,13 +8,11 @@ import html
 import json
 import os
 import re
-import shutil
 import time
 from datetime import datetime
 from pathlib import Path
 from typing import List
 
-import base64
 import pandas as pd
 import requests
 import streamlit as st
@@ -44,10 +42,6 @@ OPENROUTER_API_URL    = os.getenv("OPENROUTER_API_URL", "https://openrouter.ai/a
 OPENROUTER_MODELS_URL = os.getenv("OPENROUTER_MODELS_URL", "https://openrouter.ai/api/v1/models")
 DEFAULT_MODEL         = "meta-llama/llama-3.1-8b-instruct:free"
 
-MISTRAL_API_KEY = os.getenv("MISTRAL_API_KEY", "")
-MISTRAL_BASE    = "https://api.mistral.ai/v1"
-MISTRAL_HEADERS = {"Authorization": f"Bearer {MISTRAL_API_KEY}"} if MISTRAL_API_KEY else {}
-
 CHOICE_SCORE           = {"A": 3, "B": 2, "C": 1, "D": 0, "": 0}
 MAX_SCORE_PER_QUESTION = 3
 
@@ -68,6 +62,170 @@ def _load_esg_mcq() -> list[dict]:
 ESG_MCQ: list[dict] = _load_esg_mcq()
 
 # ══════════════════════════════════════════════════════════════════════════════
+# VERIFICATION SYSTEM PROMPT
+# ══════════════════════════════════════════════════════════════════════════════
+
+VERIFICATION_SYSTEM_PROMPT = """
+You are an objective verifier comparing multiple-choice answers against an OCR-extracted document.
+Return a JSON array where each element corresponds to one input question ID and has the following keys:
+- id: (string) the question ID from the input
+- verification_status: one of ["SUPPORTED","PARTIALLY_SUPPORTED","NOT_FOUND","CONTRADICTED"]
+- confidence: numeric 0-100 estimating certainty of the verification
+- evidence_quote: short quote (<=250 chars) from the OCR that justifies the verdict, or "" if none
+- evidence_page: page identifier (e.g., "page_0003.md" or "Document JSON Page 2") where evidence was found, or "" if none
+- reasoning: plain-text explanation of how you reached the decision
+- suggested_answer: if the original selected answer seems wrong, suggest one of "A","B","C","D", or null
+
+Important:
+- Output only a single JSON array (or a fenced ```json block containing the array). Avoid extra commentary.
+- Be conservative: when evidence is partial, prefer PARTIALLY_SUPPORTED with a moderate confidence.
+- Use NOT_FOUND when no supporting text is present, not when contradictory evidence exists.
+"""
+
+# ══════════════════════════════════════════════════════════════════════════════
+# DATA HELPERS
+# ══════════════════════════════════════════════════════════════════════════════
+
+def load_json(path: Path):
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except Exception:
+        return None
+
+
+def save_json(p: Path, data):
+    p.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def safe_name(name: str) -> str:
+    if not name:
+        return "file"
+    return re.sub(r'[\\/*?:"<>|]', "_", name).strip()
+
+
+def is_table_line(line: str) -> bool:
+    return line.strip().startswith("|") or bool(re.match(r"^\s*\|.*\|\s*$", line))
+
+
+def clean_markdown(md: str) -> str:
+    md = html.unescape(md)
+    md = re.sub(r"^\s*!\[[^\]]*\]\([^\)]+\)\s*$\n?", "", md, flags=re.M)
+    md = re.sub(r"data:image\/[a-zA-Z]+;base64,[A-Za-z0-9+/=\s]+", "", md)
+    md = re.sub(r"(\w)-\n(\w)", r"\1\2", md)
+    lines        = md.splitlines()
+    out_lines: List[str] = []
+    inside_table = False
+    for i, line in enumerate(lines):
+        stripped = line.strip()
+        if is_table_line(line):
+            inside_table = True
+            out_lines.append(line.rstrip())
+            continue
+        else:
+            if inside_table and stripped == "":
+                inside_table = False
+        if re.match(r"^(#{1,6}\s)|^(\s*[-*+]\s)|^>\s|^---\s*$|^\s*\d+\.\s", line):
+            out_lines.append(line.rstrip())
+            continue
+        if stripped == "":
+            out_lines.append("")
+            continue
+        next_line = lines[i + 1] if i + 1 < len(lines) else ""
+        if (
+            next_line.strip() == ""
+            or re.match(r"^(#{1,6}\s)|^(\s*[-*+]\s)|^>\s|^\s*\d+\.\s", next_line)
+            or is_table_line(next_line)
+        ):
+            out_lines.append(line.rstrip())
+        else:
+            out_lines.append(line.rstrip() + " ")
+    joined = "\n".join(out_lines)
+    joined = re.sub(r"[ \t]{2,}", " ", joined)
+    joined = re.sub(r"\s+([,.;:!?])", r"\1", joined)
+    joined = re.sub(r"\n{3,}", "\n\n", joined)
+    return joined.strip() + "\n"
+
+# ══════════════════════════════════════════════════════════════════════════════
+# OCR HELPERS
+# ══════════════════════════════════════════════════════════════════════════════
+
+def collect_ocr_text(source_dir: Path, company_base: Path | None = None) -> str:
+    texts: list[str] = []
+    seen_paths: set  = set()
+
+    # 1. ocr_result.json
+    json_path = source_dir / "ocr_result.json"
+    if json_path.exists():
+        data = load_json(json_path)
+        if data and isinstance(data.get("pages", []), list):
+            for page in data["pages"]:
+                idx = page.get("index", 0)
+                md  = page.get("markdown", "").strip()
+                if md:
+                    texts.append(f"--- Document JSON Page {idx} ---\n{clean_markdown(md)}")
+            if texts:
+                return "\n\n".join(texts)
+
+    # 2. pages/*.md
+    pages_dir = source_dir if source_dir.name == "pages" else source_dir / "pages"
+    if pages_dir.exists() and pages_dir.is_dir():
+        for md_file in sorted(pages_dir.glob("*.md")):
+            if md_file.resolve() in seen_paths:
+                continue
+            try:
+                content = md_file.read_text(encoding="utf-8").strip()
+                if content:
+                    try:
+                        rel = md_file.relative_to(company_base) if company_base else md_file.name
+                    except ValueError:
+                        rel = md_file.name
+                    texts.append(f"--- Document: {rel} ---\n{content}")
+                    seen_paths.add(md_file.resolve())
+            except Exception:
+                continue
+
+    # 3. Broad fallback: nested pages/ dirs
+    if not texts:
+        for sub_pages in source_dir.rglob("pages"):
+            if sub_pages.is_dir():
+                for md_file in sorted(sub_pages.glob("*.md")):
+                    if md_file.resolve() in seen_paths:
+                        continue
+                    try:
+                        content = md_file.read_text(encoding="utf-8").strip()
+                        if content:
+                            texts.append(f"--- Document: {md_file} ---\n{content}")
+                            seen_paths.add(md_file.resolve())
+                    except Exception:
+                        continue
+
+    # 4. Final fallback: any ocr_result.json recursively
+    if not texts:
+        for j in source_dir.rglob("ocr_result.json"):
+            try:
+                raw = load_json(j)
+                if raw and "pages" in raw:
+                    for page in raw["pages"]:
+                        md = page.get("markdown", "").strip()
+                        if md:
+                            texts.append(
+                                f"--- Document JSON Page {page.get('index', 0)} ---\n{clean_markdown(md)}"
+                            )
+                    if texts:
+                        break
+            except Exception:
+                continue
+
+    return "\n\n".join(texts)
+
+
+def _has_ocr_content(p: Path) -> bool:
+    try:
+        return any(p.rglob("*.md")) or (p / "ocr_result.json").exists() or any(p.rglob("ocr_result.json"))
+    except Exception:
+        return False
+
+# ══════════════════════════════════════════════════════════════════════════════
 # SESSION FILESYSTEM HELPERS
 # ══════════════════════════════════════════════════════════════════════════════
 
@@ -84,7 +242,6 @@ def create_new_session(username: str) -> tuple[str, Path]:
     sess_dir = get_sessions_dir(username) / ts
     for sub in ("inputs", "documents", "processing", "outputs", "logs"):
         (sess_dir / sub).mkdir(parents=True, exist_ok=True)
-
     meta = {
         "session_id":  ts,
         "username":    username,
@@ -138,10 +295,9 @@ def update_session_meta(sess_dir: Path, updates: dict):
 def add_document_to_session(sess_dir: Path, file_bytes: bytes, filename: str) -> Path:
     """
     Save an uploaded file into the next available doc_XXX slot.
-    Returns the doc directory.
     Layout:
       session/documents/doc_001/original/<filename>
-      session/documents/doc_001/ocr/        (populated after OCR)
+      session/documents/doc_001/ocr/
       session/documents/doc_001/metadata.json
     """
     docs_dir = sess_dir / "documents"
@@ -193,59 +349,80 @@ def list_session_documents(sess_dir: Path) -> list[dict]:
 def get_combined_ocr_text(sess_dir: Path) -> str:
     """
     Merge OCR text from all doc_XXX/ocr/ folders within a session.
-    Checks processing/combined_ocr.txt first (cache).
+    Uses processing/combined_ocr.txt as a non-empty cache.
     """
     combined_cache = sess_dir / "processing" / "combined_ocr.txt"
+
     if combined_cache.exists():
         try:
             cached = combined_cache.read_text(encoding="utf-8").strip()
             if cached:
                 return cached
+            combined_cache.unlink(missing_ok=True)
         except Exception:
-            pass
+            combined_cache.unlink(missing_ok=True)
 
-    texts   = []
-    docs    = list_session_documents(sess_dir)
-    for doc in docs:
+    texts = []
+    for doc in list_session_documents(sess_dir):
         doc_path = Path(doc["_path"])
         ocr_dir  = doc_path / "ocr"
         if not ocr_dir.exists():
             continue
+
         t = collect_ocr_text(ocr_dir)
+
+        # Strategy 2: bundle subdirs (e.g. ocr/my_doc_pdf/)
+        if not t:
+            for sub in sorted(ocr_dir.iterdir()):
+                if sub.is_dir():
+                    t = collect_ocr_text(sub)
+                    if t:
+                        break
+
+        # Strategy 3: rglob ocr_result.json
+        if not t:
+            for ocr_json in ocr_dir.rglob("ocr_result.json"):
+                try:
+                    data = load_json(ocr_json)
+                    if data and isinstance(data.get("pages", []), list):
+                        page_texts = []
+                        for page in data["pages"]:
+                            md = page.get("markdown", "").strip()
+                            if md:
+                                page_texts.append(
+                                    f"--- Document JSON Page {page.get('index', 0)} ---\n{clean_markdown(md)}"
+                                )
+                        if page_texts:
+                            t = "\n\n".join(page_texts)
+                            break
+                except Exception:
+                    continue
+
+        # Strategy 4: rglob *.md
+        if not t:
+            md_files = sorted(ocr_dir.rglob("*.md"))
+            if md_files:
+                page_texts = []
+                for md_file in md_files:
+                    try:
+                        content = md_file.read_text(encoding="utf-8").strip()
+                        if content:
+                            page_texts.append(f"--- {md_file.name} ---\n{content}")
+                    except Exception:
+                        continue
+                t = "\n\n".join(page_texts)
+
         if t:
             texts.append(f"=== Document: {doc.get('original_name', doc['doc_id'])} ===\n{t}")
 
     merged = "\n\n".join(texts)
     if merged:
-        combined_cache.write_text(merged, encoding="utf-8")
+        try:
+            combined_cache.parent.mkdir(parents=True, exist_ok=True)
+            combined_cache.write_text(merged, encoding="utf-8")
+        except Exception:
+            pass
     return merged
-
-
-# ══════════════════════════════════════════════════════════════════════════════
-# VERIFICATION SYSTEM PROMPT
-# ══════════════════════════════════════════════════════════════════════════════
-
-VERIFICATION_SYSTEM_PROMPT = """
-You are an objective verifier comparing multiple-choice answers against an OCR-extracted document.
-
-CRITICAL: Your entire response must be ONLY a valid JSON array. No preamble, no explanation, no markdown prose outside the array.
-Start your response with [ and end with ].
-
-Each element in the array must have:
-- id: (string) the question ID from the input
-- verification_status: one of ["SUPPORTED","PARTIALLY_SUPPORTED","NOT_FOUND","CONTRADICTED"]
-- confidence: numeric 0-100
-- evidence_quote: short quote (<=250 chars) from the OCR, or ""
-- evidence_page: page identifier or ""
-- reasoning: plain-text explanation
-- suggested_answer: "A","B","C","D", or null
-
-Rules:
-- Output ONLY the JSON array. No other text before or after.
-- PARTIALLY_SUPPORTED when evidence is partial.
-- NOT_FOUND only when no supporting text exists.
-- CONTRADICTED only when document explicitly contradicts the answer.
-"""
 
 # ══════════════════════════════════════════════════════════════════════════════
 # LLM / API HELPERS
@@ -268,6 +445,7 @@ def _get_api_key() -> str:
 def fetch_models(api_key: str) -> list[dict]:
     def _fallback():
         return [{"id": DEFAULT_MODEL, "name": DEFAULT_MODEL}]
+
     if not api_key:
         return _fallback()
     try:
@@ -288,29 +466,31 @@ def fetch_models(api_key: str) -> list[dict]:
             name = m.get("name", mid)
             if not mid:
                 continue
-            ctx     = m.get("context_length", 0) if isinstance(m, dict) else 0
-            pricing = m.get("pricing", {}) if isinstance(m, dict) else {}
-            models.append({"id": mid, "name": name, "ctx": ctx, "pricing": pricing})
+            models.append({"id": mid, "name": name})
         return models or _fallback()
     except Exception:
         return _fallback()
 
 
-def call_openrouter(messages: list[dict], model: str, api_key: str,
-                    temperature: float = 0.2, max_tokens: int = 2000) -> str:
+def call_openrouter(
+    messages: list[dict],
+    model: str,
+    api_key: str,
+    temperature: float = 0.2,
+    max_tokens: int = 10000,
+) -> str:
     """
-    Send a chat-style request to the OpenRouter API using robust parsing of the response.
-    Returns assistant content string (or an error string on failure).
+    Stable OpenRouter call. Returns assistant content string or error string.
     """
     effective_key = api_key or _get_api_key()
     if not effective_key:
         raise RuntimeError("Missing OpenRouter API key.")
 
     payload = {
-        "model": model,
-        "messages": messages,
+        "model":       model,
+        "messages":    messages,
         "temperature": float(temperature),
-        "max_tokens": int(max_tokens),
+        "max_tokens":  int(max_tokens),
     }
     headers = {
         "Authorization": f"Bearer {effective_key}",
@@ -322,377 +502,51 @@ def call_openrouter(messages: list[dict], model: str, api_key: str,
         r = requests.post(OPENROUTER_API_URL, headers=headers, json=payload, timeout=120)
         r.raise_for_status()
         j = r.json()
-        # Try the modern chat-completion shape first:
+
         choices = j.get("choices", [])
         if choices and isinstance(choices, list):
-            first = choices[0]
-            if isinstance(first, dict):
-                # OpenRouter often nests assistant content under message.content
-                msg = first.get("message", {}) or {}
-                content = msg.get("content")
-                if content:
-                    return content
-        # Fallback: some providers return choices[0]["text"]
+            msg     = choices[0].get("message", {}) if isinstance(choices[0], dict) else {}
+            content = msg.get("content", "") if isinstance(msg, dict) else ""
+            if content:
+                return content
+        # older shape
         if choices and isinstance(choices[0], dict) and "text" in choices[0]:
             return choices[0]["text"]
-        # Last resort: stringify the whole response
         return str(j)
+
     except Exception as e:
         return f"[LLM Error: {e}]"
 
-
 # ══════════════════════════════════════════════════════════════════════════════
-# DATA HELPERS
+# FILESYSTEM UI HELPERS
 # ══════════════════════════════════════════════════════════════════════════════
 
-def load_json(path: Path):
+def list_companies() -> list[str]:
     try:
-        return json.loads(path.read_text(encoding="utf-8"))
+        return sorted([p.name for p in DATA_DIR.iterdir() if p.is_dir() and not p.name.startswith(".")])
     except Exception:
-        return None
+        return []
 
 
-def save_json(p: Path, data):
-    p.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-
-
-def is_table_line(line: str) -> bool:
-    return line.strip().startswith("|") or bool(re.match(r"^\s*\|.*\|\s*$", line))
-
-
-def clean_markdown(md: str) -> str:
-    md = html.unescape(md)
-    md = re.sub(r"^\s*!\[[^\]]*\]\([^\)]+\)\s*$\n?", "", md, flags=re.M)
-    md = re.sub(r"data:image\/[a-zA-Z]+;base64,[A-Za-z0-9+/=\s]+", "", md)
-    md = re.sub(r"(\w)-\n(\w)", r"\1\2", md)
-    lines     = md.splitlines()
-    out_lines: List[str] = []
-    inside_table = False
-    for i, line in enumerate(lines):
-        stripped = line.strip()
-        if is_table_line(line):
-            inside_table = True
-            out_lines.append(line.rstrip())
-            continue
-        else:
-            if inside_table and stripped == "":
-                inside_table = False
-        if re.match(r"^(#{1,6}\s)|^(\s*[-*+]\s)|^>\s|^---\s*$|^\s*\d+\.\s", line):
-            out_lines.append(line.rstrip())
-            continue
-        if stripped == "":
-            out_lines.append("")
-            continue
-        next_line = lines[i + 1] if i + 1 < len(lines) else ""
-        if (next_line.strip() == ""
-                or re.match(r"^(#{1,6}\s)|^(\s*[-*+]\s)|^>\s|^\s*\d+\.\s", next_line)
-                or is_table_line(next_line)):
-            out_lines.append(line.rstrip())
-        else:
-            out_lines.append(line.rstrip() + " ")
-    joined = "\n".join(out_lines)
-    joined = re.sub(r"[ \t]{2,}", " ", joined)
-    joined = re.sub(r"\s+([,.;:!?])", r"\1", joined)
-    joined = re.sub(r"\n{3,}", "\n\n", joined)
-    return joined.strip() + "\n"
-
-
-def safe_name(name: str) -> str:
-    if not name:
-        return "file"
-    return re.sub(r'[\\/*?:"<>|]', "_", name).strip()
-
-
-def safe_image_name(raw_id: str, fallback: str) -> str:
-    base = re.split(r"[/\\]", raw_id)[-1]
-    base = re.sub(r'[\\/*?:"<>|]', "_", base).strip()
-    if not base:
-        base = fallback
-    if not re.search(r"\.(jpg|jpeg|png|gif|webp|bmp)$", base, re.IGNORECASE):
-        base += ".jpg"
-    return base
-
-
-def run_mistral_ocr(
-    files: list,
-    out_dir: Path,
-    tmp_dir: Path,
-    headers: dict,
-    status_widget=None,
-    progress_widget=None,
-) -> list:
-    """Run Mistral OCR. out_dir can be a session doc_XXX/ocr/ folder."""
-    log_file = LOG_DIR / "bulk_ocr_log.json"
-
-    def _load_log():
-        if log_file.exists():
-            try:
-                return json.loads(log_file.read_text(encoding="utf-8"))
-            except Exception:
-                return {}
-        return {}
-
-    def _save_log(log):
-        try:
-            log_file.write_text(json.dumps(log, indent=2), encoding="utf-8")
-        except Exception:
-            pass
-
-    out_dir.mkdir(parents=True, exist_ok=True)
-    tmp_dir.mkdir(parents=True, exist_ok=True)
-
-    log             = _load_log()
-    created_bundles = []
-    total           = len(files)
-
-    for i, file_path in enumerate(files, start=1):
-        file_path = Path(file_path)
-        doc_key   = safe_name(file_path.name)
-
-        if status_widget:
-            status_widget.info(f"Processing {i}/{total}: {file_path.name}")
-
-        if log.get(doc_key, {}).get("status") == "done":
-            bundle = out_dir / safe_name(file_path.name.replace(".", "_"))
-            if bundle.exists():
-                created_bundles.append(bundle)
-            if progress_widget:
-                progress_widget.progress(i / total)
-            continue
-
-        doc_name   = safe_name(file_path.name.replace(".", "_"))
-        out_root   = out_dir / doc_name
-        pages_dir  = out_root / "pages"
-        images_dir = out_root / "images"
-        pages_dir.mkdir(parents=True, exist_ok=True)
-        images_dir.mkdir(parents=True, exist_ok=True)
-
-        try:
-            with open(file_path, "rb") as f:
-                r = requests.post(
-                    f"{MISTRAL_BASE}/files",
-                    headers=headers,
-                    files={"file": (file_path.name, f)},
-                    data={"purpose": "ocr"},
-                    timeout=120,
-                )
-            if r.status_code != 200:
-                raise RuntimeError(f"Upload failed ({r.status_code}): {r.text}")
-            file_id = r.json()["id"]
-
-            r = requests.get(
-                f"{MISTRAL_BASE}/files/{file_id}/url",
-                headers=headers, timeout=60,
-            )
-            if r.status_code != 200:
-                raise RuntimeError(f"Signed URL failed ({r.status_code}): {r.text}")
-            signed_url = r.json()["url"]
-
-            payload = {
-                "model":    "mistral-ocr-latest",
-                "document": {"type": "document_url", "document_url": signed_url},
-                "include_image_base64": True,
-            }
-            r = requests.post(
-                f"{MISTRAL_BASE}/ocr",
-                headers={**headers, "Content-Type": "application/json"},
-                json=payload, timeout=300,
-            )
-            if r.status_code != 200:
-                raise RuntimeError(f"OCR failed ({r.status_code}): {r.text}")
-
-            result    = r.json()
-            json_path = out_root / "ocr_result.json"
-            json_path.write_text(json.dumps(result, indent=2, ensure_ascii=False), encoding="utf-8")
-
-            pages       = result.get("pages", [])
-            img_counter = 0
-            for p in pages:
-                idx     = p.get("index", 0)
-                md      = p.get("markdown", "")
-                cleaned = clean_markdown(md)
-                (pages_dir / f"page_{idx:04d}.md").write_text(cleaned, encoding="utf-8")
-                for img in p.get("images", []):
-                    b64_data = img.get("image_base64")
-                    if not b64_data:
-                        continue
-                    if "," in b64_data:
-                        b64_data = b64_data.split(",", 1)[1]
-                    try:
-                        img_bytes = base64.b64decode(b64_data)
-                    except Exception:
-                        continue
-                    raw_id   = img.get("id", "")
-                    fallback = f"page{idx:04d}_img{img_counter:04d}.jpg"
-                    img_name = safe_image_name(raw_id, fallback) if raw_id else fallback
-                    img_counter += 1
-                    (images_dir / img_name).write_bytes(img_bytes)
-
-            log[doc_key] = {
-                "status":      "done",
-                "pages":       len(pages),
-                "json_output": str(json_path),
-                "time":        time.strftime("%Y-%m-%d %H:%M:%S"),
-            }
-            _save_log(log)
-            created_bundles.append(out_root)
-
-        except Exception as e:
-            log[doc_key] = {"status": "failed", "error": str(e)}
-            _save_log(log)
-            if status_widget:
-                status_widget.error(f"❌ Failed: {file_path.name} — {e}")
-
-        if progress_widget:
-            progress_widget.progress(i / total)
-        time.sleep(0.2)
-
-    if status_widget and created_bundles:
-        status_widget.success(f"✅ OCR complete — {len(created_bundles)} bundle(s) ready.")
-
-    return created_bundles
-
-
-def run_ocr_for_session_doc(doc_dir: Path, status_widget=None, progress_widget=None) -> bool:
-    """
-    Run Mistral OCR for a single session document.
-    Writes results directly into doc_dir/ocr/.
-    Updates doc_dir/metadata.json with ocr_status.
-    Returns True on success.
-    """
-    orig_dir = doc_dir / "original"
-    ocr_dir  = doc_dir / "ocr"
-    ocr_dir.mkdir(parents=True, exist_ok=True)
-
-    orig_files = list(orig_dir.glob("*"))
-    if not orig_files:
-        if status_widget:
-            status_widget.warning(f"No files in {doc_dir.name}/original/")
-        return False
-
-    # Update doc metadata
-    mf   = doc_dir / "metadata.json"
-    meta = load_json(mf) or {}
-
-    try:
-        # Use a temporary directory for OCR intermediate files
-        tmp = TMP_DIR / "ocr_tmp"
-        tmp.mkdir(parents=True, exist_ok=True)
-
-        # run_mistral_ocr outputs bundles; we want results in ocr_dir directly
-        bundles = run_mistral_ocr(
-            files=orig_files,
-            out_dir=ocr_dir,
-            tmp_dir=tmp,
-            headers=MISTRAL_HEADERS,
-            status_widget=status_widget,
-            progress_widget=progress_widget,
-        )
-
-        # Invalidate combined cache so it gets rebuilt
-        combined = doc_dir.parent.parent / "processing" / "combined_ocr.txt"
-        if combined.exists():
-            combined.unlink(missing_ok=True)
-
-        meta["ocr_status"]    = "done"
-        meta["ocr_completed"] = datetime.utcnow().isoformat() + "Z"
-        meta["ocr_bundles"]   = [str(b.relative_to(doc_dir)) for b in bundles]
-        mf.write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8")
-        return True
-
-    except Exception as e:
-        meta["ocr_status"] = "failed"
-        meta["ocr_error"]  = str(e)
-        mf.write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8")
-        if status_widget:
-            status_widget.error(f"OCR failed for {doc_dir.name}: {e}")
-        return False
-
+def list_answer_files(company_dir: Path) -> list[Path]:
+    candidate_dir = company_dir / "mcq_answers"
+    if candidate_dir.exists() and candidate_dir.is_dir():
+        return sorted(candidate_dir.glob("*.json"))
+    return sorted(company_dir.glob("*.json"))
 
 # ══════════════════════════════════════════════════════════════════════════════
-# OCR TEXT COLLECTION
+# CHUNKING + RETRIEVAL
 # ══════════════════════════════════════════════════════════════════════════════
 
-def collect_ocr_text(source_dir: Path, company_base: Path | None = None) -> str:
-    texts      = []
-    seen_paths: set = set()
-
-    json_path = source_dir / "ocr_result.json"
-    if json_path.exists():
-        data = load_json(json_path)
-        if data and isinstance(data.get("pages", []), list):
-            for page in data["pages"]:
-                idx = page.get("index", 0)
-                md  = page.get("markdown", "").strip()
-                if md:
-                    texts.append(f"--- Document JSON Page {idx} ---\n{clean_markdown(md)}")
-            if texts:
-                return "\n\n".join(texts)
-
-    pages_dir = source_dir if source_dir.name == "pages" else source_dir / "pages"
-    if pages_dir.exists() and pages_dir.is_dir():
-        for md_file in sorted(pages_dir.glob("*.md")):
-            if md_file.resolve() in seen_paths:
-                continue
-            try:
-                content = md_file.read_text(encoding="utf-8").strip()
-                if content:
-                    try:
-                        rel = md_file.relative_to(company_base) if company_base else md_file.name
-                    except ValueError:
-                        rel = md_file.name
-                    texts.append(f"--- Document: {rel} ---\n{content}")
-                    seen_paths.add(md_file.resolve())
-            except Exception:
-                continue
-
-    if not texts:
-        for pd2 in source_dir.rglob("pages"):
-            if pd2.is_dir():
-                for md_file in sorted(pd2.glob("*.md")):
-                    if md_file.resolve() in seen_paths:
-                        continue
-                    try:
-                        content = md_file.read_text(encoding="utf-8").strip()
-                        if content:
-                            texts.append(f"--- Document: {md_file} ---\n{content}")
-                            seen_paths.add(md_file.resolve())
-                    except Exception:
-                        continue
-
-    if not texts:
-        for j in source_dir.rglob("ocr_result.json"):
-            try:
-                raw = load_json(j)
-                if raw and "pages" in raw:
-                    for page in raw["pages"]:
-                        md = page.get("markdown", "").strip()
-                        if md:
-                            texts.append(
-                                f"--- Document JSON Page {page.get('index', 0)} ---\n{clean_markdown(md)}"
-                            )
-                    if texts:
-                        break
-            except Exception:
-                continue
-
-    return "\n\n".join(texts)
-
-
-# ══════════════════════════════════════════════════════════════════════════════
-# SCORING & VERIFICATION HELPERS
-# ══════════════════════════════════════════════════════════════════════════════
-
-def chunk_text(text: str, size: int = 1200, overlap: int = 250) -> list[str]:
+def chunk_text(text: str, size: int = 1000, overlap: int = 200) -> list[str]:
     if not text:
         return []
-    chunks: list[str] = []
-    i    = 0
-    L    = len(text)
-    step = max(1, size - overlap)
+    chunks = []
+    i = 0
+    L = len(text)
     while i < L:
         chunks.append(text[i: min(i + size, L)])
-        i += step
+        i += size - overlap
     return chunks
 
 
@@ -715,10 +569,10 @@ def build_verification_prompt(answers: list[dict], ocr_text: str, max_ocr_chars:
     elif len(ocr_text) <= max_ocr_chars:
         ocr_snippet = ocr_text
     else:
-        qs     = " ".join([a.get("question", "") + " " + a.get("selected_text", "") for a in answers])
-        chunks = chunk_text(ocr_text, size=1200, overlap=250)
-        top    = retrieve_relevant_chunks(qs, chunks, top_k=12)
-        ocr_snippet = "\n\n---\n\n".join(top)
+        qs         = " ".join([a.get("question", "") + " " + a.get("selected_text", "") for a in answers])
+        chunks     = chunk_text(ocr_text, size=1200, overlap=250)
+        top_chunks = retrieve_relevant_chunks(qs, chunks, top_k=12)
+        ocr_snippet = "\n\n---\n\n".join(top_chunks)
         if len(ocr_snippet) > max_ocr_chars:
             ocr_snippet = ocr_snippet[:max_ocr_chars]
         ocr_snippet += f"\n\n[... OCR retrieved + truncated; original length: {len(ocr_text)} chars ...]"
@@ -740,62 +594,29 @@ def build_verification_prompt(answers: list[dict], ocr_text: str, max_ocr_chars:
 
 
 def parse_verification_json(raw: str) -> list[dict] | None:
-    """
-    Robustly extract a JSON array from LLM reply.
-
-    Tries:
-      1. Direct json.loads of whole string
-      2. Fenced ```json ... ``` blocks containing an array
-      3. Finds the first balanced '[' ... ']' substring that parses as a list
-      4. As last resort attempts to clean trailing commas and parse again
-
-    Returns list[dict] on success, else None.
-    """
-    if not raw or not raw.strip():
-        return None
-
-    # 1) direct parse
     try:
         data = json.loads(raw.strip())
         if isinstance(data, list):
             return data
     except Exception:
         pass
-
-    # 2) fenced code block with JSON
     m = re.search(r"```(?:json)?\s*(\[.*?\])\s*```", raw, re.S)
     if m:
         try:
             return json.loads(m.group(1))
         except Exception:
             pass
-
-    # 3) attempt to find the first balanced JSON array by scanning for '['
-    decoder = json.JSONDecoder()
-    raw_len = len(raw)
-    for i, ch in enumerate(raw):
-        if ch != "[":
-            continue
+    m2 = re.search(r"\[.*\]", raw, re.S)
+    if m2:
         try:
-            # raw_decode expects the string to start at index 0, so give substring
-            candidate, end = decoder.raw_decode(raw[i:])
-            if isinstance(candidate, list):
-                return candidate
+            return json.loads(m2.group(0))
         except Exception:
-            continue
-
-    # 4) fallback: try to salvage by removing trailing commas before ] or }
-    cleaned = re.sub(r",\s*(\]|})", r"\1", raw)
-    try:
-        data = json.loads(cleaned)
-        if isinstance(data, list):
-            return data
-    except Exception:
-        pass
-
-    # nothing parseable found
+            pass
     return None
 
+# ══════════════════════════════════════════════════════════════════════════════
+# SCORING
+# ══════════════════════════════════════════════════════════════════════════════
 
 STATUS_MULTIPLIER = {
     "SUPPORTED":           1.0,
@@ -814,7 +635,8 @@ def compute_scores(answers: list[dict], verifications: list[dict]) -> pd.DataFra
         raw_score = CHOICE_SCORE.get(sel, 0)
         ver       = ver_map.get(qid, {})
         status    = ver.get("verification_status", "NOT_FOUND")
-        mult      = STATUS_MULTIPLIER.get(status, 0.5)
+        multiplier   = STATUS_MULTIPLIER.get(status, 0.5)
+        final_score  = round(raw_score * multiplier, 2)
         rows.append({
             "ID":               qid,
             "Pillar":           a.get("pillar", ""),
@@ -825,8 +647,8 @@ def compute_scores(answers: list[dict], verifications: list[dict]) -> pd.DataFra
             "Max Score":        MAX_SCORE_PER_QUESTION,
             "Status":           status,
             "Confidence":       ver.get("confidence", 0),
-            "Multiplier":       mult,
-            "Final Score":      round(raw_score * mult, 2),
+            "Multiplier":       multiplier,
+            "Final Score":      final_score,
             "Evidence Quote":   ver.get("evidence_quote", ""),
             "Evidence Page":    ver.get("evidence_page", ""),
             "Reasoning":        ver.get("reasoning", ""),
@@ -854,8 +676,8 @@ PILLAR_COLORS = {
 def pillar_badge(pillar: str) -> str:
     color = PILLAR_COLORS.get(pillar, "#555")
     return (
-        f'<span style="background:{color};color:white;'
-        f'padding:2px 8px;border-radius:8px;font-size:0.75rem">{pillar}</span>'
+        f'<span style="background:{color};color:white;padding:2px 8px;'
+        f'border-radius:8px;font-size:0.75rem">{pillar}</span>'
     )
 
 
@@ -863,8 +685,8 @@ def score_badge(score: float, max_score: float) -> str:
     pct   = score / max_score if max_score > 0 else 0
     color = "#2e7d32" if pct >= 0.8 else "#f57c00" if pct >= 0.5 else "#c62828"
     return (
-        f'<span style="background:{color};color:white;'
-        f'padding:2px 8px;border-radius:8px;font-size:0.85rem">{score:.1f}/{max_score}</span>'
+        f'<span style="background:{color};color:white;padding:2px 8px;'
+        f'border-radius:8px;font-size:0.85rem">{score:.1f}/{max_score}</span>'
     )
 
 
@@ -953,39 +775,18 @@ def render_question_detail(row: pd.Series, expanded: bool = False):
                 st.metric("Raw Score",      f"{row['Raw Score']}/{row['Max Score']}")
                 st.metric("Verified Score", f"{row['Final Score']}/{row['Max Score']}")
 
-
 # ══════════════════════════════════════════════════════════════════════════════
-# RESOLVE CURRENT USER
-# ══════════════════════════════════════════════════════════════════════════════
-
-def _resolve_user() -> str | None:
-    u = st.session_state.get("user")
-    if u:
-        return u
-    try:
-        params = st.experimental_get_query_params()
-        if "user" in params and params["user"]:
-            st.session_state["user"] = params["user"][0]
-            return st.session_state["user"]
-    except Exception:
-        pass
-    return None
-
-
-# ══════════════════════════════════════════════════════════════════════════════
-# SESSION STATE DEFAULTS
+# SESSION STATE
 # ══════════════════════════════════════════════════════════════════════════════
 
 _DEFAULTS = {
-    "api_key":             os.getenv("OPENROUTER_API_KEY", ""),
-    "model_id":            DEFAULT_MODEL,
-    "verification":        None,
-    "score_df":            None,
-    "raw_llm_reply":       "",
-    "ocr_text":            "",
-    "answer_data":         None,
-    "active_session_id":   None,
-    "active_session_path": None,
+    "api_key":       os.getenv("OPENROUTER_API_KEY", ""),
+    "model_id":      DEFAULT_MODEL,
+    "verification":  None,
+    "score_df":      None,
+    "raw_llm_reply": "",
+    "ocr_text":      "",
+    "answer_data":   None,
 }
 for k, v in _DEFAULTS.items():
     if k not in st.session_state:
@@ -1007,8 +808,8 @@ with st.sidebar:
     if st.session_state.api_key:
         with st.spinner("Loading models…"):
             models = fetch_models(st.session_state.api_key)
-        model_ids     = [m["id"] for m in models]
-        default_idx   = next((i for i, mid in enumerate(model_ids) if DEFAULT_MODEL in mid), 0)
+        model_ids   = [m["id"] for m in models]
+        default_idx = next((i for i, mid in enumerate(model_ids) if DEFAULT_MODEL in mid), 0)
         selected_model = st.selectbox(
             "Model", options=model_ids, index=default_idx,
             format_func=lambda x: x.split("/")[-1],
@@ -1043,95 +844,10 @@ with st.sidebar:
 st.title("🔍 MCQ LLM Verification & Scoring")
 st.caption("Verify MCQ answers against OCR-extracted company documents using an LLM.")
 
-current_user = _resolve_user()
-
-# ── Session Management ─────────────────────────────────────────────────────────
-st.header("📁 Session Management")
-
-if not current_user:
-    st.warning("⚠️ You are not logged in. Session history will not be persisted.")
-    current_user = "anonymous"
-
-col_new, col_pick = st.columns([1, 2])
-
-with col_new:
-    if st.button("➕ New Session", type="primary"):
-        sid, spath = create_new_session(current_user)
-        st.session_state.active_session_id   = sid
-        st.session_state.active_session_path = str(spath)
-        st.session_state.verification  = None
-        st.session_state.score_df      = None
-        st.session_state.raw_llm_reply = ""
-        st.session_state.ocr_text      = ""
-        st.session_state.answer_data   = None
-        st.success(f"✅ New session created: `{sid}`")
-        st.rerun()
-
-with col_pick:
-    past_sessions = list_user_sessions(current_user)
-    if past_sessions:
-        session_labels = [
-            f"{s['session_id']}  ·  {s.get('company','—')}  ·  {s.get('status','?')}"
-            for s in past_sessions
-        ]
-        chosen_label = st.selectbox(
-            "Or load an existing session",
-            options=["— select —"] + session_labels,
-            key="session_picker",
-        )
-        if chosen_label != "— select —":
-            idx    = session_labels.index(chosen_label)
-            picked = past_sessions[idx]
-            if st.button("📂 Load selected session"):
-                st.session_state.active_session_id   = picked["session_id"]
-                st.session_state.active_session_path = str(
-                    get_session_path(current_user, picked["session_id"])
-                )
-                out_f = (
-                    get_session_path(current_user, picked["session_id"])
-                    / "outputs" / "verification.json"
-                )
-                if out_f.exists():
-                    saved = load_json(out_f) or {}
-                    st.session_state.verification  = saved.get("verifications")
-                    st.session_state.raw_llm_reply = saved.get("raw_llm_reply", "")
-                    answers_saved = saved.get("answers", [])
-                    if answers_saved and st.session_state.verification:
-                        st.session_state.score_df = compute_scores(
-                            answers_saved, st.session_state.verification
-                        )
-                    st.session_state.answer_data = {"answers": answers_saved}
-                else:
-                    st.session_state.verification  = None
-                    st.session_state.score_df      = None
-                    st.session_state.raw_llm_reply = ""
-                st.success(f"Session `{picked['session_id']}` loaded.")
-                st.rerun()
-    else:
-        st.info("No previous sessions found. Click **➕ New Session** to begin.")
-
-if not st.session_state.active_session_id:
-    st.info("👆 Create or load a session above to continue.")
-    st.stop()
-
-active_sess_dir = Path(st.session_state.active_session_path)
-active_sess_id  = st.session_state.active_session_id
-sess_meta       = load_json(active_sess_dir / "metadata.json") or {}
-
-st.info(
-    f"**Active session:** `{active_sess_id}` · "
-    f"Company: `{sess_meta.get('company','—')}` · "
-    f"Status: `{sess_meta.get('status','created')}`"
-)
-
 # ── Step 1 ─────────────────────────────────────────────────────────────────────
-st.header("Step 1 — Company & Answer Source")
+st.header("Step 1 — Select Company & Answer File")
 
-companies = sorted([
-    p.name for p in DATA_DIR.iterdir()
-    if p.is_dir() and not p.name.startswith(".")
-    and p.name not in ("thesis_pdf", "thesis_dataset")
-])
+companies = list_companies()
 if not companies:
     st.error("No company folders found in the data directory.")
     st.stop()
@@ -1139,200 +855,104 @@ if not companies:
 col1, col2 = st.columns(2)
 with col1:
     company_name = st.selectbox("Company", options=companies)
-with col2:
-    answer_mode = st.radio("Answer source", ["Load from file", "Use ESG question set"], index=1)
 
-company_dir = DATA_DIR / company_name
+company_dir  = DATA_DIR / company_name
+answer_files = list_answer_files(company_dir)
 
-if sess_meta.get("company") != company_name:
-    update_session_meta(active_sess_dir, {"company": company_name, "answer_mode": answer_mode})
-
-answers: list[dict] = []
-if st.session_state.get("answer_data"):
-    answers = st.session_state.answer_data.get("answers", []) or []
-
-if answer_mode == "Load from file":
-    candidate_dir = company_dir / "mcq_answers"
-    answer_files  = (
-        sorted(candidate_dir.glob("*.json"))
-        if candidate_dir.exists()
-        else sorted(company_dir.glob("*.json"))
-    )
-    if not answer_files:
-        st.warning(f"No MCQ answer files found for **{company_name}**.")
-    else:
-        selected_file = st.selectbox(
-            "MCQ Answer File", options=answer_files, format_func=lambda p: p.name
-        )
-        if selected_file:
-            answer_data = load_json(selected_file)
-            if not answer_data:
-                st.error(f"Could not load {selected_file.name}")
-            else:
-                answer_data = answer_data if isinstance(answer_data, dict) else {"answers": []}
-                answer_data["source_file"] = selected_file.name
-                st.session_state.answer_data = answer_data
-                answers = answer_data.get("answers", [])
-
-elif answer_mode == "Use ESG question set":
-    if not ESG_MCQ:
-        st.error("ESG question set not found. Place a valid data/esg_mcq.json file.")
-    else:
-        st.markdown(f"Using ESG question set ({len(ESG_MCQ)} questions). Fill answers below.")
-        with st.form("esg_answers_form", clear_on_submit=False):
-            esg_answers = []
-            for q in ESG_MCQ:
-                qid           = str(q.get("id") or q.get("ID") or q.get("qid") or f"q_{len(esg_answers)+1}")
-                pillar        = q.get("pillar", q.get("Pillar", ""))
-                question_text = q.get("question", q.get("text", ""))
-                raw_choices   = q.get("choices") or q.get("options") or []
-                opts = []
-                if isinstance(raw_choices, dict):
-                    for k, v in raw_choices.items():
-                        opts.append((str(k).upper(), str(v)))
-                elif isinstance(raw_choices, list):
-                    for i, item in enumerate(raw_choices):
-                        opts.append((["A","B","C","D","E"][i] if i < 5 else str(i+1), str(item)))
-                else:
-                    opts = [("A","A"),("B","B"),("C","C"),("D","D")]
-
-                choice_labels   = [f"{l}: {t}" for l, t in opts]
-                sel             = st.selectbox(
-                    f"{qid} — {pillar}\n{question_text}",
-                    options=choice_labels, key=f"esg_sel_{qid}"
-                )
-                selected_letter = sel.split(":", 1)[0].strip()
-                opt_map         = {l: t for l, t in opts}
-                selected_text   = st.text_input(
-                    f"Selected text for {qid} (optional)",
-                    value=opt_map.get(selected_letter, ""),
-                    key=f"esg_text_{qid}",
-                )
-                esg_answers.append({
-                    "id": qid, "pillar": pillar, "question": question_text,
-                    "selected": selected_letter, "selected_text": selected_text,
-                })
-            submitted = st.form_submit_button("Use these answers")
-        if submitted:
-            answers = esg_answers
-            st.session_state.answer_data = {
-                "company":     company_name,
-                "timestamp":   datetime.utcnow().isoformat() + "Z",
-                "mode":        "esg_mcq_interactive",
-                "source_file": "interactive_esg",
-                "answers":     answers,
-            }
-            inputs_dir = active_sess_dir / "inputs"
-            inputs_dir.mkdir(parents=True, exist_ok=True)
-            save_json(inputs_dir / "answers.json", st.session_state.answer_data)
-            st.success(f"Collected {len(answers)} answers — saved to session inputs.")
-
-if not answers:
+if not answer_files:
+    st.warning(f"No MCQ answer files found for **{company_name}**.")
     st.stop()
 
+with col2:
+    selected_file = st.selectbox(
+        "MCQ Answer File", options=answer_files,
+        format_func=lambda p: p.name,
+    )
+
+answer_data = load_json(selected_file)
+if not answer_data:
+    st.error(f"Could not load {selected_file.name}")
+    st.stop()
+
+st.session_state.answer_data = answer_data
+answers: list[dict] = answer_data.get("answers", [])
+
+with st.expander("📄 Answer file metadata", expanded=False):
+    st.json({
+        "company":     answer_data.get("company"),
+        "timestamp":   answer_data.get("timestamp"),
+        "mode":        answer_data.get("mode"),
+        "n_answers":   len(answers),
+        "source_mode": answer_data.get("source_mode", ""),
+    })
+
 # ── Step 2 ─────────────────────────────────────────────────────────────────────
-st.header("Step 2 — Upload & OCR Documents")
-st.caption(
-    "Each file you upload becomes an individual document in this session. "
-    "All documents are OCR-processed separately, then merged for verification."
-)
+st.header("Step 2 — OCR Document Text")
 
-# ── 2a. Upload documents into session ─────────────────────────────────────────
-uploads = st.file_uploader(
-    "📎 Attach supporting document(s) for this session",
-    type=["pdf", "png", "jpg", "jpeg"],
-    accept_multiple_files=True,
-    key="session_doc_uploader",
-)
+with st.spinner("Locating / loading OCR text…"):
+    # Auto-detect: look for combined_ocr.txt in any session, or direct company ocr/
+    auto_ocr_text = ""
+    auto_source   = None
 
-if uploads:
-    # Build a set of filenames already saved in this session
-    already_saved = {
-        doc.get("original_name")
-        for doc in list_session_documents(active_sess_dir)
-    }
+    # Try company_dir/ocr first
+    company_ocr = company_dir / "ocr"
+    if company_ocr.exists() and _has_ocr_content(company_ocr):
+        auto_ocr_text = collect_ocr_text(company_ocr, company_base=company_dir)
+        auto_source   = company_ocr
 
-    newly_saved = []
-    skipped     = []
-    for uf in uploads:
-        if uf.name in already_saved:
-            skipped.append(uf.name)
-            continue
-        doc_dir = add_document_to_session(active_sess_dir, uf.getbuffer(), uf.name)
-        newly_saved.append(doc_dir)
-        already_saved.add(uf.name)   # prevent duplicate within the same upload batch
+    # Build list of all OCR bundles under DATA_DIR for manual override
+    all_ocr_jsons      = sorted(DATA_DIR.rglob("ocr_result.json"))
+    ocr_display_options = [str(p.relative_to(DATA_DIR)) for p in all_ocr_jsons]
 
-    if newly_saved:
-        update_session_meta(active_sess_dir, {
-            "doc_count": len(list_session_documents(active_sess_dir)),
-            "status":    "documents_uploaded",
-        })
-        st.success(f"✅ Saved {len(newly_saved)} new document(s) to session.")
-    if skipped:
-        st.info(f"ℹ️ Skipped {len(skipped)} already-saved file(s): {', '.join(skipped)}")
+    st.subheader("Choose OCR source(s)")
+    st.caption("Select one or more OCR bundles, or 'Auto-detect' to use the company folder's OCR.")
+    ocr_multiselect = st.multiselect(
+        "Select OCR bundles (multiple allowed)",
+        options=["Auto-detect"] + ocr_display_options,
+        default=["Auto-detect"] if auto_source else [],
+    )
 
-# ── 2b. Show documents in this session and OCR controls ───────────────────────
-session_docs = list_session_documents(active_sess_dir)
+    combined_texts: list[str] = []
+    selected_sources: list[Path] = []
 
-if session_docs:
-    st.markdown(f"**Documents in this session ({len(session_docs)}):**")
-    for doc in session_docs:
-        doc_path   = Path(doc["_path"])
-        ocr_status = doc.get("ocr_status", "pending")
-        icon       = "✅" if ocr_status == "done" else "⏳" if ocr_status == "pending" else "❌"
-        col_info, col_btn = st.columns([4, 1])
-        with col_info:
-            st.markdown(
-                f"{icon} **{doc['doc_id']}** — `{doc.get('original_name','?')}` "
-                f"({doc.get('size',0):,} bytes) · OCR: `{ocr_status}`"
-            )
-        with col_btn:
-            if ocr_status != "done" and MISTRAL_API_KEY:
-                if st.button("Run OCR", key=f"ocr_{doc['doc_id']}"):
-                    s  = st.empty()
-                    p  = st.progress(0)
-                    ok = run_ocr_for_session_doc(doc_path, status_widget=s, progress_widget=p)
-                    if ok:
-                        cache = active_sess_dir / "processing" / "combined_ocr.txt"
-                        cache.unlink(missing_ok=True)
-                        st.rerun()
-            elif ocr_status != "done" and not MISTRAL_API_KEY:
-                st.caption("No Mistral key")
+    if ocr_multiselect and "Auto-detect" not in ocr_multiselect:
+        for choice in ocr_multiselect:
+            sel_path = DATA_DIR / Path(choice)
+            if sel_path.exists():
+                txt = collect_ocr_text(sel_path.parent, company_base=company_dir)
+                if txt:
+                    header = f"--- OCR: {str(sel_path.parent.relative_to(DATA_DIR))} ---"
+                    combined_texts.append(f"{header}\n{txt}")
+                    selected_sources.append(sel_path.parent)
+    else:
+        if auto_ocr_text:
+            try:
+                src_label = str(auto_source.relative_to(DATA_DIR)) if auto_source else company_name
+            except Exception:
+                src_label = company_name
+            combined_texts.append(f"--- Auto-detected: {src_label} ---\n{auto_ocr_text}")
+            if auto_source:
+                selected_sources.append(auto_source)
 
-    # Run OCR on ALL pending docs at once
-    pending_docs = [Path(d["_path"]) for d in session_docs if d.get("ocr_status") != "done"]
-    if pending_docs and MISTRAL_API_KEY:
-        if st.button(f"🚀 Run OCR on all {len(pending_docs)} pending document(s)", type="primary"):
-            status_box = st.empty()
-            prog       = st.progress(0)
-            for i, doc_path in enumerate(pending_docs, 1):
-                status_box.info(f"OCR {i}/{len(pending_docs)}: {doc_path.name}…")
-                run_ocr_for_session_doc(doc_path, status_widget=status_box)
-                prog.progress(i / len(pending_docs))
-            (active_sess_dir / "processing" / "combined_ocr.txt").unlink(missing_ok=True)
-            update_session_meta(active_sess_dir, {"status": "ocr_done"})
-            st.success("All OCR runs complete.")
-            st.rerun()
-else:
-    st.info("No documents uploaded yet. Use the uploader above to add files to this session.")
-
-# ── 2c. Build / preview merged OCR text ───────────────────────────────────────
-with st.spinner("Merging OCR text from session documents…"):
-    final_ocr_text            = get_combined_ocr_text(active_sess_dir)
-    st.session_state.ocr_text = final_ocr_text or ""
+    final_ocr_text = "\n\n".join(combined_texts).strip()
+    st.session_state.ocr_text = final_ocr_text
+    ocr_source = selected_sources if selected_sources else ([auto_source] if auto_source else [])
 
 if not st.session_state.ocr_text.strip():
     st.warning(
-        "⚠️ No OCR text available yet. Upload and OCR at least one document above, "
-        "or verify results will be marked NOT_FOUND."
+        f"⚠️ No OCR text found for **{company_name}**. All answers will return NOT_FOUND.\n\n"
+        "Tip: Use the multiselect above to pick one or more OCR bundles from dataset folders."
     )
+    ocr_available = False
 else:
-    st.success(
-        f"✅ OCR ready — {len(st.session_state.ocr_text):,} chars from "
-        f"{len(session_docs)} document(s)."
-    )
+    ocr_available = True
+    try:
+        src_display = ", ".join(str(p.relative_to(DATA_DIR)) for p in ocr_source)
+    except Exception:
+        src_display = company_name
+    st.success(f"✅ OCR loaded — {len(st.session_state.ocr_text):,} chars from `{src_display}`")
 
-with st.expander("👁️ Preview merged OCR text (first 3 000 chars)", expanded=False):
+with st.expander("👁️ Preview OCR text (first 3 000 chars)", expanded=False):
     preview = st.session_state.ocr_text
     st.code(preview[:3000] + ("…" if len(preview) > 3000 else ""), language="markdown")
 
@@ -1358,27 +978,21 @@ if not st.session_state.api_key:
 
 if run_btn:
     if not answers:
-        st.error("No answers found.")
+        st.error("No answers found in the selected file.")
     else:
-        inputs_dir = active_sess_dir / "inputs"
-        inputs_dir.mkdir(parents=True, exist_ok=True)
-        if not (inputs_dir / "answers.json").exists():
-            save_json(inputs_dir / "answers.json", {
-                "company":   company_name,
-                "timestamp": datetime.utcnow().isoformat() + "Z",
-                "mode":      answer_mode,
-                "answers":   answers,
-            })
+        out_dir  = company_dir / "mcq_answers"
+        out_dir.mkdir(parents=True, exist_ok=True)
+        ts       = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+        out_path = out_dir / f"{ts}_verification.json"
 
         prompt_user = build_verification_prompt(answers, st.session_state.ocr_text, max_ocr_chars=14000)
-        messages    = [
+        messages = [
             {"role": "system", "content": VERIFICATION_SYSTEM_PROMPT},
             {"role": "user",   "content": prompt_user},
         ]
         progress  = st.progress(0, text="Sending to LLM…")
         t0        = time.time()
         raw_reply = None
-
         try:
             with st.spinner(f"Verifying {len(answers)} answers with **{st.session_state.model_id}**…"):
                 raw_reply = call_openrouter(
@@ -1386,74 +1000,82 @@ if run_btn:
                     model=st.session_state.model_id,
                     api_key=st.session_state.api_key,
                     temperature=0.1,
-                    max_tokens=4096,  # safer limit; most free models cap here
+                    max_tokens=10000,
                 )
             elapsed = time.time() - t0
             progress.progress(80, text="Parsing response…")
             verifications = parse_verification_json(raw_reply)
 
             if verifications is None:
-                st.warning("⚠️ LLM returned a non-JSON response. Marking answers as NOT_FOUND.")
+                st.warning("⚠️ LLM returned a non-JSON response. Saving raw reply; marking all as NOT_FOUND.")
                 verifications = [
-                    {"id": a["id"], "verification_status": "NOT_FOUND",
-                     "confidence": 0, "evidence_quote": "", "evidence_page": "",
-                     "reasoning": "LLM response unparsable.", "suggested_answer": None}
+                    {
+                        "id": a["id"],
+                        "verification_status": "NOT_FOUND",
+                        "confidence":    0,
+                        "evidence_quote": "",
+                        "evidence_page":  "",
+                        "reasoning":     "LLM response unparsable; raw reply saved.",
+                        "suggested_answer": None,
+                    }
                     for a in answers
                 ]
+                result_payload = {
+                    "company":       company_name,
+                    "source_file":   selected_file.name,
+                    "timestamp":     datetime.utcnow().isoformat() + "Z",
+                    "model":         st.session_state.model_id,
+                    "status":        "parse_error",
+                    "error":         "LLM response could not be parsed as JSON",
+                    "raw_llm_reply": raw_reply,
+                    "verifications": verifications,
+                }
+                out_path.write_text(json.dumps(result_payload, ensure_ascii=False, indent=2), encoding="utf-8")
+                st.session_state.verification  = verifications
+                st.session_state.score_df      = compute_scores(answers, verifications)
+                st.session_state.raw_llm_reply = raw_reply or ""
+                progress.progress(100, text=f"Done in {elapsed:.1f}s (parse error saved)")
+                st.error("❌ Could not parse JSON from LLM. Raw reply saved to disk.")
+            else:
+                # Ensure every question has a verification entry
+                ver_ids = {v.get("id") for v in verifications}
+                for a in answers:
+                    if a["id"] not in ver_ids:
+                        verifications.append({
+                            "id": a["id"], "verification_status": "NOT_FOUND",
+                            "confidence": 0, "evidence_quote": "", "evidence_page": "",
+                            "reasoning": "Not returned by LLM.", "suggested_answer": None,
+                        })
+                score_df = compute_scores(answers, verifications)
+                st.session_state.verification  = verifications
+                st.session_state.score_df      = score_df
+                st.session_state.raw_llm_reply = raw_reply or ""
 
-            # Fill in any missing question IDs
-            ver_ids = {v.get("id") for v in verifications}
-            for a in answers:
-                if a["id"] not in ver_ids:
-                    verifications.append({
-                        "id": a["id"], "verification_status": "NOT_FOUND",
-                        "confidence": 0, "evidence_quote": "", "evidence_page": "",
-                        "reasoning": "Not returned by LLM.", "suggested_answer": None,
-                    })
-
-            score_df = compute_scores(answers, verifications)
-            st.session_state.verification  = verifications
-            st.session_state.score_df      = score_df
-            st.session_state.raw_llm_reply = raw_reply or ""
-
-            result_payload = {
-                "company":           company_name,
-                "session_id":        active_sess_id,
-                "source_file":       (st.session_state.answer_data or {}).get("source_file",""),
-                "timestamp":         datetime.utcnow().isoformat() + "Z",
-                "model":             st.session_state.model_id,
-                "status":            "ok",
-                "total_final_score": float(score_df["Final Score"].sum()),
-                "total_max_score":   int(score_df["Max Score"].sum()),
-                "total_raw_score":   int(score_df["Raw Score"].sum()),
-                "pct_verified":      round(score_df["Final Score"].sum() / score_df["Max Score"].sum() * 100, 2)
-                                     if score_df["Max Score"].sum() else 0,
-                "verifications":     verifications,
-                "answers":           answers,
-                "scores":            score_df.to_dict(orient="records"),
-                "raw_llm_reply":     raw_reply,
-            }
-
-            # Save to session outputs/
-            outputs_dir = active_sess_dir / "outputs"
-            outputs_dir.mkdir(parents=True, exist_ok=True)
-            save_json(outputs_dir / "verification.json", result_payload)
-            score_df.to_csv(outputs_dir / "scores.csv", index=False)
-            (outputs_dir / "raw_llm_reply.txt").write_text(raw_reply or "", encoding="utf-8")
-
-            update_session_meta(active_sess_dir, {
-                "status":      "verified",
-                "verified_at": datetime.utcnow().isoformat() + "Z",
-                "pct_score":   result_payload["pct_verified"],
-            })
-
-            elapsed = time.time() - t0
-            progress.progress(100, text=f"Done in {elapsed:.1f}s")
-            st.success(f"✅ Verification complete in {elapsed:.1f}s — results saved to session.")
+                result_payload = {
+                    "company":           company_name,
+                    "source_file":       selected_file.name,
+                    "timestamp":         datetime.utcnow().isoformat() + "Z",
+                    "model":             st.session_state.model_id,
+                    "status":            "ok",
+                    "total_final_score": float(score_df["Final Score"].sum()),
+                    "total_max_score":   int(score_df["Max Score"].sum()),
+                    "total_raw_score":   int(score_df["Raw Score"].sum()),
+                    "pct_verified":      round(
+                        score_df["Final Score"].sum() / score_df["Max Score"].sum() * 100, 2
+                    ) if score_df["Max Score"].sum() else 0,
+                    "verifications":     verifications,
+                    "scores":            score_df.to_dict(orient="records"),
+                    "raw_llm_reply":     raw_reply,
+                }
+                out_path.write_text(json.dumps(result_payload, ensure_ascii=False, indent=2), encoding="utf-8")
+                elapsed = time.time() - t0
+                progress.progress(100, text=f"Done in {elapsed:.1f}s")
+                st.success(f"✅ Verification complete in {elapsed:.1f}s — saved to `{out_path.name}`")
 
         except Exception as e:
             err_info = {
-                "session_id":    active_sess_id,
+                "company":       company_name,
+                "source_file":   selected_file.name,
                 "timestamp":     datetime.utcnow().isoformat() + "Z",
                 "model":         st.session_state.model_id,
                 "status":        "error",
@@ -1461,9 +1083,7 @@ if run_btn:
                 "raw_llm_reply": raw_reply,
             }
             try:
-                logs_dir = active_sess_dir / "logs"
-                logs_dir.mkdir(parents=True, exist_ok=True)
-                save_json(logs_dir / "error.json", err_info)
+                out_path.write_text(json.dumps(err_info, ensure_ascii=False, indent=2), encoding="utf-8")
             except Exception:
                 pass
             st.error(f"LLM call failed: {e}")
@@ -1483,12 +1103,13 @@ if st.session_state.score_df is not None:
     ])
 
     with tab_detail:
-        pillar_filter = st.radio("Filter by pillar",
-                                 ["All","Environmental","Social","Governance"], horizontal=True)
+        pillar_filter = st.radio(
+            "Filter by pillar", ["All", "Environmental", "Social", "Governance"], horizontal=True
+        )
         status_filter = st.multiselect(
             "Filter by verification status",
-            ["SUPPORTED","PARTIALLY_SUPPORTED","NOT_FOUND","CONTRADICTED"],
-            default=["SUPPORTED","PARTIALLY_SUPPORTED","NOT_FOUND","CONTRADICTED"],
+            ["SUPPORTED", "PARTIALLY_SUPPORTED", "NOT_FOUND", "CONTRADICTED"],
+            default=["SUPPORTED", "PARTIALLY_SUPPORTED", "NOT_FOUND", "CONTRADICTED"],
         )
         filtered = df.copy()
         if pillar_filter != "All":
@@ -1502,19 +1123,21 @@ if st.session_state.score_df is not None:
 
     with tab_table:
         display_cols = [
-            "ID","Pillar","Question","Selected","Selected Text",
-            "Raw Score","Status","Confidence","Multiplier","Final Score","Max Score","Reasoning",
+            "ID", "Pillar", "Question", "Selected", "Selected Text",
+            "Raw Score", "Status", "Confidence", "Multiplier", "Final Score", "Max Score", "Reasoning",
         ]
         st.dataframe(df[display_cols], use_container_width=True, height=600)
         st.subheader("Pillar Totals")
         pillar_summary = df.groupby("Pillar").agg(
-            Questions=("ID","count"),
-            Raw_Score=("Raw Score","sum"),
-            Final_Score=("Final Score","sum"),
-            Max_Score=("Max Score","sum"),
-            Avg_Confidence=("Confidence","mean"),
+            Questions=("ID", "count"),
+            Raw_Score=("Raw Score", "sum"),
+            Final_Score=("Final Score", "sum"),
+            Max_Score=("Max Score", "sum"),
+            Avg_Confidence=("Confidence", "mean"),
         ).reset_index()
-        pillar_summary["Score_%"] = (pillar_summary["Final_Score"] / pillar_summary["Max Score"] * 100).round(1)
+        pillar_summary["Score_%"] = (
+            pillar_summary["Final_Score"] / pillar_summary["Max_Score"] * 100
+        ).round(1)
         st.dataframe(pillar_summary, use_container_width=True)
 
     with tab_raw:
@@ -1525,7 +1148,7 @@ if st.session_state.score_df is not None:
         st.subheader("Download Results")
         result_json = {
             "company":           company_name,
-            "session_id":        active_sess_id,
+            "source_file":       selected_file.name,
             "timestamp":         datetime.utcnow().isoformat() + "Z",
             "model":             st.session_state.model_id,
             "total_final_score": float(df["Final Score"].sum()),
@@ -1537,14 +1160,2962 @@ if st.session_state.score_df is not None:
         st.download_button(
             "📥 Download Full Verification JSON",
             data=json.dumps(result_json, ensure_ascii=False, indent=2),
-            file_name=f"{company_name}_{active_sess_id}_verification.json",
+            file_name=f"{company_name}_verification_{datetime.utcnow().strftime('%Y%m%dT%H%M%S')}.json",
             mime="application/json",
         )
         st.download_button(
             "📥 Download Score Table CSV",
             data=df.to_csv(index=False),
-            file_name=f"{company_name}_{active_sess_id}_scores.csv",
+            file_name=f"{company_name}_scores_{datetime.utcnow().strftime('%Y%m%dT%H%M%S')}.csv",
             mime="text/csv",
         )
 
-st.stop()
+# """
+# ────────────────────────────────────────────────────────────────────────────────
+# MCQ LLM Verification & Scoring Page  (v2 – stable rewrite)
+# ────────────────────────────────────────────────────────────────────────────────
+# """
+
+# import html
+# import json
+# import os
+# import re
+# import time
+# from datetime import datetime
+# from pathlib import Path
+# from typing import List
+
+# import base64
+# import pandas as pd
+# import requests
+# import streamlit as st
+# from dotenv import load_dotenv
+
+# # ── Page config ────────────────────────────────────────────────────────────────
+# st.set_page_config(
+#     page_title="MCQ LLM Verification",
+#     page_icon="🔍",
+#     layout="wide",
+# )
+
+# # ── Paths & env ────────────────────────────────────────────────────────────────
+# BASE_DIR      = Path(__file__).resolve().parents[1]
+# DATA_DIR      = BASE_DIR / "data"
+# USER_DATA_DIR = BASE_DIR / "user_data"
+# LOG_DIR       = BASE_DIR / "logs"
+# TMP_DIR       = DATA_DIR / "thesis_pdf"
+# OUT_DIR       = DATA_DIR / "thesis_dataset"
+
+# for _d in (DATA_DIR, USER_DATA_DIR, LOG_DIR, TMP_DIR, OUT_DIR):
+#     _d.mkdir(parents=True, exist_ok=True)
+
+# load_dotenv(BASE_DIR / ".env")
+
+# OPENROUTER_API_URL    = os.getenv("OPENROUTER_API_URL", "https://openrouter.ai/api/v1/chat/completions")
+# OPENROUTER_MODELS_URL = os.getenv("OPENROUTER_MODELS_URL", "https://openrouter.ai/api/v1/models")
+# DEFAULT_MODEL         = "meta-llama/llama-3.1-8b-instruct:free"
+
+# MISTRAL_API_KEY = os.getenv("MISTRAL_API_KEY", "")
+# MISTRAL_BASE    = "https://api.mistral.ai/v1"
+# MISTRAL_HEADERS = {"Authorization": f"Bearer {MISTRAL_API_KEY}"} if MISTRAL_API_KEY else {}
+
+# CHOICE_SCORE           = {"A": 3, "B": 2, "C": 1, "D": 0, "": 0}
+# MAX_SCORE_PER_QUESTION = 3
+
+# ESG_MCQ_JSON = DATA_DIR / "esg_mcq.json"
+
+
+# def _load_esg_mcq() -> list[dict]:
+#     if ESG_MCQ_JSON.exists():
+#         try:
+#             data = json.loads(ESG_MCQ_JSON.read_text(encoding="utf-8"))
+#             if isinstance(data, list) and data:
+#                 return data
+#         except Exception:
+#             pass
+#     return []
+
+
+# ESG_MCQ: list[dict] = _load_esg_mcq()
+
+# # ══════════════════════════════════════════════════════════════════════════════
+# # SESSION FILESYSTEM HELPERS
+# # ══════════════════════════════════════════════════════════════════════════════
+
+# def get_user_dir(username: str) -> Path:
+#     return USER_DATA_DIR / username
+
+
+# def get_sessions_dir(username: str) -> Path:
+#     return get_user_dir(username) / "sessions"
+
+
+# def create_new_session(username: str) -> tuple[str, Path]:
+#     ts       = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+#     sess_dir = get_sessions_dir(username) / ts
+#     for sub in ("inputs", "documents", "processing", "outputs", "logs"):
+#         (sess_dir / sub).mkdir(parents=True, exist_ok=True)
+
+#     meta = {
+#         "session_id":  ts,
+#         "username":    username,
+#         "created_at":  datetime.utcnow().isoformat() + "Z",
+#         "status":      "created",
+#         "doc_count":   0,
+#         "company":     "",
+#         "answer_mode": "",
+#     }
+#     (sess_dir / "metadata.json").write_text(
+#         json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8"
+#     )
+#     return ts, sess_dir
+
+
+# def list_user_sessions(username: str) -> list[dict]:
+#     """Return list of session metadata dicts, newest first."""
+#     sessions_dir = get_sessions_dir(username)
+#     if not sessions_dir.exists():
+#         return []
+#     result = []
+#     for p in sorted(sessions_dir.iterdir(), reverse=True):
+#         if not p.is_dir():
+#             continue
+#         meta_file = p / "metadata.json"
+#         if meta_file.exists():
+#             try:
+#                 m = json.loads(meta_file.read_text(encoding="utf-8"))
+#                 result.append(m)
+#             except Exception:
+#                 result.append({"session_id": p.name, "created_at": p.name})
+#         else:
+#             result.append({"session_id": p.name, "created_at": p.name})
+#     return result
+
+
+# def get_session_path(username: str, session_id: str) -> Path:
+#     return get_sessions_dir(username) / session_id
+
+
+# def update_session_meta(sess_dir: Path, updates: dict):
+#     meta_file = sess_dir / "metadata.json"
+#     try:
+#         meta = json.loads(meta_file.read_text(encoding="utf-8")) if meta_file.exists() else {}
+#     except Exception:
+#         meta = {}
+#     meta.update(updates)
+#     meta_file.write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8")
+
+
+# def add_document_to_session(sess_dir: Path, file_bytes: bytes, filename: str) -> Path:
+#     """
+#     Save an uploaded file into the next available doc_XXX slot.
+#     Returns the doc directory.
+#     Layout:
+#       session/documents/doc_001/original/<filename>
+#       session/documents/doc_001/ocr/        (populated after OCR)
+#       session/documents/doc_001/metadata.json
+#     """
+#     docs_dir = sess_dir / "documents"
+#     existing = sorted([d for d in docs_dir.iterdir() if d.is_dir() and d.name.startswith("doc_")])
+#     next_idx  = len(existing) + 1
+#     doc_dir   = docs_dir / f"doc_{next_idx:03d}"
+#     orig_dir  = doc_dir / "original"
+#     orig_dir.mkdir(parents=True, exist_ok=True)
+#     (doc_dir / "ocr").mkdir(parents=True, exist_ok=True)
+
+#     safe_fname = safe_name(filename)
+#     out_path   = orig_dir / safe_fname
+#     out_path.write_bytes(file_bytes)
+
+#     doc_meta = {
+#         "doc_id":        f"doc_{next_idx:03d}",
+#         "original_name": filename,
+#         "filename":      safe_fname,
+#         "size":          len(file_bytes),
+#         "uploaded_at":   datetime.utcnow().isoformat() + "Z",
+#         "ocr_status":    "pending",
+#     }
+#     (doc_dir / "metadata.json").write_text(
+#         json.dumps(doc_meta, indent=2, ensure_ascii=False), encoding="utf-8"
+#     )
+#     return doc_dir
+
+
+# def list_session_documents(sess_dir: Path) -> list[dict]:
+#     """Return list of document metadata dicts for a session."""
+#     docs_dir = sess_dir / "documents"
+#     if not docs_dir.exists():
+#         return []
+#     result = []
+#     for d in sorted(docs_dir.iterdir()):
+#         if not d.is_dir() or not d.name.startswith("doc_"):
+#             continue
+#         mf = d / "metadata.json"
+#         if mf.exists():
+#             try:
+#                 m = json.loads(mf.read_text(encoding="utf-8"))
+#                 m["_path"] = str(d)
+#                 result.append(m)
+#             except Exception:
+#                 result.append({"doc_id": d.name, "_path": str(d)})
+#     return result
+
+
+# def get_combined_ocr_text(sess_dir: Path) -> str:
+#     """
+#     Merge OCR text from all doc_XXX/ocr/ folders within a session.
+#     Checks processing/combined_ocr.txt ONLY if non-empty (cache).
+#     Always rebuilds if cache is missing or empty.
+#     """
+#     combined_cache = sess_dir / "processing" / "combined_ocr.txt"
+
+#     # ── Only trust the cache if it is non-empty ──────────────────────────────
+#     if combined_cache.exists():
+#         try:
+#             cached = combined_cache.read_text(encoding="utf-8").strip()
+#             if cached:
+#                 return cached
+#             else:
+#                 # Cache exists but is empty — delete it and rebuild
+#                 combined_cache.unlink(missing_ok=True)
+#         except Exception:
+#             combined_cache.unlink(missing_ok=True)
+
+#     texts = []
+#     for doc in list_session_documents(sess_dir):
+#         doc_path   = Path(doc["_path"])
+#         ocr_dir    = doc_path / "ocr"
+#         if not ocr_dir.exists():
+#             continue
+
+#         t = ""
+
+#         # ── Strategy 1: direct collect on ocr/ ───────────────────────────────
+#         t = collect_ocr_text(ocr_dir)
+
+#         # ── Strategy 2: look inside bundle subdirs (e.g. ocr/my_doc_pdf/) ────
+#         if not t:
+#             for sub in sorted(ocr_dir.iterdir()):
+#                 if sub.is_dir():
+#                     t = collect_ocr_text(sub)
+#                     if t:
+#                         break
+
+#         # ── Strategy 3: rglob for any ocr_result.json under ocr/ ─────────────
+#         if not t:
+#             for ocr_json in ocr_dir.rglob("ocr_result.json"):
+#                 try:
+#                     data = load_json(ocr_json)
+#                     if data and isinstance(data.get("pages", []), list):
+#                         page_texts = []
+#                         for page in data["pages"]:
+#                             md = page.get("markdown", "").strip()
+#                             if md:
+#                                 page_texts.append(
+#                                     f"--- Document JSON Page {page.get('index', 0)} ---\n{clean_markdown(md)}"
+#                                 )
+#                         if page_texts:
+#                             t = "\n\n".join(page_texts)
+#                             break
+#                 except Exception:
+#                     continue
+
+#         # ── Strategy 4: rglob for any *.md files under ocr/ ──────────────────
+#         if not t:
+#             md_files = sorted(ocr_dir.rglob("*.md"))
+#             if md_files:
+#                 page_texts = []
+#                 for md_file in md_files:
+#                     try:
+#                         content = md_file.read_text(encoding="utf-8").strip()
+#                         if content:
+#                             page_texts.append(f"--- {md_file.name} ---\n{content}")
+#                     except Exception:
+#                         continue
+#                 t = "\n\n".join(page_texts)
+
+#         if t:
+#             texts.append(f"=== Document: {doc.get('original_name', doc['doc_id'])} ===\n{t}")
+
+#     merged = "\n\n".join(texts)
+#     if merged:
+#         try:
+#             combined_cache.parent.mkdir(parents=True, exist_ok=True)
+#             combined_cache.write_text(merged, encoding="utf-8")
+#         except Exception:
+#             pass
+#     return merged
+
+# # ══════════════════════════════════════════════════════════════════════════════
+# # VERIFICATION SYSTEM PROMPT
+# # ══════════════════════════════════════════════════════════════════════════════
+
+# VERIFICATION_SYSTEM_PROMPT = """
+# You are an objective verifier comparing multiple-choice answers against an OCR-extracted document.
+# Return a JSON array where each element corresponds to one input question ID and has the following keys:
+# - id: (string) the question ID from the input
+# - verification_status: one of ["SUPPORTED","PARTIALLY_SUPPORTED","NOT_FOUND","CONTRADICTED"]
+# - confidence: numeric 0-100 estimating certainty of the verification
+# - evidence_quote: short quote (<=250 chars) from the OCR that justifies the verdict, or "" if none
+# - evidence_page: page identifier (e.g., "page_0003.md" or "Document JSON Page 2") where evidence was found, or "" if none
+# - reasoning: plain-text explanation of how you reached the decision
+# - suggested_answer: if the original selected answer seems wrong, suggest one of "A","B","C","D", or null
+
+# Important:
+# - Output only a single JSON array (or a fenced ```json block containing the array). Avoid extra commentary.
+# - Be conservative: when evidence is partial, prefer PARTIALLY_SUPPORTED with a moderate confidence.
+# - Use NOT_FOUND when no supporting text is present, not when contradictory evidence exists.
+# """
+
+# # ══════════════════════════════════════════════════════════════════════════════
+# # SESSION FILESYSTEM HELPERS
+# # ══════════════════════════════════════════════════════════════════════════════
+
+# def get_sessions_dir(username: str) -> Path:
+#     return USER_DATA_DIR / username / "sessions"
+
+
+# def create_new_session(username: str) -> tuple[str, Path]:
+#     ts       = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+#     sess_dir = get_sessions_dir(username) / ts
+#     for sub in ("inputs", "documents", "processing", "outputs", "logs"):
+#         (sess_dir / sub).mkdir(parents=True, exist_ok=True)
+#     meta = {
+#         "session_id":  ts,
+#         "username":    username,
+#         "created_at":  datetime.utcnow().isoformat() + "Z",
+#         "status":      "created",
+#         "doc_count":   0,
+#         "company":     "",
+#         "answer_mode": "",
+#     }
+#     (sess_dir / "metadata.json").write_text(
+#         json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8"
+#     )
+#     return ts, sess_dir
+
+
+# def list_user_sessions(username: str) -> list[dict]:
+#     """Return list of session metadata dicts, newest first."""
+#     sessions_dir = get_sessions_dir(username)
+#     if not sessions_dir.exists():
+#         return []
+#     result = []
+#     for p in sorted(sessions_dir.iterdir(), reverse=True):
+#         if not p.is_dir():
+#             continue
+#         meta_file = p / "metadata.json"
+#         if meta_file.exists():
+#             try:
+#                 m = json.loads(meta_file.read_text(encoding="utf-8"))
+#                 result.append(m)
+#             except Exception:
+#                 result.append({"session_id": p.name, "created_at": p.name})
+#         else:
+#             result.append({"session_id": p.name, "created_at": p.name})
+#     return result
+
+
+# def get_session_path(username: str, session_id: str) -> Path:
+#     return get_sessions_dir(username) / session_id
+
+
+# def update_session_meta(sess_dir: Path, updates: dict):
+#     meta_file = sess_dir / "metadata.json"
+#     try:
+#         meta = json.loads(meta_file.read_text(encoding="utf-8")) if meta_file.exists() else {}
+#     except Exception:
+#         meta = {}
+#     meta.update(updates)
+#     meta_file.write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8")
+
+
+# def add_document_to_session(sess_dir: Path, file_bytes: bytes, filename: str) -> Path:
+#     """
+#     Save an uploaded file into the next available doc_XXX slot.
+#     Returns the doc directory.
+#     Layout:
+#       session/documents/doc_001/original/<filename>
+#       session/documents/doc_001/ocr/        (populated after OCR)
+#       session/documents/doc_001/metadata.json
+#     """
+#     docs_dir = sess_dir / "documents"
+#     existing = sorted([d for d in docs_dir.iterdir() if d.is_dir() and d.name.startswith("doc_")])
+#     next_idx  = len(existing) + 1
+#     doc_dir   = docs_dir / f"doc_{next_idx:03d}"
+#     orig_dir  = doc_dir / "original"
+#     orig_dir.mkdir(parents=True, exist_ok=True)
+#     (doc_dir / "ocr").mkdir(parents=True, exist_ok=True)
+
+#     safe_fname = safe_name(filename)
+#     out_path   = orig_dir / safe_fname
+#     out_path.write_bytes(file_bytes)
+
+#     doc_meta = {
+#         "doc_id":        f"doc_{next_idx:03d}",
+#         "original_name": filename,
+#         "filename":      safe_fname,
+#         "size":          len(file_bytes),
+#         "uploaded_at":   datetime.utcnow().isoformat() + "Z",
+#         "ocr_status":    "pending",
+#     }
+#     (doc_dir / "metadata.json").write_text(
+#         json.dumps(doc_meta, indent=2, ensure_ascii=False), encoding="utf-8"
+#     )
+#     return doc_dir
+
+
+# def list_session_documents(sess_dir: Path) -> list[dict]:
+#     """Return list of document metadata dicts for a session."""
+#     docs_dir = sess_dir / "documents"
+#     if not docs_dir.exists():
+#         return []
+#     result = []
+#     for d in sorted(docs_dir.iterdir()):
+#         if not d.is_dir() or not d.name.startswith("doc_"):
+#             continue
+#         mf = d / "metadata.json"
+#         if mf.exists():
+#             try:
+#                 m = json.loads(mf.read_text(encoding="utf-8"))
+#                 m["_path"] = str(d)
+#                 result.append(m)
+#             except Exception:
+#                 result.append({"doc_id": d.name, "_path": str(d)})
+#     return result
+
+
+# def get_combined_ocr_text(sess_dir: Path) -> str:
+#     """
+#     Merge OCR text from all doc_XXX/ocr/ folders within a session.
+#     Checks processing/combined_ocr.txt ONLY if non-empty (cache).
+#     Always rebuilds if cache is missing or empty.
+#     """
+#     combined_cache = sess_dir / "processing" / "combined_ocr.txt"
+
+#     # ── Only trust the cache if it is non-empty ──────────────────────────────
+#     if combined_cache.exists():
+#         try:
+#             cached = combined_cache.read_text(encoding="utf-8").strip()
+#             if cached:
+#                 return cached
+#             else:
+#                 # Cache exists but is empty — delete it and rebuild
+#                 combined_cache.unlink(missing_ok=True)
+#         except Exception:
+#             combined_cache.unlink(missing_ok=True)
+
+#     texts = []
+#     for doc in list_session_documents(sess_dir):
+#         doc_path   = Path(doc["_path"])
+#         ocr_dir    = doc_path / "ocr"
+#         if not ocr_dir.exists():
+#             continue
+
+#         t = ""
+
+#         # ── Strategy 1: direct collect on ocr/ ───────────────────────────────
+#         t = collect_ocr_text(ocr_dir)
+
+#         # ── Strategy 2: look inside bundle subdirs (e.g. ocr/my_doc_pdf/) ────
+#         if not t:
+#             for sub in sorted(ocr_dir.iterdir()):
+#                 if sub.is_dir():
+#                     t = collect_ocr_text(sub)
+#                     if t:
+#                         break
+
+#         # ── Strategy 3: rglob for any ocr_result.json under ocr/ ─────────────
+#         if not t:
+#             for ocr_json in ocr_dir.rglob("ocr_result.json"):
+#                 try:
+#                     data = load_json(ocr_json)
+#                     if data and isinstance(data.get("pages", []), list):
+#                         page_texts = []
+#                         for page in data["pages"]:
+#                             md = page.get("markdown", "").strip()
+#                             if md:
+#                                 page_texts.append(
+#                                     f"--- Document JSON Page {page.get('index', 0)} ---\n{clean_markdown(md)}"
+#                                 )
+#                         if page_texts:
+#                             t = "\n\n".join(page_texts)
+#                             break
+#                 except Exception:
+#                     continue
+
+#         # ── Strategy 4: rglob for any *.md files under ocr/ ──────────────────
+#         if not t:
+#             md_files = sorted(ocr_dir.rglob("*.md"))
+#             if md_files:
+#                 page_texts = []
+#                 for md_file in md_files:
+#                     try:
+#                         content = md_file.read_text(encoding="utf-8").strip()
+#                         if content:
+#                             page_texts.append(f"--- {md_file.name} ---\n{content}")
+#                     except Exception:
+#                         continue
+#                 t = "\n\n".join(page_texts)
+
+#         if t:
+#             texts.append(f"=== Document: {doc.get('original_name', doc['doc_id'])} ===\n{t}")
+
+#     merged = "\n\n".join(texts)
+#     if merged:
+#         try:
+#             combined_cache.parent.mkdir(parents=True, exist_ok=True)
+#             combined_cache.write_text(merged, encoding="utf-8")
+#         except Exception:
+#             pass
+#     return merged
+
+# # ══════════════════════════════════════════════════════════════════════════════
+# # VERIFICATION SYSTEM PROMPT
+# # ══════════════════════════════════════════════════════════════════════════════
+
+# VERIFICATION_SYSTEM_PROMPT = """
+# You are an objective verifier comparing multiple-choice answers against an OCR-extracted document.
+# Return a JSON array where each element corresponds to one input question ID and has the following keys:
+# - id: (string) the question ID from the input
+# - verification_status: one of ["SUPPORTED","PARTIALLY_SUPPORTED","NOT_FOUND","CONTRADICTED"]
+# - confidence: numeric 0-100 estimating certainty of the verification
+# - evidence_quote: short quote (<=250 chars) from the OCR that justifies the verdict, or "" if none
+# - evidence_page: page identifier (e.g., "page_0003.md" or "Document JSON Page 2") where evidence was found, or "" if none
+# - reasoning: plain-text explanation of how you reached the decision
+# - suggested_answer: if the original selected answer seems wrong, suggest one of "A","B","C","D", or null
+
+# Important:
+# - Output only a single JSON array (or a fenced ```json block containing the array). Avoid extra commentary.
+# - Be conservative: when evidence is partial, prefer PARTIALLY_SUPPORTED with a moderate confidence.
+# - Use NOT_FOUND when no supporting text is present, not when contradictory evidence exists.
+# """
+
+# # ══════════════════════════════════════════════════════════════════════════════
+# # SESSION FILESYSTEM HELPERS
+# # ══════════════════════════════════════════════════════════════════════════════
+
+# def get_sessions_dir(username: str) -> Path:
+#     return USER_DATA_DIR / username / "sessions"
+
+
+# def create_new_session(username: str) -> tuple[str, Path]:
+#     ts       = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+#     sess_dir = get_sessions_dir(username) / ts
+#     for sub in ("inputs", "documents", "processing", "outputs", "logs"):
+#         (sess_dir / sub).mkdir(parents=True, exist_ok=True)
+#     meta = {
+#         "session_id":  ts,
+#         "username":    username,
+#         "created_at":  datetime.utcnow().isoformat() + "Z",
+#         "status":      "created",
+#         "doc_count":   0,
+#         "company":     "",
+#         "answer_mode": "",
+#     }
+#     (sess_dir / "metadata.json").write_text(
+#         json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8"
+#     )
+#     return ts, sess_dir
+
+
+# def list_user_sessions(username: str) -> list[dict]:
+#     """Return list of session metadata dicts, newest first."""
+#     sessions_dir = get_sessions_dir(username)
+#     if not sessions_dir.exists():
+#         return []
+#     result = []
+#     for p in sorted(sessions_dir.iterdir(), reverse=True):
+#         if not p.is_dir():
+#             continue
+#         meta_file = p / "metadata.json"
+#         if meta_file.exists():
+#             try:
+#                 m = json.loads(meta_file.read_text(encoding="utf-8"))
+#                 result.append(m)
+#             except Exception:
+#                 result.append({"session_id": p.name, "created_at": p.name})
+#         else:
+#             result.append({"session_id": p.name, "created_at": p.name})
+#     return result
+
+
+# def get_session_path(username: str, session_id: str) -> Path:
+#     return get_sessions_dir(username) / session_id
+
+
+# def update_session_meta(sess_dir: Path, updates: dict):
+#     meta_file = sess_dir / "metadata.json"
+#     try:
+#         meta = json.loads(meta_file.read_text(encoding="utf-8")) if meta_file.exists() else {}
+#     except Exception:
+#         meta = {}
+#     meta.update(updates)
+#     meta_file.write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8")
+
+
+# def add_document_to_session(sess_dir: Path, file_bytes: bytes, filename: str) -> Path:
+#     """
+#     Save an uploaded file into the next available doc_XXX slot.
+#     Returns the doc directory.
+#     Layout:
+#       session/documents/doc_001/original/<filename>
+#       session/documents/doc_001/ocr/        (populated after OCR)
+#       session/documents/doc_001/metadata.json
+#     """
+#     docs_dir = sess_dir / "documents"
+#     existing = sorted([d for d in docs_dir.iterdir() if d.is_dir() and d.name.startswith("doc_")])
+#     next_idx  = len(existing) + 1
+#     doc_dir   = docs_dir / f"doc_{next_idx:03d}"
+#     orig_dir  = doc_dir / "original"
+#     orig_dir.mkdir(parents=True, exist_ok=True)
+#     (doc_dir / "ocr").mkdir(parents=True, exist_ok=True)
+
+#     safe_fname = safe_name(filename)
+#     out_path   = orig_dir / safe_fname
+#     out_path.write_bytes(file_bytes)
+
+#     doc_meta = {
+#         "doc_id":        f"doc_{next_idx:03d}",
+#         "original_name": filename,
+#         "filename":      safe_fname,
+#         "size":          len(file_bytes),
+#         "uploaded_at":   datetime.utcnow().isoformat() + "Z",
+#         "ocr_status":    "pending",
+#     }
+#     (doc_dir / "metadata.json").write_text(
+#         json.dumps(doc_meta, indent=2, ensure_ascii=False), encoding="utf-8"
+#     )
+#     return doc_dir
+
+
+# def list_session_documents(sess_dir: Path) -> list[dict]:
+#     """Return list of document metadata dicts for a session."""
+#     docs_dir = sess_dir / "documents"
+#     if not docs_dir.exists():
+#         return []
+#     result = []
+#     for d in sorted(docs_dir.iterdir()):
+#         if not d.is_dir() or not d.name.startswith("doc_"):
+#             continue
+#         mf = d / "metadata.json"
+#         if mf.exists():
+#             try:
+#                 m = json.loads(mf.read_text(encoding="utf-8"))
+#                 m["_path"] = str(d)
+#                 result.append(m)
+#             except Exception:
+#                 result.append({"doc_id": d.name, "_path": str(d)})
+#     return result
+
+
+# def get_combined_ocr_text(sess_dir: Path) -> str:
+#     """
+#     Merge OCR text from all doc_XXX/ocr/ folders within a session.
+#     Checks processing/combined_ocr.txt ONLY if non-empty (cache).
+#     Always rebuilds if cache is missing or empty.
+#     """
+#     combined_cache = sess_dir / "processing" / "combined_ocr.txt"
+
+#     # ── Only trust the cache if it is non-empty ──────────────────────────────
+#     if combined_cache.exists():
+#         try:
+#             cached = combined_cache.read_text(encoding="utf-8").strip()
+#             if cached:
+#                 return cached
+#             else:
+#                 # Cache exists but is empty — delete it and rebuild
+#                 combined_cache.unlink(missing_ok=True)
+#         except Exception:
+#             combined_cache.unlink(missing_ok=True)
+
+#     texts = []
+#     for doc in list_session_documents(sess_dir):
+#         doc_path   = Path(doc["_path"])
+#         ocr_dir    = doc_path / "ocr"
+#         if not ocr_dir.exists():
+#             continue
+
+#         t = ""
+
+#         # ── Strategy 1: direct collect on ocr/ ───────────────────────────────
+#         t = collect_ocr_text(ocr_dir)
+
+#         # ── Strategy 2: look inside bundle subdirs (e.g. ocr/my_doc_pdf/) ────
+#         if not t:
+#             for sub in sorted(ocr_dir.iterdir()):
+#                 if sub.is_dir():
+#                     t = collect_ocr_text(sub)
+#                     if t:
+#                         break
+
+#         # ── Strategy 3: rglob for any ocr_result.json under ocr/ ─────────────
+#         if not t:
+#             for ocr_json in ocr_dir.rglob("ocr_result.json"):
+#                 try:
+#                     data = load_json(ocr_json)
+#                     if data and isinstance(data.get("pages", []), list):
+#                         page_texts = []
+#                         for page in data["pages"]:
+#                             md = page.get("markdown", "").strip()
+#                             if md:
+#                                 page_texts.append(
+#                                     f"--- Document JSON Page {page.get('index', 0)} ---\n{clean_markdown(md)}"
+#                                 )
+#                         if page_texts:
+#                             t = "\n\n".join(page_texts)
+#                             break
+#                 except Exception:
+#                     continue
+
+#         # ── Strategy 4: rglob for any *.md files under ocr/ ──────────────────
+#         if not t:
+#             md_files = sorted(ocr_dir.rglob("*.md"))
+#             if md_files:
+#                 page_texts = []
+#                 for md_file in md_files:
+#                     try:
+#                         content = md_file.read_text(encoding="utf-8").strip()
+#                         if content:
+#                             page_texts.append(f"--- {md_file.name} ---\n{content}")
+#                     except Exception:
+#                         continue
+#                 t = "\n\n".join(page_texts)
+
+#         if t:
+#             texts.append(f"=== Document: {doc.get('original_name', doc['doc_id'])} ===\n{t}")
+
+#     merged = "\n\n".join(texts)
+#     if merged:
+#         try:
+#             combined_cache.parent.mkdir(parents=True, exist_ok=True)
+#             combined_cache.write_text(merged, encoding="utf-8")
+#         except Exception:
+#             pass
+#     return merged
+
+# # ══════════════════════════════════════════════════════════════════════════════
+# # VERIFICATION SYSTEM PROMPT
+# # ══════════════════════════════════════════════════════════════════════════════
+
+# VERIFICATION_SYSTEM_PROMPT = """
+# You are an objective verifier comparing multiple-choice answers against an OCR-extracted document.
+# Return a JSON array where each element corresponds to one input question ID and has the following keys:
+# - id: (string) the question ID from the input
+# - verification_status: one of ["SUPPORTED","PARTIALLY_SUPPORTED","NOT_FOUND","CONTRADICTED"]
+# - confidence: numeric 0-100 estimating certainty of the verification
+# - evidence_quote: short quote (<=250 chars) from the OCR that justifies the verdict, or "" if none
+# - evidence_page: page identifier (e.g., "page_0003.md" or "Document JSON Page 2") where evidence was found, or "" if none
+# - reasoning: plain-text explanation of how you reached the decision
+# - suggested_answer: if the original selected answer seems wrong, suggest one of "A","B","C","D", or null
+
+# Important:
+# - Output only a single JSON array (or a fenced ```json block containing the array). Avoid extra commentary.
+# - Be conservative: when evidence is partial, prefer PARTIALLY_SUPPORTED with a moderate confidence.
+# - Use NOT_FOUND when no supporting text is present, not when contradictory evidence exists.
+# """
+
+# # ══════════════════════════════════════════════════════════════════════════════
+# # SESSION FILESYSTEM HELPERS
+# # ══════════════════════════════════════════════════════════════════════════════
+
+# def get_sessions_dir(username: str) -> Path:
+#     return USER_DATA_DIR / username / "sessions"
+
+
+# def create_new_session(username: str) -> tuple[str, Path]:
+#     ts       = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+#     sess_dir = get_sessions_dir(username) / ts
+#     for sub in ("inputs", "documents", "processing", "outputs", "logs"):
+#         (sess_dir / sub).mkdir(parents=True, exist_ok=True)
+#     meta = {
+#         "session_id":  ts,
+#         "username":    username,
+#         "created_at":  datetime.utcnow().isoformat() + "Z",
+#         "status":      "created",
+#         "doc_count":   0,
+#         "company":     "",
+#         "answer_mode": "",
+#     }
+#     (sess_dir / "metadata.json").write_text(
+#         json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8"
+#     )
+#     return ts, sess_dir
+
+
+# def list_user_sessions(username: str) -> list[dict]:
+#     """Return list of session metadata dicts, newest first."""
+#     sessions_dir = get_sessions_dir(username)
+#     if not sessions_dir.exists():
+#         return []
+#     result = []
+#     for p in sorted(sessions_dir.iterdir(), reverse=True):
+#         if not p.is_dir():
+#             continue
+#         meta_file = p / "metadata.json"
+#         if meta_file.exists():
+#             try:
+#                 m = json.loads(meta_file.read_text(encoding="utf-8"))
+#                 result.append(m)
+#             except Exception:
+#                 result.append({"session_id": p.name, "created_at": p.name})
+#         else:
+#             result.append({"session_id": p.name, "created_at": p.name})
+#     return result
+
+
+# def get_session_path(username: str, session_id: str) -> Path:
+#     return get_sessions_dir(username) / session_id
+
+
+# def update_session_meta(sess_dir: Path, updates: dict):
+#     meta_file = sess_dir / "metadata.json"
+#     try:
+#         meta = json.loads(meta_file.read_text(encoding="utf-8")) if meta_file.exists() else {}
+#     except Exception:
+#         meta = {}
+#     meta.update(updates)
+#     meta_file.write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8")
+
+
+# def add_document_to_session(sess_dir: Path, file_bytes: bytes, filename: str) -> Path:
+#     """
+#     Save an uploaded file into the next available doc_XXX slot.
+#     Returns the doc directory.
+#     Layout:
+#       session/documents/doc_001/original/<filename>
+#       session/documents/doc_001/ocr/        (populated after OCR)
+#       session/documents/doc_001/metadata.json
+#     """
+#     docs_dir = sess_dir / "documents"
+#     existing = sorted([d for d in docs_dir.iterdir() if d.is_dir() and d.name.startswith("doc_")])
+#     next_idx  = len(existing) + 1
+#     doc_dir   = docs_dir / f"doc_{next_idx:03d}"
+#     orig_dir  = doc_dir / "original"
+#     orig_dir.mkdir(parents=True, exist_ok=True)
+#     (doc_dir / "ocr").mkdir(parents=True, exist_ok=True)
+
+#     safe_fname = safe_name(filename)
+#     out_path   = orig_dir / safe_fname
+#     out_path.write_bytes(file_bytes)
+
+#     doc_meta = {
+#         "doc_id":        f"doc_{next_idx:03d}",
+#         "original_name": filename,
+#         "filename":      safe_fname,
+#         "size":          len(file_bytes),
+#         "uploaded_at":   datetime.utcnow().isoformat() + "Z",
+#         "ocr_status":    "pending",
+#     }
+#     (doc_dir / "metadata.json").write_text(
+#         json.dumps(doc_meta, indent=2, ensure_ascii=False), encoding="utf-8"
+#     )
+#     return doc_dir
+
+
+# def list_session_documents(sess_dir: Path) -> list[dict]:
+#     """Return list of document metadata dicts for a session."""
+#     docs_dir = sess_dir / "documents"
+#     if not docs_dir.exists():
+#         return []
+#     result = []
+#     for d in sorted(docs_dir.iterdir()):
+#         if not d.is_dir() or not d.name.startswith("doc_"):
+#             continue
+#         mf = d / "metadata.json"
+#         if mf.exists():
+#             try:
+#                 m = json.loads(mf.read_text(encoding="utf-8"))
+#                 m["_path"] = str(d)
+#                 result.append(m)
+#             except Exception:
+#                 result.append({"doc_id": d.name, "_path": str(d)})
+#     return result
+
+
+# def get_combined_ocr_text(sess_dir: Path) -> str:
+#     """
+#     Merge OCR text from all doc_XXX/ocr/ folders within a session.
+#     Checks processing/combined_ocr.txt ONLY if non-empty (cache).
+#     Always rebuilds if cache is missing or empty.
+#     """
+#     combined_cache = sess_dir / "processing" / "combined_ocr.txt"
+
+#     # ── Only trust the cache if it is non-empty ──────────────────────────────
+#     if combined_cache.exists():
+#         try:
+#             cached = combined_cache.read_text(encoding="utf-8").strip()
+#             if cached:
+#                 return cached
+#             else:
+#                 # Cache exists but is empty — delete it and rebuild
+#                 combined_cache.unlink(missing_ok=True)
+#         except Exception:
+#             combined_cache.unlink(missing_ok=True)
+
+#     texts = []
+#     for doc in list_session_documents(sess_dir):
+#         doc_path   = Path(doc["_path"])
+#         ocr_dir    = doc_path / "ocr"
+#         if not ocr_dir.exists():
+#             continue
+
+#         t = ""
+
+#         # ── Strategy 1: direct collect on ocr/ ───────────────────────────────
+#         t = collect_ocr_text(ocr_dir)
+
+#         # ── Strategy 2: look inside bundle subdirs (e.g. ocr/my_doc_pdf/) ────
+#         if not t:
+#             for sub in sorted(ocr_dir.iterdir()):
+#                 if sub.is_dir():
+#                     t = collect_ocr_text(sub)
+#                     if t:
+#                         break
+
+#         # ── Strategy 3: rglob for any ocr_result.json under ocr/ ─────────────
+#         if not t:
+#             for ocr_json in ocr_dir.rglob("ocr_result.json"):
+#                 try:
+#                     data = load_json(ocr_json)
+#                     if data and isinstance(data.get("pages", []), list):
+#                         page_texts = []
+#                         for page in data["pages"]:
+#                             md = page.get("markdown", "").strip()
+#                             if md:
+#                                 page_texts.append(
+#                                     f"--- Document JSON Page {page.get('index', 0)} ---\n{clean_markdown(md)}"
+#                                 )
+#                         if page_texts:
+#                             t = "\n\n".join(page_texts)
+#                             break
+#                 except Exception:
+#                     continue
+
+#         # ── Strategy 4: rglob for any *.md files under ocr/ ──────────────────
+#         if not t:
+#             md_files = sorted(ocr_dir.rglob("*.md"))
+#             if md_files:
+#                 page_texts = []
+#                 for md_file in md_files:
+#                     try:
+#                         content = md_file.read_text(encoding="utf-8").strip()
+#                         if content:
+#                             page_texts.append(f"--- {md_file.name} ---\n{content}")
+#                     except Exception:
+#                         continue
+#                 t = "\n\n".join(page_texts)
+
+#         if t:
+#             texts.append(f"=== Document: {doc.get('original_name', doc['doc_id'])} ===\n{t}")
+
+#     merged = "\n\n".join(texts)
+#     if merged:
+#         try:
+#             combined_cache.parent.mkdir(parents=True, exist_ok=True)
+#             combined_cache.write_text(merged, encoding="utf-8")
+#         except Exception:
+#             pass
+#     return merged
+
+# # ══════════════════════════════════════════════════════════════════════════════
+# # VERIFICATION SYSTEM PROMPT
+# # ══════════════════════════════════════════════════════════════════════════════
+
+# VERIFICATION_SYSTEM_PROMPT = """
+# You are an objective verifier comparing multiple-choice answers against an OCR-extracted document.
+# Return a JSON array where each element corresponds to one input question ID and has the following keys:
+# - id: (string) the question ID from the input
+# - verification_status: one of ["SUPPORTED","PARTIALLY_SUPPORTED","NOT_FOUND","CONTRADICTED"]
+# - confidence: numeric 0-100 estimating certainty of the verification
+# - evidence_quote: short quote (<=250 chars) from the OCR that justifies the verdict, or "" if none
+# - evidence_page: page identifier (e.g., "page_0003.md" or "Document JSON Page 2") where evidence was found, or "" if none
+# - reasoning: plain-text explanation of how you reached the decision
+# - suggested_answer: if the original selected answer seems wrong, suggest one of "A","B","C","D", or null
+
+# Important:
+# - Output only a single JSON array (or a fenced ```json block containing the array). Avoid extra commentary.
+# - Be conservative: when evidence is partial, prefer PARTIALLY_SUPPORTED with a moderate confidence.
+# - Use NOT_FOUND when no supporting text is present, not when contradictory evidence exists.
+# """
+
+# # ══════════════════════════════════════════════════════════════════════════════
+# # SESSION FILESYSTEM HELPERS
+# # ══════════════════════════════════════════════════════════════════════════════
+
+# def get_sessions_dir(username: str) -> Path:
+#     return USER_DATA_DIR / username / "sessions"
+
+
+# def create_new_session(username: str) -> tuple[str, Path]:
+#     ts       = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+#     sess_dir = get_sessions_dir(username) / ts
+#     for sub in ("inputs", "documents", "processing", "outputs", "logs"):
+#         (sess_dir / sub).mkdir(parents=True, exist_ok=True)
+#     meta = {
+#         "session_id":  ts,
+#         "username":    username,
+#         "created_at":  datetime.utcnow().isoformat() + "Z",
+#         "status":      "created",
+#         "doc_count":   0,
+#         "company":     "",
+#         "answer_mode": "",
+#     }
+#     (sess_dir / "metadata.json").write_text(
+#         json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8"
+#     )
+#     return ts, sess_dir
+
+
+# def list_user_sessions(username: str) -> list[dict]:
+#     """Return list of session metadata dicts, newest first."""
+#     sessions_dir = get_sessions_dir(username)
+#     if not sessions_dir.exists():
+#         return []
+#     result = []
+#     for p in sorted(sessions_dir.iterdir(), reverse=True):
+#         if not p.is_dir():
+#             continue
+#         meta_file = p / "metadata.json"
+#         if meta_file.exists():
+#             try:
+#                 m = json.loads(meta_file.read_text(encoding="utf-8"))
+#                 result.append(m)
+#             except Exception:
+#                 result.append({"session_id": p.name, "created_at": p.name})
+#         else:
+#             result.append({"session_id": p.name, "created_at": p.name})
+#     return result
+
+
+# def get_session_path(username: str, session_id: str) -> Path:
+#     return get_sessions_dir(username) / session_id
+
+
+# def update_session_meta(sess_dir: Path, updates: dict):
+#     meta_file = sess_dir / "metadata.json"
+#     try:
+#         meta = json.loads(meta_file.read_text(encoding="utf-8")) if meta_file.exists() else {}
+#     except Exception:
+#         meta = {}
+#     meta.update(updates)
+#     meta_file.write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8")
+
+
+# def add_document_to_session(sess_dir: Path, file_bytes: bytes, filename: str) -> Path:
+#     """
+#     Save an uploaded file into the next available doc_XXX slot.
+#     Returns the doc directory.
+#     Layout:
+#       session/documents/doc_001/original/<filename>
+#       session/documents/doc_001/ocr/        (populated after OCR)
+#       session/documents/doc_001/metadata.json
+#     """
+#     docs_dir = sess_dir / "documents"
+#     existing = sorted([d for d in docs_dir.iterdir() if d.is_dir() and d.name.startswith("doc_")])
+#     next_idx  = len(existing) + 1
+#     doc_dir   = docs_dir / f"doc_{next_idx:03d}"
+#     orig_dir  = doc_dir / "original"
+#     orig_dir.mkdir(parents=True, exist_ok=True)
+#     (doc_dir / "ocr").mkdir(parents=True, exist_ok=True)
+
+#     safe_fname = safe_name(filename)
+#     out_path   = orig_dir / safe_fname
+#     out_path.write_bytes(file_bytes)
+
+#     doc_meta = {
+#         "doc_id":        f"doc_{next_idx:03d}",
+#         "original_name": filename,
+#         "filename":      safe_fname,
+#         "size":          len(file_bytes),
+#         "uploaded_at":   datetime.utcnow().isoformat() + "Z",
+#         "ocr_status":    "pending",
+#     }
+#     (doc_dir / "metadata.json").write_text(
+#         json.dumps(doc_meta, indent=2, ensure_ascii=False), encoding="utf-8"
+#     )
+#     return doc_dir
+
+
+# def list_session_documents(sess_dir: Path) -> list[dict]:
+#     """Return list of document metadata dicts for a session."""
+#     docs_dir = sess_dir / "documents"
+#     if not docs_dir.exists():
+#         return []
+#     result = []
+#     for d in sorted(docs_dir.iterdir()):
+#         if not d.is_dir() or not d.name.startswith("doc_"):
+#             continue
+#         mf = d / "metadata.json"
+#         if mf.exists():
+#             try:
+#                 m = json.loads(mf.read_text(encoding="utf-8"))
+#                 m["_path"] = str(d)
+#                 result.append(m)
+#             except Exception:
+#                 result.append({"doc_id": d.name, "_path": str(d)})
+#     return result
+
+
+# def get_combined_ocr_text(sess_dir: Path) -> str:
+#     """
+#     Merge OCR text from all doc_XXX/ocr/ folders within a session.
+#     Checks processing/combined_ocr.txt ONLY if non-empty (cache).
+#     Always rebuilds if cache is missing or empty.
+#     """
+#     combined_cache = sess_dir / "processing" / "combined_ocr.txt"
+
+#     # ── Only trust the cache if it is non-empty ──────────────────────────────
+#     if combined_cache.exists():
+#         try:
+#             cached = combined_cache.read_text(encoding="utf-8").strip()
+#             if cached:
+#                 return cached
+#             else:
+#                 # Cache exists but is empty — delete it and rebuild
+#                 combined_cache.unlink(missing_ok=True)
+#         except Exception:
+#             combined_cache.unlink(missing_ok=True)
+
+#     texts = []
+#     for doc in list_session_documents(sess_dir):
+#         doc_path   = Path(doc["_path"])
+#         ocr_dir    = doc_path / "ocr"
+#         if not ocr_dir.exists():
+#             continue
+
+#         t = ""
+
+#         # ── Strategy 1: direct collect on ocr/ ───────────────────────────────
+#         t = collect_ocr_text(ocr_dir)
+
+#         # ── Strategy 2: look inside bundle subdirs (e.g. ocr/my_doc_pdf/) ────
+#         if not t:
+#             for sub in sorted(ocr_dir.iterdir()):
+#                 if sub.is_dir():
+#                     t = collect_ocr_text(sub)
+#                     if t:
+#                         break
+
+#         # ── Strategy 3: rglob for any ocr_result.json under ocr/ ─────────────
+#         if not t:
+#             for ocr_json in ocr_dir.rglob("ocr_result.json"):
+#                 try:
+#                     data = load_json(ocr_json)
+#                     if data and isinstance(data.get("pages", []), list):
+#                         page_texts = []
+#                         for page in data["pages"]:
+#                             md = page.get("markdown", "").strip()
+#                             if md:
+#                                 page_texts.append(
+#                                     f"--- Document JSON Page {page.get('index', 0)} ---\n{clean_markdown(md)}"
+#                                 )
+#                         if page_texts:
+#                             t = "\n\n".join(page_texts)
+#                             break
+#                 except Exception:
+#                     continue
+
+#         # ── Strategy 4: rglob for any *.md files under ocr/ ──────────────────
+#         if not t:
+#             md_files = sorted(ocr_dir.rglob("*.md"))
+#             if md_files:
+#                 page_texts = []
+#                 for md_file in md_files:
+#                     try:
+#                         content = md_file.read_text(encoding="utf-8").strip()
+#                         if content:
+#                             page_texts.append(f"--- {md_file.name} ---\n{content}")
+#                     except Exception:
+#                         continue
+#                 t = "\n\n".join(page_texts)
+
+#         if t:
+#             texts.append(f"=== Document: {doc.get('original_name', doc['doc_id'])} ===\n{t}")
+
+#     merged = "\n\n".join(texts)
+#     if merged:
+#         try:
+#             combined_cache.parent.mkdir(parents=True, exist_ok=True)
+#             combined_cache.write_text(merged, encoding="utf-8")
+#         except Exception:
+#             pass
+#     return merged
+
+# # ══════════════════════════════════════════════════════════════════════════════
+# # VERIFICATION SYSTEM PROMPT
+# # ══════════════════════════════════════════════════════════════════════════════
+
+# VERIFICATION_SYSTEM_PROMPT = """
+# You are an objective verifier comparing multiple-choice answers against an OCR-extracted document.
+# Return a JSON array where each element corresponds to one input question ID and has the following keys:
+# - id: (string) the question ID from the input
+# - verification_status: one of ["SUPPORTED","PARTIALLY_SUPPORTED","NOT_FOUND","CONTRADICTED"]
+# - confidence: numeric 0-100 estimating certainty of the verification
+# - evidence_quote: short quote (<=250 chars) from the OCR that justifies the verdict, or "" if none
+# - evidence_page: page identifier (e.g., "page_0003.md" or "Document JSON Page 2") where evidence was found, or "" if none
+# - reasoning: plain-text explanation of how you reached the decision
+# - suggested_answer: if the original selected answer seems wrong, suggest one of "A","B","C","D", or null
+
+# Important:
+# - Output only a single JSON array (or a fenced ```json block containing the array). Avoid extra commentary.
+# - Be conservative: when evidence is partial, prefer PARTIALLY_SUPPORTED with a moderate confidence.
+# - Use NOT_FOUND when no supporting text is present, not when contradictory evidence exists.
+# """
+
+# # ══════════════════════════════════════════════════════════════════════════════
+# # SESSION FILESYSTEM HELPERS
+# # ══════════════════════════════════════════════════════════════════════════════
+
+# def get_sessions_dir(username: str) -> Path:
+#     return USER_DATA_DIR / username / "sessions"
+
+
+# def create_new_session(username: str) -> tuple[str, Path]:
+#     ts       = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+#     sess_dir = get_sessions_dir(username) / ts
+#     for sub in ("inputs", "documents", "processing", "outputs", "logs"):
+#         (sess_dir / sub).mkdir(parents=True, exist_ok=True)
+#     meta = {
+#         "session_id":  ts,
+#         "username":    username,
+#         "created_at":  datetime.utcnow().isoformat() + "Z",
+#         "status":      "created",
+#         "doc_count":   0,
+#         "company":     "",
+#         "answer_mode": "",
+#     }
+#     (sess_dir / "metadata.json").write_text(
+#         json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8"
+#     )
+#     return ts, sess_dir
+
+
+# def list_user_sessions(username: str) -> list[dict]:
+#     """Return list of session metadata dicts, newest first."""
+#     sessions_dir = get_sessions_dir(username)
+#     if not sessions_dir.exists():
+#         return []
+#     result = []
+#     for p in sorted(sessions_dir.iterdir(), reverse=True):
+#         if not p.is_dir():
+#             continue
+#         meta_file = p / "metadata.json"
+#         if meta_file.exists():
+#             try:
+#                 m = json.loads(meta_file.read_text(encoding="utf-8"))
+#                 result.append(m)
+#             except Exception:
+#                 result.append({"session_id": p.name, "created_at": p.name})
+#         else:
+#             result.append({"session_id": p.name, "created_at": p.name})
+#     return result
+
+
+# def get_session_path(username: str, session_id: str) -> Path:
+#     return get_sessions_dir(username) / session_id
+
+
+# def update_session_meta(sess_dir: Path, updates: dict):
+#     meta_file = sess_dir / "metadata.json"
+#     try:
+#         meta = json.loads(meta_file.read_text(encoding="utf-8")) if meta_file.exists() else {}
+#     except Exception:
+#         meta = {}
+#     meta.update(updates)
+#     meta_file.write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8")
+
+
+# def add_document_to_session(sess_dir: Path, file_bytes: bytes, filename: str) -> Path:
+#     """
+#     Save an uploaded file into the next available doc_XXX slot.
+#     Returns the doc directory.
+#     Layout:
+#       session/documents/doc_001/original/<filename>
+#       session/documents/doc_001/ocr/        (populated after OCR)
+#       session/documents/doc_001/metadata.json
+#     """
+#     docs_dir = sess_dir / "documents"
+#     existing = sorted([d for d in docs_dir.iterdir() if d.is_dir() and d.name.startswith("doc_")])
+#     next_idx  = len(existing) + 1
+#     doc_dir   = docs_dir / f"doc_{next_idx:03d}"
+#     orig_dir  = doc_dir / "original"
+#     orig_dir.mkdir(parents=True, exist_ok=True)
+#     (doc_dir / "ocr").mkdir(parents=True, exist_ok=True)
+
+#     safe_fname = safe_name(filename)
+#     out_path   = orig_dir / safe_fname
+#     out_path.write_bytes(file_bytes)
+
+#     doc_meta = {
+#         "doc_id":        f"doc_{next_idx:03d}",
+#         "original_name": filename,
+#         "filename":      safe_fname,
+#         "size":          len(file_bytes),
+#         "uploaded_at":   datetime.utcnow().isoformat() + "Z",
+#         "ocr_status":    "pending",
+#     }
+#     (doc_dir / "metadata.json").write_text(
+#         json.dumps(doc_meta, indent=2, ensure_ascii=False), encoding="utf-8"
+#     )
+#     return doc_dir
+
+
+# def list_session_documents(sess_dir: Path) -> list[dict]:
+#     """Return list of document metadata dicts for a session."""
+#     docs_dir = sess_dir / "documents"
+#     if not docs_dir.exists():
+#         return []
+#     result = []
+#     for d in sorted(docs_dir.iterdir()):
+#         if not d.is_dir() or not d.name.startswith("doc_"):
+#             continue
+#         mf = d / "metadata.json"
+#         if mf.exists():
+#             try:
+#                 m = json.loads(mf.read_text(encoding="utf-8"))
+#                 m["_path"] = str(d)
+#                 result.append(m)
+#             except Exception:
+#                 result.append({"doc_id": d.name, "_path": str(d)})
+#     return result
+
+
+# def get_combined_ocr_text(sess_dir: Path) -> str:
+#     """
+#     Merge OCR text from all doc_XXX/ocr/ folders within a session.
+#     Checks processing/combined_ocr.txt ONLY if non-empty (cache).
+#     Always rebuilds if cache is missing or empty.
+#     """
+#     combined_cache = sess_dir / "processing" / "combined_ocr.txt"
+
+#     # ── Only trust the cache if it is non-empty ──────────────────────────────
+#     if combined_cache.exists():
+#         try:
+#             cached = combined_cache.read_text(encoding="utf-8").strip()
+#             if cached:
+#                 return cached
+#             else:
+#                 # Cache exists but is empty — delete it and rebuild
+#                 combined_cache.unlink(missing_ok=True)
+#         except Exception:
+#             combined_cache.unlink(missing_ok=True)
+
+#     texts = []
+#     for doc in list_session_documents(sess_dir):
+#         doc_path   = Path(doc["_path"])
+#         ocr_dir    = doc_path / "ocr"
+#         if not ocr_dir.exists():
+#             continue
+
+#         t = ""
+
+#         # ── Strategy 1: direct collect on ocr/ ───────────────────────────────
+#         t = collect_ocr_text(ocr_dir)
+
+#         # ── Strategy 2: look inside bundle subdirs (e.g. ocr/my_doc_pdf/) ────
+#         if not t:
+#             for sub in sorted(ocr_dir.iterdir()):
+#                 if sub.is_dir():
+#                     t = collect_ocr_text(sub)
+#                     if t:
+#                         break
+
+#         # ── Strategy 3: rglob for any ocr_result.json under ocr/ ─────────────
+#         if not t:
+#             for ocr_json in ocr_dir.rglob("ocr_result.json"):
+#                 try:
+#                     data = load_json(ocr_json)
+#                     if data and isinstance(data.get("pages", []), list):
+#                         page_texts = []
+#                         for page in data["pages"]:
+#                             md = page.get("markdown", "").strip()
+#                             if md:
+#                                 page_texts.append(
+#                                     f"--- Document JSON Page {page.get('index', 0)} ---\n{clean_markdown(md)}"
+#                                 )
+#                         if page_texts:
+#                             t = "\n\n".join(page_texts)
+#                             break
+#                 except Exception:
+#                     continue
+
+#         # ── Strategy 4: rglob for any *.md files under ocr/ ──────────────────
+#         if not t:
+#             md_files = sorted(ocr_dir.rglob("*.md"))
+#             if md_files:
+#                 page_texts = []
+#                 for md_file in md_files:
+#                     try:
+#                         content = md_file.read_text(encoding="utf-8").strip()
+#                         if content:
+#                             page_texts.append(f"--- {md_file.name} ---\n{content}")
+#                     except Exception:
+#                         continue
+#                 t = "\n\n".join(page_texts)
+
+#         if t:
+#             texts.append(f"=== Document: {doc.get('original_name', doc['doc_id'])} ===\n{t}")
+
+#     merged = "\n\n".join(texts)
+#     if merged:
+#         try:
+#             combined_cache.parent.mkdir(parents=True, exist_ok=True)
+#             combined_cache.write_text(merged, encoding="utf-8")
+#         except Exception:
+#             pass
+#     return merged
+
+# # ══════════════════════════════════════════════════════════════════════════════
+# # VERIFICATION SYSTEM PROMPT
+# # ══════════════════════════════════════════════════════════════════════════════
+
+# VERIFICATION_SYSTEM_PROMPT = """
+# You are an objective verifier comparing multiple-choice answers against an OCR-extracted document.
+# Return a JSON array where each element corresponds to one input question ID and has the following keys:
+# - id: (string) the question ID from the input
+# - verification_status: one of ["SUPPORTED","PARTIALLY_SUPPORTED","NOT_FOUND","CONTRADICTED"]
+# - confidence: numeric 0-100 estimating certainty of the verification
+# - evidence_quote: short quote (<=250 chars) from the OCR that justifies the verdict, or "" if none
+# - evidence_page: page identifier (e.g., "page_0003.md" or "Document JSON Page 2") where evidence was found, or "" if none
+# - reasoning: plain-text explanation of how you reached the decision
+# - suggested_answer: if the original selected answer seems wrong, suggest one of "A","B","C","D", or null
+
+# Important:
+# - Output only a single JSON array (or a fenced ```json block containing the array). Avoid extra commentary.
+# - Be conservative: when evidence is partial, prefer PARTIALLY_SUPPORTED with a moderate confidence.
+# - Use NOT_FOUND when no supporting text is present, not when contradictory evidence exists.
+# """
+
+# # ══════════════════════════════════════════════════════════════════════════════
+# # SESSION FILESYSTEM HELPERS
+# # ══════════════════════════════════════════════════════════════════════════════
+
+# def get_sessions_dir(username: str) -> Path:
+#     return USER_DATA_DIR / username / "sessions"
+
+
+# def create_new_session(username: str) -> tuple[str, Path]:
+#     ts       = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+#     sess_dir = get_sessions_dir(username) / ts
+#     for sub in ("inputs", "documents", "processing", "outputs", "logs"):
+#         (sess_dir / sub).mkdir(parents=True, exist_ok=True)
+#     meta = {
+#         "session_id":  ts,
+#         "username":    username,
+#         "created_at":  datetime.utcnow().isoformat() + "Z",
+#         "status":      "created",
+#         "doc_count":   0,
+#         "company":     "",
+#         "answer_mode": "",
+#     }
+#     (sess_dir / "metadata.json").write_text(
+#         json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8"
+#     )
+#     return ts, sess_dir
+
+
+# def list_user_sessions(username: str) -> list[dict]:
+#     """Return list of session metadata dicts, newest first."""
+#     sessions_dir = get_sessions_dir(username)
+#     if not sessions_dir.exists():
+#         return []
+#     result = []
+#     for p in sorted(sessions_dir.iterdir(), reverse=True):
+#         if not p.is_dir():
+#             continue
+#         meta_file = p / "metadata.json"
+#         if meta_file.exists():
+#             try:
+#                 m = json.loads(meta_file.read_text(encoding="utf-8"))
+#                 result.append(m)
+#             except Exception:
+#                 result.append({"session_id": p.name, "created_at": p.name})
+#         else:
+#             result.append({"session_id": p.name, "created_at": p.name})
+#     return result
+
+
+# def get_session_path(username: str, session_id: str) -> Path:
+#     return get_sessions_dir(username) / session_id
+
+
+# def update_session_meta(sess_dir: Path, updates: dict):
+#     meta_file = sess_dir / "metadata.json"
+#     try:
+#         meta = json.loads(meta_file.read_text(encoding="utf-8")) if meta_file.exists() else {}
+#     except Exception:
+#         meta = {}
+#     meta.update(updates)
+#     meta_file.write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8")
+
+
+# def add_document_to_session(sess_dir: Path, file_bytes: bytes, filename: str) -> Path:
+#     """
+#     Save an uploaded file into the next available doc_XXX slot.
+#     Returns the doc directory.
+#     Layout:
+#       session/documents/doc_001/original/<filename>
+#       session/documents/doc_001/ocr/        (populated after OCR)
+#       session/documents/doc_001/metadata.json
+#     """
+#     docs_dir = sess_dir / "documents"
+#     existing = sorted([d for d in docs_dir.iterdir() if d.is_dir() and d.name.startswith("doc_")])
+#     next_idx  = len(existing) + 1
+#     doc_dir   = docs_dir / f"doc_{next_idx:03d}"
+#     orig_dir  = doc_dir / "original"
+#     orig_dir.mkdir(parents=True, exist_ok=True)
+#     (doc_dir / "ocr").mkdir(parents=True, exist_ok=True)
+
+#     safe_fname = safe_name(filename)
+#     out_path   = orig_dir / safe_fname
+#     out_path.write_bytes(file_bytes)
+
+#     doc_meta = {
+#         "doc_id":        f"doc_{next_idx:03d}",
+#         "original_name": filename,
+#         "filename":      safe_fname,
+#         "size":          len(file_bytes),
+#         "uploaded_at":   datetime.utcnow().isoformat() + "Z",
+#         "ocr_status":    "pending",
+#     }
+#     (doc_dir / "metadata.json").write_text(
+#         json.dumps(doc_meta, indent=2, ensure_ascii=False), encoding="utf-8"
+#     )
+#     return doc_dir
+
+
+# def list_session_documents(sess_dir: Path) -> list[dict]:
+#     """Return list of document metadata dicts for a session."""
+#     docs_dir = sess_dir / "documents"
+#     if not docs_dir.exists():
+#         return []
+#     result = []
+#     for d in sorted(docs_dir.iterdir()):
+#         if not d.is_dir() or not d.name.startswith("doc_"):
+#             continue
+#         mf = d / "metadata.json"
+#         if mf.exists():
+#             try:
+#                 m = json.loads(mf.read_text(encoding="utf-8"))
+#                 m["_path"] = str(d)
+#                 result.append(m)
+#             except Exception:
+#                 result.append({"doc_id": d.name, "_path": str(d)})
+#     return result
+
+
+# def get_combined_ocr_text(sess_dir: Path) -> str:
+#     """
+#     Merge OCR text from all doc_XXX/ocr/ folders within a session.
+#     Checks processing/combined_ocr.txt ONLY if non-empty (cache).
+#     Always rebuilds if cache is missing or empty.
+#     """
+#     combined_cache = sess_dir / "processing" / "combined_ocr.txt"
+
+#     # ── Only trust the cache if it is non-empty ──────────────────────────────
+#     if combined_cache.exists():
+#         try:
+#             cached = combined_cache.read_text(encoding="utf-8").strip()
+#             if cached:
+#                 return cached
+#             else:
+#                 # Cache exists but is empty — delete it and rebuild
+#                 combined_cache.unlink(missing_ok=True)
+#         except Exception:
+#             combined_cache.unlink(missing_ok=True)
+
+#     texts = []
+#     for doc in list_session_documents(sess_dir):
+#         doc_path   = Path(doc["_path"])
+#         ocr_dir    = doc_path / "ocr"
+#         if not ocr_dir.exists():
+#             continue
+
+#         t = ""
+
+#         # ── Strategy 1: direct collect on ocr/ ───────────────────────────────
+#         t = collect_ocr_text(ocr_dir)
+
+#         # ── Strategy 2: look inside bundle subdirs (e.g. ocr/my_doc_pdf/) ────
+#         if not t:
+#             for sub in sorted(ocr_dir.iterdir()):
+#                 if sub.is_dir():
+#                     t = collect_ocr_text(sub)
+#                     if t:
+#                         break
+
+#         # ── Strategy 3: rglob for any ocr_result.json under ocr/ ─────────────
+#         if not t:
+#             for ocr_json in ocr_dir.rglob("ocr_result.json"):
+#                 try:
+#                     data = load_json(ocr_json)
+#                     if data and isinstance(data.get("pages", []), list):
+#                         page_texts = []
+#                         for page in data["pages"]:
+#                             md = page.get("markdown", "").strip()
+#                             if md:
+#                                 page_texts.append(
+#                                     f"--- Document JSON Page {page.get('index', 0)} ---\n{clean_markdown(md)}"
+#                                 )
+#                         if page_texts:
+#                             t = "\n\n".join(page_texts)
+#                             break
+#                 except Exception:
+#                     continue
+
+#         # ── Strategy 4: rglob for any *.md files under ocr/ ──────────────────
+#         if not t:
+#             md_files = sorted(ocr_dir.rglob("*.md"))
+#             if md_files:
+#                 page_texts = []
+#                 for md_file in md_files:
+#                     try:
+#                         content = md_file.read_text(encoding="utf-8").strip()
+#                         if content:
+#                             page_texts.append(f"--- {md_file.name} ---\n{content}")
+#                     except Exception:
+#                         continue
+#                 t = "\n\n".join(page_texts)
+
+#         if t:
+#             texts.append(f"=== Document: {doc.get('original_name', doc['doc_id'])} ===\n{t}")
+
+#     merged = "\n\n".join(texts)
+#     if merged:
+#         try:
+#             combined_cache.parent.mkdir(parents=True, exist_ok=True)
+#             combined_cache.write_text(merged, encoding="utf-8")
+#         except Exception:
+#             pass
+#     return merged
+
+# # ══════════════════════════════════════════════════════════════════════════════
+# # VERIFICATION SYSTEM PROMPT
+# # ══════════════════════════════════════════════════════════════════════════════
+
+# VERIFICATION_SYSTEM_PROMPT = """
+# You are an objective verifier comparing multiple-choice answers against an OCR-extracted document.
+# Return a JSON array where each element corresponds to one input question ID and has the following keys:
+# - id: (string) the question ID from the input
+# - verification_status: one of ["SUPPORTED","PARTIALLY_SUPPORTED","NOT_FOUND","CONTRADICTED"]
+# - confidence: numeric 0-100 estimating certainty of the verification
+# - evidence_quote: short quote (<=250 chars) from the OCR that justifies the verdict, or "" if none
+# - evidence_page: page identifier (e.g., "page_0003.md" or "Document JSON Page 2") where evidence was found, or "" if none
+# - reasoning: plain-text explanation of how you reached the decision
+# - suggested_answer: if the original selected answer seems wrong, suggest one of "A","B","C","D", or null
+
+# Important:
+# - Output only a single JSON array (or a fenced ```json block containing the array). Avoid extra commentary.
+# - Be conservative: when evidence is partial, prefer PARTIALLY_SUPPORTED with a moderate confidence.
+# - Use NOT_FOUND when no supporting text is present, not when contradictory evidence exists.
+# """
+
+# # ══════════════════════════════════════════════════════════════════════════════
+# # SESSION FILESYSTEM HELPERS
+# # ══════════════════════════════════════════════════════════════════════════════
+
+# def get_sessions_dir(username: str) -> Path:
+#     return USER_DATA_DIR / username / "sessions"
+
+
+# def create_new_session(username: str) -> tuple[str, Path]:
+#     ts       = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+#     sess_dir = get_sessions_dir(username) / ts
+#     for sub in ("inputs", "documents", "processing", "outputs", "logs"):
+#         (sess_dir / sub).mkdir(parents=True, exist_ok=True)
+#     meta = {
+#         "session_id":  ts,
+#         "username":    username,
+#         "created_at":  datetime.utcnow().isoformat() + "Z",
+#         "status":      "created",
+#         "doc_count":   0,
+#         "company":     "",
+#         "answer_mode": "",
+#     }
+#     (sess_dir / "metadata.json").write_text(
+#         json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8"
+#     )
+#     return ts, sess_dir
+
+
+# def list_user_sessions(username: str) -> list[dict]:
+#     """Return list of session metadata dicts, newest first."""
+#     sessions_dir = get_sessions_dir(username)
+#     if not sessions_dir.exists():
+#         return []
+#     result = []
+#     for p in sorted(sessions_dir.iterdir(), reverse=True):
+#         if not p.is_dir():
+#             continue
+#         meta_file = p / "metadata.json"
+#         if meta_file.exists():
+#             try:
+#                 m = json.loads(meta_file.read_text(encoding="utf-8"))
+#                 result.append(m)
+#             except Exception:
+#                 result.append({"session_id": p.name, "created_at": p.name})
+#         else:
+#             result.append({"session_id": p.name, "created_at": p.name})
+#     return result
+
+
+# def get_session_path(username: str, session_id: str) -> Path:
+#     return get_sessions_dir(username) / session_id
+
+
+# def update_session_meta(sess_dir: Path, updates: dict):
+#     meta_file = sess_dir / "metadata.json"
+#     try:
+#         meta = json.loads(meta_file.read_text(encoding="utf-8")) if meta_file.exists() else {}
+#     except Exception:
+#         meta = {}
+#     meta.update(updates)
+#     meta_file.write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8")
+
+
+# def add_document_to_session(sess_dir: Path, file_bytes: bytes, filename: str) -> Path:
+#     """
+#     Save an uploaded file into the next available doc_XXX slot.
+#     Returns the doc directory.
+#     Layout:
+#       session/documents/doc_001/original/<filename>
+#       session/documents/doc_001/ocr/        (populated after OCR)
+#       session/documents/doc_001/metadata.json
+#     """
+#     docs_dir = sess_dir / "documents"
+#     existing = sorted([d for d in docs_dir.iterdir() if d.is_dir() and d.name.startswith("doc_")])
+#     next_idx  = len(existing) + 1
+#     doc_dir   = docs_dir / f"doc_{next_idx:03d}"
+#     orig_dir  = doc_dir / "original"
+#     orig_dir.mkdir(parents=True, exist_ok=True)
+#     (doc_dir / "ocr").mkdir(parents=True, exist_ok=True)
+
+#     safe_fname = safe_name(filename)
+#     out_path   = orig_dir / safe_fname
+#     out_path.write_bytes(file_bytes)
+
+#     doc_meta = {
+#         "doc_id":        f"doc_{next_idx:03d}",
+#         "original_name": filename,
+#         "filename":      safe_fname,
+#         "size":          len(file_bytes),
+#         "uploaded_at":   datetime.utcnow().isoformat() + "Z",
+#         "ocr_status":    "pending",
+#     }
+#     (doc_dir / "metadata.json").write_text(
+#         json.dumps(doc_meta, indent=2, ensure_ascii=False), encoding="utf-8"
+#     )
+#     return doc_dir
+
+
+# def list_session_documents(sess_dir: Path) -> list[dict]:
+#     """Return list of document metadata dicts for a session."""
+#     docs_dir = sess_dir / "documents"
+#     if not docs_dir.exists():
+#         return []
+#     result = []
+#     for d in sorted(docs_dir.iterdir()):
+#         if not d.is_dir() or not d.name.startswith("doc_"):
+#             continue
+#         mf = d / "metadata.json"
+#         if mf.exists():
+#             try:
+#                 m = json.loads(mf.read_text(encoding="utf-8"))
+#                 m["_path"] = str(d)
+#                 result.append(m)
+#             except Exception:
+#                 result.append({"doc_id": d.name, "_path": str(d)})
+#     return result
+
+
+# def get_combined_ocr_text(sess_dir: Path) -> str:
+#     """
+#     Merge OCR text from all doc_XXX/ocr/ folders within a session.
+#     Checks processing/combined_ocr.txt ONLY if non-empty (cache).
+#     Always rebuilds if cache is missing or empty.
+#     """
+#     combined_cache = sess_dir / "processing" / "combined_ocr.txt"
+
+#     # ── Only trust the cache if it is non-empty ──────────────────────────────
+#     if combined_cache.exists():
+#         try:
+#             cached = combined_cache.read_text(encoding="utf-8").strip()
+#             if cached:
+#                 return cached
+#             else:
+#                 # Cache exists but is empty — delete it and rebuild
+#                 combined_cache.unlink(missing_ok=True)
+#         except Exception:
+#             combined_cache.unlink(missing_ok=True)
+
+#     texts = []
+#     for doc in list_session_documents(sess_dir):
+#         doc_path   = Path(doc["_path"])
+#         ocr_dir    = doc_path / "ocr"
+#         if not ocr_dir.exists():
+#             continue
+
+#         t = ""
+
+#         # ── Strategy 1: direct collect on ocr/ ───────────────────────────────
+#         t = collect_ocr_text(ocr_dir)
+
+#         # ── Strategy 2: look inside bundle subdirs (e.g. ocr/my_doc_pdf/) ────
+#         if not t:
+#             for sub in sorted(ocr_dir.iterdir()):
+#                 if sub.is_dir():
+#                     t = collect_ocr_text(sub)
+#                     if t:
+#                         break
+
+#         # ── Strategy 3: rglob for any ocr_result.json under ocr/ ─────────────
+#         if not t:
+#             for ocr_json in ocr_dir.rglob("ocr_result.json"):
+#                 try:
+#                     data = load_json(ocr_json)
+#                     if data and isinstance(data.get("pages", []), list):
+#                         page_texts = []
+#                         for page in data["pages"]:
+#                             md = page.get("markdown", "").strip()
+#                             if md:
+#                                 page_texts.append(
+#                                     f"--- Document JSON Page {page.get('index', 0)} ---\n{clean_markdown(md)}"
+#                                 )
+#                         if page_texts:
+#                             t = "\n\n".join(page_texts)
+#                             break
+#                 except Exception:
+#                     continue
+
+#         # ── Strategy 4: rglob for any *.md files under ocr/ ──────────────────
+#         if not t:
+#             md_files = sorted(ocr_dir.rglob("*.md"))
+#             if md_files:
+#                 page_texts = []
+#                 for md_file in md_files:
+#                     try:
+#                         content = md_file.read_text(encoding="utf-8").strip()
+#                         if content:
+#                             page_texts.append(f"--- {md_file.name} ---\n{content}")
+#                     except Exception:
+#                         continue
+#                 t = "\n\n".join(page_texts)
+
+#         if t:
+#             texts.append(f"=== Document: {doc.get('original_name', doc['doc_id'])} ===\n{t}")
+
+#     merged = "\n\n".join(texts)
+#     if merged:
+#         try:
+#             combined_cache.parent.mkdir(parents=True, exist_ok=True)
+#             combined_cache.write_text(merged, encoding="utf-8")
+#         except Exception:
+#             pass
+#     return merged
+
+# # ══════════════════════════════════════════════════════════════════════════════
+# # VERIFICATION SYSTEM PROMPT
+# # ══════════════════════════════════════════════════════════════════════════════
+
+# VERIFICATION_SYSTEM_PROMPT = """
+# You are an objective verifier comparing multiple-choice answers against an OCR-extracted document.
+# Return a JSON array where each element corresponds to one input question ID and has the following keys:
+# - id: (string) the question ID from the input
+# - verification_status: one of ["SUPPORTED","PARTIALLY_SUPPORTED","NOT_FOUND","CONTRADICTED"]
+# - confidence: numeric 0-100 estimating certainty of the verification
+# - evidence_quote: short quote (<=250 chars) from the OCR that justifies the verdict, or "" if none
+# - evidence_page: page identifier (e.g., "page_0003.md" or "Document JSON Page 2") where evidence was found, or "" if none
+# - reasoning: plain-text explanation of how you reached the decision
+# - suggested_answer: if the original selected answer seems wrong, suggest one of "A","B","C","D", or null
+
+# Important:
+# - Output only a single JSON array (or a fenced ```json block containing the array). Avoid extra commentary.
+# - Be conservative: when evidence is partial, prefer PARTIALLY_SUPPORTED with a moderate confidence.
+# - Use NOT_FOUND when no supporting text is present, not when contradictory evidence exists.
+# """
+
+# # ══════════════════════════════════════════════════════════════════════════════
+# # SESSION FILESYSTEM HELPERS
+# # ══════════════════════════════════════════════════════════════════════════════
+
+# def get_sessions_dir(username: str) -> Path:
+#     return USER_DATA_DIR / username / "sessions"
+
+
+# def create_new_session(username: str) -> tuple[str, Path]:
+#     ts       = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+#     sess_dir = get_sessions_dir(username) / ts
+#     for sub in ("inputs", "documents", "processing", "outputs", "logs"):
+#         (sess_dir / sub).mkdir(parents=True, exist_ok=True)
+#     meta = {
+#         "session_id":  ts,
+#         "username":    username,
+#         "created_at":  datetime.utcnow().isoformat() + "Z",
+#         "status":      "created",
+#         "doc_count":   0,
+#         "company":     "",
+#         "answer_mode": "",
+#     }
+#     (sess_dir / "metadata.json").write_text(
+#         json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8"
+#     )
+#     return ts, sess_dir
+
+
+# def list_user_sessions(username: str) -> list[dict]:
+#     """Return list of session metadata dicts, newest first."""
+#     sessions_dir = get_sessions_dir(username)
+#     if not sessions_dir.exists():
+#         return []
+#     result = []
+#     for p in sorted(sessions_dir.iterdir(), reverse=True):
+#         if not p.is_dir():
+#             continue
+#         meta_file = p / "metadata.json"
+#         if meta_file.exists():
+#             try:
+#                 m = json.loads(meta_file.read_text(encoding="utf-8"))
+#                 result.append(m)
+#             except Exception:
+#                 result.append({"session_id": p.name, "created_at": p.name})
+#         else:
+#             result.append({"session_id": p.name, "created_at": p.name})
+#     return result
+
+
+# def get_session_path(username: str, session_id: str) -> Path:
+#     return get_sessions_dir(username) / session_id
+
+
+# def update_session_meta(sess_dir: Path, updates: dict):
+#     meta_file = sess_dir / "metadata.json"
+#     try:
+#         meta = json.loads(meta_file.read_text(encoding="utf-8")) if meta_file.exists() else {}
+#     except Exception:
+#         meta = {}
+#     meta.update(updates)
+#     meta_file.write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8")
+
+
+# def add_document_to_session(sess_dir: Path, file_bytes: bytes, filename: str) -> Path:
+#     """
+#     Save an uploaded file into the next available doc_XXX slot.
+#     Returns the doc directory.
+#     Layout:
+#       session/documents/doc_001/original/<filename>
+#       session/documents/doc_001/ocr/        (populated after OCR)
+#       session/documents/doc_001/metadata.json
+#     """
+#     docs_dir = sess_dir / "documents"
+#     existing = sorted([d for d in docs_dir.iterdir() if d.is_dir() and d.name.startswith("doc_")])
+#     next_idx  = len(existing) + 1
+#     doc_dir   = docs_dir / f"doc_{next_idx:03d}"
+#     orig_dir  = doc_dir / "original"
+#     orig_dir.mkdir(parents=True, exist_ok=True)
+#     (doc_dir / "ocr").mkdir(parents=True, exist_ok=True)
+
+#     safe_fname = safe_name(filename)
+#     out_path   = orig_dir / safe_fname
+#     out_path.write_bytes(file_bytes)
+
+#     doc_meta = {
+#         "doc_id":        f"doc_{next_idx:03d}",
+#         "original_name": filename,
+#         "filename":      safe_fname,
+#         "size":          len(file_bytes),
+#         "uploaded_at":   datetime.utcnow().isoformat() + "Z",
+#         "ocr_status":    "pending",
+#     }
+#     (doc_dir / "metadata.json").write_text(
+#         json.dumps(doc_meta, indent=2, ensure_ascii=False), encoding="utf-8"
+#     )
+#     return doc_dir
+
+
+# def list_session_documents(sess_dir: Path) -> list[dict]:
+#     """Return list of document metadata dicts for a session."""
+#     docs_dir = sess_dir / "documents"
+#     if not docs_dir.exists():
+#         return []
+#     result = []
+#     for d in sorted(docs_dir.iterdir()):
+#         if not d.is_dir() or not d.name.startswith("doc_"):
+#             continue
+#         mf = d / "metadata.json"
+#         if mf.exists():
+#             try:
+#                 m = json.loads(mf.read_text(encoding="utf-8"))
+#                 m["_path"] = str(d)
+#                 result.append(m)
+#             except Exception:
+#                 result.append({"doc_id": d.name, "_path": str(d)})
+#     return result
+
+
+# def get_combined_ocr_text(sess_dir: Path) -> str:
+#     """
+#     Merge OCR text from all doc_XXX/ocr/ folders within a session.
+#     Checks processing/combined_ocr.txt ONLY if non-empty (cache).
+#     Always rebuilds if cache is missing or empty.
+#     """
+#     combined_cache = sess_dir / "processing" / "combined_ocr.txt"
+
+#     # ── Only trust the cache if it is non-empty ──────────────────────────────
+#     if combined_cache.exists():
+#         try:
+#             cached = combined_cache.read_text(encoding="utf-8").strip()
+#             if cached:
+#                 return cached
+#             else:
+#                 # Cache exists but is empty — delete it and rebuild
+#                 combined_cache.unlink(missing_ok=True)
+#         except Exception:
+#             combined_cache.unlink(missing_ok=True)
+
+#     texts = []
+#     for doc in list_session_documents(sess_dir):
+#         doc_path   = Path(doc["_path"])
+#         ocr_dir    = doc_path / "ocr"
+#         if not ocr_dir.exists():
+#             continue
+
+#         t = ""
+
+#         # ── Strategy 1: direct collect on ocr/ ───────────────────────────────
+#         t = collect_ocr_text(ocr_dir)
+
+#         # ── Strategy 2: look inside bundle subdirs (e.g. ocr/my_doc_pdf/) ────
+#         if not t:
+#             for sub in sorted(ocr_dir.iterdir()):
+#                 if sub.is_dir():
+#                     t = collect_ocr_text(sub)
+#                     if t:
+#                         break
+
+#         # ── Strategy 3: rglob for any ocr_result.json under ocr/ ─────────────
+#         if not t:
+#             for ocr_json in ocr_dir.rglob("ocr_result.json"):
+#                 try:
+#                     data = load_json(ocr_json)
+#                     if data and isinstance(data.get("pages", []), list):
+#                         page_texts = []
+#                         for page in data["pages"]:
+#                             md = page.get("markdown", "").strip()
+#                             if md:
+#                                 page_texts.append(
+#                                     f"--- Document JSON Page {page.get('index', 0)} ---\n{clean_markdown(md)}"
+#                                 )
+#                         if page_texts:
+#                             t = "\n\n".join(page_texts)
+#                             break
+#                 except Exception:
+#                     continue
+
+#         # ── Strategy 4: rglob for any *.md files under ocr/ ──────────────────
+#         if not t:
+#             md_files = sorted(ocr_dir.rglob("*.md"))
+#             if md_files:
+#                 page_texts = []
+#                 for md_file in md_files:
+#                     try:
+#                         content = md_file.read_text(encoding="utf-8").strip()
+#                         if content:
+#                             page_texts.append(f"--- {md_file.name} ---\n{content}")
+#                     except Exception:
+#                         continue
+#                 t = "\n\n".join(page_texts)
+
+#         if t:
+#             texts.append(f"=== Document: {doc.get('original_name', doc['doc_id'])} ===\n{t}")
+
+#     merged = "\n\n".join(texts)
+#     if merged:
+#         try:
+#             combined_cache.parent.mkdir(parents=True, exist_ok=True)
+#             combined_cache.write_text(merged, encoding="utf-8")
+#         except Exception:
+#             pass
+#     return merged
+
+# # ══════════════════════════════════════════════════════════════════════════════
+# # VERIFICATION SYSTEM PROMPT
+# # ══════════════════════════════════════════════════════════════════════════════
+
+# VERIFICATION_SYSTEM_PROMPT = """
+# You are an objective verifier comparing multiple-choice answers against an OCR-extracted document.
+# Return a JSON array where each element corresponds to one input question ID and has the following keys:
+# - id: (string) the question ID from the input
+# - verification_status: one of ["SUPPORTED","PARTIALLY_SUPPORTED","NOT_FOUND","CONTRADICTED"]
+# - confidence: numeric 0-100 estimating certainty of the verification
+# - evidence_quote: short quote (<=250 chars) from the OCR that justifies the verdict, or "" if none
+# - evidence_page: page identifier (e.g., "page_0003.md" or "Document JSON Page 2") where evidence was found, or "" if none
+# - reasoning: plain-text explanation of how you reached the decision
+# - suggested_answer: if the original selected answer seems wrong, suggest one of "A","B","C","D", or null
+
+# Important:
+# - Output only a single JSON array (or a fenced ```json block containing the array). Avoid extra commentary.
+# - Be conservative: when evidence is partial, prefer PARTIALLY_SUPPORTED with a moderate confidence.
+# - Use NOT_FOUND when no supporting text is present, not when contradictory evidence exists.
+# """
+
+# # ══════════════════════════════════════════════════════════════════════════════
+# # SESSION FILESYSTEM HELPERS
+# # ══════════════════════════════════════════════════════════════════════════════
+
+# def get_sessions_dir(username: str) -> Path:
+#     return USER_DATA_DIR / username / "sessions"
+
+
+# def create_new_session(username: str) -> tuple[str, Path]:
+#     ts       = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+#     sess_dir = get_sessions_dir(username) / ts
+#     for sub in ("inputs", "documents", "processing", "outputs", "logs"):
+#         (sess_dir / sub).mkdir(parents=True, exist_ok=True)
+#     meta = {
+#         "session_id":  ts,
+#         "username":    username,
+#         "created_at":  datetime.utcnow().isoformat() + "Z",
+#         "status":      "created",
+#         "doc_count":   0,
+#         "company":     "",
+#         "answer_mode": "",
+#     }
+#     (sess_dir / "metadata.json").write_text(
+#         json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8"
+#     )
+#     return ts, sess_dir
+
+
+# def list_user_sessions(username: str) -> list[dict]:
+#     """Return list of session metadata dicts, newest first."""
+#     sessions_dir = get_sessions_dir(username)
+#     if not sessions_dir.exists():
+#         return []
+#     result = []
+#     for p in sorted(sessions_dir.iterdir(), reverse=True):
+#         if not p.is_dir():
+#             continue
+#         meta_file = p / "metadata.json"
+#         if meta_file.exists():
+#             try:
+#                 m = json.loads(meta_file.read_text(encoding="utf-8"))
+#                 result.append(m)
+#             except Exception:
+#                 result.append({"session_id": p.name, "created_at": p.name})
+#         else:
+#             result.append({"session_id": p.name, "created_at": p.name})
+#     return result
+
+
+# def get_session_path(username: str, session_id: str) -> Path:
+#     return get_sessions_dir(username) / session_id
+
+
+# def update_session_meta(sess_dir: Path, updates: dict):
+#     meta_file = sess_dir / "metadata.json"
+#     try:
+#         meta = json.loads(meta_file.read_text(encoding="utf-8")) if meta_file.exists() else {}
+#     except Exception:
+#         meta = {}
+#     meta.update(updates)
+#     meta_file.write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8")
+
+
+# def add_document_to_session(sess_dir: Path, file_bytes: bytes, filename: str) -> Path:
+#     """
+#     Save an uploaded file into the next available doc_XXX slot.
+#     Returns the doc directory.
+#     Layout:
+#       session/documents/doc_001/original/<filename>
+#       session/documents/doc_001/ocr/        (populated after OCR)
+#       session/documents/doc_001/metadata.json
+#     """
+#     docs_dir = sess_dir / "documents"
+#     existing = sorted([d for d in docs_dir.iterdir() if d.is_dir() and d.name.startswith("doc_")])
+#     next_idx  = len(existing) + 1
+#     doc_dir   = docs_dir / f"doc_{next_idx:03d}"
+#     orig_dir  = doc_dir / "original"
+#     orig_dir.mkdir(parents=True, exist_ok=True)
+#     (doc_dir / "ocr").mkdir(parents=True, exist_ok=True)
+
+#     safe_fname = safe_name(filename)
+#     out_path   = orig_dir / safe_fname
+#     out_path.write_bytes(file_bytes)
+
+#     doc_meta = {
+#         "doc_id":        f"doc_{next_idx:03d}",
+#         "original_name": filename,
+#         "filename":      safe_fname,
+#         "size":          len(file_bytes),
+#         "uploaded_at":   datetime.utcnow().isoformat() + "Z",
+#         "ocr_status":    "pending",
+#     }
+#     (doc_dir / "metadata.json").write_text(
+#         json.dumps(doc_meta, indent=2, ensure_ascii=False), encoding="utf-8"
+#     )
+#     return doc_dir
+
+
+# def list_session_documents(sess_dir: Path) -> list[dict]:
+#     """Return list of document metadata dicts for a session."""
+#     docs_dir = sess_dir / "documents"
+#     if not docs_dir.exists():
+#         return []
+#     result = []
+#     for d in sorted(docs_dir.iterdir()):
+#         if not d.is_dir() or not d.name.startswith("doc_"):
+#             continue
+#         mf = d / "metadata.json"
+#         if mf.exists():
+#             try:
+#                 m = json.loads(mf.read_text(encoding="utf-8"))
+#                 m["_path"] = str(d)
+#                 result.append(m)
+#             except Exception:
+#                 result.append({"doc_id": d.name, "_path": str(d)})
+#     return result
+
+
+# def get_combined_ocr_text(sess_dir: Path) -> str:
+#     """
+#     Merge OCR text from all doc_XXX/ocr/ folders within a session.
+#     Checks processing/combined_ocr.txt ONLY if non-empty (cache).
+#     Always rebuilds if cache is missing or empty.
+#     """
+#     combined_cache = sess_dir / "processing" / "combined_ocr.txt"
+
+#     # ── Only trust the cache if it is non-empty ──────────────────────────────
+#     if combined_cache.exists():
+#         try:
+#             cached = combined_cache.read_text(encoding="utf-8").strip()
+#             if cached:
+#                 return cached
+#             else:
+#                 # Cache exists but is empty — delete it and rebuild
+#                 combined_cache.unlink(missing_ok=True)
+#         except Exception:
+#             combined_cache.unlink(missing_ok=True)
+
+#     texts = []
+#     for doc in list_session_documents(sess_dir):
+#         doc_path   = Path(doc["_path"])
+#         ocr_dir    = doc_path / "ocr"
+#         if not ocr_dir.exists():
+#             continue
+
+#         t = ""
+
+#         # ── Strategy 1: direct collect on ocr/ ───────────────────────────────
+#         t = collect_ocr_text(ocr_dir)
+
+#         # ── Strategy 2: look inside bundle subdirs (e.g. ocr/my_doc_pdf/) ────
+#         if not t:
+#             for sub in sorted(ocr_dir.iterdir()):
+#                 if sub.is_dir():
+#                     t = collect_ocr_text(sub)
+#                     if t:
+#                         break
+
+#         # ── Strategy 3: rglob for any ocr_result.json under ocr/ ─────────────
+#         if not t:
+#             for ocr_json in ocr_dir.rglob("ocr_result.json"):
+#                 try:
+#                     data = load_json(ocr_json)
+#                     if data and isinstance(data.get("pages", []), list):
+#                         page_texts = []
+#                         for page in data["pages"]:
+#                             md = page.get("markdown", "").strip()
+#                             if md:
+#                                 page_texts.append(
+#                                     f"--- Document JSON Page {page.get('index', 0)} ---\n{clean_markdown(md)}"
+#                                 )
+#                         if page_texts:
+#                             t = "\n\n".join(page_texts)
+#                             break
+#                 except Exception:
+#                     continue
+
+#         # ── Strategy 4: rglob for any *.md files under ocr/ ──────────────────
+#         if not t:
+#             md_files = sorted(ocr_dir.rglob("*.md"))
+#             if md_files:
+#                 page_texts = []
+#                 for md_file in md_files:
+#                     try:
+#                         content = md_file.read_text(encoding="utf-8").strip()
+#                         if content:
+#                             page_texts.append(f"--- {md_file.name} ---\n{content}")
+#                     except Exception:
+#                         continue
+#                 t = "\n\n".join(page_texts)
+
+#         if t:
+#             texts.append(f"=== Document: {doc.get('original_name', doc['doc_id'])} ===\n{t}")
+
+#     merged = "\n\n".join(texts)
+#     if merged:
+#         try:
+#             combined_cache.parent.mkdir(parents=True, exist_ok=True)
+#             combined_cache.write_text(merged, encoding="utf-8")
+#         except Exception:
+#             pass
+#     return merged
+
+# # ══════════════════════════════════════════════════════════════════════════════
+# # VERIFICATION SYSTEM PROMPT
+# # ══════════════════════════════════════════════════════════════════════════════
+
+# VERIFICATION_SYSTEM_PROMPT = """
+# You are an objective verifier comparing multiple-choice answers against an OCR-extracted document.
+# Return a JSON array where each element corresponds to one input question ID and has the following keys:
+# - id: (string) the question ID from the input
+# - verification_status: one of ["SUPPORTED","PARTIALLY_SUPPORTED","NOT_FOUND","CONTRADICTED"]
+# - confidence: numeric 0-100 estimating certainty of the verification
+# - evidence_quote: short quote (<=250 chars) from the OCR that justifies the verdict, or "" if none
+# - evidence_page: page identifier (e.g., "page_0003.md" or "Document JSON Page 2") where evidence was found, or "" if none
+# - reasoning: plain-text explanation of how you reached the decision
+# - suggested_answer: if the original selected answer seems wrong, suggest one of "A","B","C","D", or null
+
+# Important:
+# - Output only a single JSON array (or a fenced ```json block containing the array). Avoid extra commentary.
+# - Be conservative: when evidence is partial, prefer PARTIALLY_SUPPORTED with a moderate confidence.
+# - Use NOT_FOUND when no supporting text is present, not when contradictory evidence exists.
+# """
+
+# # ══════════════════════════════════════════════════════════════════════════════
+# # SESSION FILESYSTEM HELPERS
+# # ══════════════════════════════════════════════════════════════════════════════
+
+# def get_sessions_dir(username: str) -> Path:
+#     return USER_DATA_DIR / username / "sessions"
+
+
+# def create_new_session(username: str) -> tuple[str, Path]:
+#     ts       = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+#     sess_dir = get_sessions_dir(username) / ts
+#     for sub in ("inputs", "documents", "processing", "outputs", "logs"):
+#         (sess_dir / sub).mkdir(parents=True, exist_ok=True)
+#     meta = {
+#         "session_id":  ts,
+#         "username":    username,
+#         "created_at":  datetime.utcnow().isoformat() + "Z",
+#         "status":      "created",
+#         "doc_count":   0,
+#         "company":     "",
+#         "answer_mode": "",
+#     }
+#     (sess_dir / "metadata.json").write_text(
+#         json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8"
+#     )
+#     return ts, sess_dir
+
+
+# def list_user_sessions(username: str) -> list[dict]:
+#     """Return list of session metadata dicts, newest first."""
+#     sessions_dir = get_sessions_dir(username)
+#     if not sessions_dir.exists():
+#         return []
+#     result = []
+#     for p in sorted(sessions_dir.iterdir(), reverse=True):
+#         if not p.is_dir():
+#             continue
+#         meta_file = p / "metadata.json"
+#         if meta_file.exists():
+#             try:
+#                 m = json.loads(meta_file.read_text(encoding="utf-8"))
+#                 result.append(m)
+#             except Exception:
+#                 result.append({"session_id": p.name, "created_at": p.name})
+#         else:
+#             result.append({"session_id": p.name, "created_at": p.name})
+#     return result
+
+
+# def get_session_path(username: str, session_id: str) -> Path:
+#     return get_sessions_dir(username) / session_id
+
+
+# def update_session_meta(sess_dir: Path, updates: dict):
+#     meta_file = sess_dir / "metadata.json"
+#     try:
+#         meta = json.loads(meta_file.read_text(encoding="utf-8")) if meta_file.exists() else {}
+#     except Exception:
+#         meta = {}
+#     meta.update(updates)
+#     meta_file.write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8")
+
+
+# def add_document_to_session(sess_dir: Path, file_bytes: bytes, filename: str) -> Path:
+#     """
+#     Save an uploaded file into the next available doc_XXX slot.
+#     Returns the doc directory.
+#     Layout:
+#       session/documents/doc_001/original/<filename>
+#       session/documents/doc_001/ocr/        (populated after OCR)
+#       session/documents/doc_001/metadata.json
+#     """
+#     docs_dir = sess_dir / "documents"
+#     existing = sorted([d for d in docs_dir.iterdir() if d.is_dir() and d.name.startswith("doc_")])
+#     next_idx  = len(existing) + 1
+#     doc_dir   = docs_dir / f"doc_{next_idx:03d}"
+#     orig_dir  = doc_dir / "original"
+#     orig_dir.mkdir(parents=True, exist_ok=True)
+#     (doc_dir / "ocr").mkdir(parents=True, exist_ok=True)
+
+#     safe_fname = safe_name(filename)
+#     out_path   = orig_dir / safe_fname
+#     out_path.write_bytes(file_bytes)
+
+#     doc_meta = {
+#         "doc_id":        f"doc_{next_idx:03d}",
+#         "original_name": filename,
+#         "filename":      safe_fname,
+#         "size":          len(file_bytes),
+#         "uploaded_at":   datetime.utcnow().isoformat() + "Z",
+#         "ocr_status":    "pending",
+#     }
+#     (doc_dir / "metadata.json").write_text(
+#         json.dumps(doc_meta, indent=2, ensure_ascii=False), encoding="utf-8"
+#     )
+#     return doc_dir
+
+
+# def list_session_documents(sess_dir: Path) -> list[dict]:
+#     """Return list of document metadata dicts for a session."""
+#     docs_dir = sess_dir / "documents"
+#     if not docs_dir.exists():
+#         return []
+#     result = []
+#     for d in sorted(docs_dir.iterdir()):
+#         if not d.is_dir() or not d.name.startswith("doc_"):
+#             continue
+#         mf = d / "metadata.json"
+#         if mf.exists():
+#             try:
+#                 m = json.loads(mf.read_text(encoding="utf-8"))
+#                 m["_path"] = str(d)
+#                 result.append(m)
+#             except Exception:
+#                 result.append({"doc_id": d.name, "_path": str(d)})
+#     return result
+
+
+# def get_combined_ocr_text(sess_dir: Path) -> str:
+#     """
+#     Merge OCR text from all doc_XXX/ocr/ folders within a session.
+#     Checks processing/combined_ocr.txt ONLY if non-empty (cache).
+#     Always rebuilds if cache is missing or empty.
+#     """
+#     combined_cache = sess_dir / "processing" / "combined_ocr.txt"
+
+#     # ── Only trust the cache if it is non-empty ──────────────────────────────
+#     if combined_cache.exists():
+#         try:
+#             cached = combined_cache.read_text(encoding="utf-8").strip()
+#             if cached:
+#                 return cached
+#             else:
+#                 # Cache exists but is empty — delete it and rebuild
+#                 combined_cache.unlink(missing_ok=True)
+#         except Exception:
+#             combined_cache.unlink(missing_ok=True)
+
+#     texts = []
+#     for doc in list_session_documents(sess_dir):
+#         doc_path   = Path(doc["_path"])
+#         ocr_dir    = doc_path / "ocr"
+#         if not ocr_dir.exists():
+#             continue
+
+#         t = ""
+
+#         # ── Strategy 1: direct collect on ocr/ ───────────────────────────────
+#         t = collect_ocr_text(ocr_dir)
+
+#         # ── Strategy 2: look inside bundle subdirs (e.g. ocr/my_doc_pdf/) ────
+#         if not t:
+#             for sub in sorted(ocr_dir.iterdir()):
+#                 if sub.is_dir():
+#                     t = collect_ocr_text(sub)
+#                     if t:
+#                         break
+
+#         # ── Strategy 3: rglob for any ocr_result.json under ocr/ ─────────────
+#         if not t:
+#             for ocr_json in ocr_dir.rglob("ocr_result.json"):
+#                 try:
+#                     data = load_json(ocr_json)
+#                     if data and isinstance(data.get("pages", []), list):
+#                         page_texts = []
+#                         for page in data["pages"]:
+#                             md = page.get("markdown", "").strip()
+#                             if md:
+#                                 page_texts.append(
+#                                     f"--- Document JSON Page {page.get('index', 0)} ---\n{clean_markdown(md)}"
+#                                 )
+#                         if page_texts:
+#                             t = "\n\n".join(page_texts)
+#                             break
+#                 except Exception:
+#                     continue
+
+#         # ── Strategy 4: rglob for any *.md files under ocr/ ──────────────────
+#         if not t:
+#             md_files = sorted(ocr_dir.rglob("*.md"))
+#             if md_files:
+#                 page_texts = []
+#                 for md_file in md_files:
+#                     try:
+#                         content = md_file.read_text(encoding="utf-8").strip()
+#                         if content:
+#                             page_texts.append(f"--- {md_file.name} ---\n{content}")
+#                     except Exception:
+#                         continue
+#                 t = "\n\n".join(page_texts)
+
+#         if t:
+#             texts.append(f"=== Document: {doc.get('original_name', doc['doc_id'])} ===\n{t}")
+
+#     merged = "\n\n".join(texts)
+#     if merged:
+#         try:
+#             combined_cache.parent.mkdir(parents=True, exist_ok=True)
+#             combined_cache.write_text(merged, encoding="utf-8")
+#         except Exception:
+#             pass
+#     return merged
+
+# # ══════════════════════════════════════════════════════════════════════════════
+# # VERIFICATION SYSTEM PROMPT
+# # ══════════════════════════════════════════════════════════════════════════════
+
+# VERIFICATION_SYSTEM_PROMPT = """
+# You are an objective verifier comparing multiple-choice answers against an OCR-extracted document.
+# Return a JSON array where each element corresponds to one input question ID and has the following keys:
+# - id: (string) the question ID from the input
+# - verification_status: one of ["SUPPORTED","PARTIALLY_SUPPORTED","NOT_FOUND","CONTRADICTED"]
+# - confidence: numeric 0-100 estimating certainty of the verification
+# - evidence_quote: short quote (<=250 chars) from the OCR that justifies the verdict, or "" if none
+# - evidence_page: page identifier (e.g., "page_0003.md" or "Document JSON Page 2") where evidence was found, or "" if none
+# - reasoning: plain-text explanation of how you reached the decision
+# - suggested_answer: if the original selected answer seems wrong, suggest one of "A","B","C","D", or null
+
+# Important:
+# - Output only a single JSON array (or a fenced ```json block containing the array). Avoid extra commentary.
+# - Be conservative: when evidence is partial, prefer PARTIALLY_SUPPORTED with a moderate confidence.
+# - Use NOT_FOUND when no supporting text is present, not when contradictory evidence exists.
+# """
+
+# # ══════════════════════════════════════════════════════════════════════════════
+# # SESSION FILESYSTEM HELPERS
+# # ══════════════════════════════════════════════════════════════════════════════
+
+# def get_sessions_dir(username: str) -> Path:
+#     return USER_DATA_DIR / username / "sessions"
+
+
+# def create_new_session(username: str) -> tuple[str, Path]:
+#     ts       = datetime.utcnow().strftime("%Y%m%dT%H%M%SZ")
+#     sess_dir = get_sessions_dir(username) / ts
+#     for sub in ("inputs", "documents", "processing", "outputs", "logs"):
+#         (sess_dir / sub).mkdir(parents=True, exist_ok=True)
+#     meta = {
+#         "session_id":  ts,
+#         "username":    username,
+#         "created_at":  datetime.utcnow().isoformat() + "Z",
+#         "status":      "created",
+#         "doc_count":   0,
+#         "company":     "",
+#         "answer_mode": "",
+#     }
+#     (sess_dir / "metadata.json").write_text(
+#         json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8"
+#     )
+#     return ts, sess_dir
+
+
+# def list_user_sessions(username: str) -> list[dict]:
+#     """Return list of session metadata dicts, newest first."""
+#     sessions_dir = get_sessions_dir(username)
+#     if not sessions_dir.exists():
+#         return []
+#     result = []
+#     for p in sorted(sessions_dir.iterdir(), reverse=True):
+#         if not p.is_dir():
+#             continue
+#         meta_file = p / "metadata.json"
+#         if meta_file.exists():
+#             try:
+#                 m = json.loads(meta_file.read_text(encoding="utf-8"))
+#                 result.append(m)
+#             except Exception:
+#                 result.append({"session_id": p.name, "created_at": p.name})
+#         else:
+#             result.append({"session_id": p.name, "created_at": p.name})
+#     return result
+
+
+# def get_session_path(username: str, session_id: str) -> Path:
+#     return get_sessions_dir(username) / session_id
+
+
+# def update_session_meta(sess_dir: Path, updates: dict):
+#     meta_file = sess_dir / "metadata.json"
+#     try:
+#         meta = json.loads(meta_file.read_text(encoding="utf-8")) if meta_file.exists() else {}
+#     except Exception:
+#         meta = {}
+#     meta.update(updates)
+#     meta_file.write_text(json.dumps(meta, indent=2, ensure_ascii=False), encoding="utf-8")
+
+
+# def add_document_to_session(sess_dir: Path, file_bytes: bytes, filename: str) -> Path:
+#     """
+#     Save an uploaded file into the next available doc_XXX slot.
+#     Returns the doc directory.
+#     Layout:
+#       session/documents/doc_001/original/<filename>
+#       session/documents/doc_001/ocr/        (populated after OCR)
+#       session/documents/doc_001/metadata.json
+#     """
+#     docs_dir = sess_dir / "documents"
+#     existing = sorted([d for d in docs_dir.iterdir() if d.is_dir() and d.name.startswith("doc_")])
+#     next_idx  = len(existing) + 1
+#     doc_dir   = docs_dir / f"doc_{next_idx:03d}"
+#     orig_dir  = doc_dir / "original"
+#     orig_dir.mkdir(parents=True, exist_ok=True)
+#     (doc_dir / "ocr").mkdir(parents=True, exist_ok=True)
+
+#     safe_fname = safe_name(filename)
+#     out_path   = orig_dir / safe_fname
+#     out_path.write_bytes(file_bytes)
+
+#     doc_meta = {
+#         "doc_id":        f"doc_{next_idx:03d}",
+#         "original_name": filename,
+#         "filename":      safe_fname,
+#         "size":          len(file_bytes),
+#         "uploaded_at":   datetime.utcnow().isoformat() + "Z",
+#         "ocr_status":    "pending",
+#     }
+#     (doc_dir / "metadata.json").write_text(
+#         json.dumps(doc_meta, indent=2, ensure_ascii=False), encoding="utf-8"
+#     )
+#     return doc_dir
+
+
+# def list_session_documents(sess_dir: Path) -> list[dict]:
+#     """Return list of document metadata dicts for a session."""
+#     docs_dir = sess_dir / "documents"
+#     if not docs_dir.exists():
+#         return []
+#     result = []
+#     for d in sorted(docs_dir.iterdir()):
+#         if not d.is_dir() or not d.name.startswith("doc_"):
+#             continue
+#         mf = d / "metadata.json"
+#         if mf.exists():
+#             try:
+#                 m = json.loads(mf.read_text(encoding="utf-8"))
+#                 m["_path"] = str(d)
+#                 result.append(m)
+#             except Exception:
+#                 result.append({"doc_id": d.name, "_path": str(d)})
+#     return result
+
+
+# def get_combined_ocr_text(sess_dir: Path) -> str:
+#     """
+#     Merge OCR text from all doc_XXX/ocr/ folders within a session.
+#     Checks processing/combined_ocr.txt ONLY if non-empty (cache).
+#     Always rebuilds if cache is missing or empty.
+#     """
+#     combined_cache = sess_dir / "processing" / "combined_ocr.txt"
+
+#     # ── Only trust the cache if it is non-empty ──────────────────────────────
+#     if combined_cache.exists():
+#         try:
+#             cached = combined_cache.read_text(encoding="utf-8").strip()
+#             if cached:
+#                 return cached
+#             else:
+#                 # Cache exists but is empty — delete it and rebuild
+#                 combined_cache.unlink(missing_ok=True)
+#         except Exception:
+#             combined_cache.unlink(missing_ok=True)
+
+#     texts = []
+#     for doc in list_session_documents(sess_dir):
+#         doc_path   = Path(doc["_path"])
+#         ocr_dir    = doc_path / "ocr"
+#         if not ocr_dir.exists():
+#             continue
+
+#         t = ""
+
+#         # ── Strategy 1: direct collect on ocr/ ───────────────────────────────
+#         t = collect_ocr_text(ocr_dir)
+
+#         # ── Strategy 2: look inside bundle subdirs (e.g. ocr/my_doc_pdf/) ────
+#         if not t:
+#             for sub in sorted(ocr_dir.iterdir()):
+#                 if sub.is_dir():
+#                     t = collect_ocr_text(sub)
+#                     if t:
+#                         break
+
+#         # ── Strategy 3: rglob for any ocr_result.json under ocr/ ─────────────
+#         if not t:
+#             for ocr_json in ocr_dir.rglob("ocr_result.json"):
+#                 try:
+#                     data = load_json(ocr_json)
+#                     if data and isinstance(data.get("pages", []), list):
+#                         page_texts = []
+#                         for page in data["pages"]:
+#                             md = page.get("markdown", "").strip()
+#                             if md:
+#                                 page_texts.append(
+#                                     f"--- Document JSON Page {page.get('index', 0)} ---\n{clean_markdown(md)}"
+#                                 )
+#                         if page_texts:
+#                             t = "\n\n".join(page_texts)
+#                             break
+#                 except Exception:
+#                     continue
+
+#         # ── Strategy 4: rglob for any *.md files under ocr/ ──────────────────
+#         if not t:
+#             md_files = sorted(ocr_dir.rglob("*.md"))
+#             if md_files:
+#                 page_texts = []
+#                 for md_file in md_files:
+#                     try:
+#                         content = md_file.read_text(encoding="utf-8").strip()
+#                         if content:
+#                             page_texts.append(f"--- {md_file.name} ---\n{content}")
+#                     except Exception:
+#                         continue
+#                 t = "\n\n".join(page_texts)
+
+#         if t:
+#             texts.append(f"=== Document: {doc.get('original_name', doc['doc_id'])} ===\n{t}")
+
+#     merged = "\n\n".join(texts)
+#     if merged:
+#         try:
+#             combined_cache.parent.mkdir(parents=True, exist_ok=True)
+#             combined_cache.write_text(merged, encoding="utf-8")
+#         except Exception:
+#             pass
+#     return merged
+
+# # ══════════════════════════════════════════════════════════════════════════════
+# # LLM / API HELPERS  — stable pattern from sample_llm
+# # ══════════════════════════════════════════════════════════════════════════════
+
+# def _get_api_key() -> str:
+#     if st.session_state.get("api_key", "").strip():
+#         return st.session_state["api_key"].strip()
+#     try:
+#         from config.settings import settings
+#         for attr in ("OPENROUTER_API_KEY", "openrouter_api_key", "api_key"):
+#             val = getattr(settings, attr, None)
+#             if val and str(val).strip():
+#                 return str(val).strip()
+#     except Exception:
+#         pass
+#     return os.getenv("OPENROUTER_API_KEY", "")
+
+
+# def fetch_models(api_key: str) -> list[dict]:
+#     def _fallback():
+#         return [{"id": DEFAULT_MODEL, "name": DEFAULT_MODEL}]
+
+#     if not api_key:
+#         return _fallback()
+#     try:
+#         resp = requests.get(
+#             OPENROUTER_MODELS_URL,
+#             headers={
+#                 "Authorization": f"Bearer {api_key}",
+#                 "HTTP-Referer":  "https://pear-edtech.app",
+#                 "X-Title":       "Pear EdTech Chatbot",
+#             },
+#             timeout=10,
+#         )
+#         resp.raise_for_status()
+#         raw    = resp.json().get("data", []) or []
+#         models = []
+#         for m in raw:
+#             mid  = m.get("id", "")
+#             name = m.get("name", mid)
+#             if not mid:
+#                 continue
+#             models.append({"id": mid, "name": name})
+#         return models or _fallback()
+#     except Exception:
+#         return _fallback()
+
+
+# def call_openrouter(
+#     messages: list[dict],
+#     model: str,
+#     api_key: str,
+#     temperature: float = 0.2,
+#     max_tokens: int = 10000,        # ← raised from 4096; free models will cap themselves
+# ) -> str:
+#     """
+#     Stable OpenRouter call — mirrors sample_llm pattern exactly.
+#     Returns assistant content string (or an error string on failure).
+#     """
+#     effective_key = api_key or _get_api_key()
+#     if not effective_key:
+#         raise RuntimeError("Missing OpenRouter API key.")
+
+#     payload = {
+#         "model":       model,
+#         "messages":    messages,
+#         "temperature": float(temperature),
+#         "max_tokens":  int(max_tokens),
+#     }
+#     headers = {
+#         "Authorization": f"Bearer {effective_key}",
+#         "Content-Type":  "application/json",
+#         "HTTP-Referer":  "https://pear-edtech.app",
+#         "X-Title":       "Pear EdTech Chatbot",
+#     }
+#     try:
+#         r = requests.post(OPENROUTER_API_URL, headers=headers, json=payload, timeout=120)
+#         r.raise_for_status()
+#         j = r.json()
+
+#         # ── Primary path: standard OpenAI/OpenRouter chat completion shape ──
+#         choices = j.get("choices", [])
+#         if choices and isinstance(choices, list):
+#             msg = (
+#                 choices[0].get("message", {})
+#                 if isinstance(choices[0], dict) else {}
+#             )
+#             content = msg.get("content", "") if isinstance(msg, dict) else ""
+#             if content:
+#                 return content
+
+#         # ── Fallback: choices[0]["text"] (older shape) ──
+#         if choices and isinstance(choices[0], dict) and "text" in choices[0]:
+#             return choices[0]["text"]
+
+#         # ── Last resort: return raw JSON string so parse_verification_json
+#         #    still has something to work with ──
+#         return str(j)
+
+#     except Exception as e:
+#         return f"[LLM Error: {e}]"
+
+# # ══════════════════════════════════════════════════════════════════════════════
+# # DATA HELPERS
+# # ══════════════════════════════════════════════════════════════════════════════
+
+# def load_json(path: Path):
+#     try:
+#         return json.loads(path.read_text(encoding="utf-8"))
+#     except Exception:
+#         return None
+
+
+# def save_json(p: Path, data):
+#     p.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+# def safe_name(name: str) -> str:
+#     if not name:
+#         return "file"
+#     return re.sub(r'[\\/*?:"<>|]', "_", name).strip()
+
+
+# def safe_image_name(raw_id: str, fallback: str) -> str:
+#     base = re.split(r"[/\\]", raw_id)[-1]
+#     base = re.sub(r'[\\/*?:"<>|]', "_", base).strip()
+#     if not base:
+#         base = fallback
+#     if not re.search(r"\.(jpg|jpeg|png|gif|webp|bmp)$", base, re.IGNORECASE):
+#         base += ".jpg"
+#     return base
+
+
+# def is_table_line(line: str) -> bool:
+#     return line.strip().startswith("|") or bool(re.match(r"^\s*\|.*\|\s*$", line))
+
+
+# def clean_markdown(md: str) -> str:
+#     md = html.unescape(md)
+#     md = re.sub(r"^\s*!\[[^\]]*\]\([^\)]+\)\s*$\n?", "", md, flags=re.M)
+#     md = re.sub(r"data:image\/[a-zA-Z]+;base64,[A-Za-z0-9+/=\s]+", "", md)
+#     md = re.sub(r"(\w)-\n(\w)", r"\1\2", md)
+#     lines        = md.splitlines()
+#     out_lines: List[str] = []
+#     inside_table = False
+#     for i, line in enumerate(lines):
+#         stripped = line.strip()
+#         if is_table_line(line):
+#             inside_table = True
+#             out_lines.append(line.rstrip())
+#             continue
+#         else:
+#             if inside_table and stripped == "":
+#                 inside_table = False
+#         if re.match(r"^(#{1,6}\s)|^(\s*[-*+]\s)|^>\s|^---\s*$|^\s*\d+\.\s", line):
+#             out_lines.append(line.rstrip())
+#             continue
+#         if stripped == "":
+#             out_lines.append("")
+#             continue
+#         next_line = lines[i + 1] if i + 1 < len(lines) else ""
+#         if (next_line.strip() == ""
+#                 or re.match(r"^(#{1,6}\s)|^(\s*[-*+]\s)|^>\s|^\s*\d+\.\s", next_line)
+#                 or is_table_line(next_line)):
+#             out_lines.append(line.rstrip())
+#         else:
+#             out_lines.append(line.rstrip() + " ")
+#     joined = "\n".join(out_lines)
+#     joined = re.sub(r"[ \t]{2,}", " ", joined)
+#     joined = re.sub(r"\s+([,.;:!?])", r"\1", joined)
+#     joined = re.sub(r"\n{3,}", "\n\n", joined)
+#     return joined.strip() + "\n"
+
+# # ══════════════════════════════════════════════════════════════════════════════
+# # OCR HELPERS
+# # ══════════════════════════════════════════════════════════════════════════════
+
+# def collect_ocr_text(source_dir: Path, company_base: Path | None = None) -> str:
+#     texts      = []
+#     seen_paths: set = set()
+
+#     # 1. ocr_result.json
+#     json_path = source_dir / "ocr_result.json"
+#     if json_path.exists():
+#         data = load_json(json_path)
+#         if data and isinstance(data.get("pages", []), list):
+#             for page in data["pages"]:
+#                 idx = page.get("index", 0)
+#                 md  = page.get("markdown", "").strip()
+#                 if md:
+#                     texts.append(f"--- Document JSON Page {idx} ---\n{clean_markdown(md)}")
+#             if texts:
+#                 return "\n\n".join(texts)
+
+#     # 2. pages/*.md
+#     pages_dir = source_dir if source_dir.name == "pages" else source_dir / "pages"
+#     if pages_dir.exists() and pages_dir.is_dir():
+#         for md_file in sorted(pages_dir.glob("*.md")):
+#             if md_file.resolve() in seen_paths:
+#                 continue
+#             try:
+#                 content = md_file.read_text(encoding="utf-8").strip()
+#                 if content:
+#                     try:
+#                         rel = md_file.relative_to(company_base) if company_base else md_file.name
+#                     except ValueError:
+#                         rel = md_file.name
+#                     texts.append(f"--- Document: {rel} ---\n{content}")
+#                     seen_paths.add(md_file.resolve())
