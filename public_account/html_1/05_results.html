@@ -1,0 +1,190 @@
+import json
+from datetime import datetime
+from pathlib import Path
+
+import pandas as pd
+import streamlit as st
+
+st.set_page_config(page_title="Verification Results", page_icon="📋", layout="wide")
+
+# ── helpers ────────────────────────────────────────────────────────────────────
+def _find_col(df: pd.DataFrame, candidates: list[str]) -> str | None:
+    """Return the first candidate column name that exists in df."""
+    for c in candidates:
+        if c in df.columns:
+            return c
+    return None
+
+def _safe_agg(df: pd.DataFrame, candidates: list[str], agg: str):
+    col = _find_col(df, candidates)
+    if col is None:
+        return pd.Series(0, index=df.index if agg == "sum" else [0])
+    return df[col].agg(agg) if agg != "groupby" else col
+
+def render_results_from_json(result_json: dict):
+    """
+    Reusable renderer. Called both from this standalone page
+    and optionally from 03_dashboard.py for inline display.
+    """
+    if not result_json:
+        st.info("No results to display.")
+        return
+
+    company_name   = result_json.get("company", "unknown")
+    active_sess_id = result_json.get("session_id", "unknown")
+    scores         = result_json.get("scores", [])
+    verifications  = result_json.get("verifications", [])
+    raw_llm        = result_json.get(
+        "raw_llm_reply",
+        json.dumps(verifications, ensure_ascii=False, indent=2),
+    )
+
+    df = pd.DataFrame(scores)
+    if df.empty:
+        st.warning("No score rows found in this result.")
+        return
+
+    # ── top metrics ────────────────────────────────────────────────────────────
+    final_col = _find_col(df, ["Final Score", "Final_Score", "FinalScore"])
+    max_col   = _find_col(df, ["Max Score",   "Max_Score",   "MaxScore"])
+    raw_col   = _find_col(df, ["Raw Score",   "Raw_Score",   "RawScore"])
+    conf_col  = _find_col(df, ["Confidence",  "Avg_Confidence"])
+
+    total_final = df[final_col].sum() if final_col else 0
+    total_max   = df[max_col].sum()   if max_col   else 0
+    pct         = round(total_final / total_max * 100, 1) if total_max else 0.0
+
+    m1, m2, m3, m4 = st.columns(4)
+    m1.metric("Company",      company_name)
+    m2.metric("Final Score",  f"{total_final:.1f} / {total_max:.1f}")
+    m3.metric("% Verified",   f"{pct}%")
+    m4.metric("Questions",    len(df))
+
+    # ── tabs ───────────────────────────────────────────────────────────────────
+    tab_summary, tab_detail, tab_table, tab_raw, tab_download = st.tabs([
+        "📊 Summary", "📋 Question Detail", "🗂 Score Table", "🤖 Raw LLM", "⬇️ Download",
+    ])
+
+    # ── Summary ────────────────────────────────────────────────────────────────
+    with tab_summary:
+        st.subheader("Pillar breakdown")
+        pillar_col = _find_col(df, ["Pillar", "pillar"])
+        if pillar_col and final_col:
+            agg_dict = {"Questions": ((_find_col(df, ["ID","id"]) or df.columns[0]), "count")}
+            if final_col: agg_dict["Final_Score"] = (final_col, "sum")
+            if max_col:   agg_dict["Max_Score"]   = (max_col,   "sum")
+            if raw_col:   agg_dict["Raw_Score"]   = (raw_col,   "sum")
+            if conf_col:  agg_dict["Avg_Conf"]    = (conf_col,  "mean")
+
+            pillar_summary = df.groupby(pillar_col).agg(**agg_dict).reset_index()
+
+            if "Max_Score" in pillar_summary.columns:
+                pillar_summary["Score_%"] = (
+                    pillar_summary["Final_Score"] / pillar_summary["Max_Score"].replace(0, pd.NA) * 100
+                ).round(1).fillna(0)
+            else:
+                pillar_summary["Score_%"] = 0.0
+
+            st.dataframe(pillar_summary, use_container_width=True)
+
+            # bar chart per pillar
+            if "Score_%" in pillar_summary.columns:
+                st.bar_chart(pillar_summary.set_index(pillar_col)["Score_%"])
+        else:
+            st.info("Pillar or Final Score column not found; cannot build summary.")
+
+        # status distribution
+        status_col = _find_col(df, ["Status", "verification_status"])
+        if status_col:
+            st.subheader("Verification status distribution")
+            status_counts = df[status_col].value_counts().reset_index()
+            status_counts.columns = ["Status", "Count"]
+            st.bar_chart(status_counts.set_index("Status"))
+
+    # ── Question detail ────────────────────────────────────────────────────────
+    with tab_detail:
+        st.subheader("Per-question breakdown")
+        id_col   = _find_col(df, ["ID","id"])
+        q_col    = _find_col(df, ["Question","question"])
+        sel_col  = _find_col(df, ["Selected","selected"])
+        selt_col = _find_col(df, ["Selected Text","selected_text"])
+        reas_col = _find_col(df, ["Reasoning","reasoning"])
+        evid_col = _find_col(df, ["Evidence Quote","evidence_quote"])
+
+        for _, row in df.iterrows():
+            status_val = row.get(status_col, "") if status_col else ""
+            colour = {
+                "SUPPORTED": "🟢", "PARTIALLY_SUPPORTED": "🟡",
+                "NOT_FOUND": "🔴", "CONTRADICTED": "🟠",
+            }.get(str(status_val).upper(), "⚪")
+
+            with st.expander(
+                f"{colour} {row.get(id_col,'') if id_col else ''} — {str(row.get(q_col,'') if q_col else '')[:80]}"
+            ):
+                c1, c2, c3 = st.columns(3)
+                c1.markdown(f"**Status:** {status_val}")
+                c2.markdown(f"**Confidence:** {row.get(conf_col,'') if conf_col else 'n/a'}")
+                c3.markdown(f"**Final Score:** {row.get(final_col,'') if final_col else 'n/a'}")
+
+                if sel_col:
+                    st.markdown(f"**Selected:** {row.get(sel_col,'')} — {row.get(selt_col,'') if selt_col else ''}")
+                if evid_col and row.get(evid_col):
+                    st.info(f"📌 Evidence: {row.get(evid_col)}")
+                if reas_col and row.get(reas_col):
+                    st.caption(f"Reasoning: {row.get(reas_col)}")
+
+    # ── Score table ────────────────────────────────────────────────────────────
+    with tab_table:
+        display_cols = [c for c in [
+            "ID","Pillar","Question","Selected","Selected Text",
+            "Raw Score","Status","Confidence","Multiplier",
+            "Final Score","Max Score","Reasoning",
+        ] if c in df.columns]
+        st.dataframe(df[display_cols] if display_cols else df, use_container_width=True, height=600)
+
+    # ── Raw LLM ────────────────────────────────────────────────────────────────
+    with tab_raw:
+        st.caption("Raw response from LLM")
+        st.code(raw_llm[:8000] if len(raw_llm) > 8000 else raw_llm, language="json")
+
+    # ── Download ───────────────────────────────────────────────────────────────
+    with tab_download:
+        st.subheader("Download")
+        result_json.setdefault("timestamp", datetime.utcnow().isoformat() + "Z")
+        col_a, col_b = st.columns(2)
+        col_a.download_button(
+            "📥 Full JSON",
+            data=json.dumps(result_json, ensure_ascii=False, indent=2),
+            file_name=f"{company_name}_{active_sess_id}_verification.json",
+            mime="application/json",
+        )
+        col_b.download_button(
+            "📥 Score CSV",
+            data=df.to_csv(index=False),
+            file_name=f"{company_name}_{active_sess_id}_scores.csv",
+            mime="text/csv",
+        )
+
+
+# ── Standalone page entry point ────────────────────────────────────────────────
+def main():
+    # back button
+    if st.button("← Back to Dashboard"):
+        st.switch_page("pages/03_dashboard.py")
+
+    result_json = st.session_state.get("_result_json")
+    user_key    = st.session_state.get("_result_user", "")
+    sess_name   = st.session_state.get("_result_sess", "")
+
+    if not result_json:
+        st.warning("No result loaded. Please go back to the dashboard and click **📄 View** on a session.")
+        if st.button("Go to Dashboard"):
+            st.switch_page("pages/03_dashboard.py")
+        st.stop()
+
+    st.title("📋 Verification Results")
+    st.caption(f"User: `{user_key}` · Session: `{sess_name}`")
+    render_results_from_json(result_json)
+
+
+main()
