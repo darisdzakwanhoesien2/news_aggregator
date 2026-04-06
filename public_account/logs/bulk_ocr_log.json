@@ -5,12 +5,6 @@
     "json_output": "/Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/data/thesis_dataset/CSSA ESG support Document 2023_pdf/ocr_result.json",
     "time": "2026-04-05 17:48:25"
   },
-  "ESG-Supporting-Document-2024.pdf": {
-    "status": "done",
-    "pages": 46,
-    "json_output": "/Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T113542Z/documents/doc_002/ocr/ESG-Supporting-Document-2024_pdf/ocr_result.json",
-    "time": "2026-04-05 18:43:27"
-  },
   "esg.pdf": {
     "status": "done",
     "pages": 36,
@@ -22,5 +16,11 @@
     "pages": 18,
     "json_output": "/Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/ukm_3/sessions/20260405T152914Z/documents/doc_001/ocr/ESG Supporting Document IFS 2024_pdf/ocr_result.json",
     "time": "2026-04-06 09:12:21"
+  },
+  "ESG-Supporting-Document-2024.pdf": {
+    "status": "done",
+    "pages": 46,
+    "json_output": "/Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/ukm_4/sessions/20260406T023647Z/documents/doc_001/ocr/ESG-Supporting-Document-2024_pdf/ocr_result.json",
+    "time": "2026-04-06 09:37:27"
   }
 }

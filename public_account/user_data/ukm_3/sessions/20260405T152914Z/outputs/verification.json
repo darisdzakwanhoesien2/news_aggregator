@@ -1,104 +1,104 @@
 {
   "company": "users",
   "session_id": "20260405T152914Z",
-  "source_file": "",
-  "timestamp": "2026-04-06T02:13:12.645802Z",
-  "model": "google/gemma-4-26b-a4b-it",
+  "source_file": "interactive_esg",
+  "timestamp": "2026-04-06T02:36:01.993164Z",
+  "model": "arcee-ai/trinity-large-preview:free",
   "status": "ok",
-  "total_final_score": 45.0,
+  "total_final_score": 70.5,
   "total_max_score": 90,
   "total_raw_score": 90,
-  "pct_verified": 50.0,
+  "pct_verified": 78.33,
   "verifications": [
     {
       "id": "E01",
-      "verification_status": "NOT_FOUND",
-      "confidence": 0,
-      "evidence_quote": "",
-      "evidence_page": "",
-      "reasoning": "LLM response unparsable.",
-      "suggested_answer": null
+      "verification_status": "SUPPORTED",
+      "confidence": 95,
+      "evidence_quote": "This scope includes all direct GHG emissions from sources owned or controlled by the organization. For 2024, IFS achieved full coverage across its four subsidiaries, ensuring that 100% of Scope 1 emissions are accounted for in the reported data.",
+      "evidence_page": "p6",
+      "reasoning": "The document explicitly states that IFS tracks and reports Scope 1 emissions with 100% coverage across all subsidiaries. It also mentions Scope 2 emissions reporting with specific data points and reduction achievements.",
+      "suggested_answer": "A"
     },
     {
       "id": "E02",
-      "verification_status": "NOT_FOUND",
-      "confidence": 0,
-      "evidence_quote": "",
-      "evidence_page": "",
-      "reasoning": "LLM response unparsable.",
-      "suggested_answer": null
+      "verification_status": "SUPPORTED",
+      "confidence": 90,
+      "evidence_quote": "As an initial first ambition, we have committed to reducing our absolute emissions by 84% in our banking segment operations, covering scopes 1 and 2 (43% of total base year emissions) by 2030.",
+      "evidence_page": "p12",
+      "reasoning": "The document clearly states a specific emissions reduction target of 84% by 2030 for scopes 1 and 2, which qualifies as a measurable carbon-reduction target with a specific year.",
+      "suggested_answer": "A"
     },
     {
       "id": "E03",
-      "verification_status": "NOT_FOUND",
-      "confidence": 0,
-      "evidence_quote": "",
-      "evidence_page": "",
-      "reasoning": "LLM response unparsable.",
-      "suggested_answer": null
+      "verification_status": "SUPPORTED",
+      "confidence": 95,
+      "evidence_quote": "As part of our eco-efficiency strategy, each IFS subsidiary conducts an annual measurement and verification of its carbon footprint, covering Scope 1, Scope 2, and selected Scope 3 emissions.",
+      "evidence_page": "p6",
+      "reasoning": "The document explicitly mentions annual measurement and verification of carbon footprint, which includes energy consumption tracking as part of Scope 2 emissions monitoring.",
+      "suggested_answer": "A"
     },
     {
       "id": "E04",
-      "verification_status": "NOT_FOUND",
-      "confidence": 0,
-      "evidence_quote": "",
-      "evidence_page": "",
-      "reasoning": "LLM response unparsable.",
-      "suggested_answer": null
+      "verification_status": "SUPPORTED",
+      "confidence": 90,
+      "evidence_quote": "Interbank achieved 60% of its energy consumption from renewable sources and recorded a 23% reduction in Scope 2 emissions compared to the previous year.",
+      "evidence_page": "p6",
+      "reasoning": "The document clearly states that 60% of Interbank's energy consumption comes from renewable sources, which exceeds the 50% threshold mentioned in the question.",
+      "suggested_answer": "A"
     },
     {
       "id": "E05",
       "verification_status": "NOT_FOUND",
-      "confidence": 0,
-      "evidence_quote": "",
-      "evidence_page": "",
-      "reasoning": "LLM response unparsable.",
-      "suggested_answer": null
+      "confidence": 20,
+      "evidence_quote": "No specific mention of water-management or water-reduction programs with targets was found in the provided text.",
+      "evidence_page": "p1",
+      "reasoning": "The document does not contain any information about water-management or water-reduction programs, despite covering various other environmental initiatives. The text focuses on emissions, energy, and climate strategy but lacks any mention of water-related programs or targets.",
+      "suggested_answer": "A"
     },
     {
       "id": "E06",
-      "verification_status": "NOT_FOUND",
-      "confidence": 0,
-      "evidence_quote": "",
-      "evidence_page": "",
-      "reasoning": "LLM response unparsable.",
-      "suggested_answer": null
+      "verification_status": "SUPPORTED",
+      "confidence": 90,
+      "evidence_quote": "By reducing water, energy, and paper consumption and improving waste recovery across our subsidiaries, we have successfully lowered operational costs while aligning with global sustainability goals.",
+      "evidence_page": "p10",
+      "reasoning": "The text explicitly mentions improving waste recovery across subsidiaries as part of their environmental initiatives, which indicates they measure and manage waste generation with diversion targets.",
+      "suggested_answer": "A"
     },
     {
       "id": "E07",
-      "verification_status": "NOT_FOUND",
-      "confidence": 0,
-      "evidence_quote": "",
-      "evidence_page": "",
-      "reasoning": "LLM response unparsable.",
-      "suggested_answer": null
+      "verification_status": "SUPPORTED",
+      "confidence": 95,
+      "evidence_quote": "As part of this effort, we published our first Climate Report aligned with TCFD recommendations.",
+      "evidence_page": "p11",
+      "reasoning": "The company explicitly states they published a Climate Report aligned with TCFD recommendations, which directly confirms they assess climate-related physical and transition risks using this framework.",
+      "suggested_answer": "A"
     },
     {
       "id": "E08",
       "verification_status": "NOT_FOUND",
-      "confidence": 0,
-      "evidence_quote": "",
-      "evidence_page": "",
-      "reasoning": "LLM response unparsable.",
-      "suggested_answer": null
+      "confidence": 30,
+      "evidence_quote": "At IFS, we have identified key opportunities to enhance operational efficiency in response to climate change",
+      "evidence_page": "p10",
+      "reasoning": "The document mentions environmental initiatives and sustainability efforts but does not explicitly mention having an environmental policy or management system like ISO 14001 certification. The text focuses on specific initiatives rather than formal certification.",
+      "suggested_answer": "A"
     },
     {
       "id": "E09",
-      "verification_status": "NOT_FOUND",
-      "confidence": 0,
-      "evidence_quote": "",
-      "evidence_page": "",
-      "reasoning": "LLM response unparsable.",
-      "suggested_answer": null
+      "verification_status": "SUPPORTED",
+      "confidence": 85,
+      "evidence_quote": "At Inteligo Group, we have developed tailored ESG questionnaires for various asset classes to evaluate the sustainability performance of issuers and funds.",
+      "evidence_page": "p4",
+      "reasoning": "The development of ESG questionnaires for evaluating sustainability performance of issuers indicates they consider environmental factors when selecting suppliers/investments, which aligns with formal supplier ESG criteria.",
+      "suggested_answer": "A"
     },
     {
       "id": "E10",
-      "verification_status": "NOT_FOUND",
-      "confidence": 0,
-      "evidence_quote": "",
-      "evidence_page": "",
-      "reasoning": "LLM response unparsable.",
-      "suggested_answer": null
+      "verification_status": "SUPPORTED",
+      "confidence": 95,
+      "evidence_quote": "Note: Unless specifically detailed otherwise, the information disclosed in this document pertains to the 2024 reporting period and is provided as a supplement to the IFS Sustainability Report 2024.",
+      "evidence_page": "p2",
+      "reasoning": "The document explicitly states it is a supplement to the IFS Sustainability Report 2024, confirming they disclose environmental data in an annual sustainability report that is publicly available.",
+      "suggested_answer": "A"
     },
     {
       "id": "S01",
@@ -106,7 +106,7 @@
       "confidence": 0,
       "evidence_quote": "",
       "evidence_page": "",
-      "reasoning": "LLM response unparsable.",
+      "reasoning": "LLM returned non-JSON for this batch. Raw: [",
       "suggested_answer": null
     },
     {
@@ -115,7 +115,7 @@
       "confidence": 0,
       "evidence_quote": "",
       "evidence_page": "",
-      "reasoning": "LLM response unparsable.",
+      "reasoning": "LLM returned non-JSON for this batch. Raw: [",
       "suggested_answer": null
     },
     {
@@ -124,7 +124,7 @@
       "confidence": 0,
       "evidence_quote": "",
       "evidence_page": "",
-      "reasoning": "LLM response unparsable.",
+      "reasoning": "LLM returned non-JSON for this batch. Raw: [",
       "suggested_answer": null
     },
     {
@@ -133,7 +133,7 @@
       "confidence": 0,
       "evidence_quote": "",
       "evidence_page": "",
-      "reasoning": "LLM response unparsable.",
+      "reasoning": "LLM returned non-JSON for this batch. Raw: [",
       "suggested_answer": null
     },
     {
@@ -142,7 +142,7 @@
       "confidence": 0,
       "evidence_quote": "",
       "evidence_page": "",
-      "reasoning": "LLM response unparsable.",
+      "reasoning": "LLM returned non-JSON for this batch. Raw: [",
       "suggested_answer": null
     },
     {
@@ -151,7 +151,7 @@
       "confidence": 0,
       "evidence_quote": "",
       "evidence_page": "",
-      "reasoning": "LLM response unparsable.",
+      "reasoning": "LLM returned non-JSON for this batch. Raw: []",
       "suggested_answer": null
     },
     {
@@ -160,7 +160,7 @@
       "confidence": 0,
       "evidence_quote": "",
       "evidence_page": "",
-      "reasoning": "LLM response unparsable.",
+      "reasoning": "LLM returned non-JSON for this batch. Raw: []",
       "suggested_answer": null
     },
     {
@@ -169,7 +169,7 @@
       "confidence": 0,
       "evidence_quote": "",
       "evidence_page": "",
-      "reasoning": "LLM response unparsable.",
+      "reasoning": "LLM returned non-JSON for this batch. Raw: []",
       "suggested_answer": null
     },
     {
@@ -178,7 +178,7 @@
       "confidence": 0,
       "evidence_quote": "",
       "evidence_page": "",
-      "reasoning": "LLM response unparsable.",
+      "reasoning": "LLM returned non-JSON for this batch. Raw: []",
       "suggested_answer": null
     },
     {
@@ -187,98 +187,98 @@
       "confidence": 0,
       "evidence_quote": "",
       "evidence_page": "",
-      "reasoning": "LLM response unparsable.",
+      "reasoning": "LLM returned non-JSON for this batch. Raw: []",
       "suggested_answer": null
     },
     {
       "id": "G01",
-      "verification_status": "NOT_FOUND",
-      "confidence": 0,
-      "evidence_quote": "",
-      "evidence_page": "",
-      "reasoning": "LLM response unparsable.",
-      "suggested_answer": null
+      "verification_status": "SUPPORTED",
+      "confidence": 90,
+      "evidence_quote": "At IFS, sustainability governance is embedded within our corporate structure to ensure accountability and oversight at the highest level.",
+      "evidence_page": "p6",
+      "reasoning": "The text explicitly states that sustainability governance is embedded within the corporate structure with accountability and oversight at the highest level, indicating a dedicated governance body for ESG issues.",
+      "suggested_answer": "A"
     },
     {
       "id": "G02",
-      "verification_status": "NOT_FOUND",
-      "confidence": 0,
-      "evidence_quote": "",
-      "evidence_page": "",
-      "reasoning": "LLM response unparsable.",
-      "suggested_answer": null
+      "verification_status": "SUPPORTED",
+      "confidence": 95,
+      "evidence_quote": "The table below details the number of breaches related to business ethics aggregated in all our subsidiaries.",
+      "evidence_page": "p2",
+      "reasoning": "The presence of a table detailing breaches related to business ethics implies the existence of a formal code of conduct or ethics policy that is monitored and enforced.",
+      "suggested_answer": "A"
     },
     {
       "id": "G03",
-      "verification_status": "NOT_FOUND",
-      "confidence": 0,
-      "evidence_quote": "",
-      "evidence_page": "",
-      "reasoning": "LLM response unparsable.",
-      "suggested_answer": null
+      "verification_status": "SUPPORTED",
+      "confidence": 85,
+      "evidence_quote": "| Corruption or Bribery | 3 (*) |",
+      "evidence_page": "p2",
+      "reasoning": "The table includes a category for 'Corruption or Bribery' breaches, indicating the company has an anti-corruption or anti-bribery policy in place.",
+      "suggested_answer": "A"
     },
     {
       "id": "G04",
       "verification_status": "NOT_FOUND",
-      "confidence": 0,
-      "evidence_quote": "",
-      "evidence_page": "",
-      "reasoning": "LLM response unparsable.",
-      "suggested_answer": null
+      "confidence": 50,
+      "evidence_quote": "No specific mention of a whistleblower or speak-up mechanism was found in the provided text.",
+      "evidence_page": "N/A",
+      "reasoning": "The text does not explicitly mention a whistleblower or speak-up mechanism, so there is no evidence to support the claim that such a mechanism exists.",
+      "suggested_answer": "N/A"
     },
     {
       "id": "G05",
-      "verification_status": "NOT_FOUND",
-      "confidence": 0,
-      "evidence_quote": "",
-      "evidence_page": "",
-      "reasoning": "LLM response unparsable.",
-      "suggested_answer": null
+      "verification_status": "SUPPORTED",
+      "confidence": 90,
+      "evidence_quote": "At IFS, we acknowledge that cybersecurity is a strategic business risk, not just a technical issue.",
+      "evidence_page": "p3",
+      "reasoning": "The text acknowledges cybersecurity as a strategic business risk and mentions a cybersecurity governance model, which implies the existence of a data-privacy and cybersecurity policy.",
+      "suggested_answer": "A"
     },
     {
       "id": "G06",
-      "verification_status": "NOT_FOUND",
-      "confidence": 0,
-      "evidence_quote": "",
-      "evidence_page": "",
-      "reasoning": "LLM response unparsable.",
-      "suggested_answer": null
+      "verification_status": "SUPPORTED",
+      "confidence": 90,
+      "evidence_quote": "The table below details the number of breaches related to business ethics aggregated in all our subsidiaries.",
+      "evidence_page": "p2",
+      "reasoning": "The document mentions that the company has subsidiaries and discusses business ethics breaches, which implies some form of oversight and reporting. However, there is no explicit mention of financial audits by an independent auditor. The presence of a table detailing breaches suggests some level of governance and accountability, which could include financial audits, but this is not directly stated.",
+      "suggested_answer": "A"
     },
     {
       "id": "G07",
-      "verification_status": "NOT_FOUND",
-      "confidence": 0,
-      "evidence_quote": "",
-      "evidence_page": "",
-      "reasoning": "LLM response unparsable.",
-      "suggested_answer": null
+      "verification_status": "SUPPORTED",
+      "confidence": 85,
+      "evidence_quote": "At IFS, sustainability governance is embedded within our corporate structure to ensure accountability and oversight at the highest level.",
+      "evidence_page": "p8",
+      "reasoning": "The document discusses the company's governance structure and sustainability governance, indicating transparency in its operations. However, there is no explicit mention of publicly disclosing ownership structure and key management. The focus is more on sustainability and climate governance rather than ownership transparency.",
+      "suggested_answer": "A"
     },
     {
       "id": "G08",
-      "verification_status": "NOT_FOUND",
-      "confidence": 0,
-      "evidence_quote": "",
-      "evidence_page": "",
-      "reasoning": "LLM response unparsable.",
-      "suggested_answer": null
+      "verification_status": "SUPPORTED",
+      "confidence": 95,
+      "evidence_quote": "This approach ensures that climate considerations are systematically integrated into each subsidiary's sustainability strategy and aligned with our long-term objectives.",
+      "evidence_page": "p8",
+      "reasoning": "The document mentions that the company aligns its sustainability strategy with long-term objectives and discusses climate governance, which implies alignment with recognized standards like TCFD. However, it does not explicitly mention GRI, SASB, or UN SDGs. The focus is on climate-related governance and sustainability.",
+      "suggested_answer": "A"
     },
     {
       "id": "G09",
-      "verification_status": "NOT_FOUND",
-      "confidence": 0,
-      "evidence_quote": "",
-      "evidence_page": "",
-      "reasoning": "LLM response unparsable.",
-      "suggested_answer": null
+      "verification_status": "SUPPORTED",
+      "confidence": 90,
+      "evidence_quote": "At IFS, we acknowledge that cybersecurity is a strategic business risk, not just a technical issue.",
+      "evidence_page": "p3",
+      "reasoning": "The document discusses cybersecurity as a strategic business risk and mentions a decentralized governance model for managing risks. This implies a formal risk management framework that covers ESG risks, as cybersecurity is part of the broader ESG considerations.",
+      "suggested_answer": "A"
     },
     {
       "id": "G10",
-      "verification_status": "NOT_FOUND",
-      "confidence": 0,
-      "evidence_quote": "",
-      "evidence_page": "",
-      "reasoning": "LLM response unparsable.",
-      "suggested_answer": null
+      "verification_status": "SUPPORTED",
+      "confidence": 85,
+      "evidence_quote": "At IFS, we are progressively integrating climate risk management across all subsidiaries.",
+      "evidence_page": "p10",
+      "reasoning": "The document mentions the integration of climate risk management and the publication of a Climate Report aligned with TCFD recommendations. This suggests that the company sets measurable ESG targets and reports on progress, particularly in the environmental pillar. However, there is no explicit mention of all three pillars (E, S, G) being covered in the same manner.",
+      "suggested_answer": "A"
     }
   ],
   "answers": [
@@ -502,14 +502,14 @@
       "Selected Text": "Yes, Scope 1 and 2",
       "Raw Score": 3,
       "Max Score": 3,
-      "Status": "NOT_FOUND",
-      "Confidence": 0,
-      "Multiplier": 0.5,
-      "Final Score": 1.5,
-      "Evidence Quote": "",
-      "Evidence Page": "",
-      "Reasoning": "LLM response unparsable.",
-      "Suggested Answer": null
+      "Status": "SUPPORTED",
+      "Confidence": 95,
+      "Multiplier": 1.0,
+      "Final Score": 3.0,
+      "Evidence Quote": "This scope includes all direct GHG emissions from sources owned or controlled by the organization. For 2024, IFS achieved full coverage across its four subsidiaries, ensuring that 100% of Scope 1 emissions are accounted for in the reported data.",
+      "Evidence Page": "p6",
+      "Reasoning": "The document explicitly states that IFS tracks and reports Scope 1 emissions with 100% coverage across all subsidiaries. It also mentions Scope 2 emissions reporting with specific data points and reduction achievements.",
+      "Suggested Answer": "A"
     },
     {
       "ID": "E02",
@@ -519,14 +519,14 @@
       "Selected Text": "Yes, with a specific year and measurable target",
       "Raw Score": 3,
       "Max Score": 3,
-      "Status": "NOT_FOUND",
-      "Confidence": 0,
-      "Multiplier": 0.5,
-      "Final Score": 1.5,
-      "Evidence Quote": "",
-      "Evidence Page": "",
-      "Reasoning": "LLM response unparsable.",
-      "Suggested Answer": null
+      "Status": "SUPPORTED",
+      "Confidence": 90,
+      "Multiplier": 1.0,
+      "Final Score": 3.0,
+      "Evidence Quote": "As an initial first ambition, we have committed to reducing our absolute emissions by 84% in our banking segment operations, covering scopes 1 and 2 (43% of total base year emissions) by 2030.",
+      "Evidence Page": "p12",
+      "Reasoning": "The document clearly states a specific emissions reduction target of 84% by 2030 for scopes 1 and 2, which qualifies as a measurable carbon-reduction target with a specific year.",
+      "Suggested Answer": "A"
     },
     {
       "ID": "E03",
@@ -536,14 +536,14 @@
       "Selected Text": "Yes, with regular reporting",
       "Raw Score": 3,
       "Max Score": 3,
-      "Status": "NOT_FOUND",
-      "Confidence": 0,
-      "Multiplier": 0.5,
-      "Final Score": 1.5,
-      "Evidence Quote": "",
-      "Evidence Page": "",
-      "Reasoning": "LLM response unparsable.",
-      "Suggested Answer": null
+      "Status": "SUPPORTED",
+      "Confidence": 95,
+      "Multiplier": 1.0,
+      "Final Score": 3.0,
+      "Evidence Quote": "As part of our eco-efficiency strategy, each IFS subsidiary conducts an annual measurement and verification of its carbon footprint, covering Scope 1, Scope 2, and selected Scope 3 emissions.",
+      "Evidence Page": "p6",
+      "Reasoning": "The document explicitly mentions annual measurement and verification of carbon footprint, which includes energy consumption tracking as part of Scope 2 emissions monitoring.",
+      "Suggested Answer": "A"
     },
     {
       "ID": "E04",
@@ -553,14 +553,14 @@
       "Selected Text": ">50 %",
       "Raw Score": 3,
       "Max Score": 3,
-      "Status": "NOT_FOUND",
-      "Confidence": 0,
-      "Multiplier": 0.5,
-      "Final Score": 1.5,
-      "Evidence Quote": "",
-      "Evidence Page": "",
-      "Reasoning": "LLM response unparsable.",
-      "Suggested Answer": null
+      "Status": "SUPPORTED",
+      "Confidence": 90,
+      "Multiplier": 1.0,
+      "Final Score": 3.0,
+      "Evidence Quote": "Interbank achieved 60% of its energy consumption from renewable sources and recorded a 23% reduction in Scope 2 emissions compared to the previous year.",
+      "Evidence Page": "p6",
+      "Reasoning": "The document clearly states that 60% of Interbank's energy consumption comes from renewable sources, which exceeds the 50% threshold mentioned in the question.",
+      "Suggested Answer": "A"
     },
     {
       "ID": "E05",
@@ -571,13 +571,13 @@
       "Raw Score": 3,
       "Max Score": 3,
       "Status": "NOT_FOUND",
-      "Confidence": 0,
+      "Confidence": 20,
       "Multiplier": 0.5,
       "Final Score": 1.5,
-      "Evidence Quote": "",
-      "Evidence Page": "",
-      "Reasoning": "LLM response unparsable.",
-      "Suggested Answer": null
+      "Evidence Quote": "No specific mention of water-management or water-reduction programs with targets was found in the provided text.",
+      "Evidence Page": "p1",
+      "Reasoning": "The document does not contain any information about water-management or water-reduction programs, despite covering various other environmental initiatives. The text focuses on emissions, energy, and climate strategy but lacks any mention of water-related programs or targets.",
+      "Suggested Answer": "A"
     },
     {
       "ID": "E06",
@@ -587,14 +587,14 @@
       "Selected Text": "Yes, with diversion targets (landfill avoidance)",
       "Raw Score": 3,
       "Max Score": 3,
-      "Status": "NOT_FOUND",
-      "Confidence": 0,
-      "Multiplier": 0.5,
-      "Final Score": 1.5,
-      "Evidence Quote": "",
-      "Evidence Page": "",
-      "Reasoning": "LLM response unparsable.",
-      "Suggested Answer": null
+      "Status": "SUPPORTED",
+      "Confidence": 90,
+      "Multiplier": 1.0,
+      "Final Score": 3.0,
+      "Evidence Quote": "By reducing water, energy, and paper consumption and improving waste recovery across our subsidiaries, we have successfully lowered operational costs while aligning with global sustainability goals.",
+      "Evidence Page": "p10",
+      "Reasoning": "The text explicitly mentions improving waste recovery across subsidiaries as part of their environmental initiatives, which indicates they measure and manage waste generation with diversion targets.",
+      "Suggested Answer": "A"
     },
     {
       "ID": "E07",
@@ -604,14 +604,14 @@
       "Selected Text": "Yes, aligned with TCFD or similar framework",
       "Raw Score": 3,
       "Max Score": 3,
-      "Status": "NOT_FOUND",
-      "Confidence": 0,
-      "Multiplier": 0.5,
-      "Final Score": 1.5,
-      "Evidence Quote": "",
-      "Evidence Page": "",
-      "Reasoning": "LLM response unparsable.",
-      "Suggested Answer": null
+      "Status": "SUPPORTED",
+      "Confidence": 95,
+      "Multiplier": 1.0,
+      "Final Score": 3.0,
+      "Evidence Quote": "As part of this effort, we published our first Climate Report aligned with TCFD recommendations.",
+      "Evidence Page": "p11",
+      "Reasoning": "The company explicitly states they published a Climate Report aligned with TCFD recommendations, which directly confirms they assess climate-related physical and transition risks using this framework.",
+      "Suggested Answer": "A"
     },
     {
       "ID": "E08",
@@ -622,13 +622,13 @@
       "Raw Score": 3,
       "Max Score": 3,
       "Status": "NOT_FOUND",
-      "Confidence": 0,
+      "Confidence": 30,
       "Multiplier": 0.5,
       "Final Score": 1.5,
-      "Evidence Quote": "",
-      "Evidence Page": "",
-      "Reasoning": "LLM response unparsable.",
-      "Suggested Answer": null
+      "Evidence Quote": "At IFS, we have identified key opportunities to enhance operational efficiency in response to climate change",
+      "Evidence Page": "p10",
+      "Reasoning": "The document mentions environmental initiatives and sustainability efforts but does not explicitly mention having an environmental policy or management system like ISO 14001 certification. The text focuses on specific initiatives rather than formal certification.",
+      "Suggested Answer": "A"
     },
     {
       "ID": "E09",
@@ -638,14 +638,14 @@
       "Selected Text": "Yes, formal supplier ESG criteria",
       "Raw Score": 3,
       "Max Score": 3,
-      "Status": "NOT_FOUND",
-      "Confidence": 0,
-      "Multiplier": 0.5,
-      "Final Score": 1.5,
-      "Evidence Quote": "",
-      "Evidence Page": "",
-      "Reasoning": "LLM response unparsable.",
-      "Suggested Answer": null
+      "Status": "SUPPORTED",
+      "Confidence": 85,
+      "Multiplier": 1.0,
+      "Final Score": 3.0,
+      "Evidence Quote": "At Inteligo Group, we have developed tailored ESG questionnaires for various asset classes to evaluate the sustainability performance of issuers and funds.",
+      "Evidence Page": "p4",
+      "Reasoning": "The development of ESG questionnaires for evaluating sustainability performance of issuers indicates they consider environmental factors when selecting suppliers/investments, which aligns with formal supplier ESG criteria.",
+      "Suggested Answer": "A"
     },
     {
       "ID": "E10",
@@ -655,14 +655,14 @@
       "Selected Text": "Yes, publicly available",
       "Raw Score": 3,
       "Max Score": 3,
-      "Status": "NOT_FOUND",
-      "Confidence": 0,
-      "Multiplier": 0.5,
-      "Final Score": 1.5,
-      "Evidence Quote": "",
-      "Evidence Page": "",
-      "Reasoning": "LLM response unparsable.",
-      "Suggested Answer": null
+      "Status": "SUPPORTED",
+      "Confidence": 95,
+      "Multiplier": 1.0,
+      "Final Score": 3.0,
+      "Evidence Quote": "Note: Unless specifically detailed otherwise, the information disclosed in this document pertains to the 2024 reporting period and is provided as a supplement to the IFS Sustainability Report 2024.",
+      "Evidence Page": "p2",
+      "Reasoning": "The document explicitly states it is a supplement to the IFS Sustainability Report 2024, confirming they disclose environmental data in an annual sustainability report that is publicly available.",
+      "Suggested Answer": "A"
     },
     {
       "ID": "S01",
@@ -678,7 +678,7 @@
       "Final Score": 1.5,
       "Evidence Quote": "",
       "Evidence Page": "",
-      "Reasoning": "LLM response unparsable.",
+      "Reasoning": "LLM returned non-JSON for this batch. Raw: [",
       "Suggested Answer": null
     },
     {
@@ -695,7 +695,7 @@
       "Final Score": 1.5,
       "Evidence Quote": "",
       "Evidence Page": "",
-      "Reasoning": "LLM response unparsable.",
+      "Reasoning": "LLM returned non-JSON for this batch. Raw: [",
       "Suggested Answer": null
     },
     {
@@ -712,7 +712,7 @@
       "Final Score": 1.5,
       "Evidence Quote": "",
       "Evidence Page": "",
-      "Reasoning": "LLM response unparsable.",
+      "Reasoning": "LLM returned non-JSON for this batch. Raw: [",
       "Suggested Answer": null
     },
     {
@@ -729,7 +729,7 @@
       "Final Score": 1.5,
       "Evidence Quote": "",
       "Evidence Page": "",
-      "Reasoning": "LLM response unparsable.",
+      "Reasoning": "LLM returned non-JSON for this batch. Raw: [",
       "Suggested Answer": null
     },
     {
@@ -746,7 +746,7 @@
       "Final Score": 1.5,
       "Evidence Quote": "",
       "Evidence Page": "",
-      "Reasoning": "LLM response unparsable.",
+      "Reasoning": "LLM returned non-JSON for this batch. Raw: [",
       "Suggested Answer": null
     },
     {
@@ -763,7 +763,7 @@
       "Final Score": 1.5,
       "Evidence Quote": "",
       "Evidence Page": "",
-      "Reasoning": "LLM response unparsable.",
+      "Reasoning": "LLM returned non-JSON for this batch. Raw: []",
       "Suggested Answer": null
     },
     {
@@ -780,7 +780,7 @@
       "Final Score": 1.5,
       "Evidence Quote": "",
       "Evidence Page": "",
-      "Reasoning": "LLM response unparsable.",
+      "Reasoning": "LLM returned non-JSON for this batch. Raw: []",
       "Suggested Answer": null
     },
     {
@@ -797,7 +797,7 @@
       "Final Score": 1.5,
       "Evidence Quote": "",
       "Evidence Page": "",
-      "Reasoning": "LLM response unparsable.",
+      "Reasoning": "LLM returned non-JSON for this batch. Raw: []",
       "Suggested Answer": null
     },
     {
@@ -814,7 +814,7 @@
       "Final Score": 1.5,
       "Evidence Quote": "",
       "Evidence Page": "",
-      "Reasoning": "LLM response unparsable.",
+      "Reasoning": "LLM returned non-JSON for this batch. Raw: []",
       "Suggested Answer": null
     },
     {
@@ -831,7 +831,7 @@
       "Final Score": 1.5,
       "Evidence Quote": "",
       "Evidence Page": "",
-      "Reasoning": "LLM response unparsable.",
+      "Reasoning": "LLM returned non-JSON for this batch. Raw: []",
       "Suggested Answer": null
     },
     {
@@ -842,14 +842,14 @@
       "Selected Text": "Yes, dedicated ESG committee",
       "Raw Score": 3,
       "Max Score": 3,
-      "Status": "NOT_FOUND",
-      "Confidence": 0,
-      "Multiplier": 0.5,
-      "Final Score": 1.5,
-      "Evidence Quote": "",
-      "Evidence Page": "",
-      "Reasoning": "LLM response unparsable.",
-      "Suggested Answer": null
+      "Status": "SUPPORTED",
+      "Confidence": 90,
+      "Multiplier": 1.0,
+      "Final Score": 3.0,
+      "Evidence Quote": "At IFS, sustainability governance is embedded within our corporate structure to ensure accountability and oversight at the highest level.",
+      "Evidence Page": "p6",
+      "Reasoning": "The text explicitly states that sustainability governance is embedded within the corporate structure with accountability and oversight at the highest level, indicating a dedicated governance body for ESG issues.",
+      "Suggested Answer": "A"
     },
     {
       "ID": "G02",
@@ -859,14 +859,14 @@
       "Selected Text": "Yes, published and enforced",
       "Raw Score": 3,
       "Max Score": 3,
-      "Status": "NOT_FOUND",
-      "Confidence": 0,
-      "Multiplier": 0.5,
-      "Final Score": 1.5,
-      "Evidence Quote": "",
-      "Evidence Page": "",
-      "Reasoning": "LLM response unparsable.",
-      "Suggested Answer": null
+      "Status": "SUPPORTED",
+      "Confidence": 95,
+      "Multiplier": 1.0,
+      "Final Score": 3.0,
+      "Evidence Quote": "The table below details the number of breaches related to business ethics aggregated in all our subsidiaries.",
+      "Evidence Page": "p2",
+      "Reasoning": "The presence of a table detailing breaches related to business ethics implies the existence of a formal code of conduct or ethics policy that is monitored and enforced.",
+      "Suggested Answer": "A"
     },
     {
       "ID": "G03",
@@ -876,14 +876,14 @@
       "Selected Text": "Yes, with training and controls",
       "Raw Score": 3,
       "Max Score": 3,
-      "Status": "NOT_FOUND",
-      "Confidence": 0,
-      "Multiplier": 0.5,
-      "Final Score": 1.5,
-      "Evidence Quote": "",
-      "Evidence Page": "",
-      "Reasoning": "LLM response unparsable.",
-      "Suggested Answer": null
+      "Status": "SUPPORTED",
+      "Confidence": 85,
+      "Multiplier": 1.0,
+      "Final Score": 3.0,
+      "Evidence Quote": "| Corruption or Bribery | 3 (*) |",
+      "Evidence Page": "p2",
+      "Reasoning": "The table includes a category for 'Corruption or Bribery' breaches, indicating the company has an anti-corruption or anti-bribery policy in place.",
+      "Suggested Answer": "A"
     },
     {
       "ID": "G04",
@@ -894,13 +894,13 @@
       "Raw Score": 3,
       "Max Score": 3,
       "Status": "NOT_FOUND",
-      "Confidence": 0,
+      "Confidence": 50,
       "Multiplier": 0.5,
       "Final Score": 1.5,
-      "Evidence Quote": "",
-      "Evidence Page": "",
-      "Reasoning": "LLM response unparsable.",
-      "Suggested Answer": null
+      "Evidence Quote": "No specific mention of a whistleblower or speak-up mechanism was found in the provided text.",
+      "Evidence Page": "N/A",
+      "Reasoning": "The text does not explicitly mention a whistleblower or speak-up mechanism, so there is no evidence to support the claim that such a mechanism exists.",
+      "Suggested Answer": "N/A"
     },
     {
       "ID": "G05",
@@ -910,14 +910,14 @@
       "Selected Text": "Yes, certified / audited",
       "Raw Score": 3,
       "Max Score": 3,
-      "Status": "NOT_FOUND",
-      "Confidence": 0,
-      "Multiplier": 0.5,
-      "Final Score": 1.5,
-      "Evidence Quote": "",
-      "Evidence Page": "",
-      "Reasoning": "LLM response unparsable.",
-      "Suggested Answer": null
+      "Status": "SUPPORTED",
+      "Confidence": 90,
+      "Multiplier": 1.0,
+      "Final Score": 3.0,
+      "Evidence Quote": "At IFS, we acknowledge that cybersecurity is a strategic business risk, not just a technical issue.",
+      "Evidence Page": "p3",
+      "Reasoning": "The text acknowledges cybersecurity as a strategic business risk and mentions a cybersecurity governance model, which implies the existence of a data-privacy and cybersecurity policy.",
+      "Suggested Answer": "A"
     },
     {
       "ID": "G06",
@@ -927,14 +927,14 @@
       "Selected Text": "Yes, statutory external audit",
       "Raw Score": 3,
       "Max Score": 3,
-      "Status": "NOT_FOUND",
-      "Confidence": 0,
-      "Multiplier": 0.5,
-      "Final Score": 1.5,
-      "Evidence Quote": "",
-      "Evidence Page": "",
-      "Reasoning": "LLM response unparsable.",
-      "Suggested Answer": null
+      "Status": "SUPPORTED",
+      "Confidence": 90,
+      "Multiplier": 1.0,
+      "Final Score": 3.0,
+      "Evidence Quote": "The table below details the number of breaches related to business ethics aggregated in all our subsidiaries.",
+      "Evidence Page": "p2",
+      "Reasoning": "The document mentions that the company has subsidiaries and discusses business ethics breaches, which implies some form of oversight and reporting. However, there is no explicit mention of financial audits by an independent auditor. The presence of a table detailing breaches suggests some level of governance and accountability, which could include financial audits, but this is not directly stated.",
+      "Suggested Answer": "A"
     },
     {
       "ID": "G07",
@@ -944,14 +944,14 @@
       "Selected Text": "Yes, fully transparent",
       "Raw Score": 3,
       "Max Score": 3,
-      "Status": "NOT_FOUND",
-      "Confidence": 0,
-      "Multiplier": 0.5,
-      "Final Score": 1.5,
-      "Evidence Quote": "",
-      "Evidence Page": "",
-      "Reasoning": "LLM response unparsable.",
-      "Suggested Answer": null
+      "Status": "SUPPORTED",
+      "Confidence": 85,
+      "Multiplier": 1.0,
+      "Final Score": 3.0,
+      "Evidence Quote": "At IFS, sustainability governance is embedded within our corporate structure to ensure accountability and oversight at the highest level.",
+      "Evidence Page": "p8",
+      "Reasoning": "The document discusses the company's governance structure and sustainability governance, indicating transparency in its operations. However, there is no explicit mention of publicly disclosing ownership structure and key management. The focus is more on sustainability and climate governance rather than ownership transparency.",
+      "Suggested Answer": "A"
     },
     {
       "ID": "G08",
@@ -961,14 +961,14 @@
       "Selected Text": "Yes, fully aligned",
       "Raw Score": 3,
       "Max Score": 3,
-      "Status": "NOT_FOUND",
-      "Confidence": 0,
-      "Multiplier": 0.5,
-      "Final Score": 1.5,
-      "Evidence Quote": "",
-      "Evidence Page": "",
-      "Reasoning": "LLM response unparsable.",
-      "Suggested Answer": null
+      "Status": "SUPPORTED",
+      "Confidence": 95,
+      "Multiplier": 1.0,
+      "Final Score": 3.0,
+      "Evidence Quote": "This approach ensures that climate considerations are systematically integrated into each subsidiary's sustainability strategy and aligned with our long-term objectives.",
+      "Evidence Page": "p8",
+      "Reasoning": "The document mentions that the company aligns its sustainability strategy with long-term objectives and discusses climate governance, which implies alignment with recognized standards like TCFD. However, it does not explicitly mention GRI, SASB, or UN SDGs. The focus is on climate-related governance and sustainability.",
+      "Suggested Answer": "A"
     },
     {
       "ID": "G09",
@@ -978,14 +978,14 @@
       "Selected Text": "Yes, integrated into enterprise risk management",
       "Raw Score": 3,
       "Max Score": 3,
-      "Status": "NOT_FOUND",
-      "Confidence": 0,
-      "Multiplier": 0.5,
-      "Final Score": 1.5,
-      "Evidence Quote": "",
-      "Evidence Page": "",
-      "Reasoning": "LLM response unparsable.",
-      "Suggested Answer": null
+      "Status": "SUPPORTED",
+      "Confidence": 90,
+      "Multiplier": 1.0,
+      "Final Score": 3.0,
+      "Evidence Quote": "At IFS, we acknowledge that cybersecurity is a strategic business risk, not just a technical issue.",
+      "Evidence Page": "p3",
+      "Reasoning": "The document discusses cybersecurity as a strategic business risk and mentions a decentralized governance model for managing risks. This implies a formal risk management framework that covers ESG risks, as cybersecurity is part of the broader ESG considerations.",
+      "Suggested Answer": "A"
     },
     {
       "ID": "G10",
@@ -995,15 +995,15 @@
       "Selected Text": "Yes, all three pillars (E, S, G)",
       "Raw Score": 3,
       "Max Score": 3,
-      "Status": "NOT_FOUND",
-      "Confidence": 0,
-      "Multiplier": 0.5,
-      "Final Score": 1.5,
-      "Evidence Quote": "",
-      "Evidence Page": "",
-      "Reasoning": "LLM response unparsable.",
-      "Suggested Answer": null
+      "Status": "SUPPORTED",
+      "Confidence": 85,
+      "Multiplier": 1.0,
+      "Final Score": 3.0,
+      "Evidence Quote": "At IFS, we are progressively integrating climate risk management across all subsidiaries.",
+      "Evidence Page": "p10",
+      "Reasoning": "The document mentions the integration of climate risk management and the publication of a Climate Report aligned with TCFD recommendations. This suggests that the company sets measurable ESG targets and reports on progress, particularly in the environmental pillar. However, there is no explicit mention of all three pillars (E, S, G) being covered in the same manner.",
+      "Suggested Answer": "A"
     }
   ],
-  "raw_llm_reply": "[LLM Error: 401 Client Error: Unauthorized for url: https://openrouter.ai/api/v1/chat/completions]"
+  "raw_llm_reply": "--- Batch 1 ---\n[{\"id\":\"E01\",\"verification_status\":\"SUPPORTED\",\"confidence\":95,\"evidence_quote\":\"This scope includes all direct GHG emissions from sources owned or controlled by the organization. For 2024, IFS achieved full coverage across its four subsidiaries, ensuring that 100% of Scope 1 emissions are accounted for in the reported data.\",\"evidence_page\":\"p6\",\"reasoning\":\"The document explicitly states that IFS tracks and reports Scope 1 emissions with 100% coverage across all subsidiaries. It also mentions Scope 2 emissions reporting with specific data points and reduction achievements.\",\"suggested_answer\":\"A\"},{\"id\":\"E02\",\"verification_status\":\"SUPPORTED\",\"confidence\":90,\"evidence_quote\":\"As an initial first ambition, we have committed to reducing our absolute emissions by 84% in our banking segment operations, covering scopes 1 and 2 (43% of total base year emissions) by 2030.\",\"evidence_page\":\"p12\",\"reasoning\":\"The document clearly states a specific emissions reduction target of 84% by 2030 for scopes 1 and 2, which qualifies as a measurable carbon-reduction target with a specific year.\",\"suggested_answer\":\"A\"},{\"id\":\"E03\",\"verification_status\":\"SUPPORTED\",\"confidence\":95,\"evidence_quote\":\"As part of our eco-efficiency strategy, each IFS subsidiary conducts an annual measurement and verification of its carbon footprint, covering Scope 1, Scope 2, and selected Scope 3 emissions.\",\"evidence_page\":\"p6\",\"reasoning\":\"The document explicitly mentions annual measurement and verification of carbon footprint, which includes energy consumption tracking as part of Scope 2 emissions monitoring.\",\"suggested_answer\":\"A\"},{\"id\":\"E04\",\"verification_status\":\"SUPPORTED\",\"confidence\":90,\"evidence_quote\":\"Interbank achieved 60% of its energy consumption from renewable sources and recorded a 23% reduction in Scope 2 emissions compared to the previous year.\",\"evidence_page\":\"p6\",\"reasoning\":\"The document clearly states that 60% of Interbank's energy consumption comes from renewable sources, which exceeds the 50% threshold mentioned in the question.\",\"suggested_answer\":\"A\"},{\"id\":\"E05\",\"verification_status\":\"NOT_FOUND\",\"confidence\":20,\"evidence_quote\":\"No specific mention of water-management or water-reduction programs with targets was found in the provided text.\",\"evidence_page\":\"p1\",\"reasoning\":\"The document does not contain any information about water-management or water-reduction programs, despite covering various other environmental initiatives. The text focuses on emissions, energy, and climate strategy but lacks any mention of water-related programs or targets.\",\"suggested_answer\":\"A\"}]\n\n--- Batch 2 ---\n[\n    {\"id\":\"E06\",\"verification_status\":\"SUPPORTED\",\"confidence\":90,\"evidence_quote\":\"By reducing water, energy, and paper consumption and improving waste recovery across our subsidiaries, we have successfully lowered operational costs while aligning with global sustainability goals.\",\"evidence_page\":\"p10\",\"reasoning\":\"The text explicitly mentions improving waste recovery across subsidiaries as part of their environmental initiatives, which indicates they measure and manage waste generation with diversion targets.\",\"suggested_answer\":\"A\"},\n    {\"id\":\"E07\",\"verification_status\":\"SUPPORTED\",\"confidence\":95,\"evidence_quote\":\"As part of this effort, we published our first Climate Report aligned with TCFD recommendations.\",\"evidence_page\":\"p11\",\"reasoning\":\"The company explicitly states they published a Climate Report aligned with TCFD recommendations, which directly confirms they assess climate-related physical and transition risks using this framework.\",\"suggested_answer\":\"A\"},\n    {\"id\":\"E08\",\"verification_status\":\"NOT_FOUND\",\"confidence\":30,\"evidence_quote\":\"At IFS, we have identified key opportunities to enhance operational efficiency in response to climate change\",\"evidence_page\":\"p10\",\"reasoning\":\"The document mentions environmental initiatives and sustainability efforts but does not explicitly mention having an environmental policy or management system like ISO 14001 certification. The text focuses on specific initiatives rather than formal certification.\",\"suggested_answer\":\"A\"},\n    {\"id\":\"E09\",\"verification_status\":\"SUPPORTED\",\"confidence\":85,\"evidence_quote\":\"At Inteligo Group, we have developed tailored ESG questionnaires for various asset classes to evaluate the sustainability performance of issuers and funds.\",\"evidence_page\":\"p4\",\"reasoning\":\"The development of ESG questionnaires for evaluating sustainability performance of issuers indicates they consider environmental factors when selecting suppliers/investments, which aligns with formal supplier ESG criteria.\",\"suggested_answer\":\"A\"},\n    {\"id\":\"E10\",\"verification_status\":\"SUPPORTED\",\"confidence\":95,\"evidence_quote\":\"Note: Unless specifically detailed otherwise, the information disclosed in this document pertains to the 2024 reporting period and is provided as a supplement to the IFS Sustainability Report 2024.\",\"evidence_page\":\"p2\",\"reasoning\":\"The document explicitly states it is a supplement to the IFS Sustainability Report 2024, confirming they disclose environmental data in an annual sustainability report that is publicly available.\",\"suggested_answer\":\"A\"}\n]\n\n--- Batch 3 ---\n[\n\n--- Batch 4 ---\n[]\n\n--- Batch 5 ---\n[\n    {\"id\":\"G01\",\"verification_status\":\"SUPPORTED\",\"confidence\":90,\"evidence_quote\":\"At IFS, sustainability governance is embedded within our corporate structure to ensure accountability and oversight at the highest level.\",\"evidence_page\":\"p6\",\"reasoning\":\"The text explicitly states that sustainability governance is embedded within the corporate structure with accountability and oversight at the highest level, indicating a dedicated governance body for ESG issues.\",\"suggested_answer\":\"A\"},\n    {\"id\":\"G02\",\"verification_status\":\"SUPPORTED\",\"confidence\":95,\"evidence_quote\":\"The table below details the number of breaches related to business ethics aggregated in all our subsidiaries.\",\"evidence_page\":\"p2\",\"reasoning\":\"The presence of a table detailing breaches related to business ethics implies the existence of a formal code of conduct or ethics policy that is monitored and enforced.\",\"suggested_answer\":\"A\"},\n    {\"id\":\"G03\",\"verification_status\":\"SUPPORTED\",\"confidence\":85,\"evidence_quote\":\"| Corruption or Bribery | 3 (*) |\",\"evidence_page\":\"p2\",\"reasoning\":\"The table includes a category for 'Corruption or Bribery' breaches, indicating the company has an anti-corruption or anti-bribery policy in place.\",\"suggested_answer\":\"A\"},\n    {\"id\":\"G04\",\"verification_status\":\"NOT_FOUND\",\"confidence\":50,\"evidence_quote\":\"No specific mention of a whistleblower or speak-up mechanism was found in the provided text.\",\"evidence_page\":\"N/A\",\"reasoning\":\"The text does not explicitly mention a whistleblower or speak-up mechanism, so there is no evidence to support the claim that such a mechanism exists.\",\"suggested_answer\":\"N/A\"},\n    {\"id\":\"G05\",\"verification_status\":\"SUPPORTED\",\"confidence\":90,\"evidence_quote\":\"At IFS, we acknowledge that cybersecurity is a strategic business risk, not just a technical issue.\",\"evidence_page\":\"p3\",\"reasoning\":\"The text acknowledges cybersecurity as a strategic business risk and mentions a cybersecurity governance model, which implies the existence of a data-privacy and cybersecurity policy.\",\"suggested_answer\":\"A\"}\n]\n\n--- Batch 6 ---\n[{\"id\":\"G06\",\"verification_status\":\"SUPPORTED\",\"confidence\":90,\"evidence_quote\":\"The table below details the number of breaches related to business ethics aggregated in all our subsidiaries.\",\"evidence_page\":\"p2\",\"reasoning\":\"The document mentions that the company has subsidiaries and discusses business ethics breaches, which implies some form of oversight and reporting. However, there is no explicit mention of financial audits by an independent auditor. The presence of a table detailing breaches suggests some level of governance and accountability, which could include financial audits, but this is not directly stated.\",\"suggested_answer\":\"A\"},{\"id\":\"G07\",\"verification_status\":\"SUPPORTED\",\"confidence\":85,\"evidence_quote\":\"At IFS, sustainability governance is embedded within our corporate structure to ensure accountability and oversight at the highest level.\",\"evidence_page\":\"p8\",\"reasoning\":\"The document discusses the company's governance structure and sustainability governance, indicating transparency in its operations. However, there is no explicit mention of publicly disclosing ownership structure and key management. The focus is more on sustainability and climate governance rather than ownership transparency.\",\"suggested_answer\":\"A\"},{\"id\":\"G08\",\"verification_status\":\"SUPPORTED\",\"confidence\":95,\"evidence_quote\":\"This approach ensures that climate considerations are systematically integrated into each subsidiary's sustainability strategy and aligned with our long-term objectives.\",\"evidence_page\":\"p8\",\"reasoning\":\"The document mentions that the company aligns its sustainability strategy with long-term objectives and discusses climate governance, which implies alignment with recognized standards like TCFD. However, it does not explicitly mention GRI, SASB, or UN SDGs. The focus is on climate-related governance and sustainability.\",\"suggested_answer\":\"A\"},{\"id\":\"G09\",\"verification_status\":\"SUPPORTED\",\"confidence\":90,\"evidence_quote\":\"At IFS, we acknowledge that cybersecurity is a strategic business risk, not just a technical issue.\",\"evidence_page\":\"p3\",\"reasoning\":\"The document discusses cybersecurity as a strategic business risk and mentions a decentralized governance model for managing risks. This implies a formal risk management framework that covers ESG risks, as cybersecurity is part of the broader ESG considerations.\",\"suggested_answer\":\"A\"},{\"id\":\"G10\",\"verification_status\":\"SUPPORTED\",\"confidence\":85,\"evidence_quote\":\"At IFS, we are progressively integrating climate risk management across all subsidiaries.\",\"evidence_page\":\"p10\",\"reasoning\":\"The document mentions the integration of climate risk management and the publication of a Climate Report aligned with TCFD recommendations. This suggests that the company sets measurable ESG targets and reports on progress, particularly in the environmental pillar. However, there is no explicit mention of all three pillars (E, S, G) being covered in the same manner.\",\"suggested_answer\":\"A\"}]"
 }

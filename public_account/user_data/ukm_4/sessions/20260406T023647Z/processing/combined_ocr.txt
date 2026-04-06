@@ -1,0 +1,1460 @@
+=== Document: ESG-Supporting-Document-2024.pdf ===
+--- Document JSON Page 0 ---
+MASISA 
+Tu mundo, tu estilo
+
+# MASISA ESG Supporting Document 2024
+
+The information disclosed in this document pertains to the 2023 period and is published as a supplementary document to MASISA's Integrated Report 2023, following the recommendations and indicators proposed by S&P Global in its Corporate Sustainability Assessment (CSA) 2024.
+
+This supporting document includes all activities consolidated for financial reporting purposes. If there are any discrepancies in the coverage of information, we will provide an explicit explanatory note.
+
+# Table of contents
+
+I. Governance & Economic dimension...2 
+1.2 Corporate Governance...2 
+1.3 Materiality Analysis...3 
+1.4 Risk & Crisis Management...7 
+1.5 Business Ethics...12 
+1.6 Policy Influence...13 
+1.7 Supply Chain Management...14 
+1.8 Tax Strategy...16 
+1.9 Information Security...17
+
+II. Environmental Dimension...18 
+2.1 Environmental Policy & Management...18 
+2.2 Energy...18 
+2.3 Waste and Pollutants...19 
+2.4 Water...20 
+2.5 Climate Strategy...23 
+2.6 Biodiversity...26 
+2.7 Product Stewardship...26
+
+III. Social Dimension...27 
+3.1 Labor Practices...27 
+3.2 Human Rights...27 
+3.3 Human Capital Development...30 
+3.4 Occupational Health and Safety...37 
+3.5 Customer Relations...41 
+3.6 Community Relations...42
+
+
+--- Document JSON Page 1 ---
+MASISA ESG Supporting Document 2024
+
+MASISA Tu mundo, tu estilo
+
+# I. Governance & Economic dimension
+
+## 1.2 Corporate Governance
+
+### Board Industry Experience
+
+Board members with industry experience in Materials or Forestry:
+
+- Andreas Eggenberg
+Current Chairman of the Board of Directors of MASISA. He has participated as a board member in the Company since 04/29/2015. Degree in Economic and Political Sciences from the University of Lausanne. 
+Relevant work experience:
+- CEO of Grupo Ecos, Private Capital Fund with investments in Latin America (finance).
+- CEO of Amanco Soluciones Agrícolas, Latin American leader in irrigation systems (materials).
+- Participation in institutions that foster sustainable development in Latin America and that promote multi-Latin strategies and rapprochement with Europe.
+- Director at Sur Fund, Real Estate Fund (finance, real estate).
+
+- Jorge Carey Tagle Current
+Vice President of the Board of Directors of MASISA. 
+He has participated as a board member in the Company since 04/22/2004. Lawyer from Pontificia Universidad Católica de Chile. Masters in law from New York University of the United States. 
+Relevant work experience:
+- Partner of the law firm Carey y Cía. (Legal services).
+- Board member of Pension Fund Administrator Provida S.A. (finance).
+- Board member of Melón S.A. (materials).
+- Board member of GNL Quintero S.A. (Energy).
+
+- Claudio Cabezas Corral
+Board Member of MASISA since 11/30/2016. 
+Forest Engineer of Universidad Austral de Chile. 
+Relevant work experience:
+- Investment Manager at Ecos Forestry Fund Inc., Latin America (forestry).
+- Chairman of the Board of Directors of Silvotecnia S.A., Colombia (forestry).
+- Board member of Panama Forest Services, Panama (forestry).
+- Board member of Interforest S.A., Guatemala and Costa Rica (forestry).
+- CEO of Ecoforest Panama S.A., Panama (forestry).
+
+### CEO Compensation:
+
+The ratio between the total annual compensation of the Chief Executive Officer and the median employee compensation was 29.5 in 2023.
+
+## 1.3 Materiality Analysis
+
+### Materiality Identification
+
+The definition of the topics addressed in this report was conducted through a process of double materiality: combining impact materiality proposed by the Global Reporting Initiative (GRI) standard and financial materiality from the Sustainability Accounting Standards Board (SASB) standard. Impact materiality was defined in 2022 with the aim of determining the most relevant environmental, social, and governance (ESG) topics for management and using them as input for strategy updates. This exercise, conducted periodically every two years, allowed for the justification and concentration of
+
+
+--- Document JSON Page 2 ---
+MASISA ESG Supporting Document 2024
+
+MASISA Tu mundo, tu estilo
+
+resources and efforts on prioritized ESG topics, defined by weighing the opinions of the company's senior management and its key external stakeholders.
+
+The materiality outcome was validated by senior management and the board of directors during the review process conducted on the entire integrated report (see more in pages 3-4).
+
+# Material Issues for Enterprise Value Creation
+
+# 1. Occupational Health and Safety
+
+- Business case: Masisa considers Health, Safety, and Environment (HSE) as non-negotiable values in its management. It recognizes that responsibility towards people and the environment is the foundation of a sustainable business and promotes actions to develop a safety culture through visible leadership, strengthening competencies in critical procedures, and involving direct/indirect employees in daily risk analysis before starting their workday. Performance in occupational safety and health ensures the integrity of the company's main asset, which is its employees. For this reason, there is a strong focus on applying preventive tools aimed at fostering and strengthening a safety culture to prevent workplace accidents, injuries, and occupational diseases.
+- Business impact: It represents a risk to the organization if mismanaged, as it is directly linked to productivity and may also lead to legal and reputational repercussions.
+- Business strategies: The system establishes objectives, goals and action programs for continuous improvement. and implementation, considering independent evaluations. The systematic evaluation of the level of culture Health, Environment and Safety Management System.for the implementation and reporting of theThe definition of responsibilities and authorities unique for safe work and environmental preservation.going specifications and technical recommendations for the Environment, Health and Safety, includingThe definition of Good Practice Program.
+
+# Metrics and targets:
+
+By 2030 we want to be a world-class reference in Occupational Health and Safety throughout the industry. 
+Yearly goal of zero fatal accidents. 
+Work Accident Frequency Index (IFAT): 0.5 for the year 2023. 
+Severity Index (ISAT): 10 for the year 2023.
+
+Target year: 2030
+
+- Progress on metrics and targets FY 2023:
+
+0 fatality accidents 2023 (Employees and contractors). 
+2023 Occupational Accident Frequency Index (IFAT): 1.14 
+2023 Severity Index (ISAT): 28.61
+
+- Executive compensation: Masisa's primary and foremost value is safety. Therefore, the goal is to achieve zero accidents and enhance all areas and work teams in the management of safety, environment, and occupational health. The following cross-functional objective is established for all areas: A preventive safety management program targeted at Masisa Chile's leaders, utilizing the consolidated panel of preventive tools SafeAlign, which represents $25\%$ of the annual objectives for the various management areas.
+
+2. Client satisfaction: Continually enhance client satisfaction and relationships by implementing tools that facilitate efficient processes and deliver memorable service, thereby
+
+
+--- Document JSON Page 3 ---
+MASISA ESG Supporting Document 2024
+
+MASISA Tu mundo, tu estilo
+
+making Masisa the preferred choice over competitors. Conversely, a decline in our service standards could result in losing clients in a highly competitive market.
+
+- Business case: Masisa operates in competitive markets that are sensitive to economic cycles and production level changes, which can impact market share and profitability margins. Maintaining high client satisfaction is crucial to prevent client attrition. To achieve this, the company focuses on diversifying its products and services to reach new markets, ensuring high-quality measures throughout the value chain, and implementing rigorous controls in its distribution networks. These efforts are aimed at keeping Masisa as the top choice for its clients.
+- Business impact: It impacts revenue, as poor NPS measurement could result in the loss or leakage of clients to competitors, whether due to factors related to attention or service.
+- Business strategies: Masisa has made client satisfaction a core value of the company. We have implemented a positioning strategy that includes adopting systems such as CRM Salesforce to streamline customer service and enhance their experience. We also introduce new value-added solutions and diversify our client base to increase market participation. Additionally, to boost competitiveness, Masisa focuses on innovation through MASISA Labs. This initiative involves an accelerator and venture capital program seeking investments in global construtech startups to advance technologies for client-facing spaces and furniture.
+- Metrics and targets: The Net Promoter Score (NPS) is updated annually with a focus on improving the previous year's results and is measured for both B2B and B2C segments. For 2024, the target NPS for the B2B segment in Chile is 65%, while for the B2C segment, the goal is to improve this indicator annually. Since a score of 65% was achieved in 2023, our target for 2024 is to maintain or exceed that result.
+
+o Target year: 2024 (annual targets are set). 
+o Progress on metrics and targets FY 2023:
+
+B2B segment: NPS improved its results in Chile, reaching 68%, and in Colombia, with 95%. On the other hand, it decreased in Peru to -9% and in Ecuador, where it dropped to 59%. 
+B2C segment: In 2023, Masisa achieved an NPS of 65% in Chile, 63% in Colombia, and 55% in Peru.
+
+- Executive compensation: The NPS is included in the annual objectives for the commercial and marketing management teams. It directly influences their variable compensation, reinforcing the importance of client satisfaction in executive performance evaluations, although it is not used for the direct compensation of executives.
+
+3. Business Ethics, values and integrity: Ethical lapses and non-compliance with legal regulations that could result in fines or damage the company's reputation.
+- Business case: The rapid evolution of labor, social, environmental, tax, and other regulations increases the likelihood and impact of potential violations affecting the company's operations. This evolving regulatory landscape heightens the risk of non-compliance and its associated consequences, which could have reputational, monetary and other impacts on the business value creation.
+
+
+--- Document JSON Page 4 ---
+MASISA ESG Supporting Document 2024
+
+MASISA Tu mundo, tu estilo
+
+- Business impact: Impact on costs due to fines for violations of current regulations, as well as the impact on the company's image.
+- Business strategies: Masisa employs a comprehensive range of mechanisms to ensure rigorous compliance systems. Our approach includes the establishment of clear guidelines through our Code of Conduct and Anti-Corruption Policies. We have implemented whistleblowing procedures and measures to promote fair business practices, including the Crime Prevention Model. Since 2023, we have been strengthening our compliance framework by updating applicable regulations and developing mitigation measures to address potential vulnerabilities. Additionally, significant efforts have been made to train employees on ethical behavior, a commitment that is actively promoted from our Board of Directors throughout the organization.
+- Metrics: The company has defined the following metrics to measure our effectiveness in maintaining ethical standards:
+
+Number of employees trained in the Crime Prevention Model in Chile. 
+Number of effective reports by Management/Process (Law 20.393). 
+Number of fines actually paid. 
+Number of issues identified and resolved in internal control monitoring.
+
+Targets and progress 2023
+
+| Metric | Target | 2023 Progress |
+| --- | --- | --- |
+| Number of employees trained | >80% | - All countries where MASISA operates: 58% - Chile: 100% |
+| Number of effective reports by Management/Process (Law 20.393) | 0 | 0 |
+| Number of fines actually paid | <3 | 0 |
+| Number of issues identified and resolved in internal control monitoring | 100% | 56% |
+
+# Material Issues for External Stakeholders
+
+1. Industry perception: Proactively identify socio-environmental issues affecting communities and resolve them. For example the negative impacts of air emissions on the environment and community.
+
+MASISA Chile has fixed industrial sources at its facilities, which have high-tech abatement systems installed, including an electrostatic precipitator, bag filters and gas scrubbers. This allows maintaining low emissions of suspended particles, as well as complying with current regulations. Reducing emissions of particulate matter has a direct impact on our environment, as mentioned in the air decontamination plans for the urban centers where the Masisa plants are located, and on the health of our local communities, as there is numerous evidence that particle pollution exposes people to premature death, lung and heart diseases and nonfatal heart attacks, as well as asthma.
+
+Metrics: For the management of particulate matter in line with national regulations (D.S. N° 12/2021 - MMA), MASISA's environmental division has monitoring towers that provide information on respirable particulate matter (PM-10) as well as daily gas concentrations. There are two air quality monitoring stations in Cabrero, installed in the community, and one at the MAPAL plant. According
+
+
+--- Document JSON Page 5 ---
+MASISA ESG Supporting Document 2024
+
+MASISA Tu mundo, tu estilo
+
+to the report issued by CESMEC in December 2023, for the year 2023, the average annual concentration was $41.3~\mu \mathrm{g} / \mathrm{m}^3\mathrm{N}$ as a reference value. The 98th percentile concentration for 2023 was $68.8~\mu \mathrm{g} / \mathrm{m}^3\mathrm{N}$, which is $47.1\%$ below the current regulatory limit ( $130~\mu \mathrm{g} / \mathrm{m}^3\mathrm{N}$ ). MASISA also keeps a record of community perception complaints and monitors weekly for any signs of soot deposition at its control center.
+
+2. Strengthen local capacities, positively impact the well-being of communities, contribute to local employment and entrepreneurship. Strengthen the company's contribution to the local economy.
+
+Masisa has a direct impact on local employment. Given this, in Chile training courses are held in the form of pre-contract and work scholarships for people from the communities where we have operations. The courses allow them to become potential employees of the company due to their acquired expertise. These courses are given under the company's mandate by specialized entities. In Venezuela, we offer jobs for people with low experience or recent graduates, and after these are later trained and given support in their areas of work. The calls for employment opportunities are public and shared with all our communities of influence. In addition, Masisa voluntarily carries out consultations in territories to find out the perception of people on employment and other issues. Training people from local communities has a direct impact on their employment opportunities and well-being and indirectly on local development.
+
+Metrics: Training and education have been defined as central objectives in Masisa's Social Management and Community Relations procedure, understanding that they provide tools to individuals to better navigate the labor market and foster community development.
+
+| | Number of Workshops | Hours of trainings | Number of beneficiaries |
+| --- | --- | --- | --- |
+| Workshops for entrepreneurs | 8 | 359 | 116 |
+| Employability workshops | 9 | 636 | 108 |
+| Total | 17 | 995 | 224 |
+
+# 1.4 Risk & Crisis Management
+
+# Risk Governance
+
+MASISA's risk governance system operates with three lines of defense. The first line consists of operational teams such as environmental, safety, and finance, responsible for managing resources dedicated to mitigating risks that are intolerable to achieving business objectives, while ensuring continuous compliance with mitigation plans.
+
+The second line includes the Finance Manager and the Management Control Manager, who centralize internal and external risks of the organization and review them with the first line. Additionally, the Risk and Audit Committee is part of the second line, where the risk matrix consolidating the results of risk assessments is presented. This committee analyzes strategic risk management, budget compliance, financial oversight, and operational effectiveness.
+
+Finally, the third line is occupied by the Internal Audit department, which independently evaluates the state of internal controls, the implementation of action plans committed by the first line, and the model established by the second line.
+
+
+--- Document JSON Page 6 ---
+MASISA ESG Supporting Document 2024
+
+MASISA
+
+Tu mundo, tu estilo
+
+# Risk Management Processes
+
+MASISA conducts an annual risk identification and assessment exercise, where the second line (the Finance Management and the Control Management Subdepartment) is responsible for identifying, analyzing, and mitigating both internal and external strategic risks. These risks are categorized based on their magnitude and probability, allowing the creation of a strategic organizational risk matrix. Each risk also includes mitigation measures, which are managed by the first line or risk owners (operational teams).
+
+The risk matrix is initially reviewed by the Risk and Audit Committee of the Board of Directors, and subsequently by the Board of Directors for final approval. Additionally, critical or more recent risks are reviewed with greater frequency (approximately once a quarter) by the Committee and the Board. Below is an example of two risks, their assessment, and primary mitigation measures.
+
+| Name | Description | Probability | Magnitude |
+| --- | --- | --- | --- |
+| Economic risk | Risks related to the micro and macroeconomic environment of the country or region that directly affect the company's results, such as inflation, economic activity, unemployment, etc. | Medium | Low<0.25 ThUSD |
+| Mitigating actions: • Diversification of businesses and countries. • Enhance the value-added strategy to reduce price elasticity in certain products and mitigate the decline in demand. • Liquidity and financial solvency position (minimum cash reserves, appropriate level of debt relative to the company's size and operational cash flow) to handle adverse scenarios. | | | |
+| Name | Description | Probability | Magnitude |
+| --- | --- | --- | --- |
+| Wildfire Risk | In the event of forest fire emergencies in areas surrounding the plants or within Masisa itself, the company's infrastructure or operational continuity could be affected or compromised. | Medium | Medium-High>1.5 Million USD |
+| Mitigating actions: To address wildfire risk, the contingency plan for the Cabrero and Mapal plants includes several key measures. These include clearing vegetation, pruning trees, and establishing firebreaks in areas adjacent to the plants. Additionally, 24/7 fire brigade shifts will be implemented across the industrial complexes. The plan also involves equipping the sites with a fire truck capable of holding 2,000 liters of water and a water tanker with a capacity of 10,000 liters. Physical and satellite monitoring, including the use of thermal drones, will be employed to detect and manage potential fire threats. The installation of monitors and the segregation of materials are also part of the strategy to enhance fire prevention and response capabilities. | | | |
+
+
+--- Document JSON Page 7 ---
+MASISA ESG Supporting Document 2024
+
+MASISA Tu mundo, tu estilo
+
+# Process to determine the risk appetite for identified risks
+
+MASISA defines its risk appetite through a structured and systematic approach managed by the Board's Risk and Audit Committee. This process includes periodic governance reviews, which encompass the Committee's Charter, the Corporate Risk Management and Audit Policy, the Internal Audit Methodology, and the Risk Assessment Methodology. The Risk Assessment Methodology plays a crucial role in defining the organization's risk appetite, both at the strategic and operational levels. This methodology follows a top-down approach, meaning it is established by the highest level of the organization to ensure alignment with organizational objectives.
+
+The risk identification process is structured as follows:
+
+- Process: Based on the company's Process Map, the specific process that would be affected by the identified risk is indicated.
+- Responsible: The process owner is identified, who is considered the primary stakeholder and is interested in the subsequent mitigation of the risk.
+- Risk: This refers to an event, occurrence, or situation that could impact the company's ability to achieve its business objectives and/or successfully execute its strategies.
+- Cause of the Event: The reason why the risk could materialize is described.
+- Consequence of the Event: The effect on the company if the risk were to materialize is outlined.
+
+Risk evaluation is conducted through an analysis of impact and probability, both assessed on a scale of five levels. Similarly, the evaluation of risk mitigation considers the controls and/or actions taken by management to reduce the likelihood of the risk occurring. This evaluation is based on the design of the control, which is subsequently tested by internal audit to ensure its functionality and effectiveness.
+
+If this evaluation reveals that the exposure to risk exceeds the appetite for risk defined by the Committee, management is required to develop action plans to improve the process. The executive management team is responsible for these actions.
+
+Ultimately, MASISA defines its risk appetite as "high," "medium-high," "medium," or "low," based on thresholds set for probability and impact within the company's risk map.
+
+# Risk Audit Processes:
+
+- Internal Audits on risk management:
+
+MASISA maintains an internal audit department that reports to the Board of Directors through the Risk and Audit Committee. This department is responsible for ensuring that internal controls function effectively by reviewing the company's financial, operational, strategic, and compliance processes. To achieve this, it operates with an annual audit plan, which includes delivering reports on observed issues, risk maps, action plans, and follow-up on compliance with these plans to mitigate risks or improve processes. This plan is approved and reviewed quarterly by the Risk and Audit Committee of the Board of Directors.
+
+The Internal Audit Management adheres to International Standards for its operations and is guided by a charter for both the Risk and Audit Committee and the Internal Audit function. It also employs an internal audit methodology that ensures transparency in the process for audited entities and a risk assessment methodology for evaluating and managing strategic and operational risks that impact its area of operation. This includes evaluating the effectiveness of controls for risk mitigation, based on
+
+
+--- Document JSON Page 8 ---
+MASISA ESG Supporting Document 2024
+
+MASISA Tu mundo, tu estilo
+
+the Integrated Internal Control Framework and the Integrated Enterprise Risk Management Framework developed by COSO and ISO 31000.
+
+- External Audits on risk management
+
+Since 2023, MASISA S.A. holds Trinorma ISO Certification, encompassing ISO 9001, ISO 14001, and ISO 45001. This certification ensures a two-year compliance period with international standards related to quality management, environmental management, and occupational health and safety.
+
+The external audits associated with these ISO certifications play a crucial role in MASISA's risk management strategy. They provide an independent assessment of the company's compliance with international standards and help identify areas for improvement. By integrating the requirements of ISO 9001, ISO 14001, and ISO 45001 into its risk management processes, MASISA effectively addresses quality, environmental, and safety risks, thereby enhancing its overall risk management framework.
+
+Certification Process:
+
+The certification process involved a comprehensive external review conducted by four auditors from SGS, a leading certification body. This review covered various MASISA facilities, including the industrial plants in Cabrero, Mapal, Modulares Independencia, and the Santiago offices. The auditors performed both documentary and on-site inspections to assess the implementation and effectiveness of MASISA's integrated management system.
+
+Certification Achievements:
+
+- 2023: MASISA successfully completed the initial certification audit.
+- 2024: MASISA passed the follow-up audit positively.
+- 2025: A new recertification audit is scheduled.
+
+Risk culture
+
+To build an efficient risk culture, MASISA provides training on this topic and its specific risks to both the Board of Directors and employees. Additionally, the company establishes the following mechanisms:
+
+- Incentives linked to risk metrics at MASISA
+
+MASISA integrates risk management metrics into its executive incentive programs to ensure alignment with the company's health, safety, and environmental (HSE) objectives. The annual bonuses for certain executives are partially based on their performance in managing occupational health and safety (OHS) metrics. These metrics include adherence to the OHS Prevention Program, which covers incident reporting, occurrence management, and the OHS Observation Program.
+
+Key performance indicators (KPIs) for the OHS management include the Occupational Accident Frequency Index (IFAT) and the Severity Index (ISAT). Additionally, incentives are tied to maintaining compliance with environmental standards and achieving targets related to health, safety, and environmental indicators.
+
+For line managers, OHS-related performance metrics constitute a significant portion of their overall incentive criteria, reflecting their critical role in upholding these standards across the organization.
+
+
+--- Document JSON Page 9 ---
+MASISA ESG Supporting Document 2024
+
+MASISA Tu mundo, tu estilo
+
+By linking financial incentives to these risk metrics, MASISA aims to promote a strong culture of safety and compliance, ensuring that executive efforts contribute to the company's overall risk management and sustainability goals.
+
+- Risk criteria for the development of products and services
+
+For MASISA, maintaining high standards of quality in product and service development is crucial, as these guarantees determine whether customers from different countries choose the organization's products. This commitment drives MASISA to consistently seek the highest standards, as evidenced by the standards that the company has adopted.
+
+Different countries and regulations require MASISA to continuously review its quality standards. In fact, MASISA has a "Product Design and Development Procedure", which outlines the method to be applied for developing new products. This procedure defines the stages, documents, and responsibilities for each process and subprocess involved in product development. It details the stages necessary to validate a product in line with customer requirements, covering aspects of quality and technical specifications of the product.
+
+## Emerging risks
+
+### 1. Local Supply Restrictions and Environmental Regulations
+
+**Description:** One of the major emerging risks facing MASISA is related to recent and potential changes in forestry regulation in Chile. Historically, Decree Law 701, in effect from 1974 to 2012, provided significant subsidies for tree planting and guaranteed protection against expropriations. However, the current government program includes the repeal of this decree, proposing a new regulatory framework focused on environmental protection and the promotion of native species. This change could involve additional restrictions regarding harvest size and the use of non-timber forest products, potentially increasing supply costs for the forestry industry. Additionally, the recent implementation of the EU Deforestation Regulation (EUDR), which requires raw materials like wood to comply with legal supply regulations, adds another layer of complexity and risk to our supply chain.
+
+**Potential Impact on the Company:** MASISA, which heavily relies on sawable, pulpable, and wood by-products for its board and sawmill operations, could face significant challenges due to these changes. The potential implementation of stricter wood harvest regulations and the promotion of reforestation with native species could negatively impact the availability and cost of essential raw materials for our operations. Although the company has managed to partially mitigate raw material cost increases, evolving global trends and regulatory changes present a considerable risk. The pace at which these regulatory frameworks are developing and the possibility of future restrictions could significantly increase costs for MASISA, affecting the sustainability of its supply chain and profitability.
+
+**Mitigation Actions Taken by the Company:** To mitigate these risks, MASISA has implemented a series of key strategies. The company has progressed in divesting its forestry operations to focus on its core business of trading and processing materials, allowing it to concentrate resources on areas with competitive advantage and minimize exposure to risks associated with direct management of forestry plantations. Additionally, it is actively diversifying its supplier network to reduce reliance on specific raw material sources, seeking alternative suppliers who can offer quality materials and meet new regulatory requirements. In parallel, it has integrated sustainability practices into its processes, adopting quality standards that comply with new environmental and social regulations, ensuring not only compliance with emerging regulations but also a positive impact on the environment and local communities. Finally, MASISA has been actively involved in advocating for public policies that strengthen the forestry sector with a sustainable focus, committed to developing policies that benefit
+
+
+--- Document JSON Page 10 ---
+MASISA ESG Supporting Document 2024
+
+MASISA Tu mundo, tu estilo
+
+the environment, communities, and also consider the economic viability of the forestry sector, while continuously monitoring regulatory developments to adapt its strategies and engage its suppliers in these processes.
+
+# 2. Raw Materials replacement
+
+Description: Technology and innovation have enabled the development of construction materials based on alternative sources, such as plastics, which are showing better standards of durability and resistance. Although innovations in alternative materials have mainly been limited to furniture so far, new ventures are emerging that can produce construction materials capable of competing with our products. While wood remains the dominant material in our industry, we cannot predict with certainty if these alternatives will become more favorable in the future.
+
+Potential Impact on the Company: Although currently, alternatives to wood, such as plastic-based materials, do not pose a significant threat due to their limited production capacity, it is important to consider potential impacts if these alternatives gain traction in the future. Increasing global pressure against deforestation could accelerate the development and adoption of these materials, which could have several significant effects on MASISA. Firstly, an increase in the adoption of alternative materials could reduce wood demand, directly affecting our customer base and decreasing sales of our wood-based products. Furthermore, the entry of these new materials into the market could intensify competition, requiring MASISA to continuously innovate and improve its offerings to maintain its position. The greater availability and acceptance of these materials could also put pressure on wood product prices, which might affect our profit margins if production costs are not adjusted accordingly.
+
+Mitigation Actions Taken by the Company: MASISA has adopted a global business strategy, with innovation, development, and diversification as key pillars. The company has focused its positioning strategy on introducing new solutions and value-added services, as well as diversifying its customer base to increase market share. In line with this strategy, MASISA has adopted cutting-edge technologies in its products and keeps up with the latest trends in design and construction to offer high-level solutions. Additionally, MASISA has launched MASISA Labs, an initiative that includes an accelerator and a venture capital program designed to invest in global startups in the constructech sector. This initiative aims to enhance the design, development, and enabling of new technologies for spaces and furniture, strengthening our ability to offer innovative products that meet emerging market demands. These strategic actions are aimed at strengthening our competitiveness and adapting to market changes, thus mitigating the potential impact of wood alternatives on our operations.
+
+# 1.5 Business Ethics
+
+# Corruption & Bribery
+
+In line with our Donations Policy, the Crime Prevention Model, the MASISA Framework of Action Ethics and Business Conduct, and other relevant MASISA policies, MASISA does not make political and/or charitable contributions or any other kind of contributions as a means of bribery or corruption.
+
+| | USD$ (FY 2023) |
+| --- | --- |
+| Direct or indirect political contributions | 0 |
+| Charitable contributions and sponsorship | 0* |
+
+*Note: MASISA invested USD $78,792 in corporate social responsibility activities in 2023, and none of this amount was linked to bribery or corruption, in line with our policies.
+
+
+--- Document JSON Page 11 ---
+MASISA ESG Supporting Document 2024
+
+MASISA Tu mundo, tu estilo
+
+# Systems and procedures to ensure MASISA's Code of Conduct
+
+- Disciplinary actions in case of breach and Compliance linked to employee remuneration:
+
+Masisa, in compliance with current labor regulations, specifies in its Internal Regulations of Order, Hygiene, and Safety the sanctions applicable to employees for infractions based on their frequency and severity as follows:
+
+1. Verbal warning.
+2. Written warning with a copy added to the employee's personal file.
+3. Written warning with a copy added to the employee's personal file and a copy sent to the Labor Inspectorate.
+4. Fine of up to 25% of the employee's daily wage.
+
+As part of the hiring process, employees are provided with and must sign an acknowledgment of the Internal Regulations of Order, Hygiene, and Safety.
+
+Additionally, Masisa's "Business Management Responsibility Policy" outlines the consequences for failing to meet business management responsibilities, including violations under Law 20.393. It states:
+
+In the event of non-compliance, each country must apply the sanctions defined by local legal bodies. However, Masisa, through its Ethics Committee or the Risk and Audit Committee, may impose disciplinary measures such as:
+
+- Termination of Employment: Managed through Human Resources to end the employment relationship.
+- Legal Measures: Through the Legal Department, the company may report the matter to the relevant authorities and/or file a lawsuit or join an existing lawsuit.
+
+# Reporting on breaches
+
+MASISA has a whistleblowing channel available in all countries where it operates, allowing various stakeholders to report grievances related to the MASISA Code of Conduct. During 2023, MASISA received over 20 reports, all of which were internally investigated and processed by the Ethics Committee, and subsequently reported to the Board of Directors through the Board's Risk and Audit Committee. Of these reports, at least 11 were confirmed as breaches, which led to the implementation of resolution measures following the organization's policies. These measures included training programs, adjustments to internal processes, and, in some cases, contract terminations.
+
+
+--- Document JSON Page 12 ---
+MASISA ESG Supporting Document 2024
+
+MASISA
+
+Tu mundo, tu estilo
+
+# 1.6 Policy Influence
+
+Below are the total monetary contributions and spending for 2023 for political campaigns, political organizations, lobbyists or lobbying organizations, trade associations, and other tax-exempt groups.
+
+Contributions and other spending
+
+| Monetary contributions | Unit | 2020 | 2021 | 2022 | 2023 |
+| --- | --- | --- | --- | --- | --- |
+| Lobbying, interest representation or similar | USD$ | 0 | 0 | 0 | 0 |
+| Local, regional or national political campaigns / organizations / candidates | | 0 | 0 | 0 | 0 |
+| Trade associations or tax-exempt groups | | 217.614 | 135.951 | 232.962 | 225.674 |
+| Other | | 0 | 0 | 0 | 0 |
+| Total contributions and other spending | | 217.614 | 135.951 | 232.962 | 225.674 |
+| Data coverage | % of revenues | 86% | 78% | 100% | 100% |
+
+Largest contributions and expenditures
+
+| Name of organization, candidate or topic | Type of organization | Total amount paid in FY 2023 |
+| --- | --- | --- |
+| Corma | A Chilean trade association that brings together more than 150 actors from the forestry sector, the most important industry based on renewable resources in the country. | USD$ 104,322 |
+| WBCSD | World Business Council for Sustainable Development is a CEO-led organization of over 200 international companies. The Council is also connected to 60 national and regional business councils and partner organizations. | USD$ 37,531 |
+| AOA (Asociación de Oficinas de Arquitectos de Chile) | Association of Architects' Offices of Chile, founded in 1998 and made up of more than 190 offices nationwide, dedicated to disseminating, socializing and proposing our technical and professional perspective to various entities, both public and private. | USD$ 20,244 |
+
+
+--- Document JSON Page 13 ---
+MASISA ESG Supporting Document 2024
+
+MASISA Tu mundo, tu estilo
+
+# 1.7 Supply Chain Management
+
+# Supplier ESG Programs
+
+MASISA has a publicly available Supplier Code of Conduct, outlining expectations for suppliers in business, governance, environmental, and social issues, including human rights aspects. Additionally, the organization operates a Supplier Assessment and Management Procedure, updated in May 2023 and set for further optimization in July 2024 to enhance due diligence integration during supplier evaluation stages. This procedure stipulates that critical suppliers of goods and services undergo annual assessments and reassessments, with results reported to executive management (CEO), underscoring their role as the highest-level overseer.
+
+# Supplier screening
+
+All tenders conducted by the Supply and Operations departments involve an evaluation process that includes environmental, social, governance, and business aspects, considering information from commercial bulletins, legal aspects, tax compliance, accident records, mutual insurance certificates, labor obligations compliance, environmental certifications, and quality and safety standards, among others. Specifically, our Procurement Policy outlines general guidelines for supplier selection and evaluation, emphasizing the need for a corporate procedure that evaluates critical suppliers, considering environmental and social responsibility variables and their alignment with MASISA's Business Principles.
+
+Critical suppliers are defined as those directly impacting the quality and delivery of finished products, those unique or difficult to replace in the market, those significantly affecting accreditation and certification aspects, as well as health, safety, and environmental considerations. This category also includes contractors or subcontractors defined by each country's laws.
+
+If a critical supplier fails to achieve the minimum required rating (classified as D) to be incorporated as a supplier to MASISA, the Area Manager has the authority to approve their admission. To do so, the Area Manager must send an email to the Supply Management indicating the corresponding authorization and justification.
+
+Additionally, we follow lists published by the Financial Action Task Force (FATF), which periodically updates black and grey lists highlighting jurisdictions with deficiencies in anti-money laundering, counter-terrorism financing, and proliferation of weapons of mass destruction prevention systems.
+
+These frameworks trigger alerts within our bidding systems, considering:
+
+1. Blacklist: Indicates countries with significant strategic deficiencies in their systems for combating money laundering, terrorism financing, and proliferation of weapons of mass destruction. If a supplier originates from a country on this list, MASISA conducts detailed due diligence to mitigate risks.
+2. Greylist: Includes countries actively working with FATF to address strategic deficiencies against the mentioned threats, requiring heightened monitoring by MASISA.
+
+Regarding our primary raw material (wood), MASISA seeks suppliers certified under FSC, CERTFOR, or equivalent principles and criteria, with parameters reviewed accordingly. Suppliers without certification undergo a specific evaluation based on FSC's Controlled Wood standard. MASISA also considers criteria outlined in the "Good Practices Manual" from Corma.
+
+| KPIs for Supplier Screening | FY 2023 | FY 2022 |
+| --- | --- | --- |
+| Total number of Tier-1 suppliers | 2.562 | 1.709 |
+| Total number of significant suppliers in Tier-1 | 98 | 74 |
+| % of total spend on significant suppliers in Tier-1 | 33% | 29% |
+
+
+--- Document JSON Page 14 ---
+MASISA ESG Supporting Document 2024
+
+MASISA
+
+Tu mundo, tu estilo
+
+# Supplier assessment and development
+
+In line with our Corporate Procedure for Supplier Onboarding, Assessment, and Management, any company qualifying as a critical supplier seeking to provide goods and/or services to MASISA must complete an annual Supplier Assessment Survey, which is requested by MASISA's Supply team. The Supply, Wood Solutions and Forestry, Quality, SMS, and Community Relations departments are responsible for conducting the evaluation and/or reevaluation based on qualitative and quantitative information, considering general and specific criteria and parameters according to the type of supplier. Once the supplier completes this survey, MASISA evaluates it.
+
+If a critical supplier receives a low rating during evaluation or reevaluation and, for strategic reasons, is irreplaceable, an Improvement Plan will be established with the supplier to address the negative aspects identified in the evaluation or reevaluation, along with a commitment to follow-up to monitor their progress.
+
+| KPIs for Supplier Assessment | 2023 | Target for FY 2023 |
+| --- | --- | --- |
+| Total number of suppliers assessed via desk assessments/on-site assessments | 100 | 100% |
+| % of unique significant suppliers assessed | 100% | |
+| Number of suppliers assessed with substantial actual/potential negative impacts | 78 | |
+| % of suppliers with substantial actual/potential negative impacts with agreed corrective action/improvement plan | 78% | |
+| Number of suppliers with substantial actual/potential negative impacts that were terminated | 0 | |
+| KPIs for Corrective action plan support | 2023 | Target for FY 2023 |
+| --- | --- | --- |
+| Total number of suppliers supported in corrective action plan implementation | 78 | 78 suppliers (100%) |
+| % of suppliers assessed with substantial actual/potential negative impacts supported in corrective action plan implementation | 100% | |
+| KPIs for Capacity Boulding programs | 2023 | Target for FY 2023 |
+| --- | --- | --- |
+| Total number of suppliers in capacity building programs | 0 | NAP |
+| % of unique significant suppliers in capacity building programs | 0 | |
+
+
+--- Document JSON Page 15 ---
+MASISA ESG Supporting Document 2024
+
+MASISA
+
+Tu mundo, tu estilo
+
+# 1.8 Tax Strategy
+
+Tax reporting
+
+| | CHILE | PERU | USA | ECUADOR | COLOMBIA | OTHERS | TOTAL |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Number of employees | 1,147 | 4 | 5 | 8 | 13 | Venezuela: 588
+Mexico: 182 | 1,947 |
+| Revenue | MUSD$ 286,264 | MUSD$ 11,022 | MUSD$ 2,818 | MUSD$ 15,146 | MUSD$ 14,085 | MUSD$ 0 | MUSD$ 329,335 |
+| Profit (Loss) before tax | MUSD$ (21,056) | MUSD$ (1,069) | MUSD$ 1,977 | MUSD$ (164) | MUSD$ (7,332) | MUSD$ (47) | MUSD$ (27,691) |
+| Income tax accrued (current year) | MUSD$ 1.765 | MUSD$ (135) | MUSD$ (537) | MUSD$ (37) | MUSD$ (1,569) | MUSD$ 0 | MUSD$ (513) |
+| Income tax paid | MUSD $ 0* | MUSD$ 0* | MUSD $ 0* | MUSD $ 0* | MUSD$ 0* | MUSD $ 0* | MUSD$ 0* |
+| Names (Also see page 211 from our 2023 Annual Report) | -Masisa Forestal SpA
+-Masisa Partes y Piezas S.A. 
+-Masisa Capital Venture SPA (Scaleup SPA, Leaf Panels SPA, Tecnomass SPA, Isolcork SPA, Eligemadera SPA, Rootman SPA, Formo SPA). 
+-Bioenercel S.A | Masisa Maderas y Sintéticos del Perú S.A.C. | -Masisa Holding USA 
+-Millwork & Door sales Group LLC | Masisa Ecuador S.A. | -Placacentros Masisa Colombia S.A.S. 
+-Masisa Colombia S.A | -Venezuela (Fibronova C.A, Andinos C.A., Oxinova C.A, Corporación Forestal Imataca C.A., Corporativo Forestal Guayamure C.A., Terranova Venezuela S.A., Coforven S.A.) 
+-Panamá (Masisa Overseas S.A., Terranova Panamá S.A.) 
+-México (Forestal Terranova México S.A. de C.V). 
+-Brasil Masisa Madeiras Ltda 
+-Masisa Brasil Emprendimientos Florestais. | |
+| Primary activities | Please read pages 111 - 123 from our 2023 Annual Report | | | | | | |
+
+(*) Note: Please see details in "Effective tax rate".
+
+
+--- Document JSON Page 16 ---
+MASISA ESG Supporting Document 2024
+
+MASISA
+
+Tu mundo, tu estilo
+
+Effective tax rate
+
+| | FY 2022 | FY 2023 |
+| --- | --- | --- |
+| Earnings before tax | 73,694,000 | -28,783,000 |
+| Reportes Taxes | 1,539,000 | -513,000 |
+| Reported tax rate | 2.08837 | 1.7823 |
+| Cash taxes paid | 9,364,162 | 0 |
+| Cash tax rate | 12.70682 | 0 |
+
+Masisa's current tax rates are below the industry average (Materials - Paper & Forest Products) due to the net losses. These net losses are mainly explained by the Argentine forestry assets sale at the end of 2022. In addition, during 2023 the Company signed a sale agreement for the Chihuahua's plant located in México affecting the non-operating result. Both divestments resulted in losses in the 2022 & 2023 non-operational result 2022 & 2023 due to the sales price of the assets being less than the investment amount paid. Also, the Company provisioned a tax expense in the non-operational result in 2023 associated with a proceeding in Colombia. For more information, please refer to Masisa's consolidated financial statements in the 2023 Integrated Annual Report.
+
+# 1.9 Information Security
+
+# IT Security Governance
+
+Gonzalo Reyes H. is Masisa's Information System Officer. He's a professional with more than 15 years in important companies in the Chilean energy sector, leading multidisciplinary teams and being responsible for the complete operation of systems, including cybersecurity. In addition, the three-year cybersecurity plan is presented to the board of directors. The presentation is made every six months.
+
+The Board member, Tina Christa Rosenfeld, has relevant experience in cybersecurity as she worked as IT Manager at Beiersdorf South Cone Group. Tina Rosenfeld sits on the Risk and Audit committee, which is also the committee which oversees any cyber security risks.
+
+# Incident response:
+
+The Disaster Recovery Plan (DRP) is tested for incident response every two years. Additionally, server backup and recovery tests are conducted on a monthly basis.
+
+# Information security breaches:
+
+- In 2023, there were no information security breaches.
+- There were also no breaches affecting clients, customers, or employees.
+
+
+--- Document JSON Page 17 ---
+MASISA ESG Supporting Document 2024
+
+MASISA Tu mundo, tu estilo
+
+## II. Environmental Dimension
+
+### 2.1 Environmental Policy & Management
+
+#### Verification of Environmental Programs
+
+The environmental management system of MASISA S.A. has been assessed and certified as compliant with the requirements of the ISO 14001:2015 standard. The MASISA operations included in this certification correspond to those located in the Cabrero Industrial Complex, Mapal Plant, and the corporate offices in Santiago. This covers all of MASISA S.A.'s operations, so 100% of our operations are certified under the ISO 14,001 standard, from wood collection to delivery at national sales points and the export port.
+
+Additionally, MASISA's management system was audited by the company SGS, where the audited standards included ISO 14001:2015, ISO 9001:2015, and ISO 45001:2018.
+
+Furthermore, internal audits are conducted annually in consultation with an external lead auditor.
+
+### 2.2 Energy
+
+#### Energy management programs
+
+MASISA has implemented several measures to improve energy performance and reduce energy consumption across its operations. One of the key initiatives is the development of an internal audit procedure for its Energy Management System (EMS). This procedure, kept up-to-date, outlines the process to maintain EMS efficiency, enhance energy performance, and achieve the desired results. The document specifies the frequency, methods, responsibilities, and criteria for the audit process, including the selection of internal auditors with the necessary competencies to ensure objectivity and impartiality.
+
+To address energy savings, MASISA aims to improve the measurement process of thermal and electrical energy consumption in its MDF and MDP lines. This enhancement will facilitate the development of quantifiable goals for reducing energy consumption by the year XXXX. Additionally, the company plans to provide training on EMS and energy efficiency to 50% of workers per line.
+
+MASISA evaluates progress in reducing energy consumption through internal tracking tools that monitor significant energy uses, variables influencing energy use, actual and expected energy consumption, and Energy Performance Indicators (EPIs). The calculation of each EPI is performed monthly to ensure consistent tracking and improvement.
+
+The main source of energy used by MASISA is biomass. At the Cabrero Plant, biomass accounts for 65% of total energy usage (including electricity, biomass, fossil, and steam), while at the Mapal Plant, it constitutes 74%. Furthermore, ENEL, which supplies electricity, uses 73.92% renewable energy, and Neolectra provides 100% renewable energy. Certificates and the calculation tool for the certified energy matrix in the EMS are included.
+
+In its commitment to innovation and reducing energy consumption, MASISA allocates specific budgets to achieve its energy reduction targets. In 2023, the company installed blanket heaters in the MDP and MDF lines, which increased preheating speed and reduced electrical energy consumption.
+
+To raise awareness about energy consumption reduction, MASISA conducts annual training for employees involved with the Energy Performance Indicators (EPIs). These training sessions are held online with the company EMOAC and in person with OCA GLOBAL. Additionally, informational material containing the Energy Policy and the company's main energy consumption data is distributed on-site during operations. The Energy Policy is also available on the Mosaikus platform, in
+
+
+--- Document JSON Page 18 ---
+MASISA ESG Supporting Document 2024
+
+MASISA Tu mundo, tu estilo
+
+various offices, and publicly on MASISA's corporate website. In 2023, a total of 86 employees were trained.
+
+# 2.2.2 Energy consumption
+
+| Total energy consumption | Unit | FY 2020 | FY 2021 | FY 2022 | FY 2023 |
+| --- | --- | --- | --- | --- | --- |
+| Total non-renewable energy consumption | MWh | 235'775.23 | 249'596.34 | 230'727.80 | 48'586 |
+| Total non-renewable energy consumption | MWh | 610'124.8 | 690'021.9 | 691'961.3 | 618'163.8 |
+| Coverage | % revenue | 91% | 78% | 88% | 89% |
+
+Our target for non-renewable energy consumption for the year 2023 was 69'293.29 MWh.
+
+As can be observed, there was a significant decrease in total non-renewable energy consumption between the years 2022 and 2023. This is because the biomass energy source was previously considered non-renewable. Additionally, the calculation methodology was modified to consider the consumption of both renewable and non-renewable electric energy, based on the percentage of renewable energy reported by the energy generator.
+
+# 2.3 Waste and Pollutants
+
+# 2.3.1 Waste management programs
+
+MASISA is committed to the Clean Production Agreement (CPA) Transition to the Circular Economy. This CPA provides a framework for circular economy practices, where the baseline is to measure the circularity of production lines. As part of this work, in 2023, two external audits were conducted by Accion Empresas, achieving $100\%$ compliance. These audits demonstrated the progress made in meeting each of the CPA goals.
+
+MASISA has an Action Plan associated with reducing waste generation. This plan includes the activities being carried out to reduce waste in the process lines. The Environmental Department conducts periodic follow-ups to achieve the respective goals.
+
+MASISA's declared objectives in its CPA Transition to the Circular Economy include both qualitative and quantitative targets. Some of these are: develop alternatives for treating water with paint to reduce the final disposal of paint-contaminated water; reduce drawing paste waste by $5\%$; reduce oily water waste in the MDF Mapal line; implement automatic ink dosing to reduce green pigment waste by $30\%$; test the incorporation of melamine paper in particleboards; eliminate $100\%$ of hazardous green ink water waste by improving dosing and using non-hazardous organic substances in the MDP board manufacturing process; increase the reuse rate of outgoing waste at the Mapal plant by $0.11\%$, eliminating $100\%$ of oily water waste; valorize $50\%$ of the packaging from the final customer at Placa Centro; test the incorporation of melamine dust waste in particleboard; recycle labels in the melamine lines at the Mapal and Cabrero plants; reuse cardboard corners in the production line; install recycling stations in both MASISA production plants; recover $30\%$ of the packaging of products sent to Santiago for recycling; test the incorporation of impregnation line waste into particleboards; and seek alternatives for valorizing line waste. Additionally, each of our production lines has targets associated with reducing generated waste.
+
+
+--- Document JSON Page 19 ---
+MASISA ESG Supporting Document 2024
+
+MASISA Tu mundo, tu estilo
+
+MASISA has a project for green ink dosing on line 1 of the Mapal Plant. The economic evaluation includes details such as spare parts, equipment, materials, labor, maintenance, and repairs. MASISA conducts annual training on the waste management plan, plant waste management procedures, and specifically on the circular economy. Furthermore, each production line aims to train 100% of its operations.
+
+Since 2023, MASISA's Placa Centros have been recycling packaging waste. Additionally, in 2023, a campaign for eco-bricks was launched, involving various company teams. A total of 1,440 eco-bricks (equivalent to 648 kg) were collected, reducing landfill disposal by 120 kg and resulting in the creation of three player benches. Another action carried out in 2023 in the melamine line at the Mapal Plant was the installation of a water and oil separator, eliminating 100% of hazardous waste (which previously went to final disposal). The water is now used in line 1, specifically in the mantle humidification section. Lastly, another action taken was the recirculation of packaging materials such as cardboard corners and strapping in the packaging lines.
+
+Waste diversion to landfills is certified by an accredited independent body. Both our hazardous and non-hazardous wastes, as well as our recycled wastes, are managed by authorized companies that provide the respective certified documentation.
+
+## 2.3.2 Waste disposal
+
+Our 2023 target for waste disposal was 8'500 metric tonnes.
+
+## 2.3.3 Chemical oxygen demand
+
+Our 2023 target for direct chemical oxygen demand was 88.8 metric tonnes.
+
+## 2.4 Water
+
+### 2.4.1 Water efficiency management programs
+
+The Environmental Department of MASISA conducts monthly monitoring of water consumption across each production line, developing indicators for constant oversight. An example of this is the control of water usage for cutting-edge equipment through an online platform, allowing management actions when nearing extraction limits. As part of the CPA, we have set goals to reduce water consumption by utilizing treated water, based on a circularity baseline that involves water, energy, and materials.
+
+Several actions related to reducing water consumption include seeking alternatives for treating water with paint to ensure virgin water is used in production lines, using osmosis water for washing painting rollers, evaluating the use of treated water in the preparation of pastes, reusing oily water in the melamine line at the Mapal Plant to reduce consumption, implementing connections to use concentrated osmosis water in the MDF process at the Mapal Plant, reusing osmosis reject water in the preparation of MDF and MDP board recipes at the Cabrero Plant, thereby reducing virgin water consumption, and increasing water circularity by 5% in the production line to minimize water losses in the log yard sprinklers.
+
+The Cabrero and Mapal Plants have wastewater treatment facilities that treat water for reuse in processes. In alignment with the implementation of the Clean Production Agreement (CPA) Transition to the Circular Economy, goals and objectives have been set, including targets for reducing water use by focusing on its reuse. Currently, treated water at the Cabrero Plant's effluent treatment facilities is entirely reused in the processes. At the Mapal Plant, a portion of treated wastewater is reused for chip washing, while another portion is sent to a sanitary company's treatment facility.
+
+
+--- Document JSON Page 20 ---
+MASISA ESG Supporting Document 2024
+
+MASISA Tu mundo, tu estilo
+
+Also, since 2022, employees have been regularly trained in circular economy and resource usage (both water and energy), in collaboration with the Communications Department.
+
+# 2.4.2 Water consumption
+
+| Total water consumption | Unit | FY 2020 | FY 2021 | FY 2022 | FY 2023 |
+| --- | --- | --- | --- | --- | --- |
+| A. Water withdrawal (excluding saltwater) | Million cubic meters | 0.4991 | 0.617 | 0.678 | 0.520 |
+| B. Water discharge (excluding saltwater) | Million cubic meters | 0.045 | 0.07 | 0.09 | 0.065 |
+| Total net fresh water consumption (A-B) | Million cubic meters | 0.4541 | 0.547 | 0.588 | 0.455 |
+| Coverage | % revenue | 91% | 78% | 88% | 85% |
+
+Our 2023 target for total net freshwater consumption was 0.510 million cubic meters.
+
+# 2.4.3 Water consumption in water-stressed areas
+
+Cabrero, where our plants are located, is situated in the Biobío Region of Chile. Despite Chile experiencing thirteen years of water stress, Cabrero is not classified as a water stress zone due to several factors related to its geography, climate, and water resources.
+
+Cabrero benefits from a temperate climate with relatively abundant precipitation throughout the year, ensuring a reliable supply of water for both the population and agriculture. Additionally, the area is rich in water sources, including rivers and aquifers. The Laja River, which flows near Cabrero, is a particularly important source of water for the region. Cabrero's geographic location, characterized by topography that supports water accumulation and flow, also helps maintain a consistent water supply.
+
+This is evident from the latest decree by the Ministry of Public Works, which does not classify the region or its adjacent areas as being under water stress. Although this may not align with the World Resources Institute (WRI) assessments, the central-southern part of the country has experienced a precipitation surplus over the past two years, which has improved the area's water conditions.
+
+
+--- Document JSON Page 21 ---
+MASISA ESG Supporting Document 2024
+
+MASISA
+
+Tu mundo, tu estilo 
+Source: Water Shortage Decree (May 2024) - Ministry of Public Works
+
+| Year | ID No. | ID Name | ID Code | ISSUE | ISSUE | RECORDS | | CONSIGN | ID | ID |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| | | | | | | IN | Begins | | | |
+| 1 | 573 | 40-07-2021 | 01-07-2021 | CULPERS | CULPERS | 01201 | Hokkaido, Coquettes, Le Vigneux, Le Serene, Kafourou, Oruchi | 6 | 17.133 | 496.324 |
+| | | | | | | Lisbon | Lombarde, Montecitorio, Quille, Pontope, Rivi-Veneto | 5 | 13.533 | 195.574 |
+| | | | | | | CASIFS | Cavolo, Rapid, Los Vitos, Salamanca | 4 | 33.138 | 95.074 |
+| 2 | 577 | 11-08-2021 | 11-08-2021 | HUITRASS | HUITRASS | Petrona, La Upra, Cabildo, Papado, Capella | | 5 | 3.036 | 78.255 |
+| 3 | 205 | 17-09-2021 | 17-09-2021 | HUITRASS | HUITRASS | Digan-dia, Corregora, El Ejeuro, El Cobo, San Antonio, Santa Domingo | | 6 | 1.134 | 108.504 |
+| 4 | 751 | 29-12-2021 | 22-12-2021 | DETROPILITAN | CHACAB-ICS | Ma-Fib | | 5 | 632 | 25.515 |
+| 5 | 454 | 28-12-2021 | 17-12-2021 | STECHAS | STECHAS | Lebanon, Afro del Carmen, Huenna, Huenna | | 8 | 18.532 | 74.364 |
+| 6 | 49 | 14-03-2021 | 14-03-2021 | Las lagas | Llanquillan | Hueca-Angora, Calabaza, Las Altamoras, Coquettes, Capella, Santa Clara, Santa彻底改造 | | 8 | 14.032 | 109.123 |
+| 7 | 15 | 14-03-2021 | 14-03-2021 | Las lagas | Ontra | Nueva Coloma, Paseo de Cuejo de Lobo, Sanzana, Papadillo, Quillito, Quillito, Quemich, Quincena | | 18 | 9.167 | 148.185 |
+| RECORDS | Fibereteo que es aplican Sobre | ID | ID/ID | LAS LAS | | | | | | |
+| | | | | | | Comarca | Km² | Porcena | | |
+| Fuente:Publicación: Curso 2021 | | | | | | ULDS | | LLDS | ILDS | |
+| Water consumption in areas with water stress | Unit | FY 2020 | FY 2021 | FY 2022 | FY 2023 |
+| --- | --- | --- | --- | --- | --- |
+| Total net freshwater consumption in water-stressed areas | Million cubic meters | 0 | 0 | 0 | 0 |
+| Coverage | % revenue | 100% | 100% | 100% | 100% |
+
+# 2.4.5 Exposure to water stressed areas
+
+As MASISA, we continuously monitor and track water usage in our plants, taking into account withdrawal, consumption, extraction, and the quality of the water discharged. As a result, we can confirm that plants do not operate in water-stressed areas.
+
+| Description | Number |
+| --- | --- |
+| Number of production plants in last FY in water-stressed areas | 0 plants |
+| Total number of production plants in last FY | 2 plants |
+| % of production plants in last FY in water-stressed areas | 0% |
+
+# 2.4.6 Water risk management programs
+
+This year, an update to the materiality analysis was conducted, which identified the "Water Resource/Water Management" issue as a medium-high priority. This prioritization stems from the potential negative impacts on our business due to the risk of water scarcity in the area, given that
+
+
+--- Document JSON Page 22 ---
+MASISA ESG Supporting Document 2024
+
+MASISA Tu mundo, tu estilo
+
+water is essential for all our products' processes. As a result, we have based our actions on the commitments and goals of the Clean Production Agreement (CPA) for the Transition to a Circular Economy, developing strategies that promote resource circularity and reduce dependency risks.
+
+The materiality analysis provided insights into our dependency on water resources and the impact of our water usage on the environment. Consequently, various measures have been implemented at the plants to enhance water efficiency, reduce the use of virgin water, and minimize MASISA's potential negative environmental impact.
+
+Building on the baseline established under the Clean Production Agreement (CPA) for the Transition to a Circular Economy, we evaluated the sensitivity of future water availability for MASISA's plant operations. This assessment led to the implementation of efficiency measures across plant lines, aimed at reducing water consumption.
+
+In several production lines, water is crucial for efficient operation, and maintaining high water quality is essential for product integrity, particularly in key processes such as impregnation. To address this, we ensure that $100\%$ of discharged water complies with environmental regulations, and that recirculated water meets the necessary standards for re-entry into processes.
+
+At MASISA, we continuously monitor our water consumption through an online monitoring system that tracks our water rights, connected in real-time with the Water Authority to ensure that we do not negatively impact shared water resources.
+
+Additionally, MASISA maintains a legal applicability matrix, which is regularly updated through constant review of the Official Gazette. This ensures that our company and processes remain in compliance with relevant regulations.
+
+# 2.5 Climate Strategy
+
+2.5.1 Direct GHG Emissions (Scope 1)
+
+| Direct GHG (Scope 1) | Unit | FY 2020 | FY 2021 | FY 2022 | FY 2023 |
+| --- | --- | --- | --- | --- | --- |
+| Total direct GHG emissions (Scope 1) | Metric tonns CO2eq | 10'576 | 11'886 | 16'558 | 6'941 |
+| Coverage | % revenue | 91% | 78% | 88% | 85% |
+
+Our 2023 target for direct greenhouse gases (scope 1) was $12'562.5$ tonnes CO2eq.
+
+The significant reduction in Scope 1 emissions is due to the exclusion of biomass combustion from this calculation, with only biogenic CO2 emissions being considered.
+
+
+--- Document JSON Page 23 ---
+MASISA ESG Supporting Document 2024
+
+MASISA
+
+Tu mundo, tu estilo
+
+2.5.2 Indirect GHG Emissions (Scope 2)
+
+| IGHG (Scope 2) | Unit | FY 2020 | FY 2021 | FY 2022 | FY 2023 |
+| --- | --- | --- | --- | --- | --- |
+| Location-based | Metric tonns CO2eq | 88'278 | 93'827 | 66'905 | 42'703.07 |
+| Coverage | % revenue | 91% | 78% | 88% | 85% |
+| Market-based | Metric tonns CO2eq | 88'278 | 93'827 | 66'905 | 42'703.07 |
+| Coverage | % revenue | 91% | 78% | 88% | 85% |
+
+- Our 2023 target for indirect greenhouse gases (scope 2) location-based was $53'862.6$ tonnes CO2eq and was 0 tonnes CO2eq for market-based.
+
+2.5.3 Indirect GHG Emissions (Scope 3)
+
+| IGHG (Scope 3) | Unit | FY 2020 | FY 2021 | FY 2022 | FY 2023 |
+| --- | --- | --- | --- | --- | --- |
+| Total indirect GHG emissions (Scope 3) | Metric tonns CO2eq | 58'684 | 78'854 | 56'332 | 246'750.61 |
+
+- Our 2023 target for indirect greenhouse gases (scope 3) was $164'843.8$ tonnes CO2eq.
+
+| Scope 3 Category | Emissions in the reporting year (metric tons CO2e) |
+| --- | --- |
+| 1. Purchased Goods and Services | 130'907.92 |
+| 2. Capital Goods | 3'106.48 |
+| 3. Fuel-and-energy-related-activities (not included in Scope 1 or 2) | 13'225.88 |
+| 4. Upstream transportation and distribution | 18'873.70 |
+| 5. Waste generated in operations | 1'319.60 |
+| 6. Business travel | 193.82 |
+| 7. Employee commuting | 1'109.66 |
+| 8. Upstream leased assets | 60.16 |
+| 9. Downstream transportation and distribution | 77'863.83 |
+| 10. Processing of sold products | 20.42 |
+| 11. Use of sold products | 69.14 |
+
+For every scope 3 category, GHG emissions were obtained by multiplying activity data by documented emission factors, according to GHG Protocol guidelines. Includes $\mathrm{CO}_{2}$, $\mathrm{CH}_{4}$, $\mathrm{N}_{2}\mathrm{O}$, $\mathrm{SF}_{6}$, $\mathrm{NF}_{4}$, HFC and PFC emissions.
+
+Global warming potentials from the IPCC's Sixth Assessment Report (AR6) are used for direct emissions; and factors published directly by DEFRA/Ministry of Energy for indirect emissions.
+
+
+--- Document JSON Page 24 ---
+MASISA ESG Supporting Document 2024
+
+MASISA
+
+Tu mundo, tu estilo
+
+2.5.6 Climate-related management incentives
+
+| | Type of incentives | KPI |
+| --- | --- | --- |
+| Other named executive officers: Health, Environment & Safety and Community Relations Manager - first line of report to CEO. | Monetary | Emissions reductionAnnual bonus for the fulfillment of HES goals.Incentivized KPI: meet annual goals for reducing environmental indicators (Water- Energy- Waste-CO2). |
+| Business unit managers: All Health, Environment & Safety and Community Relations Area- reporting to the Health, Environment & Safety and Community Relations Manager | Monetary | Emissions reductionAnnual bonus for the fulfillment of HES goals.Incentivized KPI: meet annual goals for reducing environmental indicators (Water- Energy- Waste-CO2). |
+| Employees: All employees can receive recognition. Specifically, there is the category in SMS (HES): health, environment and safety. | Recognition | Other: We have a recognition category in HES: health, environment & safety. Recognition of collaborators who promote safe work, care for the environment & care for others. They will be selected through a combination of criteria, behaviors & assessments between the talent manager, the Security team & the Recognition Committee. Criteria: Interdependence in HES: carry out approaches related to HES with other collaborators. Leadership: influence the positive behavior of the team. Commitment: Incorporates in daily work the value of commitment to himself, his peers & the organization. Gets things done safely & efficiently. Autonomy: Faces different situations & comes out of them gracefully, without having to constantly consult or depend on others. Accident rate: quantifies CTP & STP accidents, plus medical licenses for the 2015-2020 period. Focus on results: Contributes with the fulfillment of the HES objectives of its area. Rise management: compliance in the segregation of solid waste in its area. |
+
+
+--- Document JSON Page 25 ---
+MASISA ESG Supporting Document 2024
+
+MASISA
+
+Tu mundo, tu estilo
+
+# 2.5.13 Low-carbon products
+
+| | Level of aggregation | % of total revenues from climate change product(s) in FY2023 | Estimated total Avoided emissions per year |
+| --- | --- | --- | --- |
+| Low carbon product: Masisa has a range of products that contain a percentage of recycled material in their composition. One way to verify this information is through SCS Global Services certification, which certifies the percentage of recycled material used in the manufacturing process. This certification promotes a circular economy, reduces the carbon footprint of the product, minimizes the extraction of new raw materials, and prevents the amount of waste sent to landfills. The materials used include Metro Ruma, Green Wood Chips, Dry Wood Chips, Sawdust, Pinchips, Fuel, Green Wood Chips with Bark, Other Species Green Wood Chips, Wet Shavings - Recovered, Wet Wood Chips with Bark - Recovered, Recovered Sawdust, and Recovered Pinchips | Group of products | 87% | 8'464.3 ton CO2e |
+| Avoided emissions for third parties: Masisa has power plants operating with biomass to heat the thermal oil used in the presses. All products are involved. | Company-wide | 100% | 128'861 ton CO2e |
+
+# 2.6 Biodiversity
+
+# 2.6.4 Biodiversity exposure & assessment
+
+Our company has assessed the sites used for our operational activities to identify those with significant biodiversity impacts.
+
+| | Number of sites | Area (Hectares) |
+| --- | --- | --- |
+| a) Overall | 2 | 167.65 |
+| b) Assessment | 2 | 167.65 |
+| c) Exposure | 1 | 154.64 |
+| d) Management | 1 | 154.64 |
+
+As part of MASISA's agreements regarding biodiversity, we monitor the aquatic biota of the Coihueco Stream semiannually (see report cover below). This stream is located within the area of influence of the Cabrero Plant. These monitoring activities help identify the effects of the plant's discharges on the stream, and no negative impacts have been observed on microalgae, fish, and macroinvertebrates.
+
+
+--- Document JSON Page 26 ---
+MASISA ESG Supporting Document 2024
+
+MASISA
+
+Tu mundo, tu estilo
+# 2.7 Product Stewardship
+
+# 2.7.4 Hazardous substances commitment
+
+Description: Among the goals that MASISA signed with the Clean Production Agreement (APL) for the Transition to a Circular Economy were:
+
+- Replacing the corrosive additive with a non-hazardous organic one.
+- Reducing the use of hazardous substances by $2\%$ in the anti-stain bath area in the sawmill, in order to decrease waste generation.
+
+# Target year: 2026
+
+Description of progress achieved towards this target: Completed. In 2023, the organic ink was quoted and evaluated, and it is now being applied to the products.
+
+
+--- Document JSON Page 27 ---
+MASISA ESG Supporting Document 2024
+
+MASISA
+
+Tu mundo, tu estilo
+
+# III. Social Dimension
+
+# 3.1 Labor Practices
+
+# Workforce Breakdown: Gender
+
+The information below covers $100\%$ of MASISA's employees.
+
+| Indicator | % 2023 |
+| --- | --- |
+| Share of women in total workforce (as % of total workforce) | 18.8% |
+| Share of women in all management positions, including junior, middle, and top management (as % of total management positions) | 20% |
+| Share of women in junior management positions, i.e. first level of management (as % of total junior management positions) | 22.63% |
+| Share of women in top management positions, i.e. maximum two levels away from the CEO or comparable positions (as % of total top management positions) | 32.8% |
+| Share of women in management positions in revenue-generating functions (e.g., sales) as % of all such managers (e.g., excluding support functions such as HR, IT, Legal, etc.) | 3.92% |
+| Share of women in STEM-related positions (as % of total STEM positions) | 0% |
+
+# Workforce Breakdown: Nationality
+
+The information below covers $100\%$ of MASISA's employees.
+
+| Nationality | Share in total workforce (as % of total workforce) | Share in all management positions, including junior, middle, and senior management (as % of total management workforce) |
+| --- | --- | --- |
+| Chilean | 57.7% | 80.1% |
+| Venezuelan | 31% | 2.2% |
+| Mexican | 9% | 13.2% |
+| Others | 2.3% | 4.4% |
+
+# Gender Pay Indicators
+
+The information below covers $100\%$ of MASISA's employees in USD$.
+
+| Employee level | Average women salary FY 2023 | Average men salary FY 2023 |
+| --- | --- | --- |
+| Executive level (base salary only) | 173.524 | 266.545 |
+| Executive level (base salary + other cash incentives) | 233.777 | 383.597 |
+| Management level (base salary only) | 64.639 | 57.588 |
+| Management level (base salary + other cash incentives) | 76.587 | 68.133 |
+| Non-management level (base salary only) | 23.732 | 15.095 |
+
+# 3.2 Human Rights
+
+# Human Rights Due Diligence Procedure
+
+To implement its Human Rights Policy, MASISA initiated a comprehensive human rights due diligence enhancement plan in 2022, in collaboration with its partner, Global Compact. This initiative included training for all critical roles and conducting a human rights impact survey across all employees in various units and countries of the company.
+
+
+--- Document JSON Page 28 ---
+MASISA ESG Supporting Document 2024
+
+MASISA Tu mundo, tu estilo
+
+Based on the collected data, MASISA developed a Human Rights Risk Matrix, using the Global Compact's generic human rights impact risk matrix as a foundation. Read more about this process in MASISA ESG Supporting Document 2023 (pages 20-22).
+
+Key Components of MASISA's Human Rights Due Diligence Process:
+
+1. Identification of Risks in Company Operations: The Internal Audit Department, together with the SMS and Community Relations Management, conducted a thorough documentary analysis. This review covered all 32 human rights, and based on this diagnosis, they identified and evaluated the 15 most significant risks where the organization, its suppliers, contractors, communities, and authorities could potentially impact human rights in each operating country. An update of the human rights risk matrix is planned for the 2024 period.
+2. Identification of Risks in the Value Chain and Related Activities: MASISA developed its Human Rights Risk Matrix, using the Global Compact's generic risk matrix as a base. This includes assessing potential impacts with various stakeholders, including business partners, value chain entities, and other state or non-state entities indirectly linked to our operations. The process identifies potential human rights violations' causes and their affected parties, evaluating complicity, severity, and control measures.
+3. Evaluation of Risks in New Business Relationships (Purchases, Mergers, Joint Ventures): MASISA assesses its counterparts through compliance platforms to check if any clients (including suppliers and collaborators) have negative records related to human rights in the countries where we operate. To date, MASISA has not engaged with any counterpart associated with human rights violations.
+4. Periodic Evaluations of Risk Mapping: Regular evaluations are conducted to address potential human rights risks and ensure the effectiveness of the due diligence process.
+
+Through this structured approach, MASISA aims to proactively manage and mitigate human rights risks, ensuring that all aspects of its operations and business relationships are conducted in alignment with its commitment to human rights.
+
+## Results of MASISA's Human Rights Due Diligence
+
+As a result of the exercise led by the Internal Audit Department, in collaboration with the SMS team and Community Relationship Management, the following potential impacts on human rights issues were observed:
+
+i. Forced Labor: Affecting the health, dignified life, and safety of employees due to long working hours or forced labor. 
+ii. Human Trafficking: Health, dignified life, and safety of natural persons affected by human trafficking practices. 
+iii. Child Labor: Affectation of minors by child labor. 
+iv. Freedom of Association: Affecting employees' freedom of association and right to collective bargaining. 
+v. Right to Collective Expression: Physical or psychological affectation of natural persons and/or collaborators in demonstrations against our company.
+
+
+--- Document JSON Page 29 ---
+MASISA ESG Supporting Document 2024
+
+MASISA
+
+Tu mundo, tu estilo
+
+vi. Discrimination and Fair Remuneration: Discrimination in employment or unequal pay and working conditions.
+
+vii. Health and Safety: Affecting the health and safety of employees and their families due to inadequate working conditions.
+
+viii. Data Protection: Exposure of the private lives of different stakeholders through disclosure of sensitive information.
+
+ix. Others: Labor or sexual harassment of employees; Violation of degrading working conditions; Affecting the health and safety of employees and their families due to inadequate confiscations during health crises; Bribery practices to achieve the company's objective; Financing of terrorist activities to achieve the company's objective; Indiscriminate use of water in operational or consumption activities; Damage to the environment and to a dignified life due to geographic intervention to obtain raw materials, project execution or environmental non-compliance.
+
+The following prioritized groups were covered when reviewing and assessing potential impacts:
+
+i. Workers 
+ii. Women 
+iii. Children 
+iv. Indigenous people 
+v. Migrant workers 
+vi. Contractors 
+vii. Local communities 
+viii. Customers/clients 
+ix. Suppliers
+
+## Human Rights Mitigation and Remediation
+
+- Processes to mitigate human rights risks:
+
+Masisa has implemented guidelines in its corporate policies and procedures, including its human rights policy, Diversity, Inclusion, and Gender Equity Policy, and primarily in its Framework of Action and Business Principles. These are all disseminated and internally trained and are also publicly disclosed on our website as practices of the company's governance.
+
+We have compliance platforms to assess whether any supplier, client or even collaborator has negative records regarding restrictive lists that mention human rights issues in the countries where we operate. This is being reinforced in some processes with compliance statements, which are treated as essential information for our relationships.
+
+
+--- Document JSON Page 30 ---
+MASISA ESG Supporting Document 2024
+
+MASISA Tu mundo, tu estilo
+
+Through these mechanisms, we identify potential human rights violations, and if any are identified, we take action in line with our publicly available policies and protocols, which can be found on our website.
+
+During 2023, MASISA made significant efforts to implement actions aimed at mitigating the likelihood of human rights violations, particularly those that have been frequently reported or are more likely to materialize based on our operations. The following actions were undertaken:
+
+1. Formation of the Diversity, Inclusion, and Gender Equity Committee: In August 2023, MASISA established a committee consisting of 10 members from various departments, led by the Head of People, Culture, and Communications. This committee has begun planning activities, including two training sessions on "Workplace Harassment, Sexual Violence, and Violence" and "Diversity and Inclusion," which were attended by 217 participants.
+2. Preventive Medicine and Quality of Life Program: MASISA has launched a preventive medicine and quality of life program aimed at improving the well-being of employees and communities. This program focuses on promoting health and preventing potential issues before they arise.
+3. Launch of the Key Rules for Life: To prevent serious and/or fatal accidents at the corporate level, MASISA introduced the document "Key Rules for Life." This document outlines the behaviors and practices that must be internalized and applied as part of the company's culture to enhance safety and well-being.
+
+Human Rights remediation measures
+
+In 2023, MASISA took significant remediation actions regarding human rights through its Whistleblower Channel. A total of 22 complaints were received from all countries where the company operates, demonstrating the widespread awareness and use of this channel within the organization. Of these complaints:
+
+- 13 were reported as "Discrimination or Harassment," including both workplace and sexual harassment.
+- 1 was related to possible "Corruption or Bribery."
+- 8 were categorized under "Other" violations of our business principles, though none directly involved human rights violations.
+
+All complaints were thoroughly investigated and addressed by the company's Ethics Committee and reported to the Board of Directors through the Risk and Audit Committee. Resolutions for substantiated complaints included measures such as employee terminations, training programs, improvements in internal controls, and updates to policies and procedures.
+
+MASISA and its subsidiaries have not been subject to investigations by local or international authorities for crimes such as money laundering, terrorism financing, bribery, or other illicit activities, nor for human rights violations.
+
+
+--- Document JSON Page 31 ---
+MASISA ESG Supporting Document 2024
+
+MASISA
+
+Tu mundo, tu estilo
+
+# 3.3 Human Capital Development
+
+# Employee Development Programs:
+
+| ·Program 1: MASISA's Diversity and Inclusion Training | |
+| --- | --- |
+| Description | Masisa is committed to fostering diversity and inclusion, valuing every individual's presence and participation in the company. To support this, we have established a Diversity, Inclusion, and Gender Equity Policy and a Protocol for Preventing and Addressing Harassment. Our Diversity, Inclusion, and Gender Equity Committee, consisting of a diverse team from various departments, is dedicated to cultivating an inclusive, unbiased work culture. In this context, Masisa has implemented a comprehensive Diversity and Inclusion Training program. Developed in collaboration with the Training Team, Community Relations, expert consultants, and the SOFOFA Foundation, the program aims to educate employees on these principles. It includes: ·Awareness and Sensitization: Understanding the importance of diversity and inclusion. ·Best Practices: Integrating diversity and inclusion into daily work practices. ·Union Training and General Education: Insights on union roles and general diversity training. ·Protocols and Leadership: Organizational protocols, leadership roles, and managing related issues. Modules address workplace harassment, sexual harassment, and violence, covering definitions, protocols, and case management. Additional modules focus on Masisa's diversity policies, alignment with UN Sustainable Development Goals (SDGs), essential concepts, regulatory frameworks, and tools for promoting diversity and inclusive communication. This program aims to educate employees and ensure that Masisa's commitment to diversity and inclusion is effectively integrated throughout the organization. |
+| Description of program objective/business benefits | - Promote Inclusive Practices: Equip employees with the knowledge and tools to implement inclusive practices in their daily work, helping to create a more welcoming and supportive work environment. - Prevent and Address Harassment: Educate employees on recognizing, preventing, and addressing workplace harassment, sexual harassment, and violence, ensuring a safer and more respectful workplace. - Align with Global Standards: Ensure that Masisa's diversity and inclusion efforts align with international standards, including the UN Sustainable Development Goals (SDGs), and enhance our global competitiveness. |
+
+
+--- Document JSON Page 32 ---
+MASISA ESG Supporting Document 2024
+
+MASISA
+
+Tu mundo, tu estilo
+
+| | - Improved Employee Engagement: By fostering a culture of inclusion, employees are more likely to feel valued and engaged, leading to higher job satisfaction and commitment to the company. - Enhanced Team Collaboration: Inclusive practices and improved communication can enhance teamwork and collaboration, leading to more effective and innovative solutions. - Increased Productivity: Employees who feel respected and included are more motivated and productive, contributing to overall business efficiency and performance. - Strengthened Reputation: Demonstrating a commitment to diversity and inclusion can enhance Masisa's reputation as an employer of choice, attracting top talent and improving the company's standing in the industry. - Compliance and Risk Management: Proper training helps ensure compliance with legal requirements and reduces the risk of legal issues related to discrimination and harassment. |
+| --- | --- |
+| Quantitative impact of business benefits (monetary or non-monetary) | - Longer employee tenure and reduced turnover. - Higher levels of employee engagement and satisfaction. - Reduction in legal expenses related to discrimination and harassment claims. |
+| % of FTEs participating in the program | 14% |
+| Program 2: Sustainability Leaders Program | |
+| --- | --- |
+| Description | During 2023, MASISA implemented a sustainability training program aimed at leaders and collaborators with the goal of integrating the concept of sustainability into the daily operations of the company, strengthening the sustainability vision, and creating a reference team within the company to continue driving the triple impact perspective. This program included several online training modules that presented MASISA's sustainability strategy, priority objectives, related policies and protocols, the governance system (committees and critical areas), as well as key initiatives and fundamental concepts. The program was part of a broader and ongoing communication process designed to support change management within the organization. As a new feature, in 2024, the program's scope was expanded through the incorporation of dynamic interventions and gamification, extending training to production and official areas through the sustainability ambassadors program. |
+| Description of program objective/business benefits | The program provides various strategic benefits for MASISA. For example, it can drive innovation from a triple impact perspective, fostering the development of more sustainable ideas for different business processes and challenges, generating competitive advantages |
+
+
+--- Document JSON Page 33 ---
+MASISA ESG Supporting Document 2024
+
+MASISA
+
+Tu mundo, tu estilo
+
+| | and differentiating from competitors. At the same time, it is expected that participants with a stronger affinity for this perspective will increase their commitment to the organization, which could, on one hand, reduce turnover or, on the other, attract talent through the communication of this program. Additionally, changes resulting from this training in certain areas could improve operational efficiency, reduce costs, and potentially better prepare the company for future regulations. |
+| --- | --- |
+| Quantitative impact of business benefits (monetary or non-monetary) | Examples of business impacts from these benefits could include improvements in culture and employee satisfaction survey results among participants, as well as those affected by the integration of sustainability into the business. Additionally, there could be a reduction in costs associated with turnover due to increased employee engagement with the program. Savings might also arise from avoiding fines by staying ahead of future regulations, as well as from potential new initiatives in energy efficiency or waste reduction, among other areas. |
+| % of FTEs participating in the program | 12.8% |
+| Program 3: Leadership Aligned with Masisa's Culture | |
+| --- | --- |
+| Description | In recent years, Masisa has been dedicated to enhancing its organizational culture in alignment with its business strategy. Throughout 2023, the company offered a comprehensive range of leadership courses designed to address various aspects of effective leadership. These courses covered a broad spectrum of topics including: • Fundamentals of Leadership • Strategic Agility • Coaching Skills • Decision-Making • Active Listening • Emotional Intelligence • Interpersonal Communication • Conflict Management • Leading Change The training modules were delivered via the e-learning platform LinkedIn Learning, which facilitated flexible access for employees. The online format allowed for self-management and efficient use of time, as employees could access and complete the courses at any day and time that suited their schedules. |
+| Description of program objective/business benefits | - Improve the leaders ability to lead teams effectively and foster a positive and productive work environment. - Improve Team Performance: Leaders who are skilled in team empowerment and coaching will be better able to motivate and |
+| | engagement with the program. This will help the team and team members understand and support the process and the process of the program. |
+| How to use the resources needed | In recent years, Masisa has been dedicated to enhancing its organizational culture in alignment with its business strategy. Throughout 2023, the company offered a comprehensive range of leadership courses designed to address various aspects of effective leadership. This course has been designed to help employees and their team members understand and support the process and the process of the program. |
+
+
+--- Document JSON Page 34 ---
+MASISA ESG Supporting Document 2024
+
+MASISA
+
+Tu mundo, tu estilo
+
+| | develop their teams, resulting in improved team performance and higher overall productivity. - Equip leaders with the ability to adapt to changing business conditions and make strategic decisions more effectively, thereby enhancing the organization's responsiveness and competitive edge. - Foster a culture where continuous learning and self-improvement are integral to the organization, leading to ongoing enhancements in leadership and operational effectiveness. - Develop leaders' skills in effective communication to enhance collaboration and alignment across different teams and departments, leading to more streamlined operations and better organizational coherence. |
+| --- | --- |
+| Quantitative impact of business benefits (monetary or non-monetary) | • Improved leadership: By enhancing leadership skills, we anticipate improvements in the work environment, which are expected to lead to increased job satisfaction and improved employee retention (reduced turnover). • Employee Motivation and Engagement: Employees who participate in this program are expected to demonstrate a stronger interest in staying with the organization and taking on more challenging roles. • Development of a Continuous Learning Culture: The program supports and fosters an ongoing culture of learning within the organization. |
+| % of FTEs participating in the program | 6,96% |
+
+# Type of Performance Appraisal:
+
+Masisa conducts annual performance evaluations for its employees. Depending on the position, evaluations are carried out through 360-degree feedback as well as objective-based assessments.
+
+# Trend of Employee Wellbeing:
+
+MASISA conducts a survey every three years to address aspects relevant to employee satisfaction and engagement, as well as organizational culture. In terms of workplace climate, this tool allows us to:
+
+- Evaluate Job Satisfaction: A positive climate is associated with happier, more motivated, and productive employees.
+- Identify Areas for Improvement: Workplace climate can reveal issues such as communication gaps, work-related stress, or discrimination.
+- Promote Positive Change: Understanding employee perceptions enables us to implement initiatives that enhance the work environment.
+
+Simultaneously, evaluating organizational culture helps us to:
+
+
+--- Document JSON Page 35 ---
+MASISA ESG Supporting Document 2024
+
+MASISA
+
+Tu mundo, tu estilo
+
+- Identify Values and Beliefs: This allows us to align strategies and actions with the company's core identity.
+- Understand Organizational Behavior: Culture influences how employees interact, make decisions, and solve problems.
+- Attract and Retain Talent: A strong and positive culture can be a differentiating factor in attracting and retaining talent.
+
+By considering both workplace climate and organizational culture regularly and in combination, we gain a holistic view of our organization's state, allowing us to make informed decisions to improve employee well-being and business success. This is why MASISA utilizes a methodology based on Human Synergistics International, which integrates both approaches.
+
+In its results, the Cultural Transformation Report of Somos Masisa (2021) includes a comprehensive evaluation of employee satisfaction across various organizational dimensions. Specifically, our Organizational Culture Inventory (OCI) and Organizational Effectiveness Inventory (OEI) collect data that enables us to analyze employee satisfaction in several key areas related to their work environment and organizational culture. Some of the areas assessed include:
+
+Job Satisfaction: Evaluates employee satisfaction with their work, their department, and the organization as a whole.
+- Intent to Stay: Assesses whether employees intend to remain with the organization in both the short and long term.
+- Recommendation as a Good Place to Work: Measures whether employees would recommend the organization as a good place to work.
+- Satisfaction with Current Situation: Examines employee satisfaction with their current position within the department.
+
+This evaluation has successfully allowed us to assess conditions necessary for developing policies aimed at attracting, retaining, and developing top talent, as well as identifying areas for improvement.
+
+The general results of this process can be reviewed publicly in our 2023 Integrated Annual Report. The survey measures indicators of motivation, role clarity, intent to stay, and motivation on a scale of 1 to 5. The consolidated result of these various variables is publicly available in the 2023 Annual Report. Below, we present the most recent result for employee satisfaction:
+
+| | FY 2020 | FY 2021 | FY 2022 | FY 2023 |
+| --- | --- | --- | --- | --- |
+| Employee Satisfaction | 4.11 | 4.37 | 4.37 | 4.37 |
+| Data Coverage | 11.9% | 19.4% | 19.4% | 19.4% |
+
+*Note: Please be aware that we have repeated the numerical results for the past three years, but the most recent evaluation was conducted in 2021 and will be updated soon.
+
+# Hiring:
+
+The information below covers $100\%$ of Masisa's employees.
+
+| | FY 2023 |
+| --- | --- |
+| Total number of new employee hires | 176 |
+| Percentage of open positions filled by internal candidates (internal hires) | 13.1% |
+
+
+--- Document JSON Page 36 ---
+MASISA ESG Supporting Document 2024
+
+MASISA
+
+Tu mundo, tu estilo
+
+New employees - data breakdown:
+
+| Age range | New hires 2023 |
+| --- | --- |
+| <30 years | 60 |
+| 30-50 years | 107 |
+| >50 years | 9 |
+| Gender | New hires 2023 |
+| --- | --- |
+| Women | 57 |
+| Men | 119 |
+
+# Employee Turnover Rate:
+
+The information below covers $100\%$ of Masisa's employees.
+
+| Turnover Rate | FY 2023 |
+| --- | --- |
+| Total employee turnover rate | 19.9% |
+| Voluntary employee turnover rate | 5.7% |
+
+Turnover rate - data breakdown:
+
+| Age range | Total turnover FY 2023 |
+| --- | --- |
+| <30 years | 18% |
+| 30-50 years | 57.6% |
+| >50 years | 24.4% |
+| Gender | Total turnover FY 2023 |
+| --- | --- |
+| Women | 18.5% |
+| Men | 81.5% |
+
+# Employee Support programs:
+
+Family Benefits
+
+In addition to the employee benefits (Workplace stress management, Sport & health initiatives, and others) and work conditions (Flexible working hours, Working-from-home arrangements, Part-time working options, and others) presented in our 2023 Integrated Annual Report (pages 54 and 59), Masisa provides family-focused benefits to support its employees, detailed as follows.
+
+Masisa provides various support for child care, including a direct bonus to employees if they have medical authorization or if there is no childcare facility available in the employee's place of residence. We also cover the monthly fees for a childcare center of the employee's choice. Additionally, at our operations and headquarters, we are committed to supporting the well-being of our employees, including working mothers. As part of this commitment, we offer lactation facilities to ensure a comfortable and private space for breastfeeding mothers. These facilities are equipped with all the necessary amenities to support breastfeeding mothers during their workday. We recognize the importance of meeting the needs of new mothers and fostering a family-friendly work environment. By providing lactation facilities, we aim to create an inclusive and supportive workplace for all our employees.
+
+Parental leave: Regarding maternity leave, we offer a total of 24 weeks (in line with Chilean legislation) distributed as follows:
+
+12 weeks of maternity leave
+
+
+--- Document JSON Page 37 ---
+MASISA ESG Supporting Document 2024
+
+MASISA Tu mundo, tu estilo
+
+- 12 weeks of parental leave (the latter is at the mother's discretion and can be transferred to the father for a maximum of 6 weeks)
+
+We also consider the full amount of the employee's salary if it exceeds the taxable cap. Additionally, the non-primary caregiver (usually the father) is entitled to one week of paternity leave. For cases involving family members or dependents requiring paid leave for care, MASISA evaluates each situation individually. Based on the specific circumstances presented by the employee, exceptional leave may be granted.
+
+## 3.4 Occupational Health and Safety
+
+### OHS Programs
+
+Masisa has an Occupational Safety and Health Management System (OSHMS), which is integrated transversally throughout the company's operation and value chain. The system is guided by the Integrated Management System Manual for Safety, Occupational Health, Environment, and Quality ("IMS"), which was updated in June 2023. In this document, Masisa describes its integrated management system and provides references to comply with the requirements of ISO 45001:2018, ISO 14001:2015, and ISO 9001:2015. The scope of the system applies to the "Production and commercialization of Sawn Timber, MDF Moldings, and solutions for furniture and interior spaces, including particle boards, fiberboards (MDF), veneered and grooved boards, painted boards, and melamine boards," processes carried out at MASISA facilities located in the Cabrero Industrial Complex, Mapal Plant, and corporate offices in Santiago, from the wood collection to delivery at national sales points and export ports.
+
+This procedure was approved by the Corporate General Manager, Alejandro Carrillo, and establishes the responsibilities of different areas, committees, and positions to ensure compliance with the management system, both internally and externally (e.g., contractors, national and international accreditation bodies). It includes consultation and participation of workers in occupational health and safety matters, such as hazard identification, incident investigation, and behavioral observations, safety sessions, operational verifiers, and coaching sessions, all as part of the "SafeAlign" program aimed at helping the organization develop critical safety leadership skills at all levels, translating safety visions into safety actions, setting goals for exposure reduction and sustainable safety performance, and monitoring progress.
+
+Based on the permanent commitment to protect the life, physical integrity, and health of our employees, Masisa S.A. has decided to establish the 5 Key Rules That Save Your Life. They recognize the value of safety as a corporate priority, sensitizing and engaging all employees with proper safety behavior.
+
+In this sense, Masisa S.A. reinforces the idea and continually takes actions to achieve a safe operation.
+
+These rules were defined after an analysis of the history of high potential events in operations, where these five factors were determined as the main causes and gave rise to the 5 Key Rules That Save Your Life:
+
+- Rule #1 "Risk of explosion, explosive atmosphere zone," maintain basic cleanliness conditions and dust accumulation.
+- Rule #2 "Apply lockout and tagging," for any intervention and assembly.
+- Rule #3 "Work with a job risk analysis and a validated permit," when performing a high-risk task.
+
+
+--- Document JSON Page 38 ---
+MASISA ESG Supporting Document 2024
+
+MASISA Tu mundo, tu estilo
+
+- Rule #4 "Confined spaces," obtain authorization before entering confined spaces.
+- Rule #5 "Moving mobile equipment," stay away from moving equipment. Risk of being run over.
+
+As part of preventive occupational health management, we have the Preventive Medicine, Quality of Life, and Well-being program for employees, their families, and the community, which aims to achieve the well-being of individuals, favoring the control of non-occupational diseases, especially cardiovascular diseases, reducing their incidence, considering that they are the main cause of death in Chile.
+
+Through the preventive medicine, quality of life, and well-being program, awareness campaigns have been conducted on nutrition, physical activity, immunizations, blood pressure measurements, weight control, individual and collective training on-site with the goal of integrating and promoting participation in our program.
+
+We have installed a nutritional clinic in the facilities of our sports complex, which is attended by a health professional who provides dietary habits, promotes a healthy lifestyle, and provides specific nutritional guidelines for each patient according to a diagnosis, which is monitored monthly. The professional also attends directly and indirectly to employees, conducting weekly consultations in the operational areas of Masisa.
+
+In December 2022, we inaugurated two modern exercise rooms located in the Cabrero sports complex and in the Mapal Plant facilities, which are available for use by all employees and their families (in Cabrero). These rooms are accompanied by a physical education teacher who creates physical training routines according to the individual needs of each attendee, with monthly check-ins. Physical education teachers also visit the operational areas twice a month to generate exercise routines aimed at preventing musculoskeletal injuries in workstations, which are replicated daily by employees during their shifts.
+
+As part of the comprehensive occupational health management, auditory, respiratory, physical, and mental health is monitored in accordance with the established system's corporate requirements.
+
+i. OHS risk and hazard assessments to identify what could cause harm in the workplace.
+
+Masisa has a Hazard and Risk Assessment Procedure, which was updated in 2023. The objective of this procedure is to describe the methodology used to identify, evaluate, record, and review hazards and health and safety risks related to the activities, products, or services that Masisa S.A. can control and influence within the scope of the Occupational Health and Safety (OHS) Management System.
+
+The scope of this procedure covers all activities, products, or services performed by Masisa S.A. units under routine (R), non-routine (NR), and emergency (E) operating conditions, including minor modifications or expansions. When new projects or expansions are executed, hazard and risk identification is conducted according to the methodology defined in the document. Additionally, this procedure is also applicable to all Permanent Contractor Companies of Masisa S.A. as defined by Law 20.123.
+
+Masisa assesses risks and threats in its workplace through risk assessment, analysis, and management. Areas, processes, and activities are identified, considering both direct and indirect hazards. Situations of emergency, normal and abnormal conditions, human behavior, external factors, infrastructure, equipment, and materials are considered. Hazards are classified into categories such as mechanical, physical, chemical, biological, behavioral, ergonomic, capacity, and SSO accidents. Detailed characterization of hazards is conducted, and resulting risks are identified. The personnel involved in the activities and the applicable legal regulations are considered. Finally, the primary risk is evaluated based on the frequency of occurrence, severity, and occupational hygiene, the severity
+
+
+--- Document JSON Page 39 ---
+MASISA ESG Supporting Document 2024
+
+MASISA Tu mundo, tu estilo
+
+of the incident, the existing operational control systems, and the number of affected individuals. All this information allows for determining whether the assessed risk is considered as non-significant, significant, or unacceptable risk. The final risk is considered intolerable when an unacceptable primary risk is identified without current control measures or when it has been demonstrated that existing control measures are ineffective or insufficient.
+
+The process of identifying and evaluating risks at Masisa involves gathering input from trained employees and responsible individuals using a standardized methodology. This information is then documented in specific forms, such as the Hazard and Risk Identification and Assessment Matrix. These matrices provide a structured framework for specifying the activities, hazards, and associated risks within the organization's processes. They also describe event patterns and detail existing or necessary controls to effectively manage and mitigate these risks.
+
+Furthermore, they have a specific procedure for Event Communication and Management, which aims to define the flow for communication and management of events to disseminate them quickly and effectively, ensuring immediate response and prevention of similar incidents in any of Masisa's operations.
+
+ii. Prioritization and integration of action plans with quantified targets to address those risks. After the Risk Assessment and Risk Assessment Matrix, a hierarchical approach is adopted to establish action plans aimed at controlling the risks based on their magnitudes. This process is systematically monitored through country-specific reporting dashboards and the Mosaikus management platform, allowing for quantifiable evaluation of implementation effectiveness. Significant and unacceptable risks identified through the Hazard and Risk Identification and Assessment Procedure serve as the basis for defining objectives and targets, as well as measures and monitoring within the Safety and Health Management System (SMS).
+
+iii. Integration of actions to prepare for and respond to emergency situations.
+
+The company has established specific procedures to prevent, respond to, and mitigate risks associated with identified emergency situations. Emergencies are identified and managed in accordance with the current Emergency Plans at MASISA, which include practical exercises involving direct and indirect employees and communities neighboring our facilities. Additionally, hazards, risks, environmental aspects, and impacts are evaluated according to the procedures established in the Hazard and Risk Management Procedure and the Environmental Aspect and Impact Identification Procedure, respectively.
+
+As a strategy to respond to a crisis situation (business continuity), a Plant Protection program procedure is incorporated, which establishes the formation of the Corporate Crisis Committee and Plant Crisis Committee. Their mission is to achieve two fundamental objectives: first, to be prepared with training and material resources to properly handle an emergency, and second, to make well-informed decisions. This procedure includes five key protocols for adequate management during crisis situations:
+
+- Serious or fatal accident.
+- Lockout.
+- Fire.
+- Evacuation.
+- Communications
+
+
+--- Document JSON Page 40 ---
+MASISA ESG Supporting Document 2024
+
+MASISA Tu mundo, tu estilo
+
+iv. Evaluation of progress in reducing/preventing health issues/risks against targets
+
+There is a corporate SMS (Safety Management System) management committee that meets monthly to review the progress towards occupational health and safety objectives by country. In this committee, the following aspects are analyzed: events with high potential and recordable accidents, panel of preventive and reactive indicators, monitoring of preventive tools (SafeAlign), occupational health management, and relevant activities associated with each business unit. It is important to mention that incidents are prioritized according to a safety pyramid model, which operates at the corporate level, highlighting the most serious cases.
+
+v. Internal inspections
+
+To verify the proper implementation, effectiveness, and compliance with the requirements established in the Standards included in the Integrated Management System, as well as the planned provisions by MASISA Chile, the company conducts Internal Audits at its administrative and operational facilities. These audits are coordinated by the System Management Administrator.
+
+The activities involved in the planning, execution, record keeping, and qualification of Internal Auditors for the Integrated Management System are described in the Internal Audits Procedure, CL_5278. This procedure outlines the necessary steps and guidelines for conducting internal audits, ensuring that the company's processes and practices align with the established standards and requirements.
+
+By conducting regular internal audits, MASISA aims to assess the effectiveness of its management system, identify areas for improvement, and ensure compliance with applicable standards and regulations.
+
+In MASISA's Integrated Management Manual, responsibilities for internal audits are defined and involve an internal auditing team, the integrated management system coordinator, department heads as facilitators, and even the SMS manager in the planning of these processes. MASISA has a Corporate Risk and Audit Management Policy aimed at standardizing key activities to ensure proper development of the Internal Audit function within the organization. This policy independently evaluates the risk management carried out by the business, process, or country. The Corporate Procedure for Risk Evaluation and Internal Audit Methodology establishes the methodology used by MASISA S.A. to assess strategic and operational risks that affect its scope of operations, as well as the weighting of controls for their mitigation. Additionally, the monthly monitoring and compliance with legal requirements are managed through a legal committee, where the applicability of each regulatory body is verified using the Mosaikus platform.
+
+vi. Independent external verification of health, safety, and well-being
+
+Masisa's occupational health and safety management system undergoes external verification in accordance with ISO 45001 standards. In addition, MASISA obtains certification for its frequency rates, absenteeism rates, and reporting of serious or fatal accidents from the Chilean Security Association (ACHS), a private non-profit mutual society responsible for administering social insurance against work accidents and occupational diseases as mandated by Chilean Law No. 16,744.
+
+vii. Procedures to investigate work-related injuries, ill health, diseases, and incidents
+
+The company has implemented a dedicated procedure for Event Communication and Management, aimed at establishing a streamlined process for effectively communicating and managing events. This procedure ensures prompt and efficient dissemination of event information, enabling immediate response and the prevention of similar incidents across all Masisa's operations.
+
+
+--- Document JSON Page 41 ---
+MASISA ESG Supporting Document 2024
+
+MASISA Tu mundo, tu estilo
+
+It is crucial that all events are managed in a systematic and thorough manner, with the level of management corresponding to the potential harm they pose. To guide the investigation of events, the company has defined specific criteria and a methodology in the document titled "Corporate Methodology for Event Investigation." This methodology outlines the step-by-step process for investigating events, considering their classification and severity.
+
+By adhering to this procedure and methodology, MASISA aims to ensure comprehensive event management and effective preventive measures. The documented flow of the investigation process provides guidance and consistency in handling events, helping identify root causes and implement appropriate corrective actions. This proactive approach contributes to the continual improvement of safety and prevention practices throughout the organization.
+
+viii. OHS training is provided to employees and/or other relevant parties to raise awareness and reduce operational health & safety incidents
+
+Regarding employee training, the Procedure for Hazard Identification and Risk Assessment establishes the following: "All employees, both direct and indirect (third parties), involved in the identification and analysis of risks, must receive training based on this program and in techniques and concepts of safety and health assessment. Furthermore, all employees, both direct and indirect (third parties), involved in the activities assessed in risk identification must receive training on the risks and the importance of applying and complying with the established control measures. In addition, all employees, both direct and indirect (third parties), involved in the assessed activities, should be trained and/or informed when there are changes in processes, activities, and risks. All employees, both direct and indirect (third parties), must receive training in the Emergency Procedure or Plan at the unit. Training records must be maintained for all completed training sessions." As part of the program to strengthen employees' competencies in safety and occupational health, the following training sessions were conducted during 2023:
+
+- Certification of Competencies Industrial Emergency Brigade No. 1.
+- Training Workshop on the New Accident and Incident Investigation Methodology for all Leaders from Different Areas of Masisa.
+- Training on Postural Hygiene, Noise as a Health Risk Factor, among Others.
+- Training on the Five Rules that Save Your Life.
+- SafeAlign Preventive Tools Workshop.
+- Stop and Think Training Program.
+- Theoretical and Practical Workshop on Handling and Use of Fire Extinguishers.
+
+ix. OHS criteria introduced in procurement and contractual requirements
+
+Masisa has incorporated Occupational Health and Safety (OHS) criteria in its procurement processes and contractual requirements. These criteria ensure that contractors comply with the necessary safety standards and regulations. The company includes specific OHS requirements in its internal regulations, such as the Internal Regulations for Order, Hygiene, and Safety, which outline the necessary guidelines and expectations for maintaining a safe work environment.
+
+3.5 Customer Relations
+
+Customer Satisfaction Measurement
+
+This information only covers the Chilean B2C segment. Please note that the NPS for 2022 was 55%, despite the Annual Report 2023 indicating it was 52%.
+
+
+--- Document JSON Page 42 ---
+MASISA ESG Supporting Document 2024
+
+MASISA
+
+Tu mundo, tu estilo
+
+| | Unit | FY 2020 | FY 2021 | FY 2022 | FY 2023 |
+| --- | --- | --- | --- | --- | --- |
+| Satisfaction measurement | Net Promoter Score | 35 | 26 | 55 | 65 |
+| Data coverage | % of clients | 17 | 18 | 22 | 24 |
+
+# 3.6 Community Relations
+
+# Active community engagement
+
+We have a Corporate Procedure for Social Consultation and Pulse, which establishes the general guidelines for conducting the Social Consultation and Pulse aimed at MASISA's stakeholders.
+
+Through the Social Consultation, we gather relevant information for the company in various areas of MASISA's activities. This process is implemented by an independent external advisor to maintain methodological neutrality and ensure an objective analysis of the information.
+
+The Social Consultation involves a sample composed of workers, community leaders, entrepreneurs, neighbors, and local government officials. A face-to-face questionnaire is administered to them.
+
+The Social Consultation is conducted on-site, and the information collected helps inform decisions in the areas of Social Management and Community Relations.
+
+At the end of 2021, MASISA signed a $35 million, 5-year loan agreement with the Inter-American Development Bank (IDB Invest), including a one-year grace period. To secure this financing, MASISA underwent an extensive due diligence process that not only included a credit and financial review but also evaluations of environmental, social, and corporate governance issues. As part of this process, MASISA committed to implementing a community consultation, which culminated in 2024 with the delivery of the final report, applied to the operations in Cabrero and San Pedro de La Paz. The results will be integrated by MASISA to continue improving its community relations processes, in line with the organization's established policies.
+
+Number of current production assets: 2 (Cabrero and San Pedro de La Paz, both in Chile). Both sites were part of the community consultation, meaning that $100\%$ of our production assets have required recent community consultations.
+
+# Community Consultation Framework & Implementation
+
+- Providing affected communities with access to relevant information
+
+As established in our Sustainable Development Policy, Social Management and Community Relations Corporate Policy, and other key MASISA policies and procedures related to community relations, the organization maintains constant communication with the community (and other stakeholders) to ensure a transparent connection that fosters a positive and long-term relationship with the community. To this end, MASISA offers various communication spaces and channels, such as the annual Valor Social magazine and a weekly radio program in Cabrero (since 2022) where information about the company's activities is shared.
+
+
+--- Document JSON Page 43 ---
+MASISA ESG Supporting Document 2024
+
+MASISA Tu mundo, tu estilo
+
+Also, we hold biannual meetings where community leaders and residents from the Cabrero and San Pedro de La Paz areas participate to learn about the Social Management Plans for the year, as well as share ideas and comments from the community. Additionally, coordination meetings are held with various institutions that represent the community, such as municipalities and fire departments, to strengthen ties and enhance active participation in decision-making related to operations.
+
+- Enabling affected communities to express their views on operational and project risks, cultural heritage preservation and other environmental and social impacts and mitigation measures
+
+Since 2022, we have had an External Complaints, Comments, and Suggestions Protocol, which establishes a mechanism for receiving, analyzing, resolving (if applicable), and responding to complaints, comments, and/or suggestions from external stakeholders related to the Company's operations, in a participatory, timely, transparent, and clear manner.
+
+This protocol has been communicated to the community, outlining the means by which they can submit a complaint, comment, or suggestion and how MASISA will address it.
+
+The protocol includes a continuous communication process with the complainant (if they provide identification, as there is an option for anonymous complaints) and maintains a record of the entire process.
+
+- Incorporating the views of Affected Communities into operational and project decision-making
+
+The (External Complaints, Comments, and Suggestions Protocol outlines the mechanisms through which the community can participate and express their views on the company's operations and projects. The protocol promotes active participation of stakeholders through transparent and respectful processes, allowing their opinions and concerns to influence MASISA's decision-making.
+
+The protocol defines a detailed process that includes analyzing received complaints and suggestions, developing strategies to address the issues raised, and implementing corrective actions. It also ensures ongoing follow-up and evaluation, with continuous communication with the submitters (if the submission is not anonymous).
+
+To ensure that community perspectives are considered in decision-making, the protocol has been widely communicated to ensure that all community members understand how to present their concerns and how these will be managed. This approach ensures that the views of affected communities influence MASISA's operational and project decisions, thereby contributing to a more inclusive and responsible management.
+
+- Grievance Mechanisms for Affected Communities:
+
+The protocol outlines, among other things, an analysis and strategy development for addressing the raised issues, implementing actions, and conducting follow-up and evaluation. This is facilitated by a continuous process of communication and community engagement.
+
+- Reporting to Affected Communities and Other Stakeholders
+
+Since 2022, we have had a weekly radio segment in Cabrero where we provide the community with information about various community engagement activities. Additionally, since 2023, we have been publishing the Revista Valor Social, which delivers relevant information about the main actions taken in the previous year and also allows us to gather community opinions and ideas on various topics.
+
+
+--- Document JSON Page 44 ---
+MASISA ESG Supporting Document 2024
+
+MASISA Tu mundo, tu estilo
+
+For the Revista Valor Social reporting on activities from 2023, we include an overview of donations made to the community and the complaints received. Moreover, the company's main initiatives are presented in the integrated annual report.
+
+Also, we hold biannual meetings where community leaders and residents from the Cabrero and San Pedro de La Paz areas participate to learn about the Social Management Plans for the year, as well as share ideas and comments from the community. Furthermore, coordination meetings are held with various institutions that represent the community, such as municipalities and fire departments, to strengthen ties and enhance active participation in decision-making related to operations.
+
+# MASISA's Indigenous Peoples Engagement and Cultural Preservation
+
+1. Identifying Affected Indigenous Peoples:
+
+MASISA's Indigenous People Engagement Protocol starts with identifying any indigenous or tribal peoples who might be affected by its operations. This involves an initial study, such as the one conducted by the consultant Nonken, which found "MASISA's operations in the municipalities of Cabrero and San Pedro de la Paz do not generate social impacts on the identified Indigenous Peoples and their cultural preservation." This baseline will be reviewed every two years, or sooner if new projects are planned in new areas.
+
+2. Understanding the Local Context for Engaging with Indigenous Peoples:
+
+The Protocol emphasizes understanding the specific context and needs of indigenous or tribal peoples near MASISA's operations. It requires respecting their cultural practices, traditions, and land relationships. The company ensures that it recognizes and values the diverse perspectives and lifestyles of these communities.
+
+3. Principles of Good Engagement of Indigenous Peoples:
+
+MASISA's engagement with indigenous peoples is guided by principles of flexibility and good faith. This involves adapting to the particularities of the indigenous or tribal peoples, respecting their culture, traditions, and beliefs. The company commits to recognizing and valuing their worldview, customs, and their relationship with the land, in accordance with current legislation.
+
+4. Free, Prior, and Informed Consent:
+
+The Protocol emphasizes the requirement for free, prior, and informed consent (FPIC). This means that any engagement or activities affecting indigenous peoples must be conducted with their explicit, informed agreement. The protocol ensures that consent is given freely and without coercion, reflecting a genuine understanding of the implications.
+
+5. Commitment to Protect and Preserve Cultural Heritage:
+
+MASISA is committed to protecting and preserving the cultural heritage of indigenous peoples from any adverse impacts that may arise from its local activities. This commitment is integrated into the company's practices and protocols (Indigenous People Engagement Protocol) to ensure that cultural heritage is respected and maintained. It is important to note that in the most recent study, conducted by the consultant Nonken, it was confirmed that "MASISA's operations in the municipalities of Cabrero and San Pedro de la Paz do not generate social impacts on the identified Indigenous Peoples and their cultural preservation."
+
+
+--- Document JSON Page 45 ---
+MASISA ESG Supporting Document 2024
+
+MASISA
+
+Tu mundo, tu estilo
+
+# 6. Grievance Mechanisms:
+
+The company has established a comprehensive Grievance, Comment, and Suggestion Protocol. This mechanism is designed for receiving, analyzing, resolving, and responding to grievances, comments, and suggestions in a participative, timely, transparent, and clear manner. It includes various channels for submitting grievances, such as email, phone, and designated drop boxes. These channels are open to the entire community, including individuals who identify as belonging to Indigenous Peoples.
+
+# 7. Audit and Assessment of Relocation/Resettlement:
+
+According to our baseline, there is no impact on individuals belonging to Indigenous or tribal peoples, so it has not been necessary to use MASISA's Indigenous Peoples Engagement Protocol. Generally, to date, the MASISA Relocation Protocol has also not been used, as there has been no need to relocate any individuals or families.
+
+Nonetheless, this protocol ensures that any potential relocation would be conducted with the free, prior, and informed consent of the affected communities, in line with MASISA's Community Relocation Protocol and national legislation. The process would focus on maintaining or improving the quality of life for relocated individuals, providing equivalent housing and land, and ensuring access to basic services and community infrastructure.
+
+# MASISA's share of local people employed at the operating site level
+
+The information below covers $100\%$ of Masisa's employees.
+
+| | Santiago | Concepción | Cabrero |
+| --- | --- | --- | --- |
+| Total employees | 155 | 200 | 792 |
+| Local employees | 149 | 111 | 488 |
+
+# MASISA's share of local people in senior management positions at the operating site level
+
+The information below covers $100\%$ of Masisa's employees.
+
+| | Administration | Operations |
+| --- | --- | --- |
+| Colombia | 84.5% | nap |
+| Ecuador | 87.5% | nap |
+| Peru | 100% | nap |
+| Chile | 94.3% | 63.4% |
+| Mexico | 72.7% | 95.5% |
+| USA | 100% | nap |
+| Venezuela | 88.4% | 87.3% |
+
+Share of local people in high-level management positions at the operational site level: $78.9\%$ (38 individuals in high-level management, of which 30 are local).

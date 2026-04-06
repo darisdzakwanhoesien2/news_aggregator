@@ -274,31 +274,76 @@ def get_combined_ocr_text(sess_dir: Path) -> str:
 # VERIFICATION SYSTEM PROMPT
 # ══════════════════════════════════════════════════════════════════════════════
 
-VERIFICATION_SYSTEM_PROMPT = """
-You are an objective verifier comparing multiple-choice answers against an OCR-extracted document.
-
-CRITICAL: Your entire response must be ONLY a valid JSON array. No preamble, no explanation, no markdown prose outside the array.
-Start your response with [ and end with ].
-
-Each element in the array must have:
-- id: (string) the question ID from the input
-- verification_status: one of ["SUPPORTED","PARTIALLY_SUPPORTED","NOT_FOUND","CONTRADICTED"]
-- confidence: numeric 0-100
-- evidence_quote: short quote (<=250 chars) from the OCR, or ""
-- evidence_page: page identifier or ""
-- reasoning: plain-text explanation
-- suggested_answer: "A","B","C","D", or null
-
-Rules:
-- Output ONLY the JSON array. No other text before or after.
-- PARTIALLY_SUPPORTED when evidence is partial.
-- NOT_FOUND only when no supporting text exists.
-- CONTRADICTED only when document explicitly contradicts the answer.
-"""
+VERIFICATION_SYSTEM_PROMPT = """You are a JSON-only verification API. You MUST output ONLY a raw JSON array.
+NEVER output any explanation, markdown, preamble, or prose.
+Your response MUST start with [ and end with ].
+Any response that is not a valid JSON array is a failure."""
 
 # ══════════════════════════════════════════════════════════════════════════════
 # LLM / API HELPERS
 # ══════════════════════════════════════════════════════════════════════════════
+
+def run_verification_in_batches(
+    answers: list[dict],
+    ocr_text: str,
+    model: str,
+    api_key: str,
+    batch_size: int = 5,
+    status_widget=None,
+) -> tuple[list[dict], str]:
+    """
+    Split answers into batches to avoid token truncation.
+    Returns (all_verifications, combined_raw_reply).
+    """
+    all_verifications = []
+    all_raw_replies   = []
+    batches = [answers[i:i+batch_size] for i in range(0, len(answers), batch_size)]
+
+    for batch_idx, batch in enumerate(batches):
+        if status_widget:
+            status_widget.info(
+                f"🔄 Verifying batch {batch_idx+1}/{len(batches)} "
+                f"({len(batch)} questions)…"
+            )
+
+        prompt_user = build_verification_prompt(batch, ocr_text, max_ocr_chars=12000)
+        messages = [
+            {"role": "system", "content": VERIFICATION_SYSTEM_PROMPT},
+            {"role": "user",   "content": prompt_user},
+        ]
+
+        raw_reply = call_openrouter(
+            messages=messages,
+            model=model,
+            api_key=api_key,
+            temperature=0.0,   # ✅ 0 temp = more deterministic, less creative prose
+            max_tokens=2048,   # ✅ smaller per batch = less likely to truncate
+        )
+        all_raw_replies.append(f"--- Batch {batch_idx+1} ---\n{raw_reply}")
+
+        verifications = parse_verification_json(raw_reply)
+        if verifications:
+            all_verifications.extend(verifications)
+        else:
+            # Mark batch as NOT_FOUND if parse fails
+            if status_widget:
+                status_widget.warning(
+                    f"⚠️ Batch {batch_idx+1} returned non-JSON. Raw reply:\n```\n{raw_reply[:500]}\n```"
+                )
+            for a in batch:
+                all_verifications.append({
+                    "id": a["id"],
+                    "verification_status": "NOT_FOUND",
+                    "confidence": 0,
+                    "evidence_quote": "",
+                    "evidence_page": "",
+                    "reasoning": f"LLM returned non-JSON for this batch. Raw: {raw_reply[:200]}",
+                    "suggested_answer": None,
+                })
+
+        time.sleep(1.0)  # ✅ rate limit buffer between batches
+
+    return all_verifications, "\n\n".join(all_raw_replies)
 
 def _get_api_key() -> str:
     if st.session_state.get("api_key", "").strip():
@@ -815,7 +860,7 @@ def build_verification_prompt(answers: list[dict], ocr_text: str, max_ocr_chars:
         ocr_snippet = "\n\n---\n\n".join(top)
         if len(ocr_snippet) > max_ocr_chars:
             ocr_snippet = ocr_snippet[:max_ocr_chars]
-        ocr_snippet += f"\n\n[... OCR retrieved + truncated; original length: {len(ocr_text)} chars ...]"
+        ocr_snippet += f"\n\n[... truncated; original: {len(ocr_text)} chars ...]"
 
     qa_block = []
     for a in answers:
@@ -826,10 +871,16 @@ def build_verification_prompt(answers: list[dict], ocr_text: str, max_ocr_chars:
             f"Selected Answer: {a.get('selected', '')} — {a.get('selected_text', '')}\n"
         )
 
+    # ✅ Make the required output format crystal clear in the user prompt too
+    example = '[{"id":"q1","verification_status":"SUPPORTED","confidence":85,"evidence_quote":"...","evidence_page":"p1","reasoning":"...","suggested_answer":"A"}]'
     return (
-        f"OCR DOCUMENT TEXT (retrieved snippets):\n{ocr_snippet}\n\n===\n\n"
-        f"MCQ ANSWERS TO VERIFY ({len(answers)} questions):\n{'---'.join(qa_block)}\n\n"
-        f"Verify each answer against the OCR document text above. Return a JSON array as instructed."
+        f"OCR DOCUMENT TEXT:\n{ocr_snippet}\n\n"
+        f"===\n\n"
+        f"TASK: Verify each MCQ answer below. Return ONLY a JSON array.\n"
+        f"REQUIRED FORMAT EXAMPLE: {example}\n\n"
+        f"verification_status must be one of: SUPPORTED, PARTIALLY_SUPPORTED, NOT_FOUND, CONTRADICTED\n\n"
+        f"MCQ ANSWERS ({len(answers)} questions):\n{'---'.join(qa_block)}\n\n"
+        f"OUTPUT ONLY THE JSON ARRAY STARTING WITH [ AND ENDING WITH ]:"
     )
 
 
@@ -1487,36 +1538,22 @@ if run_btn:
                 "answers":   answers,
             })
 
-        prompt_user = build_verification_prompt(answers, st.session_state.ocr_text, max_ocr_chars=14000)
-        messages    = [
-            {"role": "system", "content": VERIFICATION_SYSTEM_PROMPT},
-            {"role": "user",   "content": prompt_user},
-        ]
-        progress  = st.progress(0, text="Sending to LLM…")
-        t0        = time.time()
-        raw_reply = None
+        progress    = st.progress(0, text="Starting verification…")
+        status_box  = st.empty()
+        t0          = time.time()
+        raw_reply   = None
 
         try:
-            with st.spinner(f"Verifying {len(answers)} answers with **{st.session_state.model_id}**…"):
-                raw_reply = call_openrouter(
-                    messages=messages,
-                    model=st.session_state.model_id,
-                    api_key=st.session_state.api_key,
-                    temperature=0.1,
-                    max_tokens=4096,  # safer limit; most free models cap here
-                )
-            elapsed = time.time() - t0
-            progress.progress(80, text="Parsing response…")
-            verifications = parse_verification_json(raw_reply)
-
-            if verifications is None:
-                st.warning("⚠️ LLM returned a non-JSON response. Marking answers as NOT_FOUND.")
-                verifications = [
-                    {"id": a["id"], "verification_status": "NOT_FOUND",
-                     "confidence": 0, "evidence_quote": "", "evidence_page": "",
-                     "reasoning": "LLM response unparsable.", "suggested_answer": None}
-                    for a in answers
-                ]
+            # ✅ Use batch runner instead of single call
+            verifications, raw_reply = run_verification_in_batches(
+                answers=answers,
+                ocr_text=st.session_state.ocr_text,
+                model=st.session_state.model_id,
+                api_key=st.session_state.api_key,
+                batch_size=5,          # ✅ tune: lower = safer, higher = faster
+                status_widget=status_box,
+            )
+            progress.progress(80, text="Computing scores…")
 
             # Fill in any missing question IDs
             ver_ids = {v.get("id") for v in verifications}
