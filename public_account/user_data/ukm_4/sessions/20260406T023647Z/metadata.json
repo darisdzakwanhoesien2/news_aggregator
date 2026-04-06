@@ -2,8 +2,10 @@
   "session_id": "20260406T023647Z",
   "username": "ukm_4",
   "created_at": "2026-04-06T02:36:47.884013Z",
-  "status": "ocr_done",
+  "status": "verified",
   "doc_count": 1,
   "company": "users",
-  "answer_mode": "Use ESG question set"
+  "answer_mode": "Use ESG question set",
+  "verified_at": "2026-04-06T02:46:00.398895Z",
+  "pct_score": 84.67
 }
