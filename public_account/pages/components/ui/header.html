@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<style>
+{css}
+</style>
+</head>
+<body>
+<div class="app-card">
+  <div class="header-row">
+    <div class="logo">{logo_text}</div>
+    <div style="flex:1">
+      <div class="h1">{title}</div>
+      <div class="lead">{lead}</div>
+    </div>
+    <div style="text-align:right">
+      {user_html}
+    </div>
+  </div>
+
+  <div class="links" style="margin-top:12px;">
+    <a class="link-btn link-primary" href="{login_page}">🔐 Login</a>
+    <a class="link-btn" href="{register_page}">📝 Register</a>
+    <a class="link-btn" href="{profile_page}">👤 Personal page / Dashboard</a>
+    <a class="link-btn" href="/mcq_llm_good_stage">🔍 MCQ Verification</a>
+    <a class="link-btn" href="/0_0_0_2_Bulk_OCR">📄 Bulk OCR</a>
+  </div>
+
+  <div class="small" style="margin-top:10px;">
+    This app stores account data locally in JSON (users.json) inside the public_account folder. Passwords are hashed with salt.
+  </div>
+
+  <div class="footer-note">
+    Tip: use the sidebar (Pages) for direct access to all pages. Links above include your username in the dashboard link when you're signed in.
+  </div>
+</div>
+</body>
+</html>
