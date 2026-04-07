@@ -327,44 +327,9 @@ elif answer_mode == "Use ESG question set":
             update_session_meta(active_sess_dir, {"status": "answers_saved"})
             st.success(f"Collected {len(answers)} answers — saved to session inputs/answers.json")
 
-            # --- Immediately compute simple scores and create outputs so dashboard can see this submission ---
-            try:
-                df_local = compute_simple_scores(answers)
-                total_raw = int(df_local["Raw Score"].sum()) if not df_local.empty else 0
-                total_max = int(df_local["Max Score"].sum()) if not df_local.empty else 0
-                pct = (total_raw / total_max * 100) if total_max > 0 else 0.0
-
-                outputs_dir = active_sess_dir / "outputs"
-                outputs_dir.mkdir(parents=True, exist_ok=True)
-
-                # answers_saved.json (full payload)
-                save_json(outputs_dir / "answers_saved.json", {
-                    "company": company_name,
-                    "session_id": active_sess_id,
-                    "timestamp": datetime.utcnow().isoformat() + "Z",
-                    "answers": answers,
-                    "summary": {"total_raw": total_raw, "total_max": total_max, "pct": pct},
-                })
-
-                # verification.json (lightweight summary consumed by dashboard)
-                save_json(outputs_dir / "verification.json", {
-                    "session_id": active_sess_id,
-                    "company": company_name,
-                    "timestamp": datetime.utcnow().isoformat() + "Z",
-                    "answers_count": len(answers),
-                    "total_raw": total_raw,
-                    "total_max": total_max,
-                    # dashboard expects pct_verified, total_final_score etc.
-                    "pct_verified": round(pct, 1),
-                    "total_final_score": total_raw,
-                })
-
-                # raw scores CSV for convenience
-                df_local.to_csv(outputs_dir / "scores_raw.csv", index=False)
-                update_session_meta(active_sess_dir, {"status": "outputs_saved"})
-            except Exception:
-                # non-fatal: keep going, user still has inputs saved
-                pass
+if not answers:
+    st.info("No answers available yet. Fill the form or load from file above.")
+    st.stop()
 
 # ── Step 2: Results & Download ─────────────────────────────────────────────────
 st.header("Results (form-only)")
@@ -423,83 +388,3 @@ else:
     )
 
 st.stop()
-
-# insert new helper + UI for listing/viewing submissions before the "if not answers:" check
-def list_user_submissions(username: str) -> list[dict]:
-    result = []
-    base = get_sessions_dir(username)
-    if not base.exists():
-        return result
-    for s in sorted(base.iterdir(), reverse=True):
-        if not s.is_dir():
-            continue
-        out_dir = s / "outputs"
-        ver = out_dir / "verification.json"
-        ans = out_dir / "answers_saved.json"
-        item = {"session_id": s.name, "session_path": str(s)}
-        if ver.exists():
-            try:
-                j = json.loads(ver.read_text(encoding="utf-8"))
-                item.update({
-                    "company": j.get("company", ""),
-                    "timestamp": j.get("timestamp", ""),
-                    "pct_verified": j.get("pct_verified", None),
-                    "answers_count": j.get("answers_count", None),
-                })
-            except Exception:
-                pass
-        elif ans.exists():
-            try:
-                j = json.loads(ans.read_text(encoding="utf-8"))
-                item.update({
-                    "company": j.get("company", ""),
-                    "timestamp": j.get("timestamp", ""),
-                    "answers_count": len(j.get("answers", [])),
-                    "pct_verified": (j.get("summary", {}).get("pct") if isinstance(j.get("summary", {}), dict) else None),
-                })
-            except Exception:
-                pass
-        result.append(item)
-    return result
-
-# place this UI block after the company/answer_source logic, before the existing "if not answers:" check
-st.header("My Submissions")
-subs = list_user_submissions(current_user)
-if not subs:
-    st.info("No submissions found for your account yet.")
-else:
-    df_subs = pd.DataFrame(subs)
-    # Nice display: reorder columns if present
-    cols = ["session_id", "company", "timestamp", "answers_count", "pct_verified"]
-    present = [c for c in cols if c in df_subs.columns]
-    st.dataframe(df_subs[present], use_container_width=True, hide_index=True)
-
-    sel = st.selectbox("View submission", options=["— select —"] + [f"{r['session_id']} · {r.get('company','')}" for r in subs], key="view_sub_pick")
-    if sel != "— select —":
-        idx = [f"{r['session_id']} · {r.get('company','')}" for r in subs].index(sel)
-        picked = subs[idx]
-        if st.button("🔍 View submission details"):
-            # load outputs/answers_saved.json if exists, else show verification.json summary
-            out_path = Path(picked["session_path"]) / "outputs" / "answers_saved.json"
-            ver_path = Path(picked["session_path"]) / "outputs" / "verification.json"
-            if out_path.exists():
-                payload = load_json(out_path)
-                answers_view = payload.get("answers", [])
-                df_view = compute_simple_scores(answers_view)
-                st.subheader(f"Submission: {picked['session_id']} — {picked.get('company','')}")
-                if df_view.empty:
-                    st.info("No per-question answers to show.")
-                else:
-                    st.dataframe(df_view, use_container_width=True)
-                    st.markdown("Summary:")
-                    st.write(payload.get("summary", {}))
-            elif ver_path.exists():
-                payload = load_json(ver_path)
-                st.subheader(f"Submission summary: {picked['session_id']} — {picked.get('company','')}")
-                st.json(payload)
-            else:
-                st.error("No outputs found for that submission.")
-
-if not answers:
-    st.info("No answers available yet. Fill the form or load from file above.")
-    st.stop()
