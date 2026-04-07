@@ -13,6 +13,20 @@
       "salt": "ab5d12afd755561dc54be2c31ec6811a",
       "password_hash": "8a058661f64075a8a8bb674fb86b752917564fdcd5f6b5fa94ebd27748b290d2",
       "created_at": "2026-04-06T02:36:31.102100Z"
+    },
+    {
+      "username": "bank_2",
+      "role": "Bank",
+      "salt": "5701497e5c45483895b6d8e02ab03a04",
+      "password_hash": "eee834a745e7eccca80ca117ef638660738487c66bcd59d7e13f7542caa2d31c",
+      "created_at": "2026-04-06T05:18:34.154400Z"
+    },
+    {
+      "username": "ukm_5",
+      "role": "UKM",
+      "salt": "f90dff735a4118ef366284c7a02b76ad",
+      "password_hash": "fd503e97dda27bc8b755ceda6106d21d2a4bb1646481d0c9f8976a210c695c94",
+      "created_at": "2026-04-07T03:44:52.464245Z"
     }
   ]
 }

@@ -1,0 +1,49 @@
+/* Login / header styles for the Public Account app */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+:root {
+  --bg: #ffffff;
+  --muted: #6b7280;
+  --card-border: #e6eef8;
+  --accent: #2563eb;
+}
+
+body, .stApp {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+}
+
+.pa-header {
+  max-width: 920px;
+  margin: 18px auto;
+  padding: 16px;
+  border-radius: 10px;
+  background: linear-gradient(180deg,#ffffff,#fbfdff);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 6px 18px rgba(15,23,42,0.04);
+}
+
+.pa-header .row { display:flex; gap:12px; align-items:center; flex-wrap:wrap; }
+.pa-logo {
+  width:56px; height:56px; display:flex; align-items:center; justify-content:center;
+  border-radius:10px; background:linear-gradient(90deg,var(--accent),#7c3aed);
+  color:white; font-weight:800; font-size:20px;
+}
+.pa-title { margin:0; font-size:18px; font-weight:800; color:#0f172a; }
+.pa-lead { margin:6px 0 0; color:var(--muted); font-size:13px; }
+
+.pa-links { display:flex; gap:8px; flex-wrap:wrap; margin-top:12px; }
+.pa-link {
+  display:inline-block; padding:8px 12px; border-radius:10px; text-decoration:none; color:#0f172a;
+  background:#f8fafc; border:1px solid var(--card-border); font-weight:600;
+}
+.pa-link.primary { background: linear-gradient(90deg,var(--accent),#7c3aed); color:white; border:none; }
+
+.card {
+  background: #f8fafc;
+  padding: 18px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.small { font-size:12px; color:var(--muted); }
+.user-pill { padding:6px 10px; border-radius:999px; background:#eef2ff; color:#3730a3; font-weight:700; font-size:13px; }

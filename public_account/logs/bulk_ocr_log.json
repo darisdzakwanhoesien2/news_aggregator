@@ -1,10 +1,4 @@
 {
-  "esg.pdf": {
-    "status": "done",
-    "pages": 36,
-    "json_output": "/Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/anonymous/sessions/20260405T121131Z/documents/doc_001/ocr/esg_pdf/ocr_result.json",
-    "time": "2026-04-05 19:12:02"
-  },
   "ESG Supporting Document IFS 2024.pdf": {
     "status": "done",
     "pages": 18,
@@ -22,5 +16,11 @@
     "pages": 13,
     "json_output": "/Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/ukm_4/sessions/20260406T030136Z/documents/doc_001/ocr/CSSA ESG support Document 2023_pdf/ocr_result.json",
     "time": "2026-04-06 10:01:56"
+  },
+  "esg.pdf": {
+    "status": "done",
+    "pages": 36,
+    "json_output": "/Users/darisdzakwanhoesien/Documents/project_documentation/codebase/tools/news_collection/public_account/user_data/ukm_5/sessions/20260407T034516Z/documents/doc_001/ocr/esg_pdf/ocr_result.json",
+    "time": "2026-04-07 15:54:03"
   }
 }

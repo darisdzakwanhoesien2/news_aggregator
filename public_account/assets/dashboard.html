@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="card">
+      <header class="card-header">
+        <h1 class="title">👤 Personal Page / Dashboard</h1>
+        <p class="subtitle">Your account, actions and verification results</p>
+      </header>
+
+      <div class="meta">
+        <div class="greeting">
+          <h2 class="name">Hello, <span class="username">username</span> <span class="role role-UKM">UKM</span></h2>
+        </div>
+        <ul class="info-list">
+          <li><span class="small">Account created:</span> <span class="muted">2024-01-01T00:00:00Z</span></li>
+          <li><span class="small">Username:</span> <span class="muted">username</span></li>
+        </ul>
+      </div>
+
+      <hr />
+
+      <div class="section">
+        <h3>My role</h3>
+        <div class="role-row">
+          <select class="input select-role">
+            <option>UKM</option>
+            <option>Supplier</option>
+            <option>Bank</option>
+          </select>
+          <button class="btn primary">Save role</button>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="section two-col">
+        <div class="col">
+          <h3>✅ UKM actions</h3>
+          <p class="muted">As a UKM you can fill in your profile/form and submit answers.</p>
+          <button class="btn">✏️ Fill Profile / Form (placeholder)</button>
+        </div>
+        <div class="col">
+          <h3>🔎 Supplier / Bank</h3>
+          <p class="muted">Browse UKM profiles and view scores.</p>
+          <div class="table-placeholder">
+            <div class="table-head">UKM users (example)</div>
+            <div class="table-row">ukm_abc — 2024-01-01</div>
+            <div class="table-row">ukm_xyz — 2024-02-12</div>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="section results">
+        <h3>📊 My Verification Results</h3>
+        <div class="no-results muted">No verification results found for your account yet.</div>
+
+        <div class="chart-row" hidden>
+          <div class="metric">Latest <div class="metric-value">85%</div></div>
+          <div class="chart">[Line chart]</div>
+          <div class="chart">[Bar chart]</div>
+        </div>
+
+        <div class="session-table" hidden>
+          <h4>Session table</h4>
+          <div class="session-row">
+            <div class="sess">session_20240101</div>
+            <div class="company">Company A</div>
+            <div class="pct">75%</div>
+            <div><button class="btn">📄 View</button></div>
+          </div>
+        </div>
+
+        <p class="note muted">Download your results as CSV from the dashboard.</p>
+      </div>
+
+      <div class="actions-bottom">
+        <a class="btn ghost" href="/login">Go to Login</a>
+        <button class="btn danger">Logout</button>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

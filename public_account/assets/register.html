@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Register</title>
+  <link rel="stylesheet" href="register.css" />
+</head>
+<body>
+  <main class="page">
+    <section class="card">
+      <header class="card-header">
+        <h1 class="title">📝 Create an account</h1>
+        <p class="subtitle">Quick setup — one step to join</p>
+      </header>
+
+      <form class="form" action="#" method="post" novalidate>
+        <label class="field">
+          <span class="label-text">Username</span>
+          <input class="input" name="username" type="text" placeholder="Choose a username" required />
+          <small class="muted">Unique and visible to others</small>
+        </label>
+
+        <label class="field">
+          <span class="label-text">Role</span>
+          <select class="input" name="role">
+            <option>UKM</option>
+            <option>Supplier</option>
+            <option>Bank</option>
+          </select>
+        </label>
+
+        <label class="field">
+          <span class="label-text">Password</span>
+          <input class="input" name="password" type="password" placeholder="Choose a password" required />
+        </label>
+
+        <label class="field">
+          <span class="label-text">Repeat password</span>
+          <input class="input" name="password2" type="password" placeholder="Repeat password" required />
+        </label>
+
+        <div class="actions">
+          <button class="btn primary" type="submit">Create account</button>
+          <a class="btn ghost" href="/login">Go to Login</a>
+        </div>
+
+        <p class="note muted">By creating an account you agree to the terms of service.</p>
+      </form>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!-- Simple header template for login/register pages.
+     Placeholders: {logo_text}, {title}, {lead}, {login_page}, {register_page}, {profile_page}, {user_html} -->
+<div class="pa-header">
+  <div class="row">
+    <div class="pa-logo">{logo_text}</div>
+    <div style="flex:1">
+      <div class="pa-title">{title}</div>
+      <div class="pa-lead">{lead}</div>
+    </div>
+    <div style="text-align:right">
+      {user_html}
+    </div>
+  </div>
+
+  <div class="pa-links">
+    <a class="pa-link primary" href="{login_page}">🔐 Login</a>
+    <a class="pa-link" href="{register_page}">📝 Register</a>
+    <a class="pa-link" href="{profile_page}">👤 Dashboard</a>
+  </div>
+</div>
