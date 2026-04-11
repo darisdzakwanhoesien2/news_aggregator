@@ -1,0 +1,140 @@
+[
+    {
+        "name": "legacy_choice_letters",
+        "answers": [
+            {
+                "id": "Q1",
+                "pillar": "Env",
+                "question": "Simple yes/no",
+                "selected": "A",
+                "selected_text": "Yes"
+            },
+            {
+                "id": "Q2",
+                "pillar": "Env",
+                "question": "Simple alternative",
+                "selected": "B",
+                "selected_text": "No"
+            }
+        ],
+        "expected": {
+            "per_question": [
+                { "id": "Q1", "raw": 3, "max": 3 },
+                { "id": "Q2", "raw": 2, "max": 3 }
+            ],
+            "total_raw": 5,
+            "total_max": 6,
+            "pct": 83.33333333333333
+        }
+    },
+    {
+        "name": "options_varied_lengths",
+        "answers": [
+            {
+                "id": "Q3",
+                "pillar": "Env",
+                "question": "Two options",
+                "options": ["Yes", "No"],
+                "selected": "A",
+                "selected_text": "Yes"
+            },
+            {
+                "id": "Q4",
+                "pillar": "Env",
+                "question": "Three options",
+                "options": ["High", "Medium", "Low"],
+                "selected": "B",
+                "selected_text": "Medium"
+            },
+            {
+                "id": "Q5",
+                "pillar": "Env",
+                "question": "Four options",
+                "options": ["Ext", "Mod", "Min", "None"],
+                "selected": "D",
+                "selected_text": "None"
+            }
+        ],
+        "expected": {
+            "per_question": [
+                { "id": "Q3", "raw": 3, "max": 3 },
+                { "id": "Q4", "raw": 2, "max": 3 },
+                { "id": "Q5", "raw": 0, "max": 3 }
+            ],
+            "total_raw": 5,
+            "total_max": 9,
+            "pct": 55.55555555555556
+        }
+    },
+    {
+        "name": "choice_scores_mapping",
+        "answers": [
+            {
+                "id": "Q6",
+                "pillar": "Gov",
+                "question": "Explicit numeric mapping (strings)",
+                "choice_scores": { "A": "5", "B": "2" },
+                "selected": "A",
+                "max_score": 5
+            },
+            {
+                "id": "Q7",
+                "pillar": "Gov",
+                "question": "Explicit numeric mapping by text",
+                "choice_scores": { "Yes": 4, "No": 0 },
+                "selected": "",
+                "selected_text": "No"
+            }
+        ],
+        "expected": {
+            "per_question": [
+                { "id": "Q6", "raw": 5, "max": 5 },
+                { "id": "Q7", "raw": 0, "max": 3 }
+            ],
+            "total_raw": 5,
+            "total_max": 8,
+            "pct": 62.5
+        }
+    },
+    {
+        "name": "options_selected_text_matching",
+        "answers": [
+            {
+                "id": "Q8",
+                "pillar": "Social",
+                "question": "Match by selected_text",
+                "options": ["Option one long text", "Second option", "Third"],
+                "selected": "",
+                "selected_text": "Second option"
+            }
+        ],
+        "expected": {
+            "per_question": [
+                { "id": "Q8", "raw": 2, "max": 3 }
+            ],
+            "total_raw": 2,
+            "total_max": 3,
+            "pct": 66.66666666666666
+        }
+    },
+    {
+        "name": "no_selection_fallback",
+        "answers": [
+            {
+                "id": "Q9",
+                "pillar": "Social",
+                "question": "Empty selection",
+                "selected": "",
+                "selected_text": ""
+            }
+        ],
+        "expected": {
+            "per_question": [
+                { "id": "Q9", "raw": 0, "max": 3 }
+            ],
+            "total_raw": 0,
+            "total_max": 3,
+            "pct": 0.0
+        }
+    }
+]

@@ -92,21 +92,34 @@ meta_path = "new_app/pages/documentation_succesful/template_metadata.json"
 metadata = load_metadata(meta_path)
 thesis_title = extract_thesis_title(metadata.get("title", DEFAULT_TEMPLATE_METADATA["title"]))
 
-# Allow editing the thesis title and optionally save back to metadata
-edited_title = st.text_input("Thesis title", value=thesis_title)
-col_save_title, _ = st.columns([1, 3])
+# NEW: load and edit thesis context (if stored) or leave blank
+default_context = metadata.get("context", "")
+edited_context = st.text_area(
+    "Thesis context (will also be included in LaTeX table)",
+    value=default_context,
+    height=120,
+)
+col_save_title, col_save_context = st.columns([1, 1])
 with col_save_title:
     if st.button("Save thesis title to metadata"):
         try:
-            # store in the same format as DEFAULT_TEMPLATE_METADATA
-            metadata["title"] = f'Thesis Title: \"{edited_title}\"'
+            metadata["title"] = f'Thesis Title: \"{thesis_title}\"'
             Path(meta_path).write_text(json.dumps(metadata, indent=2), encoding="utf-8")
             st.success("Thesis title saved to template metadata.")
         except Exception as e:
             st.error(f"Failed to save metadata: {e}")
+with col_save_context:
+    if st.button("Save thesis context to metadata"):
+        try:
+            metadata["context"] = edited_context
+            Path(meta_path).write_text(json.dumps(metadata, indent=2), encoding="utf-8")
+            st.success("Thesis context saved to template metadata.")
+        except Exception as e:
+            st.error(f"Failed to save metadata: {e}")
 
-# use the edited title in the generated template
-thesis_title = edited_title
+# use the edited title/context in the generated template
+thesis_title = st.text_input("Thesis title", value=thesis_title)
+thesis_context_global = edited_context
 
 # allow filtering by Chapter (optional)
 chapters = sorted({r.get("Chapter", "").strip() for r in rows if r.get("Chapter")})
@@ -121,8 +134,15 @@ options = [
 sel_index = st.selectbox("Select section to generate template", options=[lbl for _, lbl in options])
 selected_row = filtered[[i for i, lbl in options if lbl == sel_index][0]]
 
+# NEW: multi-select for LaTeX table creation
+multi_labels = [lbl for _, lbl in options]
+selected_multi = st.multiselect(
+    "Select sections to include in LaTeX table",
+    options=multi_labels,
+)
+
 # Build template with placeholders filled from selected row + metadata
-context = selected_row.get("Context", "").strip()
+context = selected_row.get("Context", "").strip() or thesis_context_global.strip()
 section_title = selected_row.get("Title", "").strip()
 objective = selected_row.get("Objective", "").strip()
 writing_requirements = selected_row.get("Writing Requirements", "").strip()
@@ -160,3 +180,91 @@ Do not include explanations outside the LaTeX text.
 st.markdown("### Generated template")
 st.code(template, language="text")
 st.markdown("You can copy the template from the code box above.")
+
+# New: options to show the generated content as a table
+display_option = st.radio(
+    "Display template as",
+    options=["Text (default)", "Streamlit table", "Markdown table"],
+    index=0,
+)
+
+if display_option != "Text (default)":
+    table_rows = [
+        {"Field": "Thesis Title", "Content": thesis_title},
+        {"Field": "Thesis Context", "Content": context},
+        {"Field": "Section Title", "Content": section_title},
+        {"Field": "Section Objective", "Content": objective},
+        {"Field": "Writing Requirements", "Content": writing_requirements},
+        {"Field": "Output Format (snippet)", "Content": f"\\subsection{{{section_title}}}"},
+        {"Field": "Full Template", "Content": template},
+    ]
+
+    if display_option == "Streamlit table":
+        st.table(table_rows)
+    else:
+        # build a markdown table; escape pipes in content and preserve newlines as <br>
+        md = "| Field | Content |\n|---|---|\n"
+        for r in table_rows:
+            content = r["Content"].replace("|", "\\|").replace("\n", "<br>")
+            md += f"| {r['Field']} | {content} |\n"
+        st.markdown(md, unsafe_allow_html=True)
+
+# NEW: LaTeX table generation for multi-selected rows
+st.markdown("### LaTeX table for selected sections")
+
+if selected_multi:
+    # map label -> row
+    label_to_row = {
+        lbl: filtered[idx]
+        for idx, lbl in options
+    }
+    selected_rows_for_table = [label_to_row[lbl] for lbl in selected_multi if lbl in label_to_row]
+
+    # Define which columns you want in the LaTeX table
+    # ADDED: 'Thesis Context' column (uses global thesis_context_global)
+    table_columns = ["Chapter", "Section", "Title", "Objective", "Thesis Context"]
+
+    # Build LaTeX tabular environment
+    col_spec = " | ".join(["l"] * len(table_columns))
+    header_line = " & ".join(table_columns) + " \\\\ \\hline\n"
+
+    body_lines = ""
+    for r in selected_rows_for_table:
+        cells = []
+        for c in table_columns:
+            if c == "Thesis Context":
+                val = thesis_context_global or default_context or ""
+            else:
+                val = (r.get(c, "") or "")
+            val = val.replace("\n", " ")
+            # simple escaping of LaTeX special chars
+            val = (
+                val.replace("\\", "\\textbackslash{}")
+                   .replace("&", "\\&")
+                   .replace("%", "\\%")
+                   .replace("$", "\\$")
+                   .replace("#", "\\#")
+                   .replace("_", "\\_")
+                   .replace("{", "\\{")
+                   .replace("}", "\\}")
+            )
+            cells.append(val)
+        body_lines += " & ".join(cells) + " \\\\ \\hline\n"
+
+    latex_table = (
+        "\\begin{table}[ht]\n"
+        "\\centering\n"
+        f"\\begin{{tabular}}{{{col_spec}}}\n"
+        "\\hline\n"
+        f"{header_line}"
+        f"{body_lines}"
+        "\\end{tabular}\n"
+        "\\caption{Sections overview}\n"
+        "\\label{tab:sections_overview}\n"
+        "\\end{table}\n"
+    )
+
+    st.markdown("Copy-paste the LaTeX table below into your thesis:")
+    st.code(latex_table, language="latex")
+else:
+    st.info("Select one or more sections above to generate a LaTeX table.")

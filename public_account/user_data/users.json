@@ -27,6 +27,13 @@
       "salt": "f90dff735a4118ef366284c7a02b76ad",
       "password_hash": "fd503e97dda27bc8b755ceda6106d21d2a4bb1646481d0c9f8976a210c695c94",
       "created_at": "2026-04-07T03:44:52.464245Z"
+    },
+    {
+      "username": "ukm_6",
+      "role": "UKM",
+      "salt": "50d793662bbc54cf32b489bbaf836617",
+      "password_hash": "016b4390743edd90c311adb283aff870e60f12d867daad5c468ca6fbadb37b81",
+      "created_at": "2026-04-09T04:07:49.076164Z"
     }
   ]
 }
