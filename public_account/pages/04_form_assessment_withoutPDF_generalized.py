@@ -16,6 +16,7 @@ from typing import List
 import pandas as pd
 import streamlit as st
 from dotenv import load_dotenv
+from streamlit_compat import get_query_params
 
 # ── Page config ────────────────────────────────────────────────────────────────
 st.set_page_config(
@@ -244,7 +245,7 @@ def _resolve_user() -> str | None:
     if u:
         return u
     try:
-        params = st.experimental_get_query_params()
+        params = get_query_params()
         if "user" in params and params["user"]:
             st.session_state["user"] = params["user"][0]
             return st.session_state["user"]

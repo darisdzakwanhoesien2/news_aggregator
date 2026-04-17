@@ -3,6 +3,7 @@ from pathlib import Path
 import json
 from datetime import datetime
 import pandas as pd
+from streamlit_compat import get_query_params, set_query_params
 
 # ====================== CONFIGURATION ======================
 ROOT = Path(__file__).parent.parent
@@ -131,7 +132,7 @@ st.markdown("""
 # ====================== AUTH CHECK ======================
 user_key = st.session_state.get("user")
 if not user_key:
-    params = st.experimental_get_query_params()
+    params = get_query_params()
     if "user" in params and params["user"]:
         st.session_state["user"] = params["user"][0]
         user_key = st.session_state.get("user")
@@ -308,7 +309,7 @@ if st.button("🚪 Logout", use_container_width=True):
     for key in ["user", "role"]:
         if key in st.session_state:
             del st.session_state[key]
-    st.experimental_set_query_params()
+    set_query_params()
     st.success("You have been logged out.")
     st.experimental_rerun()
 

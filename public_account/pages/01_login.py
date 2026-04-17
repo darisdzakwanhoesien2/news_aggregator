@@ -5,6 +5,7 @@ import json
 import secrets
 from datetime import datetime
 import streamlit.components.v1 as components
+from streamlit_compat import set_query_params
 
 # ====================== CONFIGURATION ======================
 ROOT = Path(__file__).parent.parent
@@ -186,7 +187,7 @@ if current_user:
     if st.button("Logout", use_container_width=True):
         for k in ("user", "role"):
             st.session_state.pop(k, None)
-        st.experimental_set_query_params()
+        set_query_params()
         st.experimental_rerun()
     st.stop()
 

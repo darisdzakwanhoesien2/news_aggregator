@@ -4,6 +4,7 @@ from pathlib import Path
 
 import pandas as pd
 import streamlit as st
+from streamlit_compat import get_query_params, set_query_params
 
 # optional HTML renderer
 try:
@@ -58,7 +59,7 @@ def main():
         try:
             st.switch_page("pages/03_dashboard.py")
         except Exception:
-            st.experimental_set_query_params()
+            set_query_params()
             st.experimental_rerun()
 
     # Primary source: dashboard stored payload
@@ -66,7 +67,7 @@ def main():
     # Secondary: if no payload, attempt to load outputs from query params (user/session)
     if not payload:
         try:
-            params = st.experimental_get_query_params()
+            params = get_query_params()
             user = params.get("user", [None])[0]
             sess = params.get("session", [None])[0]
             if user and sess:

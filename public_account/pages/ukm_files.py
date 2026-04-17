@@ -2,6 +2,7 @@ import streamlit as st
 from pathlib import Path
 import json
 from datetime import datetime
+from streamlit_compat import get_query_params
 
 ROOT = Path(__file__).parent.parent
 USER_DATA_DIR = ROOT / "user_data"
@@ -10,7 +11,7 @@ USER_DATA_DIR.mkdir(parents=True, exist_ok=True)
 def _ensure_user():
     user = st.session_state.get("user")
     if not user:
-        params = st.experimental_get_query_params()
+        params = get_query_params()
         if "user" in params and params["user"]:
             st.session_state["user"] = params["user"][0]
             user = st.session_state["user"]
