@@ -20,7 +20,7 @@ def load_metadata(path: str):
 def load_text(path: str) -> str:
     try:
         return Path(path).read_text(encoding="utf-8")
-    except Exception as e:
+    except Exception:
         return ""
 
 def parse_markdown_table(md_text: str):
@@ -71,8 +71,8 @@ if not md_files:
     st.stop()
 
 selected_file = st.selectbox(
-    "Select Markdown File", 
-    options=md_files, 
+    "Select Markdown File",
+    options=md_files,
     format_func=lambda x: x.name
 )
 
@@ -92,7 +92,7 @@ meta_path = "new_app/pages/documentation_succesful/template_metadata.json"
 metadata = load_metadata(meta_path)
 thesis_title = extract_thesis_title(metadata.get("title", DEFAULT_TEMPLATE_METADATA["title"]))
 
-# NEW: load and edit thesis context (if stored) or leave blank
+# load and edit thesis context (also used in LaTeX table)
 default_context = metadata.get("context", "")
 edited_context = st.text_area(
     "Thesis context (will also be included in LaTeX table)",
@@ -134,7 +134,7 @@ options = [
 sel_index = st.selectbox("Select section to generate template", options=[lbl for _, lbl in options])
 selected_row = filtered[[i for i, lbl in options if lbl == sel_index][0]]
 
-# NEW: multi-select for LaTeX table creation
+# multi-select for LaTeX table creation
 multi_labels = [lbl for _, lbl in options]
 selected_multi = st.multiselect(
     "Select sections to include in LaTeX table",
@@ -181,7 +181,7 @@ st.markdown("### Generated template")
 st.code(template, language="text")
 st.markdown("You can copy the template from the code box above.")
 
-# New: options to show the generated content as a table
+# Optional view as key/value table in Streamlit / Markdown
 display_option = st.radio(
     "Display template as",
     options=["Text (default)", "Streamlit table", "Markdown table"],
@@ -202,63 +202,68 @@ if display_option != "Text (default)":
     if display_option == "Streamlit table":
         st.table(table_rows)
     else:
-        # build a markdown table; escape pipes in content and preserve newlines as <br>
         md = "| Field | Content |\n|---|---|\n"
         for r in table_rows:
             content = r["Content"].replace("|", "\\|").replace("\n", "<br>")
             md += f"| {r['Field']} | {content} |\n"
         st.markdown(md, unsafe_allow_html=True)
 
-# NEW: LaTeX table generation for multi-selected rows
+# LaTeX table generation for multi-selected rows
 st.markdown("### LaTeX table for selected sections")
 
 if selected_multi:
     # map label -> row
-    label_to_row = {
-        lbl: filtered[idx]
-        for idx, lbl in options
-    }
+    label_to_row = {lbl: filtered[idx] for idx, lbl in options}
     selected_rows_for_table = [label_to_row[lbl] for lbl in selected_multi if lbl in label_to_row]
 
-    # Define which columns you want in the LaTeX table
-    # ADDED: 'Thesis Context' column (uses global thesis_context_global)
-    table_columns = ["Chapter", "Section", "Title", "Objective", "Thesis Context"]
+    def escape_latex(val: str) -> str:
+        val = val.replace("\n", " ")
+        return (
+            val.replace("\\", "\\textbackslash{}")
+               .replace("&", "\\&")
+               .replace("%", "\\%")
+               .replace("$", "\\$")
+               .replace("#", "\\#")
+               .replace("_", "\\_")
+               .replace("{", "\\{")
+               .replace("}", "\\}")
+        )
 
-    # Build LaTeX tabular environment
-    col_spec = " | ".join(["l"] * len(table_columns))
-    header_line = " & ".join(table_columns) + " \\\\ \\hline\n"
-
+    # NEW: one row per section, in the exact format you want
     body_lines = ""
     for r in selected_rows_for_table:
-        cells = []
-        for c in table_columns:
-            if c == "Thesis Context":
-                val = thesis_context_global or default_context or ""
-            else:
-                val = (r.get(c, "") or "")
-            val = val.replace("\n", " ")
-            # simple escaping of LaTeX special chars
-            val = (
-                val.replace("\\", "\\textbackslash{}")
-                   .replace("&", "\\&")
-                   .replace("%", "\\%")
-                   .replace("$", "\\$")
-                   .replace("#", "\\#")
-                   .replace("_", "\\_")
-                   .replace("{", "\\{")
-                   .replace("}", "\\}")
-            )
-            cells.append(val)
-        body_lines += " & ".join(cells) + " \\\\ \\hline\n"
+        chapter = escape_latex(r.get("Chapter", "") or "")
+        section = escape_latex(r.get("Section", "") or "")
+        title = escape_latex(r.get("Title", "") or "")
+        obj = escape_latex(r.get("Objective", "") or "")
+        thesis_ctx = escape_latex(thesis_context_global or default_context or "")
+
+        body_lines += (
+            f"{chapter} & {section} & {title}\n"
+            f"  & {obj}\n"
+            f"  & {thesis_ctx} \\\\\n\n"
+        )
 
     latex_table = (
-        "\\begin{table}[ht]\n"
+        "\\begin{table}[H]\n"
         "\\centering\n"
-        f"\\begin{{tabular}}{{{col_spec}}}\n"
-        "\\hline\n"
-        f"{header_line}"
+        "\\footnotesize\n"
+        "\\setlength{\\tabcolsep}{6pt}\n"
+        "\\renewcommand{\\arraystretch}{1.4}\n\n"
+        "\\begin{tabularx}{\\textwidth}{\n"
+        "  >{\\centering\\arraybackslash}c\n"
+        "  >{\\centering\\arraybackslash}c\n"
+        "  >{\\raggedright\\arraybackslash}X\n"
+        "  >{\\raggedright\\arraybackslash}X\n"
+        "  >{\\raggedright\\arraybackslash}X\n"
+        "}\n"
+        "\\toprule\n"
+        "\\textbf{Chapter} & \\textbf{Section} & \\textbf{Title} & "
+        "\\textbf{Objective} & \\textbf{Thesis Context} \\\\\n"
+        "\\midrule\n"
         f"{body_lines}"
-        "\\end{tabular}\n"
+        "\\bottomrule\n"
+        "\\end{tabularx}\n"
         "\\caption{Sections overview}\n"
         "\\label{tab:sections_overview}\n"
         "\\end{table}\n"

@@ -1,0 +1,8 @@
+# Core app dependencies
+streamlit
+pandas
+requests
+python-dotenv
+
+# Used by archived dashboard pages under old_pages/
+altair
