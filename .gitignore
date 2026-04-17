@@ -2,3 +2,4 @@ data/news_extracted.json
 data/news_dataset.json
 new_app/.env
 public_account/.env
+streamlit.log
