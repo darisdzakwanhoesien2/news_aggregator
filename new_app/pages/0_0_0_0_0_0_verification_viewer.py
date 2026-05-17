@@ -5,9 +5,11 @@ from datetime import datetime
 import streamlit as st
 import pandas as pd
 import altair as alt
+from _page_descriptions import render_page_description
 
 st.set_page_config(page_title="Verification Viewer", layout="wide")
 st.title("🔎 Verification — Viewer")
+render_page_description(__file__)
 
 # search project for verification.json files
 ROOT = Path(__file__).resolve().parents[2]  # news_collection/

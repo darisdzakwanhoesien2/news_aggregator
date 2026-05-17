@@ -3,6 +3,7 @@ import pandas as pd
 from utils.instagram_oembed import fetch_oembed
 from utils.media_snapshot import render_snapshot
 from utils.post_loader import load_all_posts
+from _page_descriptions import render_page_description
 
 # =====================================================
 # Page config
@@ -13,6 +14,7 @@ st.set_page_config(
 )
 
 st.title("📸 Instagram Post Visualizer")
+render_page_description(__file__)
 st.markdown("""
 Explore Instagram posts by **company**, analyze **engagement over time**,  
 and visually verify posts using **live embed + archived snapshots**.

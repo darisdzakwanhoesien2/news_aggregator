@@ -4,9 +4,11 @@ import streamlit as st
 import json
 import pandas as pd
 import os
+from _page_descriptions import render_page_description
 
 st.set_page_config(page_title="News Content Viewer", layout="wide")
 st.title("📋 News Content Viewer & URL Inspector")
+render_page_description(__file__)
 
 # -----------------------------
 # Load Scraped Content

@@ -2,6 +2,7 @@ import streamlit as st
 import json
 from pathlib import Path
 import pandas as pd
+from _page_descriptions import render_page_description
 
 # =========================================================
 # CONFIG
@@ -61,6 +62,7 @@ def normalize_datasets(datasets):
 
 st.set_page_config(layout="wide")
 st.title("📊 ESG Keyword Mapping Dashboard")
+render_page_description(__file__)
 st.caption("Visualize and compare keyword mappings across multiple JSON versions")
 
 # =========================================================

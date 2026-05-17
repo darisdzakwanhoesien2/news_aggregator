@@ -5,9 +5,11 @@ from statistics import mean
 import streamlit as st
 import pandas as pd
 import altair as alt
+from _page_descriptions import render_page_description
 
 st.set_page_config(page_title="Verification Dashboard", layout="wide")
 st.title("📈 Verification — Dashboard")
+render_page_description(__file__)
 
 ROOT = Path(__file__).resolve().parents[2]
 ver_files = sorted(ROOT.rglob("verification.json"))

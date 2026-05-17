@@ -6,6 +6,7 @@ import time
 from pathlib import Path
 from urllib.parse import quote_plus
 import pandas as pd
+from _page_descriptions import render_page_description
 
 # =========================================================
 # CONFIG
@@ -116,6 +117,7 @@ def resolve_google_redirect(url):
 
 st.set_page_config(layout="wide")
 st.title("🔎 Google News Query Collector → JSON Dataset")
+render_page_description(__file__)
 
 st.caption("Search-driven dataset builder for research pipelines")
 

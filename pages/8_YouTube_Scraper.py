@@ -12,6 +12,7 @@ from utils.storage import (
     save_youtube_comments,
 )
 from utils.youtube_utils import get_channel_id_from_url
+from _page_descriptions import render_page_description
 
 # =====================================================
 # Page config
@@ -22,6 +23,7 @@ st.set_page_config(
 )
 
 st.title("📺 YouTube ESG Scraper")
+render_page_description(__file__)
 st.markdown("""
 Scrape **YouTube channels or individual videos** for ESG analysis.
 

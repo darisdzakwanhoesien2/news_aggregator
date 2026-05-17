@@ -9,6 +9,7 @@ import base64
 import time
 import json
 import re
+from _page_descriptions import render_page_description
 
 # =====================================================
 # PATH & ENV
@@ -41,6 +42,7 @@ LOG_FILE = LOG_DIR / "bulk_ocr_log.json"
 
 st.set_page_config(page_title="📚 Bulk OCR — Mistral", layout="wide")
 st.title("📚 Bulk OCR Pipeline — Mistral OCR")
+render_page_description(__file__)
 
 st.markdown("""
 ### Pipeline

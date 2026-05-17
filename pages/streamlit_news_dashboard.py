@@ -4,12 +4,14 @@ import json
 from pathlib import Path
 import matplotlib.pyplot as plt
 import time
+from _page_descriptions import render_page_description
 
 # =========================
 # PAGE CONFIG
 # =========================
 st.set_page_config(page_title="📰 News Dataset Visualizer", layout="wide")
 st.title("📰 News Dataset Visualizer")
+render_page_description(__file__)
 st.caption("Auto-refresh dashboard for news_dataset.json")
 
 # =========================

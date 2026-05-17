@@ -3,12 +3,15 @@ from extractor.storage import load_json, save_json
 from extractor.pipeline import process_article
 import os
 import time
+from _page_descriptions import render_page_description
 
 DATA_PATH = "data/news_dataset_new.json"
 EXTRACTED_PATH = "data/news_extracted.json"
 LOG_PATH = "data/logs.json"
 
+st.set_page_config(page_title="Batch Extractor", layout="wide")
 st.title("📰 Batch Extractor")
+render_page_description(__file__)
 
 news_data = load_json(DATA_PATH, [])
 extracted_data = load_json(EXTRACTED_PATH, [])

@@ -4,6 +4,7 @@ import hashlib
 import os
 import json
 from datetime import datetime
+from _page_descriptions import render_page_description
 
 # ====================== CONFIGURATION ======================
 ROOT = Path(__file__).parent.parent
@@ -43,6 +44,7 @@ st.set_page_config(
     layout="centered",
     initial_sidebar_state="collapsed"
 )
+render_page_description(__file__)
 
 # ====================== CUSTOM CSS + HTML ======================
 st.markdown("""

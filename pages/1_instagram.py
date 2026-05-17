@@ -1,7 +1,9 @@
 import streamlit as st
+from _page_descriptions import render_page_description
 
 st.set_page_config(layout="wide")
 st.title("📸 Instagram Scraper")
+render_page_description(__file__)
 
 st.warning(
     "Instagram scraping requires the official Meta Graph API.\n\n"

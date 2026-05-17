@@ -2,12 +2,14 @@ import streamlit as st
 import pandas as pd
 import json
 from pathlib import Path
+from _page_descriptions import render_page_description
 
 # =========================
 # PAGE CONFIG
 # =========================
 st.set_page_config(page_title="🏢 Company Coverage Mapper", layout="wide")
 st.title("🏢 Company Coverage Mapper")
+render_page_description(__file__)
 st.caption("Compare ESG master list vs News dataset coverage")
 
 # =========================

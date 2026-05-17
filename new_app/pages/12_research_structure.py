@@ -7,6 +7,7 @@ from pathlib import Path
 import os
 import glob
 import json
+from _page_descriptions import render_page_description
 
 # ============================================================
 # PAGE CONFIG
@@ -93,6 +94,7 @@ section = st.sidebar.radio(
 # ============================================================
 
 st.title("📚 Research Structure & Documentation")
+render_page_description(__file__)
 st.caption("Neurosymbolic + LLM Pipeline for ESG / IELTS Generation")
 
 # ============================================================

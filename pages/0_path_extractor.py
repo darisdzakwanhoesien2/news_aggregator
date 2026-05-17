@@ -372,6 +372,7 @@ from datetime import datetime
 import requests
 import re
 from urllib.parse import urljoin, urlparse
+from _page_descriptions import render_page_description
 
 # =====================================
 # PAGE CONFIG
@@ -379,6 +380,7 @@ from urllib.parse import urljoin, urlparse
 
 st.set_page_config(layout="wide")
 st.title("🔎 HTML / XML / JSON Path Extractor → JSON (Bulk Mode)")
+render_page_description(__file__)
 
 BASE_DIR = Path(__file__).resolve().parents[1]
 DATA_DIR = BASE_DIR / "."

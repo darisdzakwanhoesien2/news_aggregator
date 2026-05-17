@@ -5,9 +5,11 @@ import json
 import pandas as pd
 import os
 import re
+from _page_descriptions import render_page_description
 
 st.set_page_config(page_title="Content Cleaner", layout="wide")
 st.title("🧹 News Content Cleaner")
+render_page_description(__file__)
 
 # -----------------------------
 # File Paths

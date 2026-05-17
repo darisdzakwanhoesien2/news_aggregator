@@ -20,6 +20,7 @@ import requests
 import streamlit as st
 from dotenv import load_dotenv
 from streamlit_compat import get_query_params
+from _page_descriptions import render_page_description
 
 # ── Page config ────────────────────────────────────────────────────────────────
 st.set_page_config(
@@ -27,6 +28,7 @@ st.set_page_config(
     page_icon="🔍",
     layout="wide",
 )
+render_page_description(__file__)
 
 # ── Paths & env ────────────────────────────────────────────────────────────────
 BASE_DIR      = Path(__file__).resolve().parents[1]

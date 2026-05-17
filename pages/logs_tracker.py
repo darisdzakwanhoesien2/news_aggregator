@@ -2,6 +2,7 @@ import streamlit as st
 import json
 import pandas as pd
 from pathlib import Path
+from _page_descriptions import render_page_description
 
 # =============================
 # PAGE CONFIG
@@ -12,6 +13,7 @@ st.set_page_config(
 )
 
 st.title("📊 Run Log Analyzer")
+render_page_description(__file__)
 st.caption("Analyze query runs, fetched results, and batch saves")
 
 # =============================

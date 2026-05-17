@@ -9,6 +9,7 @@ from bs4 import BeautifulSoup
 import requests
 import pandas as pd
 import streamlit.components.v1 as components
+from _page_descriptions import render_page_description
 
 # ── Page config ────────────────────────────────────────────────────────────────
 st.set_page_config(
@@ -430,6 +431,7 @@ for k, v in _DEFAULTS.items():
 
 def main():
     st.title("🤖 Pear AI Chatbot")
+    render_page_description(__file__)
     st.caption("Ask anything about universities, scholarships, and study abroad — powered by OpenRouter LLM with local knowledge base.")
 
     # ── Load models ────────────────────────────────────────────────────────────

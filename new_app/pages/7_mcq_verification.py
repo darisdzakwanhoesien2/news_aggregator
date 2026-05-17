@@ -14,6 +14,7 @@ from urllib.parse import urlparse
 import requests
 from requests.adapters import HTTPAdapter, Retry
 import streamlit as st
+from _page_descriptions import render_page_description
 
 # ── Fix temp directory BEFORE any gradio import ───────────────────────────────
 _LOCAL_TMP = Path(__file__).resolve().parents[2] / ".tmp"
@@ -83,6 +84,7 @@ st.set_page_config(
     layout="wide",
 )
 st.title("🌿 ESG Combined Pipeline")
+render_page_description(__file__)
 st.caption(
     "Run ClimateBERT predictions (T1), ABSA analysis (T2), and "
     "LLM-based ESG structured extraction (T3) — with full-document context."

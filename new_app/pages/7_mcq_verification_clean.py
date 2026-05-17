@@ -38,6 +38,7 @@ import requests
 from requests.adapters import HTTPAdapter, Retry
 import streamlit as st
 from dotenv import load_dotenv
+from _page_descriptions import render_page_description
 
 # ══════════════════════════════════════════════════════════════════════════════
 # PATHS & ENV
@@ -462,6 +463,7 @@ st.set_page_config(
     layout="wide",
 )
 st.title("📋 ESG-SME MCQ Verification Pipeline")
+render_page_description(__file__)
 st.caption(
     "Upload company document(s) → Mistral OCR → 1-shot LLM → "
     "Answer 30 ESG-SME MCQ questions → Save to `data/<company_name>/`"

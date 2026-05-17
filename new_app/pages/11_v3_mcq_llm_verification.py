@@ -18,6 +18,7 @@ import pandas as pd
 import requests
 import streamlit as st
 from dotenv import load_dotenv
+from _page_descriptions import render_page_description
 
 # ── Page config ────────────────────────────────────────────────────────────────
 st.set_page_config(
@@ -760,6 +761,7 @@ with st.sidebar:
 # ══════════════════════════════════════════════════════════════════════════════
 
 st.title("🔍 MCQ LLM Verification & Scoring")
+render_page_description(__file__)
 st.caption("Verify MCQ answers against OCR-extracted company documents using an LLM.")
 
 # ── Step 1 ─────────────────────────────────────────────────────────────────────

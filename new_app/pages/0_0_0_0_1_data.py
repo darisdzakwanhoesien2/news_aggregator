@@ -5,6 +5,7 @@ import json
 import os
 import tempfile
 from collections import Counter, defaultdict
+from _page_descriptions import render_page_description
 
 try:
     import ijson
@@ -14,6 +15,7 @@ except Exception:
 st.set_page_config(page_title="News Data Visualization", layout="wide")
 
 st.title("📊 News Collection Analytics")
+render_page_description(__file__)
 
 # Replace load_data with streaming / chunked processor
 @st.cache_data

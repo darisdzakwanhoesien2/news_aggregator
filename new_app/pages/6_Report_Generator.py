@@ -6,9 +6,11 @@ import requests
 from pathlib import Path
 from datetime import datetime
 import pandas as pd
+from _page_descriptions import render_page_description
 
 st.set_page_config(page_title="LaTeX Report Generator", layout="wide")
 st.title("📄 ESG LaTeX Report Generator")
+render_page_description(__file__)
 
 # =============================================
 # Paths

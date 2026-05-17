@@ -1,3 +1,14 @@
+import streamlit as st
+from _page_descriptions import render_page_description
+
+st.set_page_config(page_title="Full News Extractor", layout="wide")
+st.title("📰 Full News Extractor")
+render_page_description(__file__)
+st.info(
+    "This file currently preserves legacy extraction implementations and notes. "
+    "Use it as reference material or promote one of the archived blocks into an "
+    "active workflow before relying on it operationally."
+)
 
 
 # # pages/News_Batch_Extractor.py

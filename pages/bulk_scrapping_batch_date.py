@@ -8,6 +8,7 @@ from urllib.parse import quote_plus
 import pandas as pd
 from datetime import datetime
 import uuid
+from _page_descriptions import render_page_description
 
 # =========================================================
 # PAGE CONFIG
@@ -15,6 +16,7 @@ import uuid
 
 st.set_page_config(layout="wide")
 st.title("🌱 ESG Company → Keyword → News Scraper")
+render_page_description(__file__)
 st.caption("Date-filtered • Incremental • Logged • Reproducible")
 
 # =========================================================

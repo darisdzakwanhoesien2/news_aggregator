@@ -36,6 +36,7 @@ import requests
 from requests.adapters import HTTPAdapter, Retry
 import streamlit as st
 from dotenv import load_dotenv
+from _page_descriptions import render_page_description
 
 # ══════════════════════════════════════════════════════════════════════════════
 # PATHS & ENV
@@ -599,6 +600,7 @@ for _k, _v in _DEFAULTS.items():
 # ══════════════════════════════════════════════════════════════════════════════
 st.set_page_config(page_title="ESG-SME MCQ Verifier", page_icon="📋", layout="wide")
 st.title("📋 ESG-SME MCQ Verification Pipeline")
+render_page_description(__file__)
 st.caption(
     "Answer the questionnaire → Upload docs for OCR → Run LLM → View results"
 )

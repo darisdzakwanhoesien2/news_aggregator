@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import json
 from pathlib import Path
+from _page_descriptions import render_page_description
 
 # =====================================================
 # Config
@@ -14,6 +15,7 @@ st.set_page_config(
 )
 
 st.title("🐦 X (Twitter) ESG Visualization")
+render_page_description(__file__)
 st.markdown("""
 Analyze **X posts** by **NGOs, companies, and media**.  
 This view supports **historical scraping**, **incremental updates**, and **ESG analysis**.

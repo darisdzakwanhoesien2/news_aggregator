@@ -1,192 +1,95 @@
-https://chatgpt.com/c/69a72877-3970-8321-af06-28847c55ad5d
+# News Aggregator Repository
 
-Below is a **complete, ready-to-run Streamlit mini-app** that:
+This repository contains three separate Streamlit applications plus shared scraping, OCR, storage, and verification utilities:
 
-1. Fetches the latest news from
-   **[https://berita-indo-api-next.vercel.app/api/antara-news/terkini](https://berita-indo-api-next.vercel.app/api/antara-news/terkini)**
-2. Saves the data into your **existing JSON file** (append or update)
-3. Displays the news inside the Streamlit UI
-4. Organizes your project directory cleanly
+1. The root app is a news and social-media monitoring workspace for Indonesian news, Instagram, X, and YouTube.
+2. `new_app/` is a research-oriented workflow for OCR, ESG MCQ verification, chat, and report generation.
+3. `public_account/` is a user-facing portal for registration, document upload, and scored ESG assessments.
 
----
+The codebase also includes historical prototypes and archived page variants. The active page files now expose in-app `Page guide` sections to explain their purpose, inputs, outputs, and operational notes.
 
-References 
-1. https://github.com/satyawikananda/berita-indo-api/blob/5af2ef203c11e9abeda675572e4affa3489439d4/src/app/api/route.ts#L4C29-L4C29
-2. https://github.com/farizdotid/DAFTAR-API-LOKAL-INDONESIA/blob/master/README.en.md
-3. https://chatgpt.com/c/6931ab83-4c68-832c-81a0-4abdc855294b
+## App Map
 
-# ✅ **Project Directory Structure**
+| App | Entry point | Purpose |
+| --- | --- | --- |
+| Root monitoring app | `app.py` | News collection, dataset management, dashboards, and social-media scraping |
+| Alternative root app | `app_2.py` | Standalone robust article scraper for URL and CSV-driven extraction |
+| Research workflow | `new_app/app.py` | OCR, verification experiments, chat, and report generation |
+| Public portal | `public_account/app.py` | Authentication, user sessions, uploads, and ESG assessment flows |
 
-```
-news_scraper/
-│
-├── app.py
-├── data/
-│   └── news.json         # will be created automatically
-└── requirements.txt
-```
+## Repository Structure
 
+| Path | Role |
+| --- | --- |
+| `pages/` | Active Streamlit pages for the root monitoring app |
+| `new_app/pages/` | Research and thesis-support pages |
+| `public_account/pages/` | User-facing portal pages |
+| `extractor/` | Article extraction pipeline, redirect resolution, and JSON helpers |
+| `ingestors/` | Platform-specific ingestion for X and YouTube |
+| `scrapers/` | Older scraper abstractions and `snscrape`-based X flow |
+| `utils/` | Shared helpers for Instagram, YouTube, storage, media rendering, and metric parsing |
+| `data/`, `logs/` | Root app datasets, logs, and derived outputs |
+| `new_app/data/`, `new_app/logs/`, `new_app/output/`, `new_app/reports/` | Research app working data |
+| `public_account/user_data/` | User-scoped uploads, OCR outputs, verification artifacts, and session metadata |
 
-https://chatgpt.com/c/697820fe-225c-832c-8337-c20a541349a2
+## How To Run
 
-https://chatgpt.com/c/69782ca5-d464-8330-8521-ebade6bd83a3
-
-Yes — absolutely 👍
-We can convert this **entire n8n workflow into a Streamlit application** and store all results into **JSON files locally** (instead of Google Sheets / Drive).
-
-What you’ll get:
-
-✅ Streamlit UI to run the pipeline
-✅ Fetch Google News RSS
-✅ Resolve encoded Google News links → real article URLs
-✅ Batch processing with throttling
-✅ Preview results in UI
-✅ Persist results to JSON (append-safe)
-✅ Re-runnable without overwriting old data
-
----
-
-# 🧱 Architecture Mapping (n8n → Streamlit)
-
-| n8n Node         | Streamlit Equivalent |
-| ---------------- | -------------------- |
-| Manual Trigger   | Run button           |
-| RSS Feed Read    | feedparser           |
-| Limit            | Slider               |
-| Split in Batches | Python batching      |
-| Wait             | time.sleep           |
-| HTTP Request     | requests             |
-| Extract HTML     | BeautifulSoup        |
-| JS Code          | Python functions     |
-| Aggregate        | Python list          |
-| Convert to File  | json.dump            |
-| Upload Drive     | Local JSON storage   |
-
----
-
-# 📁 Project Structure
-
-```
-news_decoder_app/
-├── app.py
-├── data/
-│   └── decoded_news.json
-├── requirements.txt
-```
-
----
-
-# 📦 requirements.txt
-
-```txt
-streamlit
-requests
-feedparser
-beautifulsoup4
-pandas
-```
-
-Install:
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
-# 🚀 app.py (FULL WORKING STREAMLIT APP)
-
-```python
-
-```
-
----
-
-# ▶️ Run the App
+From the repository root:
 
 ```bash
 streamlit run app.py
 ```
 
----
+Research workflow:
 
-# 💾 Output Example (data/decoded_news.json)
-
-```json
-[
-  {
-    "id": 1,
-    "title": "Some News Title",
-    "link": "https://news.google.com/...",
-    "published": "Mon, 27 Jan 2026",
-    "summary": "...",
-    "signature": "abc123",
-    "timestamp": "1730000000",
-    "decoded_url": "https://original-site.com/article"
-  }
-]
+```bash
+streamlit run new_app/app.py
 ```
 
----
+Public portal:
 
-# 🚀 Optional Enhancements (if you want)
-
-I can also add:
-
-✅ Deduplication by decoded_url
-✅ Export CSV
-✅ Scheduler mode
-✅ Error retry logic
-✅ Proxy support
-✅ Multi-RSS feeds
-✅ Async speedup
-✅ Metadata extraction from decoded page
-✅ Automatic daily runs
-
-Just tell me what you’d like next.
-
----
-
-# ✅ **Streamlit Scraper App (`app.py`)**
-
-```python
-
+```bash
+streamlit run public_account/app.py
 ```
 
----
+## Environment Variables
 
-# ✅ **How It Works**
+The repository uses multiple external services. These variables are referenced directly in code:
 
-### ✔ Fetch news
+| Variable | Used by | Purpose |
+| --- | --- | --- |
+| `MISTRAL_API_KEY` | `new_app/pages/0_0_0_2_Bulk_OCR.py`, related OCR flows | Bulk OCR on PDFs and images |
+| `OPENROUTER_API_KEY` | `new_app/pages/*verification*`, chatbot pages, public-account assessment pages | LLM-backed verification and chat |
+| `OPENROUTER_API_URL` | Verification pages | Optional OpenRouter endpoint override |
+| `OPENROUTER_MODELS_URL` | Verification pages | Optional model-list endpoint override |
+| `YOUTUBE_API_KEY` | `pages/8_YouTube_Scraper.py`, `utils/youtube_utils.py` | YouTube channel, video, and comment ingestion |
+| `X_BEARER_TOKEN` | `ingestors/x_api_ingestor.py` | Official X API collection mode |
 
-API returns format like:
+## Dependency Notes
 
+The checked-in root `requirements.txt` only lists a small subset of the libraries used across the repository. The code additionally references packages such as:
 
+- `beautifulsoup4`
+- `dotenv` / `python-dotenv`
+- `instaloader`
+- `lxml`
+- `newspaper3k`
+- `playwright`
+- `plotly`
+- `altair`
+- `trafilatura`
+- `snscrape`
 
-### ✔ Store in `data/news.json`
+If you want a reproducible environment, create separate requirement files per app or consolidate the imports into one locked environment definition.
 
-Stored format:
+## Documentation Index
 
-```json
-{
-  "last_updated": "2025-12-04T17:00:00",
-  "news": [
-    { "title": "...", "link": "...", "content": "...", "isoDate": "..." }
-  ]
-}
-```
+- Root monitoring app: [README_news_extractor.md](README_news_extractor.md)
+- Research workflow: [new_app/README.md](new_app/README.md)
+- Public portal: [public_account/README.md](public_account/README.md)
 
-### ✔ Avoid duplicates
+## Operational Notes
 
-It uses the **article link** as a unique ID.
-
----
-
-# 🔥 If you want a version that automatically fetches every X minutes
-
-I can add `st_autorefresh()` or a background cron loop.
-
----
-
-If you want to **scrape multiple news sources** (CNN Indonesia, CNBC, Kompas, etc.), I can extend this into a full news dashboard.
-# news_aggregator
+- Many page files contain commented historical implementations. Those are preserved for reference and should not be assumed to be production-ready.
+- The repository currently stores most datasets as JSON rather than in a database.
+- Authentication in `public_account/` is local-file based. It is suitable for internal demos or controlled environments, not hardened production deployment.

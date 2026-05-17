@@ -2,9 +2,11 @@ import streamlit as st
 import pandas as pd
 from utils.instaloader_client import fetch_instagram_posts
 from utils.storage import save_posts
+from _page_descriptions import render_page_description
 
 st.set_page_config(layout="wide")
 st.title("📸 Instagram Scraper — Instaloader")
+render_page_description(__file__)
 
 username = st.text_input("Instagram username", placeholder="natgeo")
 limit = st.slider("Number of posts", 5, 100, 20)

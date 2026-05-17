@@ -3,6 +3,7 @@ from pathlib import Path
 import json
 from datetime import datetime
 from streamlit_compat import get_query_params
+from _page_descriptions import render_page_description
 
 ROOT = Path(__file__).parent.parent
 USER_DATA_DIR = ROOT / "user_data"
@@ -55,6 +56,7 @@ def save_uploaded_file(user: str, uploaded):
 
 st.set_page_config(page_title="My Files", layout="centered")
 st.title("📁 My Files")
+render_page_description(__file__)
 
 user = _ensure_user()
 if not user:

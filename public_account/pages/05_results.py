@@ -5,6 +5,7 @@ from pathlib import Path
 import pandas as pd
 import streamlit as st
 from streamlit_compat import get_query_params, set_query_params
+from _page_descriptions import render_page_description
 
 # optional HTML renderer
 try:
@@ -13,6 +14,7 @@ except Exception:
     render_results_html = None
 
 st.set_page_config(page_title="Verification Results", page_icon="📋", layout="wide")
+render_page_description(__file__)
 
 # ── helpers ────────────────────────────────────────────────────────────────────
 def _find_col(df: pd.DataFrame, candidates: list[str]) -> str | None:

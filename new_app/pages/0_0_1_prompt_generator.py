@@ -1,6 +1,7 @@
 import json
 from pathlib import Path
 import streamlit as st
+from _page_descriptions import render_page_description
 
 # Simple defaults (matches other pages)
 DEFAULT_TEMPLATE_METADATA = {
@@ -61,6 +62,7 @@ def extract_thesis_title(raw: str):
 # Page UI
 st.set_page_config(page_title="Parse Thesis Table", layout="wide")
 st.title("Parse thesis chapter table → template")
+render_page_description(__file__)
 st.markdown("Load a markdown table and generate the dropdown-based template.")
 
 working_dir = Path("new_app/pages/system/working")

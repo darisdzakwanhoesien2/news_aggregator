@@ -2,9 +2,11 @@ import streamlit as st
 import pandas as pd
 from utils.playwright_client import fetch_posts_playwright
 from utils.storage import save_posts
+from _page_descriptions import render_page_description
 
 st.set_page_config(layout="wide")
 st.title("⚠️ Instagram Scraper — Playwright")
+render_page_description(__file__)
 
 st.warning("""
 This method uses browser automation.

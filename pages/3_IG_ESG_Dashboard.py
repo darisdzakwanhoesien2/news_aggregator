@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import json
 from pathlib import Path
+from _page_descriptions import render_page_description
 
 # ======================================
 # Config
@@ -14,6 +15,7 @@ st.set_page_config(
 )
 
 st.title("📊 ESG Instagram Monitoring Dashboard")
+render_page_description(__file__)
 st.markdown("""
 This dashboard visualizes **scraped Instagram datasets**  
 grouped by **company (username)** and **scrape date**.

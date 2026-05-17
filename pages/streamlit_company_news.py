@@ -315,12 +315,14 @@ import matplotlib.pyplot as plt
 import time
 import hashlib
 import re
+from _page_descriptions import render_page_description
 
 # =========================
 # PAGE CONFIG
 # =========================
 st.set_page_config(page_title="🏢 Company News Intelligence", layout="wide")
 st.title("🏢 Company News Intelligence Dashboard")
+render_page_description(__file__)
 st.caption("Refresh • Deduplication • Company Overview • Grouped Articles")
 
 # =========================

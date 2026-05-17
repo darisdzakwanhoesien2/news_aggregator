@@ -6,6 +6,7 @@ import time
 from pathlib import Path
 from urllib.parse import quote_plus
 import pandas as pd
+from _page_descriptions import render_page_description
 
 # =========================================================
 # CONFIG
@@ -175,6 +176,7 @@ def build_queries(selected_companies, companies, keywords):
 
 st.set_page_config(layout="wide")
 st.title("🌱 ESG Company → Keyword → News Scraper")
+render_page_description(__file__)
 st.caption("Incremental, crash-safe ESG news harvesting")
 
 # ---------------- Sidebar Controls ----------------

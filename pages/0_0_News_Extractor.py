@@ -6,10 +6,12 @@ import pandas as pd
 import re
 from bs4 import BeautifulSoup
 from datetime import datetime
+from _page_descriptions import render_page_description
 
 st.set_page_config(page_title="News Extractor", layout="wide")
 
 st.title("📰 ESG News Extractor")
+render_page_description(__file__)
 
 # -----------------------------
 # Load Data

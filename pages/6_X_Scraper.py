@@ -4,6 +4,7 @@ import pandas as pd
 from ingestors.x_api_ingestor import fetch_user_tweets
 from ingestors.x_playwright_ingestor import fetch_tweets_incremental
 from utils.storage import save_x_posts, load_existing_x_post_ids
+from _page_descriptions import render_page_description
 
 # =====================================================
 # Page config
@@ -14,6 +15,7 @@ st.set_page_config(
 )
 
 st.title("🐦 X (Twitter) ESG Scraper")
+render_page_description(__file__)
 st.markdown("""
 Incrementally scrape **X (Twitter)** posts for ESG monitoring.
 

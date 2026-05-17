@@ -4,6 +4,7 @@ import os
 import pandas as pd
 import re
 from datetime import datetime
+from _page_descriptions import render_page_description
 
 # =====================================================
 # CONFIG
@@ -23,6 +24,7 @@ st.set_page_config(
 )
 
 st.title("📊 Scraped Articles Viewer")
+render_page_description(__file__)
 st.caption(
     "Time-series article viewer with website preview, editable text, and edit audit logs"
 )

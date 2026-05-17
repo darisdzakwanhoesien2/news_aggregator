@@ -3,6 +3,7 @@ import pandas as pd
 import json
 from pathlib import Path
 import matplotlib.pyplot as plt
+from _page_descriptions import render_page_description
 
 # =========================
 # PAGE CONFIG
@@ -14,6 +15,7 @@ st.set_page_config(
 )
 
 st.title("📰 News Dataset — Distribution Dashboard")
+render_page_description(__file__)
 st.caption("Visual analytics for news_dataset.json")
 
 # =========================

@@ -3,12 +3,14 @@ import json
 import os
 from datetime import datetime
 from scrapers.x_twitter import XTwitterScraper
+from _page_descriptions import render_page_description
 
 DATA_DIR = "data/x/posts"
 os.makedirs(DATA_DIR, exist_ok=True)
 
 st.set_page_config(layout="wide")
 st.title("🐦 X (Twitter) Scraper")
+render_page_description(__file__)
 
 query = st.text_input(
     "Search query",

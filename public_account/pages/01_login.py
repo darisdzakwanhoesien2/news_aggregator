@@ -6,6 +6,7 @@ import secrets
 from datetime import datetime
 import streamlit.components.v1 as components
 from streamlit_compat import set_query_params
+from _page_descriptions import render_page_description
 
 # ====================== CONFIGURATION ======================
 ROOT = Path(__file__).parent.parent
@@ -65,6 +66,7 @@ st.set_page_config(
     layout="centered",
     initial_sidebar_state="collapsed"
 )
+render_page_description(__file__)
 
 # ====================== CUSTOM HTML + CSS ======================
 st.markdown("""
