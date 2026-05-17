@@ -1,7 +1,8 @@
 import streamlit as st
 import pandas as pd
+from utils.instaloader_client import InstagramScraperError, normalize_instagram_username
 from utils.playwright_client import fetch_posts_playwright
-from utils.storage import save_posts
+from utils.storage import save_instagram_posts
 from _page_descriptions import render_page_description
 
 st.set_page_config(layout="wide")
@@ -22,8 +23,14 @@ if st.button("Scrape with Playwright"):
         st.warning("Please enter a username.")
         st.stop()
 
+    try:
+        normalized_username = normalize_instagram_username(username)
+    except InstagramScraperError as exc:
+        st.error(str(exc))
+        st.stop()
+
     with st.spinner("Launching browser & scraping..."):
-        posts = fetch_posts_playwright(username, scrolls)
+        posts = fetch_posts_playwright(normalized_username, scrolls)
 
     if not posts:
         st.error("No posts found or blocked.")
@@ -34,11 +41,11 @@ if st.button("Scrape with Playwright"):
 
     st.dataframe(df, use_container_width=True)
 
-    path = save_posts(username, posts)
+    path = save_instagram_posts(normalized_username, posts)
     st.info(f"Saved to {path}")
 
     st.download_button(
         "⬇️ Download JSON",
         df.to_json(orient="records", indent=2),
-        file_name=f"{username}_playwright_posts.json"
+        file_name=f"{normalized_username}_playwright_posts.json"
     )
