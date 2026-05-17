@@ -11,7 +11,7 @@ from utils.storage import (
     save_youtube_videos,
     save_youtube_comments,
 )
-from utils.youtube_utils import get_channel_id_from_url
+from utils.youtube_utils import get_channel_id_from_url, has_youtube_api_key
 from _page_descriptions import render_page_description
 
 # =====================================================
@@ -32,6 +32,12 @@ Supports:
 - Channel URL (`@handle`)
 - Single video URL
 """)
+
+if not has_youtube_api_key():
+    st.warning(
+        "`YOUTUBE_API_KEY` is not configured. Channel video fetch, video stats, and "
+        "comment collection will fail until the key is added to the deployment environment."
+    )
 
 # =====================================================
 # Mode selector
@@ -122,16 +128,23 @@ if st.button("🚀 Scrape YouTube"):
         if channel_input.startswith("http"):
             channel_id = get_channel_id_from_url(channel_input)
             if not channel_id:
-                st.error("Could not resolve Channel ID from URL.")
+                st.error(
+                    "Could not resolve Channel ID from URL. Check that the URL is a valid "
+                    "channel page, handle page, or `/channel/UC...` URL."
+                )
                 st.stop()
         else:
             channel_id = channel_input
 
-        with st.spinner("Fetching channel videos…"):
-            videos = fetch_channel_videos(
-                channel_id=channel_id,
-                max_results=max_videos
-            )
+        try:
+            with st.spinner("Fetching channel videos…"):
+                videos = fetch_channel_videos(
+                    channel_id=channel_id,
+                    max_results=max_videos
+                )
+        except Exception as e:
+            st.error(f"Failed to fetch channel videos: {e}")
+            st.stop()
 
         if not videos:
             st.error("No videos found.")
@@ -160,8 +173,12 @@ if st.button("🚀 Scrape YouTube"):
     # =================================================
     # Fetch stats
     # =================================================
-    with st.spinner("Fetching video statistics…"):
-        stats = fetch_video_stats(video_df["video_id"].tolist())
+    try:
+        with st.spinner("Fetching video statistics…"):
+            stats = fetch_video_stats(video_df["video_id"].tolist())
+    except Exception as e:
+        st.error(f"Failed to fetch video statistics: {e}")
+        st.stop()
 
     for i, row in video_df.iterrows():
         s = stats.get(row["video_id"], {})
@@ -199,12 +216,16 @@ if st.button("🚀 Scrape YouTube"):
         all_comments = []
 
         with st.spinner("Fetching video comments…"):
-            for _, row in video_df.iterrows():
-                comments = fetch_video_comments(
-                    video_id=row["video_id"],
-                    max_pages=max_comment_pages
-                )
-                all_comments.extend(comments)
+            try:
+                for _, row in video_df.iterrows():
+                    comments = fetch_video_comments(
+                        video_id=row["video_id"],
+                        max_pages=max_comment_pages
+                    )
+                    all_comments.extend(comments)
+            except Exception as e:
+                st.error(f"Failed to fetch comments: {e}")
+                st.stop()
 
         if all_comments:
             comment_df = pd.DataFrame(all_comments)

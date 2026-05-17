@@ -8,10 +8,16 @@ load_dotenv()
 API_KEY = os.getenv("YOUTUBE_API_KEY")
 BASE_URL = "https://www.googleapis.com/youtube/v3"
 
+
+def _require_api_key():
+    if not (API_KEY or "").strip():
+        raise ValueError("YOUTUBE_API_KEY is not configured.")
+
 def fetch_channel_videos(channel_id, max_results=25):
     """
     Fetch videos from a YouTube channel
     """
+    _require_api_key()
     videos = []
     page_token = None
 
@@ -49,6 +55,7 @@ def fetch_channel_videos(channel_id, max_results=25):
     return videos
 
 def fetch_video_comments(video_id, max_pages=5):
+    _require_api_key()
     comments = []
     page_token = None
 
@@ -87,6 +94,7 @@ def fetch_video_comments(video_id, max_pages=5):
     return comments
 
 def fetch_video_stats(video_ids):
+    _require_api_key()
     stats = {}
 
     for i in range(0, len(video_ids), 50):
