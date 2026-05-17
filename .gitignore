@@ -3,3 +3,4 @@ new_app/.env
 public_account/.env
 streamlit.log
 venv
+.env
