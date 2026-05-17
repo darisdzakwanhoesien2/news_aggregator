@@ -1,5 +1,5 @@
-data/news_extracted.json
-data/news_dataset.json
+data
 new_app/.env
 public_account/.env
 streamlit.log
+venv
