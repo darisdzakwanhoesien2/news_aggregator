@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import json
 
 from ingestors.x_api_ingestor import fetch_user_tweets
 from ingestors.x_playwright_ingestor import fetch_tweets_incremental
@@ -144,7 +145,7 @@ if st.button("🚀 Scrape X"):
     # =================================================
     st.download_button(
         "⬇️ Download NEW posts (JSON)",
-        data=df.to_json(orient="records", indent=2, ensure_ascii=False),
+        data=json.dumps(df.to_dict(orient="records"), indent=2, ensure_ascii=False),
         file_name=f"x_{username}_new.json"
     )
 

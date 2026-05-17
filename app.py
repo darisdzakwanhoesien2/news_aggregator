@@ -5,7 +5,6 @@ import json
 from pathlib import Path
 from datetime import datetime, date, timedelta
 import pandas as pd
-import matplotlib.pyplot as plt
 import io
 import smtplib
 from email.message import EmailMessage
@@ -389,16 +388,10 @@ with col2:
         if df_daily.empty:
             st.info("No aggregated data yet.")
         else:
-            # plot with matplotlib (single plot per rule)
-            fig1, ax1 = plt.subplots(figsize=(9,3))
-            ax1.plot(df_daily["date"], df_daily["incoming"], label="incoming")
-            ax1.plot(df_daily["date"], df_daily["added"], label="added")
-            ax1.plot(df_daily["date"], df_daily["duplicates"], label="duplicates")
-            ax1.set_xlabel("date")
-            ax1.set_ylabel("count")
-            ax1.legend()
-            ax1.set_title("Daily trend: incoming / added / duplicates")
-            st.pyplot(fig1)
+            st.line_chart(
+                df_daily.set_index("date")[["incoming", "added", "duplicates"]],
+                use_container_width=True,
+            )
 
         # Per-source analytics (last N days)
         st.subheader("Per-source recent analytics (last 14 days)")
@@ -415,13 +408,10 @@ with col2:
         if df_daily.empty:
             st.info("No daily data.")
         else:
-            fig2, ax2 = plt.subplots(figsize=(9,3))
-            ax2.bar(df_daily["date"], df_daily["added"], label="added")
-            ax2.bar(df_daily["date"], df_daily["duplicates"], bottom=df_daily["added"], label="duplicates")
-            ax2.set_xlabel("date")
-            ax2.set_ylabel("count")
-            ax2.legend()
-            st.pyplot(fig2)
+            st.bar_chart(
+                df_daily.set_index("date")[["added", "duplicates"]],
+                use_container_width=True,
+            )
 
 # ----------------------
 # On-load: Optionally perform a fetch for the selected source (quiet)
@@ -429,4 +419,3 @@ with col2:
 # This block will not run automatically; only when user presses buttons or auto-refresh reloads page.
 st.markdown("---")
 st.caption("Notes: Auto-refresh will reload this page every 6 hours while open. The app stores logs to data/logs.jsonl and news in data/news.json. Email / Slack delivery requires valid credentials / webhook URLs.")
-

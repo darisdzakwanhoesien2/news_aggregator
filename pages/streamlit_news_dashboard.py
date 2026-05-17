@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import json
 from pathlib import Path
-import matplotlib.pyplot as plt
 import time
 from _page_descriptions import render_page_description
 
@@ -166,25 +165,24 @@ company_counts = (
     .size()
     .sort_values(ascending=False)
 )
-
-fig1, ax1 = plt.subplots()
-company_counts.plot(kind="bar", ax=ax1)
-ax1.set_xlabel("Company Code")
-ax1.set_ylabel("Number of Articles")
-ax1.set_title("News Volume by Company")
-st.pyplot(fig1)
+st.bar_chart(
+    company_counts.rename("Number of Articles").to_frame(),
+    use_container_width=True,
+)
 
 # =========================
 # CHART 2 — ESG Score Distribution
 # =========================
 st.subheader("🌱 ESG Score Distribution")
-
-fig2, ax2 = plt.subplots()
-filtered_df["esg_score"].dropna().plot(kind="hist", bins=20, ax=ax2)
-ax2.set_xlabel("ESG Score")
-ax2.set_ylabel("Frequency")
-ax2.set_title("Distribution of ESG Scores")
-st.pyplot(fig2)
+score_bins = pd.cut(filtered_df["esg_score"].dropna(), bins=20)
+score_counts = score_bins.value_counts().sort_index()
+score_chart = pd.DataFrame(
+    {
+        "ESG Score Range": score_counts.index.astype(str),
+        "Frequency": score_counts.values,
+    }
+).set_index("ESG Score Range")
+st.bar_chart(score_chart, use_container_width=True)
 
 # =========================
 # CHART 3 — Articles Over Time
@@ -198,13 +196,10 @@ time_counts = (
     .resample("W")
     .size()
 )
-
-fig3, ax3 = plt.subplots()
-time_counts.plot(ax=ax3)
-ax3.set_xlabel("Week")
-ax3.set_ylabel("Number of Articles")
-ax3.set_title("News Volume Over Time")
-st.pyplot(fig3)
+st.line_chart(
+    time_counts.rename("Number of Articles").to_frame(),
+    use_container_width=True,
+)
 
 # =========================
 # CHART 4 — Source Distribution
@@ -216,13 +211,10 @@ source_counts = (
     .value_counts()
     .head(15)
 )
-
-fig4, ax4 = plt.subplots()
-source_counts.plot(kind="barh", ax=ax4)
-ax4.set_xlabel("Articles")
-ax4.set_ylabel("Source")
-ax4.set_title("Top News Sources")
-st.pyplot(fig4)
+st.bar_chart(
+    source_counts.rename("Articles").to_frame(),
+    use_container_width=True,
+)
 
 # =========================
 # COMPANY SUMMARY TABLE

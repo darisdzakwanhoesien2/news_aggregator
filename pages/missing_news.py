@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import json
 from pathlib import Path
-import matplotlib.pyplot as plt
 from _page_descriptions import render_page_description
 
 # =========================
@@ -87,13 +86,10 @@ company_counts = (
     .value_counts()
     .sort_index()
 )
-
-fig, ax = plt.subplots(figsize=(12, 4))
-company_counts.plot(kind="bar", ax=ax)
-ax.set_xlabel("Company Code")
-ax.set_ylabel("Number of Articles")
-ax.set_title("News Coverage per Company")
-st.pyplot(fig)
+st.bar_chart(
+    company_counts.rename("Number of Articles").to_frame(),
+    use_container_width=True,
+)
 
 # =========================
 # MATCHED COMPANIES

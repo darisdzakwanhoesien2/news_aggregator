@@ -311,7 +311,6 @@ import streamlit as st
 import pandas as pd
 import json
 from pathlib import Path
-import matplotlib.pyplot as plt
 import time
 import hashlib
 import re
@@ -476,12 +475,10 @@ colA, colB = st.columns([2, 1])
 
 with colA:
     top_companies = company_summary.head(15).set_index("company_code")["articles"]
-    fig_overview, ax_overview = plt.subplots()
-    top_companies.plot(kind="bar", ax=ax_overview)
-    ax_overview.set_xlabel("Company Code")
-    ax_overview.set_ylabel("Articles")
-    ax_overview.set_title("Top Companies by News Volume")
-    st.pyplot(fig_overview)
+    st.bar_chart(
+        top_companies.rename("Articles").to_frame(),
+        use_container_width=True,
+    )
 
 with colB:
     st.markdown("### 🏆 Top Companies")
@@ -524,9 +521,10 @@ col1, col2 = st.columns(2)
 with col1:
     st.subheader("🗞 Source Distribution")
     source_counts = company_df["source"].value_counts()
-    fig1, ax1 = plt.subplots()
-    source_counts.plot(kind="bar", ax=ax1)
-    st.pyplot(fig1)
+    st.bar_chart(
+        source_counts.rename("Articles").to_frame(),
+        use_container_width=True,
+    )
 
 with col2:
     st.subheader("📅 Articles Over Time")
@@ -537,9 +535,10 @@ with col2:
         .resample("D")
         .size()
     )
-    fig2, ax2 = plt.subplots()
-    time_series.plot(ax=ax2)
-    st.pyplot(fig2)
+    st.line_chart(
+        time_series.rename("Articles").to_frame(),
+        use_container_width=True,
+    )
 
 st.subheader("🔑 Keyword Distribution")
 
@@ -553,10 +552,10 @@ keyword_counts = (
     .value_counts()
     .head(20)
 )
-
-fig3, ax3 = plt.subplots()
-keyword_counts.plot(kind="barh", ax=ax3)
-st.pyplot(fig3)
+st.bar_chart(
+    keyword_counts.rename("Count").to_frame(),
+    use_container_width=True,
+)
 
 # =========================
 # 📋 GROUPED ARTICLE TABLE

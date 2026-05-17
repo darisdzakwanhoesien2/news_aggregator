@@ -874,7 +874,8 @@ if st.button("🚀 Run Selected Pipelines", type="primary", use_container_width=
                     try:
                         expl_df, expl_fig, expl_scatter = compare_explain()
                         st.dataframe(expl_df, use_container_width=True)
-                        if expl_fig:                  st.pyplot(expl_fig)
+                        if expl_fig:
+                            st.info("Matplotlib explainability figure skipped in this deployment environment.")
                         if expl_scatter is not None:  st.plotly_chart(expl_scatter)
                         expl_out = {"compare_df": expl_df}
                     except Exception as e:

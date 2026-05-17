@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import json
 from pathlib import Path
-import matplotlib.pyplot as plt
 from _page_descriptions import render_page_description
 
 # =========================
@@ -100,12 +99,9 @@ with st.expander("📄 Preview Dataset"):
 # =========================
 
 def plot_bar(series, title, xlabel, ylabel):
-    fig, ax = plt.subplots()
-    series.plot(kind="bar", ax=ax)
-    ax.set_title(title)
-    ax.set_xlabel(xlabel)
-    ax.set_ylabel(ylabel)
-    st.pyplot(fig)
+    chart_df = series.rename(ylabel).to_frame()
+    st.caption(title)
+    st.bar_chart(chart_df, use_container_width=True)
 
 
 # =========================
@@ -122,13 +118,10 @@ with colA:
         .size()
         .sort_index()
     )
-
-    fig, ax = plt.subplots()
-    time_counts.plot(ax=ax)
-    ax.set_xlabel("Date")
-    ax.set_ylabel("Number of Articles")
-    ax.set_title("Articles Published Over Time")
-    st.pyplot(fig)
+    st.line_chart(
+        time_counts.rename("Number of Articles").to_frame(),
+        use_container_width=True,
+    )
 
 # ---- Source distribution ----
 with colB:
@@ -177,13 +170,10 @@ monthly_counts = (
     .size()
     .sort_index()
 )
-
-fig, ax = plt.subplots()
-monthly_counts.plot(marker="o", ax=ax)
-ax.set_xlabel("Month")
-ax.set_ylabel("Articles")
-ax.set_title("Monthly Article Volume")
-st.pyplot(fig)
+st.line_chart(
+    monthly_counts.rename("Articles").to_frame(),
+    use_container_width=True,
+)
 
 st.divider()
 
