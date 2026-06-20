@@ -4,26 +4,26 @@ A comprehensive multi-application workspace for Indonesian news aggregation, soc
 
 ```mermaid
 graph TD
-    subgraph Data Sources
-        BI_API[Berita Indo News API]
-        X_DATA[X / Twitter API & Playwright Scrapers]
-        YT_DATA[YouTube Data API v3]
+    subgraph "Data Sources"
+        BI_API["Berita Indo News API"]
+        X_DATA["X / Twitter API & Playwright Scrapers"]
+        YT_DATA["YouTube Data API v3"]
     end
 
-    subgraph Processing & Resolution (extractor/)
-        PR[Pipeline & Redirect Resolver]
-        AE[Article Extractor - Trafilatura/Newspaper3k]
+    subgraph "Processing & Resolution (extractor/)"
+        PR["Pipeline & Redirect Resolver"]
+        AE["Article Extractor - Trafilatura/Newspaper3k"]
     end
 
-    subgraph Local Storage (data/)
-        JSON_DB[(JSON Article & Social Datasets)]
-        LOG_DB[(JSONL Operational Logs)]
+    subgraph "Local Storage (data/)"
+        JSON_DB[("JSON Article & Social Datasets")]
+        LOG_DB[("JSONL Operational Logs")]
     end
 
-    subgraph Web Interfaces (Streamlit)
-        RootApp[Root Monitor - app.py]
-        ResearchApp[Research Workflow - new_app/app.py]
-        PublicApp[Public ESG Portal - public_account/app.py]
+    subgraph "Web Interfaces (Streamlit)"
+        RootApp["Root Monitor - app.py"]
+        ResearchApp["Research Workflow - new_app/app.py"]
+        PublicApp["Public ESG Portal - public_account/app.py"]
     end
 
     BI_API --> PR
@@ -267,26 +267,26 @@ This section details how to scale the application from its current zero-infrastr
 
 ```mermaid
 graph LR
-    subgraph Client Tier
-        User[Public Browser] --> CDN[AWS CloudFront CDN]
-        CDN --> NextJS[Next.js Public Portal]
+    subgraph "Client Tier"
+        User["Public Browser"] --> CDN["AWS CloudFront CDN"]
+        CDN --> NextJS["Next.js Public Portal"]
     end
 
-    subgraph API & Load Balancing
-        NextJS --> ALB[Application Load Balancer]
-        ALB --> API_Svc[FastAPI Service - ECS Fargate]
+    subgraph "API & Load Balancing"
+        NextJS --> ALB["Application Load Balancer"]
+        ALB --> API_Svc["FastAPI Service - ECS Fargate"]
     end
 
-    subgraph Asynchronous Task Workers
-        API_Svc --> SQS[Amazon SQS Queue]
-        SQS --> Celery[Scraper Workers - ECS Fargate]
+    subgraph "Asynchronous Task Workers"
+        API_Svc --> SQS["Amazon SQS Queue"]
+        SQS --> Celery["Scraper Workers - ECS Fargate"]
     end
 
-    subgraph Storage & Datastores
-        API_Svc --> RDS[(RDS PostgreSQL Multi-AZ)]
+    subgraph "Storage & Datastores"
+        API_Svc --> RDS[("RDS PostgreSQL Multi-AZ")]
         Celery --> RDS
-        API_Svc --> Redis[(ElastiCache Redis Cache)]
-        Celery --> S3[Amazon S3 Bucket]
+        API_Svc --> Redis[("ElastiCache Redis Cache")]
+        Celery --> S3["Amazon S3 Bucket"]
     end
 ```
 
@@ -340,17 +340,17 @@ The diagram below shows the workflow of this platform's unique evidence-backed a
 ```mermaid
 sequenceDiagram
     autonumber
-    actor Company as Enterprise User
-    participant Portal as Public Portal (Streamlit)
-    participant Scraper as Aggregator Scrapers
-    participant LLM as Verification Engine (OpenRouter)
-    actor Auditor as ESG Researcher
+    actor Company as "Enterprise User"
+    participant Portal as "Public Portal (Streamlit)"
+    participant Scraper as "Aggregator Scrapers"
+    participant LLM as "Verification Engine (OpenRouter)"
+    actor Auditor as "ESG Researcher"
 
     Company->>Portal: Submit Self-Assessment & Upload Sustainability Reports
     Portal->>Portal: Extract Document Text via Mistral OCR
     Scraper->>Portal: Pull regional news, X posts, and YouTube comments
     Portal->>LLM: Pass OCR texts & crawled news articles for audit check
-    Note over LLM: LLM verifies matching claims<br/>and flags local news conflicts
+    Note over LLM: LLM verifies matching claims and flags local news conflicts
     LLM-->>Portal: Return scored ESG answers, confidence rating, & text citations
     Portal->>Auditor: Present audit scorecard on researcher dashboard
     Auditor->>Portal: Confirm or adjust verified assessment scoring
