@@ -13,13 +13,16 @@ HEADERS = {
 }
 
 def fetch_user_tweets(username, max_results=10, source_type="official"):
-    # 1️⃣ Get user ID
+    # 1️⃣ Get user ID safely
     user_resp = requests.get(
         f"{BASE_URL}/users/by/username/{username}",
         headers=HEADERS
     )
     user_resp.raise_for_status()
-    user_id = user_resp.json()["data"]["id"]
+    user_data = user_resp.json()
+    if "data" not in user_data or "id" not in user_data["data"]:
+        raise ValueError(f"User '{username}' not found on X or API returned an error: {user_data}")
+    user_id = user_data["data"]["id"]
 
     # 2️⃣ Get tweets
     params = {

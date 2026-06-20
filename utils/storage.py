@@ -157,37 +157,3 @@ def save_youtube_comments(video_id, comments):
     file = path / f"{video_id}_{datetime.utcnow().date()}.json"
     file.write_text(json.dumps(comments, indent=2, ensure_ascii=False))
     return file
-
-
-# def load_existing_post_ids(platform: str, username: str) -> set:
-#     """
-#     Load all existing post IDs for a platform + username
-#     """
-#     base = Path("data") / platform
-#     if not base.exists():
-#         return set()
-
-#     ids = set()
-
-#     for file in base.glob(f"{username}_*.json"):
-#         try:
-#             with open(file, encoding="utf-8") as f:
-#                 posts = json.load(f)
-#                 ids.update(p["post_id"] for p in posts if "post_id" in p)
-#         except Exception:
-#             continue
-
-#     return ids
-
-
-# import json
-# from pathlib import Path
-# from datetime import datetime
-
-# BASE_DIR = Path("data/posts")
-# BASE_DIR.mkdir(parents=True, exist_ok=True)
-
-# def save_posts(username, posts):
-#     file = BASE_DIR / f"{username}_{datetime.utcnow().date()}.json"
-#     file.write_text(json.dumps(posts, indent=2), encoding="utf-8")
-#     return file

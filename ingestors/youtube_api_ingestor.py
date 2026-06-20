@@ -15,17 +15,19 @@ def _require_api_key():
 
 def fetch_channel_videos(channel_id, max_results=25):
     """
-    Fetch videos from a YouTube channel
+    Fetch videos from a YouTube channel up to max_results limit.
     """
     _require_api_key()
     videos = []
     page_token = None
 
-    while True:
+    while len(videos) < max_results:
+        # Limit per page is capped at 50 by the YouTube API
+        page_limit = min(max_results - len(videos), 50)
         params = {
             "part": "snippet",
             "channelId": channel_id,
-            "maxResults": max_results,
+            "maxResults": page_limit,
             "order": "date",
             "type": "video",
             "key": API_KEY,
@@ -36,17 +38,25 @@ def fetch_channel_videos(channel_id, max_results=25):
         resp.raise_for_status()
 
         data = resp.json()
+        items = data.get("items", [])
+        if not items:
+            break
 
-        for item in data.get("items", []):
+        for item in items:
+            video_id = item.get("id", {}).get("videoId")
+            if not video_id:
+                continue
             videos.append({
                 "platform": "youtube",
-                "video_id": item["id"]["videoId"],
+                "video_id": video_id,
                 "title": item["snippet"]["title"],
                 "description": item["snippet"]["description"],
                 "published_at": item["snippet"]["publishedAt"],
                 "channel_title": item["snippet"]["channelTitle"],
                 "scraped_at": datetime.utcnow().isoformat(),
             })
+            if len(videos) >= max_results:
+                break
 
         page_token = data.get("nextPageToken")
         if not page_token:

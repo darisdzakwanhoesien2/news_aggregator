@@ -123,9 +123,16 @@ def send_email_summary(smtp_host, smtp_port, smtp_user, smtp_password, to_email,
     if attachment_bytes:
         msg.add_attachment(attachment_bytes, maintype="application", subtype="json", filename=attachment_name)
 
-    with smtplib.SMTP_SSL(smtp_host, smtp_port) as smtp:
-        smtp.login(smtp_user, smtp_password)
-        smtp.send_message(msg)
+    # Port 465 uses SSL directly, other ports (like 587) require upgrading to TLS
+    if smtp_port == 465:
+        with smtplib.SMTP_SSL(smtp_host, smtp_port) as smtp:
+            smtp.login(smtp_user, smtp_password)
+            smtp.send_message(msg)
+    else:
+        with smtplib.SMTP(smtp_host, smtp_port) as smtp:
+            smtp.starttls()
+            smtp.login(smtp_user, smtp_password)
+            smtp.send_message(msg)
 
 # ----------------------
 # Slack (webhook) helper
@@ -143,9 +150,20 @@ def logs_to_dataframe(logs):
     if not logs:
         return pd.DataFrame()
     df = pd.DataFrame(logs)
+    
+    # Exclude legacy summary logs to prevent double counting in analytics
+    if "source" in df.columns:
+        df = df[df["source"] != "FETCH_ALL_SUMMARY"]
+        
     # coerce timestamp to datetime
     df["timestamp"] = pd.to_datetime(df["timestamp"])
     df["date"] = df["timestamp"].dt.date
+    
+    # Cast metrics safely to integer, filling any NaNs/Nones with 0
+    for col in ["incoming", "added", "duplicates"]:
+        if col in df.columns:
+            df[col] = pd.to_numeric(df[col]).fillna(0).astype(int)
+            
     return df
 
 def daily_aggregate_from_logs(df_logs):
@@ -157,14 +175,6 @@ def daily_aggregate_from_logs(df_logs):
         "duplicates": "sum",
         "total_after": "last"
     }).reset_index()
-    return agg
-
-def per_source_aggregate(df_logs):
-    if df_logs.empty:
-        return pd.DataFrame()
-    agg = df_logs.groupby(["source", df_logs["timestamp"].dt.date]).agg({
-        "incoming":"sum","added":"sum","duplicates":"sum"
-    }).reset_index().rename(columns={"timestamp":"date"})
     return agg
 
 # ----------------------
@@ -231,6 +241,15 @@ with col1:
         overall_incoming = 0
         errors = []
         stored = load_news()
+        
+        # Build set of seen URLs to incrementally deduplicate new fetches
+        seen_urls = set()
+        for a in stored.get("articles", []):
+            url = a.get("link") or a.get("url") or a.get("guid")
+            if not url:
+                url = f"{a.get('title','')}-{a.get('isoDate','')}"
+            seen_urls.add(url)
+
         before_all = len(stored["articles"])
 
         # iterate all sources; if they have listType, fetch each category
@@ -252,37 +271,38 @@ with col1:
                     arr = extract_articles_from_response(resp)
                     incoming = len(arr)
                     overall_incoming += incoming
-                    stored["articles"].extend(arr)
-                    # small pause not included — if you hit rate limits, add time.sleep
+                    
+                    # Deduplicate this specific category batch
+                    batch_added = []
+                    for a in arr:
+                        url = a.get("link") or a.get("url") or a.get("guid")
+                        if not url:
+                            url = f"{a.get('title','')}-{a.get('isoDate','')}"
+                        if url not in seen_urls:
+                            seen_urls.add(url)
+                            batch_added.append(a)
+                    
+                    added = len(batch_added)
+                    duplicates = incoming - added
+                    
+                    stored["articles"].extend(batch_added)
+                    overall_added += added
+                    
+                    # Log precise metrics for this path
                     append_log({
                         "timestamp": datetime.now().isoformat(),
                         "source": sname,
                         "category": p.split("/")[-1] or "all",
                         "incoming": incoming,
-                        "added": None,   # will compute after dedupe
-                        "duplicates": None,
-                        "total_after": None
+                        "added": added,
+                        "duplicates": duplicates,
+                        "total_after": len(stored["articles"])
                     })
                 except Exception as e:
                     errors.append({"source": sname, "path": p, "error": str(e)})
-        # dedupe once
-        stored["articles"] = remove_duplicates_by_url(stored["articles"])
-        after_all = len(stored["articles"])
-        overall_added = after_all - before_all
+
         stored["last_update"] = datetime.now().isoformat()
         save_news(stored)
-
-        # patch earlier logs entries without added/duplicates/total_after
-        # Simple approach: append a final log line summarizing fetch-all
-        append_log({
-            "timestamp": datetime.now().isoformat(),
-            "source": "FETCH_ALL_SUMMARY",
-            "category": "multiple",
-            "incoming": overall_incoming,
-            "added": overall_added,
-            "duplicates": overall_incoming - overall_added,
-            "total_after": after_all
-        })
 
         st.success(f"Fetch All finished. incoming={overall_incoming} added={overall_added}. Errors: {len(errors)}")
         if errors:
@@ -352,24 +372,30 @@ with col1:
 
         # send if enabled
         if send_email_enable:
-            try:
-                with open(summary_path, "rb") as f:
-                    bytes_payload = f.read()
-                send_email_summary(smtp_host, int(smtp_port), smtp_user, smtp_pass, email_to,
-                                   f"News Scraper Daily Summary {today.isoformat()}",
-                                   f"Daily summary for {today.isoformat()}. See attachment.",
-                                   attachment_bytes=bytes_payload,
-                                   attachment_name=summary_path.name)
-                st.success("Email sent.")
-            except Exception as e:
-                st.error(f"Email send failed: {e}")
+            if not (smtp_host and smtp_user and smtp_pass and email_to):
+                st.error("Email delivery failed: SMTP fields (host, username, password, recipient) must not be empty.")
+            else:
+                try:
+                    with open(summary_path, "rb") as f:
+                        bytes_payload = f.read()
+                    send_email_summary(smtp_host, int(smtp_port), smtp_user, smtp_pass, email_to,
+                                       f"News Scraper Daily Summary {today.isoformat()}",
+                                       f"Daily summary for {today.isoformat()}. See attachment.",
+                                       attachment_bytes=bytes_payload,
+                                       attachment_name=summary_path.name)
+                    st.success("Email sent.")
+                except Exception as e:
+                    st.error(f"Email send failed: {e}")
 
         if send_slack_enable:
-            try:
-                post_slack_webhook(slack_webhook, f"Daily summary for {today.isoformat()}: incoming={total_incoming}, added={total_added}, duplicates={total_duplicates}")
-                st.success("Slack notification posted.")
-            except Exception as e:
-                st.error(f"Slack send failed: {e}")
+            if not slack_webhook:
+                st.error("Slack delivery failed: Webhook URL must not be empty.")
+            else:
+                try:
+                    post_slack_webhook(slack_webhook, f"Daily summary for {today.isoformat()}: incoming={total_incoming}, added={total_added}, duplicates={total_duplicates}")
+                    st.success("Slack notification posted.")
+                except Exception as e:
+                    st.error(f"Slack send failed: {e}")
 
 with col2:
     st.header("Analytics & Logs")
